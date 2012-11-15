@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_SrCfs" object="${srcfs}" path="/srcfses" z="2fMMe9iBuS36e01t8ExS61s5tnA=">
+        <field:display field="cfsLetter" id="s_com_osrce_sitrep_domain_SrCfs_cfsLetter" object="${srcfs}" z="MhZkdwGLnsRHhdMYXZlAj4ngblo="/>
+        <field:display field="cfsPct" id="s_com_osrce_sitrep_domain_SrCfs_cfsPct" object="${srcfs}" z="fpYgshin+BY4wnEPd+fOUvc33Nw="/>
+        <field:display field="cfsSector" id="s_com_osrce_sitrep_domain_SrCfs_cfsSector" object="${srcfs}" z="JU2kTYWcJFdgWfsKwHlulAO7xn4="/>
+        <field:display field="cfsAddr" id="s_com_osrce_sitrep_domain_SrCfs_cfsAddr" object="${srcfs}" z="lQyWGA6DSqN0C1SkWrxgqpw4UZA="/>
+        <field:display field="cfsCross1" id="s_com_osrce_sitrep_domain_SrCfs_cfsCross1" object="${srcfs}" z="0a9il5l3eegaGfctUzh5LyOoZJo="/>
+        <field:display field="cfsCross2" id="s_com_osrce_sitrep_domain_SrCfs_cfsCross2" object="${srcfs}" z="DsZsAHk0pGHl7jWldQPfADYzezE="/>
+        <field:display field="cfsLocation" id="s_com_osrce_sitrep_domain_SrCfs_cfsLocation" object="${srcfs}" z="432pF21jLMp86Yb9/k7+JMuNZ3Y="/>
+        <field:display field="cfsCode" id="s_com_osrce_sitrep_domain_SrCfs_cfsCode" object="${srcfs}" z="exbgH0HqmShqKMJ0tbd3N6aa6Ic="/>
+        <field:display field="cfsCodesup1" id="s_com_osrce_sitrep_domain_SrCfs_cfsCodesup1" object="${srcfs}" z="NBMGzMxzkIvT7AuzNbCmFI1hcVs="/>
+        <field:display field="cfsCodesup2" id="s_com_osrce_sitrep_domain_SrCfs_cfsCodesup2" object="${srcfs}" z="AIG1zD8nKTioJLWXK7k1Rjda/Wc="/>
+        <field:display field="cfsCreatedby" id="s_com_osrce_sitrep_domain_SrCfs_cfsCreatedby" object="${srcfs}" z="MnWx/n6qvIsxa7V1/2u3GZQll68="/>
+        <field:display field="cfsDispatcherid" id="s_com_osrce_sitrep_domain_SrCfs_cfsDispatcherid" object="${srcfs}" z="R0buZS2q+atPn7Jgb52jHZD7jt8="/>
+        <field:display date="true" dateTimePattern="${srCfs_cfstimecreated_date_format}" field="cfsTimecreated" id="s_com_osrce_sitrep_domain_SrCfs_cfsTimecreated" object="${srcfs}" z="dNYFR2gNWwutVBI8LcmFRGn8uaY="/>
+        <field:display date="true" dateTimePattern="${srCfs_cfstimeassigned_date_format}" field="cfsTimeassigned" id="s_com_osrce_sitrep_domain_SrCfs_cfsTimeassigned" object="${srcfs}" z="98KCkuf1Vl5sr+FpbKzNvCYXbQg="/>
+        <field:display field="cfsAssignedunit" id="s_com_osrce_sitrep_domain_SrCfs_cfsAssignedunit" object="${srcfs}" z="jFfp2NL+KNQaHFIR54rHYVJCtsQ="/>
+        <field:display field="cfsPriority" id="s_com_osrce_sitrep_domain_SrCfs_cfsPriority" object="${srcfs}" z="xNaGFDTpAvsVNVTvd7xJLueM/2c="/>
+        <field:display field="cfsRoutenotifications" id="s_com_osrce_sitrep_domain_SrCfs_cfsRoutenotifications" object="${srcfs}" z="JmsCspC/Fh/h6uBeQ07rg233oMo="/>
+        <field:display field="cfsFinaldis" id="s_com_osrce_sitrep_domain_SrCfs_cfsFinaldis" object="${srcfs}" z="YJRGIF8rpDmfTVfVwujVVLEM7SI="/>
+        <field:display field="cfsFinaldissup1" id="s_com_osrce_sitrep_domain_SrCfs_cfsFinaldissup1" object="${srcfs}" z="LAnNQ5TzE18vm8nRjUrh5+2YKNE="/>
+        <field:display date="true" dateTimePattern="${srCfs_cfsfinaldisdate_date_format}" field="cfsFinaldisdate" id="s_com_osrce_sitrep_domain_SrCfs_cfsFinaldisdate" object="${srcfs}" z="8jMeicrLcDaBoZg2VPVbZznFn0g="/>
+        <field:display field="cfsFinaldisunit" id="s_com_osrce_sitrep_domain_SrCfs_cfsFinaldisunit" object="${srcfs}" z="Z0ADHqVAfegY1BeAXi5IDsA4y0E="/>
+        <field:display field="cfsCallback" id="s_com_osrce_sitrep_domain_SrCfs_cfsCallback" object="${srcfs}" z="btSVu009NOtTqEjVAE4X8sDfteo="/>
+        <field:display field="cfsDup" id="s_com_osrce_sitrep_domain_SrCfs_cfsDup" object="${srcfs}" z="0+tKS7DimCq+UVzsRk3Q5q9+yic="/>
+        <field:display field="cfsDupletter" id="s_com_osrce_sitrep_domain_SrCfs_cfsDupletter" object="${srcfs}" z="LIroynFk7nKQaCE7H2B6cqDomHA="/>
+        <field:display field="cfsDupnum" id="s_com_osrce_sitrep_domain_SrCfs_cfsDupnum" object="${srcfs}" z="71Xd91h3jIhkhryYvU9jk0TIUKA="/>
+        <field:display field="cfsBody" id="s_com_osrce_sitrep_domain_SrCfs_cfsBody" object="${srcfs}" z="8I32x+LpewhWntn9hOeLqyTk9tU="/>
+        <field:display field="cfsBodylastline" id="s_com_osrce_sitrep_domain_SrCfs_cfsBodylastline" object="${srcfs}" z="gjxOA4PlgzoatwlEGUU6GOxe5aI="/>
+        <field:display date="true" dateTimePattern="${srCfs_cfscreatedon_date_format}" field="cfsCreatedOn" id="s_com_osrce_sitrep_domain_SrCfs_cfsCreatedOn" object="${srcfs}" z="4xjOrzv0lq2PacUTVahxWPZqHLE="/>
+        <field:display date="true" dateTimePattern="${srCfs_cfsupdatedon_date_format}" field="cfsUpdatedOn" id="s_com_osrce_sitrep_domain_SrCfs_cfsUpdatedOn" object="${srcfs}" z="5ZO96CG0tQGNWF7nX5AWXATdcOo="/>
+    </page:show>
+</div>

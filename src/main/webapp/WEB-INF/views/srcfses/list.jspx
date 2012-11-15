@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_SrCfs" items="${srcfses}" z="2yMiD6csUrac1QAVHvvMatr9f7s=">
+        <table:table data="${srcfses}" id="l_com_osrce_sitrep_domain_SrCfs" path="/srcfses" z="+UGH53MXekNxZo9qXv73YspOxsA=">
+            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfsLetter" property="cfsLetter" z="85i569z7HcN5CRYmAgYxQO48Sbg="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfsPct" property="cfsPct" z="rOEtpleSuVE90bod5ryF3rn+of8="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfsSector" property="cfsSector" z="5+QwJ4zvpRO+A8rcbnEyAWNJhMU="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfsAddr" property="cfsAddr" z="2H7Cw0iaPOOHmVjg1kpBGGmnrTc="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfsCross1" property="cfsCross1" z="imE1yDroaLyk4Hsz79Mv3VhWZyI="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfsCross2" property="cfsCross2" z="j5KWE6dNzbixSHYj0t/goYEbn1Y="/>
+        </table:table>
+    </page:list>
+</div>

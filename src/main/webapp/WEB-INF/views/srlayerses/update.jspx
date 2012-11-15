@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_osrce_sitrep_domain_SrLayers" modelAttribute="srLayers" path="/srlayerses" versionField="none" z="5R2XEISOyqlnBLwgLrJsyoiTPuc=">
+        <field:input field="name" id="c_com_osrce_sitrep_domain_SrLayers_name" required="true" z="WW85FKo7ZQPDofU4z1YtwODdPzY="/>
+        <field:input field="type" id="c_com_osrce_sitrep_domain_SrLayers_type" z="bVCZAWPGnvznBv4JBcFLWSVYHJM="/>
+        <field:input field="format" id="c_com_osrce_sitrep_domain_SrLayers_format" z="E6KH+uKLqzFgWRvx25JjT203IJY="/>
+        <field:checkbox field="isbaselayer" id="c_com_osrce_sitrep_domain_SrLayers_isbaselayer" z="jwH+/SXq9W6Xut9LSN6aCr6NTvI="/>
+        <field:input field="projection" id="c_com_osrce_sitrep_domain_SrLayers_projection" z="HCkAEhaQi9UIZGA+mTd04LkJ0Ks="/>
+        <field:checkbox field="visibility" id="c_com_osrce_sitrep_domain_SrLayers_visibility" z="IA0feG0JeAQTxqbbNYfEngn7OF4="/>
+        <field:checkbox field="sphericalmercator" id="c_com_osrce_sitrep_domain_SrLayers_sphericalmercator" z="h6c1Qxp3y3QwsW7DAXj196rSI1E="/>
+        <field:input field="url" id="c_com_osrce_sitrep_domain_SrLayers_url" z="THZJsE18TMKZMUKXE1teU/9SR8A="/>
+        <field:input field="numzoomlevels" id="c_com_osrce_sitrep_domain_SrLayers_numzoomlevels" validationMessageCode="field_invalid_integer" z="Q/+SGLJLsEIk+6tsMDkHImKbHVg="/>
+        <field:input field="minzoomlevel" id="c_com_osrce_sitrep_domain_SrLayers_minzoomlevel" validationMessageCode="field_invalid_integer" z="Rsu7atT7xzmZrOEM6cQUDSwaKV0="/>
+        <field:input field="maxzoomlevel" id="c_com_osrce_sitrep_domain_SrLayers_maxzoomlevel" validationMessageCode="field_invalid_integer" z="xQigMrAGNARH/RPKZOZIOs+z/vg="/>
+        <field:input field="attribution" id="c_com_osrce_sitrep_domain_SrLayers_attribution" z="ck7EhBfLdiK8GzkIXpUIJbbEc/0="/>
+        <field:input field="defaultstyle" id="c_com_osrce_sitrep_domain_SrLayers_defaultstyle" validationMessageCode="field_invalid_integer" z="wPTvNrXMuR/QWPg1OsjubMZj0lI="/>
+        <field:datetime dateTimePattern="${srLayers_createdon_date_format}" field="createdOn" id="c_com_osrce_sitrep_domain_SrLayers_createdOn" z="ezZxgBtaZqiihrJuVQRojlbGoxc="/>
+        <field:datetime dateTimePattern="${srLayers_updatedon_date_format}" field="updatedOn" id="c_com_osrce_sitrep_domain_SrLayers_updatedOn" z="kcq5B0/sIMum/zz6AAzp0MfdOYo="/>
+        <field:input field="createdBy" id="c_com_osrce_sitrep_domain_SrLayers_createdBy" validationMessageCode="field_invalid_integer" z="3+NGQi5y6jtMpFEgxgz3bD9CIBE="/>
+        <field:input field="updatedBy" id="c_com_osrce_sitrep_domain_SrLayers_updatedBy" validationMessageCode="field_invalid_integer" z="6VEtMVnZ/JOz4514bMRHhRpi9BA="/>
+    </form:update>
+</div>

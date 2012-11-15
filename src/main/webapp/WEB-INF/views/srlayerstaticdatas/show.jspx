@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_SrLayerStaticData" object="${srlayerstaticdata}" path="/srlayerstaticdatas" z="oLLOFeq/R66fC4lQwz68zWPnSxo=">
+        <field:display field="layerId" id="s_com_osrce_sitrep_domain_SrLayerStaticData_layerId" object="${srlayerstaticdata}" z="6l+38bM9rNCEuqucjHAFs85zfBg="/>
+        <field:display field="featureStyle" id="s_com_osrce_sitrep_domain_SrLayerStaticData_featureStyle" object="${srlayerstaticdata}" z="Kp761mtPGbxndh5RdOhkSP1pAYY="/>
+        <field:display field="featureData" id="s_com_osrce_sitrep_domain_SrLayerStaticData_featureData" object="${srlayerstaticdata}" z="iiqSD6ol8um5OledsIJ/x3pPut4="/>
+        <field:display field="srGeom" id="s_com_osrce_sitrep_domain_SrLayerStaticData_srGeom" object="${srlayerstaticdata}" z="u+elPXCgjw219VJdZO/bmgEgVTk="/>
+    </page:show>
+</div>

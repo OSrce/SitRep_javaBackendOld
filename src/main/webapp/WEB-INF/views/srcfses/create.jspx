@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create compositePkField="id" id="fc_com_osrce_sitrep_domain_SrCfs" modelAttribute="srCfs" path="/srcfses" render="${empty dependencies}" z="sqTRkKTSlf3eFoyOlnOXjzwr9uw=">
+        <field:datetime dateTimePattern="${srCfs_id.cfsdate_date_format}" disableFormBinding="true" field="id.cfsDate" id="c_com_osrce_sitrep_domain_SrCfs_id_cfsDate" required="true" z="0uh883kyXvzAlv9g12+v4rcxdCg="/>
+        <field:input disableFormBinding="true" field="id.cfsNum" id="c_com_osrce_sitrep_domain_SrCfs_id_cfsNum" required="true" validationMessageCode="field_invalid_integer" z="KTy018Trfft8RGoWMH8e17zyP8c="/>
+        <field:input field="cfsLetter" id="c_com_osrce_sitrep_domain_SrCfs_cfsLetter" required="true" z="tPSu4xB7/swNY10o5V2PqMpkjGk="/>
+        <field:input field="cfsPct" id="c_com_osrce_sitrep_domain_SrCfs_cfsPct" required="true" validationMessageCode="field_invalid_integer" z="jH6wirPfbcTwPg/qDu5M1Mf/0LY="/>
+        <field:input field="cfsSector" id="c_com_osrce_sitrep_domain_SrCfs_cfsSector" required="true" z="BYAfbPhUZlYGeO0JfT34SFjf1fY="/>
+        <field:input field="cfsAddr" id="c_com_osrce_sitrep_domain_SrCfs_cfsAddr" z="phXQjiJ7OQq3OSGCgHHozjJImXQ="/>
+        <field:input field="cfsCross1" id="c_com_osrce_sitrep_domain_SrCfs_cfsCross1" z="SbC5RP3R0Eg2t2Dai49r8gBrsaQ="/>
+        <field:input field="cfsCross2" id="c_com_osrce_sitrep_domain_SrCfs_cfsCross2" z="qzbVCUMyXxJX7AlkEQdodobK2OM="/>
+        <field:input field="cfsLocation" id="c_com_osrce_sitrep_domain_SrCfs_cfsLocation" validationMessageCode="field_invalid_integer" z="hT9MKZ/NP/ZggeJ+hZWN4gkQLII="/>
+        <field:input field="cfsCode" id="c_com_osrce_sitrep_domain_SrCfs_cfsCode" required="true" validationMessageCode="field_invalid_integer" z="SnxTgC9RI+zmM5NWRGNO9nr9TE8="/>
+        <field:input field="cfsCodesup1" id="c_com_osrce_sitrep_domain_SrCfs_cfsCodesup1" z="1g0zjRyA1UrLrTJIsdeSm6w2EyY="/>
+        <field:input field="cfsCodesup2" id="c_com_osrce_sitrep_domain_SrCfs_cfsCodesup2" z="/5DP+VSYvyl2CoXp1lnVDo7Zfiw="/>
+        <field:input field="cfsCreatedby" id="c_com_osrce_sitrep_domain_SrCfs_cfsCreatedby" z="+ZAq16wutBwm0is/xtWPxvpv/Js="/>
+        <field:input field="cfsDispatcherid" id="c_com_osrce_sitrep_domain_SrCfs_cfsDispatcherid" z="BfAyHboCBQelnTwuLyf7Wq9ImEQ="/>
+        <field:datetime dateTimePattern="${srCfs_cfstimecreated_date_format}" field="cfsTimecreated" id="c_com_osrce_sitrep_domain_SrCfs_cfsTimecreated" z="UnCDfVRIurJNi9ojzbVrIMs+nbk="/>
+        <field:datetime dateTimePattern="${srCfs_cfstimeassigned_date_format}" field="cfsTimeassigned" id="c_com_osrce_sitrep_domain_SrCfs_cfsTimeassigned" z="FbVC338qIBdBsav8Mn2GBJwcI4o="/>
+        <field:input field="cfsAssignedunit" id="c_com_osrce_sitrep_domain_SrCfs_cfsAssignedunit" z="K6aOZQcEAQnq4YZ3SeI9hvGFNAw="/>
+        <field:input field="cfsPriority" id="c_com_osrce_sitrep_domain_SrCfs_cfsPriority" validationMessageCode="field_invalid_integer" z="kruilpVaF/y5GoBmnffP8CUudhg="/>
+        <field:checkbox field="cfsRoutenotifications" id="c_com_osrce_sitrep_domain_SrCfs_cfsRoutenotifications" z="sd1OlXv33v4COKDYlV0OitSmg4A="/>
+        <field:input field="cfsFinaldis" id="c_com_osrce_sitrep_domain_SrCfs_cfsFinaldis" validationMessageCode="field_invalid_integer" z="puulOCdgVYXmnYrUFbCgSZelWZM="/>
+        <field:input field="cfsFinaldissup1" id="c_com_osrce_sitrep_domain_SrCfs_cfsFinaldissup1" z="qdGNyG/UqAQLiAvdzbyqf6YwGIw="/>
+        <field:datetime dateTimePattern="${srCfs_cfsfinaldisdate_date_format}" field="cfsFinaldisdate" id="c_com_osrce_sitrep_domain_SrCfs_cfsFinaldisdate" z="2PoO1mcJODBGG8awYpCipJD2OuI="/>
+        <field:input field="cfsFinaldisunit" id="c_com_osrce_sitrep_domain_SrCfs_cfsFinaldisunit" z="5CV8y+dsiWLcm3iLAEOmGSEYzZo="/>
+        <field:checkbox field="cfsCallback" id="c_com_osrce_sitrep_domain_SrCfs_cfsCallback" z="BlYOnhfm3QvhlC3CZswOFUJIz9Q="/>
+        <field:checkbox field="cfsDup" id="c_com_osrce_sitrep_domain_SrCfs_cfsDup" z="NBwvnK3HttjZbRjysD0L/hiBGzE="/>
+        <field:input field="cfsDupletter" id="c_com_osrce_sitrep_domain_SrCfs_cfsDupletter" z="wgR47hQHOREgWLYQu07lugOpYow="/>
+        <field:input field="cfsDupnum" id="c_com_osrce_sitrep_domain_SrCfs_cfsDupnum" validationMessageCode="field_invalid_integer" z="iveZnwOsBr9AMHaiqzKRcqbZ++M="/>
+        <field:input field="cfsBody" id="c_com_osrce_sitrep_domain_SrCfs_cfsBody" z="UdsznRlGYnbnmeehmu/WIY3/0T4="/>
+        <field:input field="cfsBodylastline" id="c_com_osrce_sitrep_domain_SrCfs_cfsBodylastline" z="9V61czsmHea8x6+V+U3gKVry7Nc="/>
+        <field:datetime dateTimePattern="${srCfs_cfscreatedon_date_format}" field="cfsCreatedOn" id="c_com_osrce_sitrep_domain_SrCfs_cfsCreatedOn" z="uWTCOwD6iSJ/eKQ1PqD+4q5jPkc="/>
+        <field:datetime dateTimePattern="${srCfs_cfsupdatedon_date_format}" field="cfsUpdatedOn" id="c_com_osrce_sitrep_domain_SrCfs_cfsUpdatedOn" z="nuuP4bas1ceij/b1oKJPlUfO4lU="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrCfs" render="${not empty dependencies}" z="w9eZWjHt/1k13qGa7tHf5BRkLfQ="/>
+</div>

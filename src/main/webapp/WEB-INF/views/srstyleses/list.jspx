@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_SrStyles" items="${srstyleses}" z="rQPywQ85EFWoWJfrehqp2QKcfnI=">
+        <table:table data="${srstyleses}" id="l_com_osrce_sitrep_domain_SrStyles" path="/srstyleses" z="QQCbjvi1AhnUWwLn8wZpcitUy9I=">
+            <table:column id="c_com_osrce_sitrep_domain_SrStyles_name" property="name" z="bj+kBXBKedsCuULSN9sHHRcgnW4="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrStyles_stylemapId" property="stylemapId" z="/JJz1iuqpeDjvq3Hg33ZQ/lNzuU="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrStyles_renderType" property="renderType" z="N0hm3ta15Qo7/dcvr61t3T94OzQ="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrStyles_defaultsymbolizerId" property="defaultsymbolizerId" z="k2ixkVLj1USLeM8DpLGfZskOKjc="/>
+        </table:table>
+    </page:list>
+</div>

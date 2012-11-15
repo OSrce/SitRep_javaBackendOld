@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_osrce_sitrep_domain_SrStyleSymbolizers" modelAttribute="srStyleSymbolizers" path="/srstylesymbolizerses" versionField="none" z="hqbJaQvyeqF6JVnU6EsSZHcqzu0=">
+        <field:input field="name" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_name" required="true" z="H5Nb1RGD0hu6WjIIpLMD1wd1juM="/>
+        <field:input field="label" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_label" z="3z0plNKgWkjN78vNowMnrqxp4bs="/>
+        <field:input field="fillcolor" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fillcolor" z="4SiWYEfILIqF1cE/zlGEYKZOi2o="/>
+        <field:input field="fillopacity" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fillopacity" validationMessageCode="field_invalid_number" z="Q3lnBCuWnUU+d+TNpcmH57IvDIw="/>
+        <field:input field="strokecolor" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_strokecolor" z="wMTd7MVDhxjKbb7LAihgVc3u+Ws="/>
+        <field:input field="strokeopacity" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_strokeopacity" validationMessageCode="field_invalid_number" z="rzN2LrRCILq5LivFTPolwtHn5T4="/>
+        <field:input field="strokewidth" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_strokewidth" validationMessageCode="field_invalid_integer" z="HF+aBlvwgib7AZ0DSFxITT+DnBI="/>
+        <field:input field="pointradius" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_pointradius" validationMessageCode="field_invalid_integer" z="jwVKq8HLZoroW6p7REVHqbAMNKY="/>
+        <field:input field="fontcolor" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fontcolor" z="/SqTbSgAN4KoOvaoL0gHVyhhxj4="/>
+        <field:input field="fontsize" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fontsize" validationMessageCode="field_invalid_integer" z="QsaSr9ZoSkmgyZmm1hokMsfogjA="/>
+        <field:input field="fontfamily" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fontfamily" z="uSwq+0FRNS3WhETVne8aDmvjh8I="/>
+        <field:input field="fontweight" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fontweight" z="iGGaeMNTcceIi1UZva3ID6cE5Eo="/>
+        <field:input field="fontopacity" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fontopacity" validationMessageCode="field_invalid_number" z="Z7T4GKMldswnuYRO6PJpAhZujwY="/>
+        <field:input field="labelalign" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_labelalign" z="GkeZJtCX+ntxfR05JWtDR+JYFoE="/>
+        <field:input field="labelxoffset" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_labelxoffset" validationMessageCode="field_invalid_integer" z="2V8l+w3MSMoIvjqwzWKmYM8Ny7Q="/>
+        <field:input field="labelyoffset" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_labelyoffset" validationMessageCode="field_invalid_integer" z="4HSx7Hd7JJaid8ZYmUOVBPe3q4M="/>
+        <field:input field="externalgraphic" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_externalgraphic" z="ex2vpUgXXPFOLqZl9Zyrrllly2Q="/>
+        <field:input field="graphicwidth" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicwidth" validationMessageCode="field_invalid_integer" z="y/7o4anbew4vjL2oUkaU4b7ZI/8="/>
+        <field:input field="graphicheight" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicheight" validationMessageCode="field_invalid_integer" z="bl6C4Vq1Ixa9JioC1ZhLMHnlYs4="/>
+        <field:input field="graphicopacity" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicopacity" validationMessageCode="field_invalid_number" z="4OE+10GSGqc3K/V1+ZwH7UAV1Ps="/>
+        <field:input field="rotation" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_rotation" validationMessageCode="field_invalid_integer" z="xpor4U8njxQt2D8pp2d/5Eo8kZE="/>
+        <field:datetime dateTimePattern="${srStyleSymbolizers_createdon_date_format}" field="createdOn" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_createdOn" z="tW2/5neXh0SxcTSbVr+5mKtLdao="/>
+        <field:datetime dateTimePattern="${srStyleSymbolizers_updatedon_date_format}" field="updatedOn" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedOn" z="IaYd9bXgD0phNAfdBX6DDf4/r78="/>
+        <field:input field="createdBy" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_createdBy" validationMessageCode="field_invalid_integer" z="CK3nEGBxUHIUimddWAsbGLAwVrY="/>
+        <field:input field="updatedBy" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedBy" validationMessageCode="field_invalid_integer" z="iBaADI7NPjT3X3f/m4cEpHjnfEs="/>
+    </form:update>
+</div>

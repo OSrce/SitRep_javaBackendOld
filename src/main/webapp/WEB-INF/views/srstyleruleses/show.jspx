@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_SrStyleRules" object="${srstylerules}" path="/srstyleruleses" z="5StlBY0g0VFmDKhcM5fwHnhzaKU=">
+        <field:display field="name" id="s_com_osrce_sitrep_domain_SrStyleRules_name" object="${srstylerules}" z="tkDI2dE+qZbZC3vhX6ngsClgJVA="/>
+        <field:display field="styleId" id="s_com_osrce_sitrep_domain_SrStyleRules_styleId" object="${srstylerules}" z="usvp5nya3tMShJgriSEBPJ9C1cU="/>
+        <field:display field="symbolizerId" id="s_com_osrce_sitrep_domain_SrStyleRules_symbolizerId" object="${srstylerules}" z="j9IoY0h1GWC0ovdBOa/eu4niH4k="/>
+        <field:display field="elsefilter" id="s_com_osrce_sitrep_domain_SrStyleRules_elsefilter" object="${srstylerules}" z="6FGjM7SZtGCBy/RVDoMM9RjVtnQ="/>
+        <field:display field="filterData" id="s_com_osrce_sitrep_domain_SrStyleRules_filterData" object="${srstylerules}" z="EqVl3IxZDcByN17Uw24wepCY01c="/>
+    </page:show>
+</div>

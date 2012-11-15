@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_SrSession" items="${srsessions}" z="z/s6e8KgPR/bonyo3wju/ZjIyjY=">
+        <table:table data="${srsessions}" id="l_com_osrce_sitrep_domain_SrSession" path="/srsessions" z="zJyZGE/2FHGDEHrTE2zPQVDndME=">
+            <table:column id="c_com_osrce_sitrep_domain_SrSession_modified" property="modified" z="HylJj+zEC2YLcIKwVQUEiHrTHgU="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrSession_lifetime" property="lifetime" z="uLpSLMXcyh+1R2JS/w1B9Ggv8UU="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrSession_data" property="data" z="XAnzNHw/gJOZvhGw4zmoHnw4dL8="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="srlayerdynamicdatas/list">
+        <put-attribute name="body" value="/WEB-INF/views/srlayerdynamicdatas/list.jspx"/>
+    </definition>
+<definition extends="default" name="srlayerdynamicdatas/show">
+        <put-attribute name="body" value="/WEB-INF/views/srlayerdynamicdatas/show.jspx"/>
+    </definition>
+<definition extends="default" name="srlayerdynamicdatas/create">
+        <put-attribute name="body" value="/WEB-INF/views/srlayerdynamicdatas/create.jspx"/>
+    </definition>
+<definition extends="default" name="srlayerdynamicdatas/update">
+        <put-attribute name="body" value="/WEB-INF/views/srlayerdynamicdatas/update.jspx"/>
+    </definition>
+</tiles-definitions>

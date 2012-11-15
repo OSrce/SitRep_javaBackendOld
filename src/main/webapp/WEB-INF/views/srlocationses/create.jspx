@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_osrce_sitrep_domain_SrLocations" modelAttribute="srLocations" path="/srlocationses" render="${empty dependencies}" z="A/6nlPz+7M1JAyg2+bKxdCGDdpg=">
+        <field:input field="pct" id="c_com_osrce_sitrep_domain_SrLocations_pct" validationMessageCode="field_invalid_integer" z="OIArMxpj6SpyZnPIq0I0C/eI9kU="/>
+        <field:input field="sector" id="c_com_osrce_sitrep_domain_SrLocations_sector" z="6wsxFJqex4HhVbQB8YJcCGE9oP8="/>
+        <field:input field="source" id="c_com_osrce_sitrep_domain_SrLocations_source" validationMessageCode="field_invalid_integer" z="dcPqYXgiA2uYv0x+5UQwmxiRmIs="/>
+        <field:input field="address" id="c_com_osrce_sitrep_domain_SrLocations_address" z="DNDa/rQOsCYs6YqDqxHLE46Thyg="/>
+        <field:input field="cross1" id="c_com_osrce_sitrep_domain_SrLocations_cross1" z="/Phq9+dixm9YvXLRonzv/hp+72c="/>
+        <field:input field="cross2" id="c_com_osrce_sitrep_domain_SrLocations_cross2" z="zbvl9SoztaMTJB7y+yv5jNWqllE="/>
+        <field:input field="rating" id="c_com_osrce_sitrep_domain_SrLocations_rating" validationMessageCode="field_invalid_integer" z="qKYa4lCSMqw5ChHzDoFunPsh2Xg="/>
+        <field:datetime dateTimePattern="${srLocations_createdon_date_format}" field="createdOn" id="c_com_osrce_sitrep_domain_SrLocations_createdOn" z="Bm/7zwctKik4cYIiZ+94IGOJaaw="/>
+        <field:datetime dateTimePattern="${srLocations_lastused_date_format}" field="lastUsed" id="c_com_osrce_sitrep_domain_SrLocations_lastUsed" z="7BrBfgBjKXJndsWqsgTSqpG8ooI="/>
+        <field:input field="srGeom" id="c_com_osrce_sitrep_domain_SrLocations_srGeom" z="NiMewghEjCfhNQXPk2Lh2WOy5Ek="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrLocations" render="${not empty dependencies}" z="/qNhFTCjG5mdm5kBuTHrvHGkOD8="/>
+</div>

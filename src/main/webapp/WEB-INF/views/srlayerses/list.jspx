@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_SrLayers" items="${srlayerses}" z="T3grRnuIU2YF4X8Lfp0PgJ4arDQ=">
+        <table:table data="${srlayerses}" id="l_com_osrce_sitrep_domain_SrLayers" path="/srlayerses" z="X01Aa9CBNywOr0QMEeIzlpELeaI=">
+            <table:column id="c_com_osrce_sitrep_domain_SrLayers_name" property="name" z="xPgIeqgMnF0MI9YTCFpWOgl2KPI="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayers_type" property="type" z="n1+C2+33JuZ3gansbbYX9rcrKN8="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayers_format" property="format" z="ZiXES2hvA4C1Du2xOhqkGCdl668="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayers_isbaselayer" property="isbaselayer" z="hTIhhRWha/WPBqhotWmgCHDMKYk="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayers_projection" property="projection" z="q2YODfPCp4i9ugz4vB/iYk/NSco="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayers_visibility" property="visibility" z="GRfFeZ5eeMOK+1NW8ULZcVY9024="/>
+        </table:table>
+    </page:list>
+</div>

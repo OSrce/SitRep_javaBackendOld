@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_osrce_sitrep_domain_SrAssetsStatus" modelAttribute="srAssetsStatus" path="/srassetsstatuses" versionField="none" z="FSc9Y4iv1Os1hqx9tzmQRBDPjUY=">
+        <field:input field="assetId" id="c_com_osrce_sitrep_domain_SrAssetsStatus_assetId" required="true" validationMessageCode="field_invalid_integer" z="PbBGh7a4w1cILHQbOZ5UNYfRRjE="/>
+        <field:input field="locationId" id="c_com_osrce_sitrep_domain_SrAssetsStatus_locationId" validationMessageCode="field_invalid_integer" z="d+mgockl5GY1SjJbEbHUKO6AgU8="/>
+        <field:input field="status" id="c_com_osrce_sitrep_domain_SrAssetsStatus_status" z="N4CSAvSYS+zekIO7dYYM/mn0fN4="/>
+        <field:input field="data" id="c_com_osrce_sitrep_domain_SrAssetsStatus_data" z="oCj96sNkhrdMYA5yszHkY6S+emY="/>
+        <field:datetime dateTimePattern="${srAssetsStatus_srstart_date_format}" field="srStart" id="c_com_osrce_sitrep_domain_SrAssetsStatus_srStart" z="J++BBk4mK3YRCUohsR4Ly06Ddec="/>
+        <field:datetime dateTimePattern="${srAssetsStatus_srend_date_format}" field="srEnd" id="c_com_osrce_sitrep_domain_SrAssetsStatus_srEnd" z="2i46v09sbzqLSvNeso5m1y3DQKQ="/>
+        <field:datetime dateTimePattern="${srAssetsStatus_updatedon_date_format}" field="updatedOn" id="c_com_osrce_sitrep_domain_SrAssetsStatus_updatedOn" z="L8zDm4CVV49lyi98R7rfyUn1hYQ="/>
+    </form:update>
+</div>

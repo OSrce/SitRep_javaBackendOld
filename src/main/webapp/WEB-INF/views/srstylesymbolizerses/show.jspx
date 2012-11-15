@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_SrStyleSymbolizers" object="${srstylesymbolizers}" path="/srstylesymbolizerses" z="BPTHL5kBB8j1d3L5Mpggxnnq1Ww=">
+        <field:display field="name" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_name" object="${srstylesymbolizers}" z="N2kGtDZC4FmzJ+QBasOrSJ+/E7w="/>
+        <field:display field="label" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_label" object="${srstylesymbolizers}" z="3sODeBpjFiynNYeuu1cfHmOQEyc="/>
+        <field:display field="fillcolor" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_fillcolor" object="${srstylesymbolizers}" z="oCbQCaCqud1QIYghpJj/sFAAAG4="/>
+        <field:display field="fillopacity" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_fillopacity" object="${srstylesymbolizers}" z="FXXK7PGLLlI0CtlgFcJOqmas7oI="/>
+        <field:display field="strokecolor" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_strokecolor" object="${srstylesymbolizers}" z="gQPTkn4Gm4pUL7iPUbxp8z37hQA="/>
+        <field:display field="strokeopacity" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_strokeopacity" object="${srstylesymbolizers}" z="FsICNZOnzQnOsz3Fr1L7JUPDXDw="/>
+        <field:display field="strokewidth" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_strokewidth" object="${srstylesymbolizers}" z="mHZ1aFCxO470Wccg9kxT3iNoT6Y="/>
+        <field:display field="pointradius" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_pointradius" object="${srstylesymbolizers}" z="rzxy4bpDR18xdHvqMIBhmM/lVzk="/>
+        <field:display field="fontcolor" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_fontcolor" object="${srstylesymbolizers}" z="Y/CQiWgRKUGhljvhRiX3kji7LvA="/>
+        <field:display field="fontsize" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_fontsize" object="${srstylesymbolizers}" z="7XqU3se6Hf/6pn092xjeOQKeWGw="/>
+        <field:display field="fontfamily" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_fontfamily" object="${srstylesymbolizers}" z="/u+jqwwZjeHAyyB+zUOlY7v0nPE="/>
+        <field:display field="fontweight" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_fontweight" object="${srstylesymbolizers}" z="4s9hVicXBNredh5Elcz66TWmLyY="/>
+        <field:display field="fontopacity" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_fontopacity" object="${srstylesymbolizers}" z="ylpkM8m1clJYsvPmXVs/YbCI1uw="/>
+        <field:display field="labelalign" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_labelalign" object="${srstylesymbolizers}" z="qKomKnpEFypBvCA2nUCfroXzjkc="/>
+        <field:display field="labelxoffset" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_labelxoffset" object="${srstylesymbolizers}" z="CrKFrX3msb8EDDMoKgBX7EBhdKg="/>
+        <field:display field="labelyoffset" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_labelyoffset" object="${srstylesymbolizers}" z="xRb5QunzRa7eZFjOtxWa533a3Ok="/>
+        <field:display field="externalgraphic" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_externalgraphic" object="${srstylesymbolizers}" z="ssuxtdCrO0acSVYRJ2QupsKLEqA="/>
+        <field:display field="graphicwidth" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicwidth" object="${srstylesymbolizers}" z="o6e7WEFbhabNVVfhuR3MOePP+ao="/>
+        <field:display field="graphicheight" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicheight" object="${srstylesymbolizers}" z="wGCdIwWeaxf7VFGF7JECRC6Firg="/>
+        <field:display field="graphicopacity" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicopacity" object="${srstylesymbolizers}" z="IBUnCzZOgDiVfBqT+e/4JqzQegI="/>
+        <field:display field="rotation" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_rotation" object="${srstylesymbolizers}" z="8l1ZHeUwImJhJnrwC8f0xm5kvwM="/>
+        <field:display date="true" dateTimePattern="${srStyleSymbolizers_createdon_date_format}" field="createdOn" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_createdOn" object="${srstylesymbolizers}" z="DFslg9PPAB/6sNf/lk7G4jbju0I="/>
+        <field:display date="true" dateTimePattern="${srStyleSymbolizers_updatedon_date_format}" field="updatedOn" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedOn" object="${srstylesymbolizers}" z="6ucUaeuGzE++Rh4d9rrYE8AbQWs="/>
+        <field:display field="createdBy" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_createdBy" object="${srstylesymbolizers}" z="ve27eMWKMMolxzxEyiWVzzKgtHw="/>
+        <field:display field="updatedBy" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedBy" object="${srstylesymbolizers}" z="esvtF4fHn6bG/6dZKRWhyqXVYBA="/>
+    </page:show>
+</div>

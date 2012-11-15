@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_osrce_sitrep_domain_SrLayerStaticData" modelAttribute="srLayerStaticData" path="/srlayerstaticdatas" versionField="none" z="MOdiogZihx4b7HKoY9+DjcxFCXk=">
+        <field:input field="layerId" id="c_com_osrce_sitrep_domain_SrLayerStaticData_layerId" required="true" validationMessageCode="field_invalid_integer" z="NuuMy7H3V2n0T8PNsNWLasvBZdw="/>
+        <field:input field="featureStyle" id="c_com_osrce_sitrep_domain_SrLayerStaticData_featureStyle" validationMessageCode="field_invalid_integer" z="J+DJrZmVIOo/UDkWfUag4sKbgBo="/>
+        <field:input field="featureData" id="c_com_osrce_sitrep_domain_SrLayerStaticData_featureData" z="6C2weAGWGHcCWzJMWlabDNAwnVY="/>
+        <field:input field="srGeom" id="c_com_osrce_sitrep_domain_SrLayerStaticData_srGeom" z="4obITbSrSnt5slQWdvThTguN1vo="/>
+    </form:update>
+</div>

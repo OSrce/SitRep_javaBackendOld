@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_SrLayerDynamicData" items="${srlayerdynamicdatas}" z="ieR4DegKtcuJY9Md0/3pc0EeelA=">
+        <table:table data="${srlayerdynamicdatas}" id="l_com_osrce_sitrep_domain_SrLayerDynamicData" path="/srlayerdynamicdatas" z="pxtq29iDyAMg4UOAcaqXN6Wfau8=">
+            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_layerId" property="layerId" z="E39RLpdN4ADlkm/X6NLmFoss658="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureData" property="featureData" z="OiLDMtKijySBEXDpC9X41pkYfiA="/>
+            <table:column date="true" dateTimePattern="${srLayerDynamicData_featurestart_date_format}" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureStart" property="featureStart" z="XuNPyPKNf7EnrFl7sL3LqimDtcI="/>
+            <table:column date="true" dateTimePattern="${srLayerDynamicData_featureend_date_format}" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureEnd" property="featureEnd" z="V0KrBzPYJYaHId1mwng4VmFOoo8="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_srGeom" property="srGeom" z="dXXrBMfNVMrGfPg48G5QgtC6xY8="/>
+        </table:table>
+    </page:list>
+</div>
