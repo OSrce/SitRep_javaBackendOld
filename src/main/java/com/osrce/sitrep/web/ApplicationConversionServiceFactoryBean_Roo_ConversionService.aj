@@ -532,22 +532,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<String, SrCfsUpdatequeuePK> ApplicationConversionServiceFactoryBean.getJsonToSrCfsUpdatequeuePKConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrCfsUpdatequeuePK>() {
-            public SrCfsUpdatequeuePK convert(String encodedJson) {
-                return SrCfsUpdatequeuePK.fromJsonToSrCfsUpdatequeuePK(new String(Base64.decodeBase64(encodedJson)));
-            }
-        };
-    }
-    
-    public Converter<SrCfsUpdatequeuePK, String> ApplicationConversionServiceFactoryBean.getSrCfsUpdatequeuePKToJsonConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfsUpdatequeuePK, java.lang.String>() {
-            public String convert(SrCfsUpdatequeuePK srCfsUpdatequeuePK) {
-                return Base64.encodeBase64URLSafeString(srCfsUpdatequeuePK.toJson().getBytes());
-            }
-        };
-    }
-    
     public Converter<String, SrCfsPK> ApplicationConversionServiceFactoryBean.getJsonToSrCfsPKConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrCfsPK>() {
             public SrCfsPK convert(String encodedJson) {
@@ -560,6 +544,22 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfsPK, java.lang.String>() {
             public String convert(SrCfsPK srCfsPK) {
                 return Base64.encodeBase64URLSafeString(srCfsPK.toJson().getBytes());
+            }
+        };
+    }
+    
+    public Converter<String, SrCfsUpdatequeuePK> ApplicationConversionServiceFactoryBean.getJsonToSrCfsUpdatequeuePKConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrCfsUpdatequeuePK>() {
+            public SrCfsUpdatequeuePK convert(String encodedJson) {
+                return SrCfsUpdatequeuePK.fromJsonToSrCfsUpdatequeuePK(new String(Base64.decodeBase64(encodedJson)));
+            }
+        };
+    }
+    
+    public Converter<SrCfsUpdatequeuePK, String> ApplicationConversionServiceFactoryBean.getSrCfsUpdatequeuePKToJsonConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfsUpdatequeuePK, java.lang.String>() {
+            public String convert(SrCfsUpdatequeuePK srCfsUpdatequeuePK) {
+                return Base64.encodeBase64URLSafeString(srCfsUpdatequeuePK.toJson().getBytes());
             }
         };
     }
@@ -627,10 +627,10 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getSrWindowLayoutToStringConverter());
         registry.addConverter(getIdToSrWindowLayoutConverter());
         registry.addConverter(getStringToSrWindowLayoutConverter());
-        registry.addConverter(getJsonToSrCfsUpdatequeuePKConverter());
-        registry.addConverter(getSrCfsUpdatequeuePKToJsonConverter());
         registry.addConverter(getJsonToSrCfsPKConverter());
         registry.addConverter(getSrCfsPKToJsonConverter());
+        registry.addConverter(getJsonToSrCfsUpdatequeuePKConverter());
+        registry.addConverter(getSrCfsUpdatequeuePKToJsonConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {
