@@ -30,9 +30,6 @@ privileged aspect SrLayerDynamicData_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date SrLayerDynamicData.featureEnd;
     
-    @Column(name = "sr_geom")
-    private String SrLayerDynamicData.srGeom;
-    
     public Integer SrLayerDynamicData.getLayerId() {
         return layerId;
     }
@@ -63,14 +60,6 @@ privileged aspect SrLayerDynamicData_Roo_DbManaged {
     
     public void SrLayerDynamicData.setFeatureEnd(Date featureEnd) {
         this.featureEnd = featureEnd;
-    }
-    
-    public String SrLayerDynamicData.getSrGeom() {
-        return srGeom;
-    }
-    
-    public void SrLayerDynamicData.setSrGeom(String srGeom) {
-        this.srGeom = srGeom;
     }
     
 }

@@ -12,6 +12,6 @@
         <field:display field="rating" id="s_com_osrce_sitrep_domain_SrLocations_rating" object="${srlocations}" z="wXsX3g0HzTtzU0S2C6J7RRZ1YwU="/>
         <field:display date="true" dateTimePattern="${srLocations_createdon_date_format}" field="createdOn" id="s_com_osrce_sitrep_domain_SrLocations_createdOn" object="${srlocations}" z="MmTkGsCIPdCm7IEGSy+oJlNPyxM="/>
         <field:display date="true" dateTimePattern="${srLocations_lastused_date_format}" field="lastUsed" id="s_com_osrce_sitrep_domain_SrLocations_lastUsed" object="${srlocations}" z="VIcEg9vDHwGFc9BV9Zv4KsXuMNU="/>
-        <field:display field="srGeom" id="s_com_osrce_sitrep_domain_SrLocations_srGeom" object="${srlocations}" z="Iy/ou11NQVfae16G/FFnJ6vmGmc="/>
+        <field:display field="sr_geom" id="s_com_osrce_sitrep_domain_SrLocations_sr_geom" object="${srlocations}" z="jABQlhMWbIQZ5xD8w6IsHSTrDvo="/>
     </page:show>
 </div>

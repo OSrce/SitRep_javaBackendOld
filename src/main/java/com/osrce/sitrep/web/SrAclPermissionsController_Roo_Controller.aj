@@ -3,9 +3,12 @@
 
 package com.osrce.sitrep.web;
 
+import com.osrce.sitrep.domain.Permittype;
+import com.osrce.sitrep.domain.Roletype;
 import com.osrce.sitrep.domain.SrAclPermissions;
 import com.osrce.sitrep.web.SrAclPermissionsController;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.ui.Model;
@@ -86,6 +89,8 @@ privileged aspect SrAclPermissionsController_Roo_Controller {
     
     void SrAclPermissionsController.populateEditForm(Model uiModel, SrAclPermissions srAclPermissions) {
         uiModel.addAttribute("srAclPermissions", srAclPermissions);
+        uiModel.addAttribute("permittypes", Arrays.asList(Permittype.values()));
+        uiModel.addAttribute("roletypes", Arrays.asList(Roletype.values()));
     }
     
     String SrAclPermissionsController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

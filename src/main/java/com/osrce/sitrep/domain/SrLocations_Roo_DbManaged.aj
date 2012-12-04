@@ -43,9 +43,6 @@ privileged aspect SrLocations_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date SrLocations.lastUsed;
     
-    @Column(name = "sr_geom")
-    private String SrLocations.srGeom;
-    
     public Integer SrLocations.getPct() {
         return pct;
     }
@@ -116,14 +113,6 @@ privileged aspect SrLocations_Roo_DbManaged {
     
     public void SrLocations.setLastUsed(Date lastUsed) {
         this.lastUsed = lastUsed;
-    }
-    
-    public String SrLocations.getSrGeom() {
-        return srGeom;
-    }
-    
-    public void SrLocations.setSrGeom(String srGeom) {
-        this.srGeom = srGeom;
     }
     
 }

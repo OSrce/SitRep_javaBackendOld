@@ -4,11 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrStylePresets;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 privileged aspect SrStylePresets_Roo_Jpa_Entity {
@@ -16,18 +12,5 @@ privileged aspect SrStylePresets_Roo_Jpa_Entity {
     declare @type: SrStylePresets: @Entity;
     
     declare @type: SrStylePresets: @Table(schema = "public", name = "sr_style_presets");
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Integer SrStylePresets.id;
-    
-    public Integer SrStylePresets.getId() {
-        return this.id;
-    }
-    
-    public void SrStylePresets.setId(Integer id) {
-        this.id = id;
-    }
     
 }

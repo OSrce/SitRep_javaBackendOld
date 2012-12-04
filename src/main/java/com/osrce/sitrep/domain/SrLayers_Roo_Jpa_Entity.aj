@@ -4,11 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrLayers;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 privileged aspect SrLayers_Roo_Jpa_Entity {
@@ -16,18 +12,5 @@ privileged aspect SrLayers_Roo_Jpa_Entity {
     declare @type: SrLayers: @Entity;
     
     declare @type: SrLayers: @Table(schema = "public", name = "sr_layers");
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Integer SrLayers.id;
-    
-    public Integer SrLayers.getId() {
-        return this.id;
-    }
-    
-    public void SrLayers.setId(Integer id) {
-        this.id = id;
-    }
     
 }

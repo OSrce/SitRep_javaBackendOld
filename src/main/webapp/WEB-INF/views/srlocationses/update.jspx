@@ -12,6 +12,6 @@
         <field:input field="rating" id="c_com_osrce_sitrep_domain_SrLocations_rating" validationMessageCode="field_invalid_integer" z="qKYa4lCSMqw5ChHzDoFunPsh2Xg="/>
         <field:datetime dateTimePattern="${srLocations_createdon_date_format}" field="createdOn" id="c_com_osrce_sitrep_domain_SrLocations_createdOn" z="Bm/7zwctKik4cYIiZ+94IGOJaaw="/>
         <field:datetime dateTimePattern="${srLocations_lastused_date_format}" field="lastUsed" id="c_com_osrce_sitrep_domain_SrLocations_lastUsed" z="7BrBfgBjKXJndsWqsgTSqpG8ooI="/>
-        <field:input field="srGeom" id="c_com_osrce_sitrep_domain_SrLocations_srGeom" z="NiMewghEjCfhNQXPk2Lh2WOy5Ek="/>
+        <field:input field="sr_geom" id="c_com_osrce_sitrep_domain_SrLocations_sr_geom" z="k54lCrZNKEENBROTwHIOqheGJ6k="/>
     </form:update>
 </div>

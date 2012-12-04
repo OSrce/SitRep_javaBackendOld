@@ -63,7 +63,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrAclPermissions, String> ApplicationConversionServiceFactoryBean.getSrAclPermissionsToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrAclPermissions, java.lang.String>() {
             public String convert(SrAclPermissions srAclPermissions) {
-                return new StringBuilder().append(srAclPermissions.getRoleType()).append(' ').append(srAclPermissions.getRoleId()).append(' ').append(srAclPermissions.getResourceId()).append(' ').append(srAclPermissions.getPermissionCreate()).toString();
+                return new StringBuilder().append(srAclPermissions.getRoleId()).append(' ').append(srAclPermissions.getResourceId()).toString();
             }
         };
     }
@@ -231,7 +231,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrLayerStaticData, String> ApplicationConversionServiceFactoryBean.getSrLayerStaticDataToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrLayerStaticData, java.lang.String>() {
             public String convert(SrLayerStaticData srLayerStaticData) {
-                return new StringBuilder().append(srLayerStaticData.getLayerId()).append(' ').append(srLayerStaticData.getFeatureStyle()).append(' ').append(srLayerStaticData.getFeatureData()).append(' ').append(srLayerStaticData.getSrGeom()).toString();
+                return new StringBuilder().append(srLayerStaticData.getLayerId()).append(' ').append(srLayerStaticData.getFeatureStyle()).append(' ').append(srLayerStaticData.getFeatureData()).append(' ').append(srLayerStaticData.getSr_geom()).toString();
             }
         };
     }
@@ -255,7 +255,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrLayers, String> ApplicationConversionServiceFactoryBean.getSrLayersToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrLayers, java.lang.String>() {
             public String convert(SrLayers srLayers) {
-                return new StringBuilder().append(srLayers.getName()).append(' ').append(srLayers.getType()).append(' ').append(srLayers.getFormat()).append(' ').append(srLayers.getProjection()).toString();
+                return new StringBuilder().append(srLayers.getName()).append(' ').append(srLayers.getProjection()).append(' ').append(srLayers.getUrl()).append(' ').append(srLayers.getNumzoomlevels()).toString();
             }
         };
     }

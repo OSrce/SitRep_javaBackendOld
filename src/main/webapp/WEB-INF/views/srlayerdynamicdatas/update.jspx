@@ -7,6 +7,6 @@
         <field:input field="featureData" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureData" z="hUSIZn0Y8S3YYdUDORUjup5llUw="/>
         <field:datetime dateTimePattern="${srLayerDynamicData_featurestart_date_format}" field="featureStart" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureStart" z="suwd8EOUK9Y0Eqo95oB1zM70BlM="/>
         <field:datetime dateTimePattern="${srLayerDynamicData_featureend_date_format}" field="featureEnd" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureEnd" z="3A9cwCuxMwfY2jQOcvGFuycHVbM="/>
-        <field:input field="srGeom" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_srGeom" z="R2ZfdYGKC7SmYXKiJCQ7/CcUxPo="/>
+        <field:input field="sr_geom" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_sr_geom" z="PHIaQCF5iAlfhLk8M3r9yMQLQDM="/>
     </form:update>
 </div>

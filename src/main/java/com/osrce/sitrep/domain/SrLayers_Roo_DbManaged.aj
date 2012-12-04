@@ -17,12 +17,6 @@ privileged aspect SrLayers_Roo_DbManaged {
     @NotNull
     private String SrLayers.name;
     
-    @Column(name = "type")
-    private String SrLayers.type;
-    
-    @Column(name = "format")
-    private String SrLayers.format;
-    
     @Column(name = "isbaselayer")
     @NotNull
     private boolean SrLayers.isbaselayer;
@@ -78,22 +72,6 @@ privileged aspect SrLayers_Roo_DbManaged {
     
     public void SrLayers.setName(String name) {
         this.name = name;
-    }
-    
-    public String SrLayers.getType() {
-        return type;
-    }
-    
-    public void SrLayers.setType(String type) {
-        this.type = type;
-    }
-    
-    public String SrLayers.getFormat() {
-        return format;
-    }
-    
-    public void SrLayers.setFormat(String format) {
-        this.format = format;
     }
     
     public boolean SrLayers.isIsbaselayer() {

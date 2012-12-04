@@ -7,7 +7,7 @@
             <table:column id="c_com_osrce_sitrep_domain_SrLayerStaticData_layerId" property="layerId" z="zY3O8IqT/y1yQsvjZZb76BXgjJo="/>
             <table:column id="c_com_osrce_sitrep_domain_SrLayerStaticData_featureStyle" property="featureStyle" z="bh/7scj29pXwRwEbVsIXFvWA1PI="/>
             <table:column id="c_com_osrce_sitrep_domain_SrLayerStaticData_featureData" property="featureData" z="0Hq3MY1fFmY9+YspGh59lq3Bb/U="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrLayerStaticData_srGeom" property="srGeom" z="rBPdGWVNKt6lX8oPHIodSbWZgHM="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayerStaticData_sr_geom" property="sr_geom" z="+U1uxFE1WwirGKZLJ9+tsyw45uw="/>
         </table:table>
     </page:list>
 </div>

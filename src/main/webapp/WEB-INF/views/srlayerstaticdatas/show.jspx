@@ -6,6 +6,6 @@
         <field:display field="layerId" id="s_com_osrce_sitrep_domain_SrLayerStaticData_layerId" object="${srlayerstaticdata}" z="6l+38bM9rNCEuqucjHAFs85zfBg="/>
         <field:display field="featureStyle" id="s_com_osrce_sitrep_domain_SrLayerStaticData_featureStyle" object="${srlayerstaticdata}" z="Kp761mtPGbxndh5RdOhkSP1pAYY="/>
         <field:display field="featureData" id="s_com_osrce_sitrep_domain_SrLayerStaticData_featureData" object="${srlayerstaticdata}" z="iiqSD6ol8um5OledsIJ/x3pPut4="/>
-        <field:display field="srGeom" id="s_com_osrce_sitrep_domain_SrLayerStaticData_srGeom" object="${srlayerstaticdata}" z="u+elPXCgjw219VJdZO/bmgEgVTk="/>
+        <field:display field="sr_geom" id="s_com_osrce_sitrep_domain_SrLayerStaticData_sr_geom" object="${srlayerstaticdata}" z="wgTGIQpoihMOKST/X+8fw3iDDd0="/>
     </page:show>
 </div>

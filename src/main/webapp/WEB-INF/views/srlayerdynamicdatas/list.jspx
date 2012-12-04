@@ -8,7 +8,7 @@
             <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureData" property="featureData" z="OiLDMtKijySBEXDpC9X41pkYfiA="/>
             <table:column date="true" dateTimePattern="${srLayerDynamicData_featurestart_date_format}" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureStart" property="featureStart" z="XuNPyPKNf7EnrFl7sL3LqimDtcI="/>
             <table:column date="true" dateTimePattern="${srLayerDynamicData_featureend_date_format}" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureEnd" property="featureEnd" z="V0KrBzPYJYaHId1mwng4VmFOoo8="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_srGeom" property="srGeom" z="dXXrBMfNVMrGfPg48G5QgtC6xY8="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_sr_geom" property="sr_geom" z="m4GyYFohhfg8P+4GQv4vy8tzpaM="/>
         </table:table>
     </page:list>
 </div>

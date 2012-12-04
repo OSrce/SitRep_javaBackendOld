@@ -19,9 +19,6 @@ privileged aspect SrLayerStaticData_Roo_DbManaged {
     @Column(name = "feature_data")
     private String SrLayerStaticData.featureData;
     
-    @Column(name = "sr_geom")
-    private String SrLayerStaticData.srGeom;
-    
     public Integer SrLayerStaticData.getLayerId() {
         return layerId;
     }
@@ -44,14 +41,6 @@ privileged aspect SrLayerStaticData_Roo_DbManaged {
     
     public void SrLayerStaticData.setFeatureData(String featureData) {
         this.featureData = featureData;
-    }
-    
-    public String SrLayerStaticData.getSrGeom() {
-        return srGeom;
-    }
-    
-    public void SrLayerStaticData.setSrGeom(String srGeom) {
-        this.srGeom = srGeom;
     }
     
 }

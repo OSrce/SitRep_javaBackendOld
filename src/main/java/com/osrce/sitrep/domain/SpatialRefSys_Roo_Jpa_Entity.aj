@@ -4,11 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SpatialRefSys;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 privileged aspect SpatialRefSys_Roo_Jpa_Entity {
@@ -16,18 +12,5 @@ privileged aspect SpatialRefSys_Roo_Jpa_Entity {
     declare @type: SpatialRefSys: @Entity;
     
     declare @type: SpatialRefSys: @Table(schema = "public", name = "spatial_ref_sys");
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "srid")
-    private Integer SpatialRefSys.srid;
-    
-    public Integer SpatialRefSys.getSrid() {
-        return this.srid;
-    }
-    
-    public void SpatialRefSys.setSrid(Integer id) {
-        this.srid = id;
-    }
     
 }

@@ -4,11 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrLocationsWorkqueue;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 privileged aspect SrLocationsWorkqueue_Roo_Jpa_Entity {
@@ -16,18 +12,5 @@ privileged aspect SrLocationsWorkqueue_Roo_Jpa_Entity {
     declare @type: SrLocationsWorkqueue: @Entity;
     
     declare @type: SrLocationsWorkqueue: @Table(schema = "public", name = "sr_locations_workqueue");
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Integer SrLocationsWorkqueue.id;
-    
-    public Integer SrLocationsWorkqueue.getId() {
-        return this.id;
-    }
-    
-    public void SrLocationsWorkqueue.setId(Integer id) {
-        this.id = id;
-    }
     
 }

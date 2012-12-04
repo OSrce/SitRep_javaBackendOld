@@ -4,11 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrStyleSymbolizers;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 privileged aspect SrStyleSymbolizers_Roo_Jpa_Entity {
@@ -16,18 +12,5 @@ privileged aspect SrStyleSymbolizers_Roo_Jpa_Entity {
     declare @type: SrStyleSymbolizers: @Entity;
     
     declare @type: SrStyleSymbolizers: @Table(schema = "public", name = "sr_style_symbolizers");
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Integer SrStyleSymbolizers.id;
-    
-    public Integer SrStyleSymbolizers.getId() {
-        return this.id;
-    }
-    
-    public void SrStyleSymbolizers.setId(Integer id) {
-        this.id = id;
-    }
     
 }

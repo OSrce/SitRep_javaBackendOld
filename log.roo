@@ -17,3 +17,114 @@ hint
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-14 20:30:45
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-14 20:52:46
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-14 20:58:28
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-14 22:07:15
+security setup
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-15 21:36:50
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 12:05:09
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 12:43:10
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 13:08:04
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 13:36:04
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 13:38:52
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 13:39:38
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 13:59:01
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 14:54:32
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 15:29:35
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 16:51:26
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 17:06:32
+entity jpa --class ~.domain.SrLayerDynamicData
+field other --fieldName sr_geom --type org.hibernatespatial.GeometryType
+database reverse engineer --package ~.domain --schema PUBLIC
+
+// [failed] field other --fieldName sr_geom --type org.hibernatespatial.GeometryUserType
+field other --fieldName sr_geom --type org.hibernatespatial.GeometryUserType
+field other --fieldName sr_geom --type org.hibernatespatial.GeometryType
+field other --fieldName sr_geom --type org.hibernate.spatial.GeometryType
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 19:08:57
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 19:13:07
+database reverse engineer --package ~.domain --schema public 
+database reverse engineer --package ~.domain --schema public 
+enum type --class ~.domain.roletype
+
+enum constant --name uid
+
+enum constant --name gid
+
+enum type --class ~.domain.permittype
+
+enum constant --name deny
+
+enum constant --name allow
+
+enum type --class ~.domain.layer_type
+
+enum constant --name XYZ
+
+enum constant --name Vector
+
+enum constant --name WFS
+
+enum constant --name GeoRSS
+
+enum constant --name GeoWMS
+
+enum type --class ~.domain.layer_format
+
+enum constant --name GML
+
+enum constant --name WFST
+
+enum constant --name WKT
+
+enum constant --name GeoJSON
+
+enum constant --name SRJSON
+
+database reverse engineer --package ~.domain --schema public 
+exit 
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 20:18:29
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 20:20:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 20:52:15
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 20:54:31
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 21:35:27
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-27 11:36:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-27 12:24:32
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-27 12:43:33
+test integration --entity ~.domain.SrSession 
+perform test
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-27 13:05:39
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-27 13:31:23
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-27 13:55:40
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-27 13:56:21
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-27 14:02:13
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-27 14:02:56
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-27 14:53:41
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-27 14:54:21
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-27 15:21:40
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-27 20:00:39
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-27 20:34:18
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-27 20:35:07
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-27 22:32:49
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-28 11:59:28
+// [failed] test integration --entity ~.domain
+perform tests
+perform tests
+perform tests
+web mvc json add --jsonObject ~.domain.SrStyles
+web mvc json add --jsonObject ~.domain.SrStyleRules
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-28 14:37:05
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-28 14:37:55
+help
+web mvc json all 
+help
+hint
+hint web mvc
+hint web mvc json
+json add --class ~.domain.SrStyles
+web mvc json all 
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-28 22:01:31
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-04 10:38:13
+perform tests 
+test integration --entity ~.domain.SrLocations
+perform tests 
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-04 13:59:18
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-04 14:00:36

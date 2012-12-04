@@ -4,11 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrLayerDynamicData;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 privileged aspect SrLayerDynamicData_Roo_Jpa_Entity {
@@ -16,18 +12,5 @@ privileged aspect SrLayerDynamicData_Roo_Jpa_Entity {
     declare @type: SrLayerDynamicData: @Entity;
     
     declare @type: SrLayerDynamicData: @Table(schema = "public", name = "sr_layer_dynamic_data");
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Integer SrLayerDynamicData.id;
-    
-    public Integer SrLayerDynamicData.getId() {
-        return this.id;
-    }
-    
-    public void SrLayerDynamicData.setId(Integer id) {
-        this.id = id;
-    }
     
 }

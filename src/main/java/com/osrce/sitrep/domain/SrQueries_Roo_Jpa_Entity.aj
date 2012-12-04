@@ -4,11 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrQueries;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 privileged aspect SrQueries_Roo_Jpa_Entity {
@@ -16,18 +12,5 @@ privileged aspect SrQueries_Roo_Jpa_Entity {
     declare @type: SrQueries: @Entity;
     
     declare @type: SrQueries: @Table(schema = "public", name = "sr_queries");
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Integer SrQueries.id;
-    
-    public Integer SrQueries.getId() {
-        return this.id;
-    }
-    
-    public void SrQueries.setId(Integer id) {
-        this.id = id;
-    }
     
 }

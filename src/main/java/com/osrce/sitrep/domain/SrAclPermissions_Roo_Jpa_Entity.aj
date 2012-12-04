@@ -4,11 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrAclPermissions;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 privileged aspect SrAclPermissions_Roo_Jpa_Entity {
@@ -16,18 +12,5 @@ privileged aspect SrAclPermissions_Roo_Jpa_Entity {
     declare @type: SrAclPermissions: @Entity;
     
     declare @type: SrAclPermissions: @Table(schema = "public", name = "sr_acl_permissions");
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "permission_id")
-    private Integer SrAclPermissions.permissionId;
-    
-    public Integer SrAclPermissions.getPermissionId() {
-        return this.permissionId;
-    }
-    
-    public void SrAclPermissions.setPermissionId(Integer id) {
-        this.permissionId = id;
-    }
     
 }
