@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import org.*;
 import org.hibernate.annotations.Type;
 import org.hibernate.spatial.GeometryType;
 import org.springframework.roo.addon.dbre.RooDbManaged;

@@ -9,19 +9,68 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />	
 			
-		<util:load-scripts />
-		
-		<spring:message code="application_name" var="app_name" htmlEscape="false"/>
-		<title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
+		<title>SitRep</title>
+		<script>
+			window.onerror = function(msg,url,line) {
+		   alert(msg+'The error is on line '+line);
+			}
+			console.log("test1");
+			</script>
+			<style>
+				@import "lib/srd/css/srd.css";
+				@import "lib/OpenLayers/theme/default/style.css";
+			</style>
+
+			<script type="text/javascript" >
+
+			dojoConfig = {
+				baseUrl: "lib",
+				tlmSiblingOfDojo: true,
+				packages: [
+					{ name: "dojo", location: "dojo-1.8.1/dojo" },
+					{ name: "dijit", location: "dojo-1.8.1/dijit" },
+					{ name: "dojox", location: "dojo-1.8.1/dojox" },
+					{ name: "srd", location: "srd" },
+					{ name: "org", location: "org" }
+				]
+			};
+
+			</script>
+			
+
+			<script type="text/javascript" data-dojo-config="async: 1" src="lib/dojo-1.8.1/dojo/dojo.js" >
+			<!-- required for FF3 and Opera -->
+			</script>
+			<script type="text/javascript" src="lib/OpenLayers/OpenLayers.js">
+			<!-- required for FF3 and Opera -->
+			</script>			
+			
+	<!--
+			<script data-dojo-config="async: 0" src="lib/srd/dojo_bootloader.js" ></script>
+			<script data-dojo-config="async: 0" src="lib/srd/include_view.js" ></script>
+	-->
+	
+			
+			<script>
+			require([
+				"srd/srd_document",
+				"dojo/domReady!"
+			], function( srd_document ) {
+
+					srd = srd_document(loadsrd);
+					srd.srd_init();
+			} );
+
+			</script>
+
+
+
 	</head>
 	
-  	<body class="tundra spring">
+  	<body class="tundra">
    		<div id="wrapper">
-		    <tiles:insertAttribute name="header" ignore="true" />
-		    <tiles:insertAttribute name="menu" ignore="true" />   
 		    <div id="main">
 	    		<tiles:insertAttribute name="body"/> 
-		    	<tiles:insertAttribute name="footer" ignore="true"/>
 		    </div>
 		</div>
 	</body>

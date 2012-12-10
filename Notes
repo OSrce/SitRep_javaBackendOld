@@ -1,0 +1,68 @@
+
+
+---Notes :
+
+--begin from before :
+
+<!-- BEGIN mv file from dojo-1.8.1-src to dojo-1.8.1 -->
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-antrun-plugin</artifactId>
+  <executions>
+    <execution>
+      <id>move</id>
+      <configuration>
+        <tasks>
+          <move 
+            file="${webresources.javascript.location}/${dojo.source.basename}"
+            tofile="${dojo.source.local.unpacked.location}" />
+        </tasks>
+      </configuration>
+      <phase>process-sources</phase>
+      <goals>
+        <goal>run</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+
+<!-- BEGIN dojo build process -->
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>exec-maven-plugin</artifactId>
+ 
+  <configuration>
+    <executable>${java.home}/bin/java</executable>
+    <workingDirectory>
+      ${dojo.source.local.unpacked.location}/util/buildscripts
+    </workingDirectory>
+    <arguments>
+      <argument>-classpath</argument>
+      <argument>../shrinksafe/js.jar:../shrinksafe/shrinksafe.jar</argument>
+      <argument>org.mozilla.javascript.tools.shell.Main</argument>
+      <argument>build.js</argument>
+      <argument>profileFile=${dojo.build.profileFile}</argument>
+      <argument>action=${dojo.build.action}</argument>
+      <argument>version=${dojo.build.version}</argument>
+      <argument>releaseName=${dojo.build.release.name}</argument>
+      <!-- releaseDir: don't forget the slash at the end! -->
+      <argument>releaseDir=${dojo.build.release.location}/</argument>
+      <argument>optimize=shrinksafe</argument>
+      <argument>layerOptimize=shrinksafe</argument>
+      <argument>internStrings=true</argument>
+    </arguments>
+  </configuration>
+ 
+  <executions>
+    <execution>
+      <id>dojo-custom-build</id>
+      <phase>compile</phase>
+      <goals>
+        <goal>exec</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>		
+		
+			
+-- end from before.

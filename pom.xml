@@ -13,7 +13,26 @@
         <roo.version>1.2.2.RELEASE</roo.version>
         <slf4j.version>1.6.4</slf4j.version>
         <spring.version>3.1.1.RELEASE</spring.version>
-    <spring-security.version>3.1.0.RELEASE</spring-security.version>
+        <spring-security.version>3.1.0.RELEASE</spring-security.version>
+
+<!-- files and directory locations -->
+  <webresources.location>${project.build.directory}/WebResources</webresources.location>
+  <webresources.javascript.location>${webresources.location}/lib</webresources.javascript.location>
+  <dojo.version>1.8.1</dojo.version>
+  <dojo.source.basename>dojo-release-${dojo.version}-src</dojo.source.basename>
+  <dojo.source.friendlyname>dojo-${dojo.version}</dojo.source.friendlyname>
+  <dojo.source.local.unpacked.location>${webresources.javascript.location}/${dojo.source.friendlyname}</dojo.source.local.unpacked.location>
+   
+  <!-- dojo custom build parameters -->
+  <dojo.build.profileFile>${project.build.directory}/../src/main/webapp/lib/srd/srd.profile.js</dojo.build.profileFile>
+  <dojo.build.action>clean,release</dojo.build.action>
+  <dojo.build.version>${project.artifactId}-${project.version}</dojo.build.version>
+  <dojo.build.release.name>dojo-release</dojo.build.release.name>
+  <dojo.build.release.location>${webresources.javascript.location}</dojo.build.release.location>
+    
+  <openlayers.unpacked.location>${webresources.javascript.location}/OpenLayers</openlayers.unpacked.location>
+    
+        
     </properties>
     <repositories>
         <repository>
@@ -521,8 +540,93 @@
                     </webAppConfig>
                 </configuration>
             </plugin>
-           
-        </plugins>
+            <!-- BEGIN unzip dojo-release-1.8.1-src.zip    -->
+            
+            <plugin>
+  				<groupId>org.apache.maven.plugins</groupId>
+  				<artifactId>maven-dependency-plugin</artifactId>
+    			<version>2.6</version>
+  				<executions>
+    				<execution>
+      					<id>unpackDojo</id>
+      					<phase>generate-sources</phase>
+     					 <goals>
+       						 <goal>unpack</goal>
+      					</goals>
+     					 <configuration>
+       					 <artifactItems>
+      					    <artifactItem>
+     					       <groupId>org.dojotoolkit</groupId>
+      					      <artifactId>dojo</artifactId>
+            				<classifier>sources</classifier>
+           					 <version>${dojo.version}</version>
+           					 <type>zip</type>
+         					   <outputDirectory>${webresources.javascript.location}</outputDirectory>
+      				    </artifactItem>
+      				    <artifactItem>
+     						<groupId>org.openlayers</groupId>
+      					      <artifactId>openlayers</artifactId>
+            				<classifier>release</classifier>
+           					 <version>2.12</version>
+           					 <type>tar.gz</type>
+         					   <outputDirectory>${webresources.javascript.location}</outputDirectory>
+      				    </artifactItem>
+      				    
+        </artifactItems>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+    
+<!-- BEGIN mv file from dojo-1.8.1-src to dojo-1.8.1 -->
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-antrun-plugin</artifactId>
+  <executions>
+    <execution>
+      <id>move</id>
+      <configuration>
+        <tasks>
+          <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.dojotoolkit-dojo-zip-sources-1.8.1.marker" />
+          <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.openlayers-openlayers-tar.gz-release-2.12.marker" />
+          <move 
+            file="${webresources.javascript.location}/${dojo.source.basename}"
+            tofile="${dojo.source.local.unpacked.location}" />
+           <move 
+            file="${webresources.javascript.location}/OpenLayers-2.12"
+            tofile="${openlayers.unpacked.location}" />         
+        </tasks>
+      </configuration>
+      <phase>process-sources</phase>
+      <goals>
+        <goal>run</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+    
+    
+    
+<!-- BEGIN Add dojo to WAR   -->
+<plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-war-plugin</artifactId>
+      <version>2.1-beta-1</version>
+      <configuration>
+        <webResources>
+          <resource>
+            <!-- this is relative to the pom.xml directory -->
+            <directory>${webresources.location}</directory>
+            
+          </resource>
+        </webResources>
+      </configuration>
+    </plugin>
+  
+         
+         
+        </plugins>        
+<!-- ################################################# -->        
         <pluginManagement>
   <plugins>
     <plugin>
@@ -539,18 +643,48 @@
                 <versionRange>[1.0,)</versionRange>
                 <goals>
                   <goal>unpack</goal>
-         <goal>copy-dependencies</goal>
-                  
+        		  <goal>copy-dependencies</goal>
+                </goals>
+              </pluginExecutionFilter>
+              <action>
+                <execute />
+              </action>
+            </pluginExecution>
+            <pluginExecution>
+              <pluginExecutionFilter>
+          		  <groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<versionRange>[1.0,2.0)</versionRange>
+				<goals>
+				<goal>run</goal>
+				</goals>
+            </pluginExecutionFilter>
+              <action>
+                <execute />
+              </action>
+            </pluginExecution>   
+            
+            <pluginExecution>
+              <pluginExecutionFilter>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <versionRange>[1.0,)</versionRange>
+                <goals>
+                  <goal>exec</goal>
                 </goals>
               </pluginExecutionFilter>
               <action>
                 <ignore />
               </action>
             </pluginExecution>
+             
           </pluginExecutions>
         </lifecycleMappingMetadata>
       </configuration>
     </plugin>
+    
+
+
   </plugins>
 </pluginManagement>
     </build>

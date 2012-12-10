@@ -18,10 +18,10 @@ public class SrLayers {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "type", columnDefinition = "Layer_type")
+    @Column(name = "type", nullable = true, columnDefinition = "Layer_type")
     private Layer_type layerType;
 
-    @Column(name = "format", columnDefinition = "Layer_format")
+    @Column(name = "format", nullable = true, columnDefinition = "Layer_format")
     private Layer_format layerFormat;
 
     public Layer_type getType() {

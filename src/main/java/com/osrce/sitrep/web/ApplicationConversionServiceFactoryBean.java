@@ -29,6 +29,15 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
 	            }
 	        };
 	    }
+
+/*	public Converter<Geometry, String> getGeomToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<Geometry, java.lang.String>() {
+            public String convert(Geometry geom) {
+              return new StringBuilder().append( geom.toString()  ).append(' ').toString();
+            }
+        };
+    }
+*/
 	
 	
 	
