@@ -15,4 +15,28 @@ privileged aspect SrWindowLayout_Roo_JavaBean {
         this.id = id;
     }
     
+    public Integer SrWindowLayout.getView_x() {
+        return this.view_x;
+    }
+    
+    public void SrWindowLayout.setView_x(Integer view_x) {
+        this.view_x = view_x;
+    }
+    
+    public Integer SrWindowLayout.getView_y() {
+        return this.view_y;
+    }
+    
+    public void SrWindowLayout.setView_y(Integer view_y) {
+        this.view_y = view_y;
+    }
+    
+    public String SrWindowLayout.getView_data() {
+        return this.view_data;
+    }
+    
+    public void SrWindowLayout.setView_data(String view_data) {
+        this.view_data = view_data;
+    }
+    
 }

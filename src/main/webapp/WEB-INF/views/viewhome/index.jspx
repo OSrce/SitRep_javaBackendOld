@@ -1,0 +1,104 @@
+<html xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:tiles="http://tiles.apache.org/tags-tiles" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" >  
+	
+	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+	
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />  
+	<jsp:directive.page pageEncoding="UTF-8" />
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=8" />	
+			
+		<title>SitRep</title>
+		<script>
+			window.onerror = function(msg,url,line) {
+		   alert(msg+'The error is on line '+line);
+			}
+			console.log("test105");
+			</script>
+			<style>
+				@import "lib/srd/css/srd.css";
+				@import "lib/OpenLayers/theme/default/style.css";
+			</style>
+
+			<script type="text/javascript" >
+
+			dojoConfig = {
+				baseUrl: "lib",
+				tlmSiblingOfDojo: true,
+				packages: [
+					{ name: "dojo", location: "dojo" },
+					{ name: "dijit", location: "dijit" },
+					{ name: "dojox", location: "dojox" },
+					{ name: "srd", location: "srd" },
+					{ name: "org", location: "org" }
+				]
+			};
+
+			</script>
+			
+
+			<script type="text/javascript" data-dojo-config="async: 1" src="lib/dojo/dojo.js" >
+			<!-- required for FF3 and Opera -->
+			</script>
+			<script type="text/javascript" src="lib/OpenLayers/OpenLayers.js">
+			<!-- required for FF3 and Opera -->
+			</script>			
+			
+	<!--
+			<script data-dojo-config="async: 0" src="lib/srd/dojo_bootloader.js" ></script>
+			<script data-dojo-config="async: 0" src="lib/srd/include_view.js" ></script>
+			//			test=${  };
+			
+	-->
+	
+			
+			<script>
+			
+			loadsrd = {};
+			
+			loadsrd.staticVals = { "default_wlayout":2, "user_title":"Mr", "user_lastname":"Lastname" };
+			
+			loadsrd.srd_queryArr = ${theQueries};
+			
+			loadsrd.theLayers = ${theLayers};
+			
+			loadsrd.theStyles = ${theStyles};
+
+			loadsrd.theStyleSymbolizers = ${theStyleSymbolizers};
+
+			loadsrd.theStyleRules = ${theStyleRules};
+			
+			loadsrd.srd_wlayoutArr = ${theWLayouts};
+
+			loadsrd.srd_presetArr = ${thePresets};
+
+
+			
+			loadsrd.siteLeftImage = '/lib/img/Test1.png'; 
+			loadsrd.siteRightImage = '/lib/img/Test2.png';
+			loadsrd.siteTitle = 'SitRep Title';
+
+			
+			require([
+				"srd/srd_document",
+				"dojo/domReady!"
+			], function( srd_document ) {
+				srd = srd_document(loadsrd);
+				srd.srd_init();
+			} );
+			
+			</script>
+
+	</head>
+
+  	<body class="tundra">
+
+		<div id="theSrdDoc"  >
+			<div id="jsDisabled" >It appears you have javascript disabled.  Please enable and reload the page.
+			</div>
+		</div>
+
+	</body>
+</html>
+

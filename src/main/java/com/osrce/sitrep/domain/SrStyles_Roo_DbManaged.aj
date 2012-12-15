@@ -13,47 +13,12 @@ privileged aspect SrStyles_Roo_DbManaged {
     @NotNull
     private String SrStyles.name;
     
-    @Column(name = "stylemap_id")
-    @NotNull
-    private Integer SrStyles.stylemapId;
-    
-    @Column(name = "render_type", length = 128)
-    @NotNull
-    private String SrStyles.renderType;
-    
-    @Column(name = "defaultsymbolizer_id")
-    private Integer SrStyles.defaultsymbolizerId;
-    
     public String SrStyles.getName() {
         return name;
     }
     
     public void SrStyles.setName(String name) {
         this.name = name;
-    }
-    
-    public Integer SrStyles.getStylemapId() {
-        return stylemapId;
-    }
-    
-    public void SrStyles.setStylemapId(Integer stylemapId) {
-        this.stylemapId = stylemapId;
-    }
-    
-    public String SrStyles.getRenderType() {
-        return renderType;
-    }
-    
-    public void SrStyles.setRenderType(String renderType) {
-        this.renderType = renderType;
-    }
-    
-    public Integer SrStyles.getDefaultsymbolizerId() {
-        return defaultsymbolizerId;
-    }
-    
-    public void SrStyles.setDefaultsymbolizerId(Integer defaultsymbolizerId) {
-        this.defaultsymbolizerId = defaultsymbolizerId;
     }
     
 }

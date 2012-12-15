@@ -254,7 +254,7 @@ srd_init : function() {
 		for(var theRId in theStyleRules) {
 			var tmpRule = theStyleRules[theRId];
 			if( tmpRule["style_id"] == theId) {
-				var filterData = tmpRule["filter_data"];
+				var filterData = dojo.fromJson( tmpRule["filter_data"] );
 				var theFilter = null;
 				if(filterData == null) {
 					filterData = {};
@@ -303,7 +303,7 @@ srd_init : function() {
 		this.srd_layerArr[layerOptions.id] = new srd_layer();
 		this.srd_layerArr[layerOptions.id].options = layerOptions;
 //		this.srd_layerArr[layerOptions.id].srd_styleArr = this.srd_styleArr;
-		this.srd_layerArr[layerOptions.id].srd_styleMap = this.srd_styleArr[theId];
+		this.srd_layerArr[layerOptions.id].srd_styleMap = this.srd_styleArr[layerOptions.id];
 	}	
 
 
@@ -654,7 +654,7 @@ srd_createLayer : function(theName,theUrl) {
 									label: theType,
 									value: theType,
 									srd_doc: this,
-									onClick: function() { this.srd_doc.srd_changeViewType(this.value) }
+									onClick: function() { this.srd_doc.srd_changeViewType(this.value); }
 								} ) );
 							}
 							this.srd_viewMenu.addChild(new dijit.PopupMenuItem({
@@ -669,7 +669,7 @@ srd_createLayer : function(theName,theUrl) {
 									label: y,
 									value: y,
 									srd_doc: this,
-									onClick: function() { this.srd_doc.srd_changeViewGridDimensions('y',this.value) }
+									onClick: function() { this.srd_doc.srd_changeViewGridDimensions('y',this.value); }
 								} ) );
 							}
 							this.srd_viewMenu.addChild(new dijit.PopupMenuItem({
@@ -684,7 +684,7 @@ srd_createLayer : function(theName,theUrl) {
 									label: x,
 									value: x,
 									srd_doc: this,
-									onClick: function() { this.srd_doc.srd_changeViewGridDimensions('x',this.value) }
+									onClick: function() { this.srd_doc.srd_changeViewGridDimensions('x',this.value); }
 								} ) );
 							}
 							this.srd_viewMenu.addChild(new dijit.PopupMenuItem({
@@ -699,7 +699,7 @@ srd_createLayer : function(theName,theUrl) {
 									label: this.srd_themeArr[themeId].name,
 									value: themeId,
 									srd_doc: this,
-									onClick: function() { this.srd_doc.srd_changeTheme(this.value) }
+									onClick: function() { this.srd_doc.srd_changeTheme(this.value); }
 								} ) );
 							}
 
@@ -757,7 +757,7 @@ srd_createLayer : function(theName,theUrl) {
 									label: this.srd_wlayoutArr[tmpId].name,
 									value: tmpId,
 									srd_doc: this,
-									onClick: function() { this.srd_doc.srd_changeWindowLayout(this.value) }
+									onClick: function() { this.srd_doc.srd_changeWindowLayout(this.value); }
 								} ) );
 							}
 
@@ -801,7 +801,7 @@ srd_createLayer : function(theName,theUrl) {
 							this.srd_userMenu.addChild( new dijit.MenuItem( {
 								label: "Log Out: "+this.staticVals.user_lastname,
 								srd_doc: this,
-								onClick: function() { this.srd_doc.logout() }
+								onClick: function() { this.srd_doc.logout(); }
 							} ) );
 
 							//END PLACING MENU ITEMS, LETS FIRE UP THE MENUBAR!				
@@ -1084,7 +1084,9 @@ srd_changeWindowLayout : function(wlayout) {
 						}
 						this.staticVals.view_layout_x = this.srd_wlayoutArr[this.selected_wlayout].view_x;
 						this.staticVals.view_layout_y = this.srd_wlayoutArr[this.selected_wlayout].view_y;
-						this.staticVals.view_data = this.srd_wlayoutArr[this.selected_wlayout].view_data;
+						this.staticVals.view_data = dojo.fromJson( this.srd_wlayoutArr[this.selected_wlayout].view_data);
+jonTest1 = this.staticVals.view_data;	
+jonTest2 = this.srd_wlayoutArr[this.selected_wlayout].view_data;
 						this.staticVals.showname = this.srd_wlayoutArr[this.selected_wlayout].showname;
 						this.staticVals.layoutName = this.srd_wlayoutArr[this.selected_wlayout].name;
 						
@@ -1095,7 +1097,7 @@ srd_changeWindowLayout : function(wlayout) {
 						this.viewContainer = new srd_gridContainer( {
 							nbZones: this.staticVals.view_layout_x,
 				//		nbColumns: 2,
-//							style: "min-width:100%; min-height:100%;",
+							style: "min-width:100%; min-height:100%;",
 							isAutoOrganized: true,
 //							style: "height:500px",
 							hasResizeableColumns : false

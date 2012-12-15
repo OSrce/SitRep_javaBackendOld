@@ -5,6 +5,7 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrLayerDynamicData;
 import com.vividsolutions.jts.geom.Geometry;
+import java.util.Date;
 
 privileged aspect SrLayerDynamicData_Roo_JavaBean {
     
@@ -16,12 +17,44 @@ privileged aspect SrLayerDynamicData_Roo_JavaBean {
         this.id = id;
     }
     
-    public Geometry SrLayerDynamicData.getSr_geom() {
-        return this.sr_geom;
+    public Integer SrLayerDynamicData.getLayer_id() {
+        return this.layer_id;
     }
     
-    public void SrLayerDynamicData.setSr_geom(Geometry sr_geom) {
-        this.sr_geom = sr_geom;
+    public void SrLayerDynamicData.setLayer_id(Integer layer_id) {
+        this.layer_id = layer_id;
+    }
+    
+    public String SrLayerDynamicData.getFeature_data() {
+        return this.feature_data;
+    }
+    
+    public void SrLayerDynamicData.setFeature_data(String feature_data) {
+        this.feature_data = feature_data;
+    }
+    
+    public Date SrLayerDynamicData.getFeature_start() {
+        return this.feature_start;
+    }
+    
+    public void SrLayerDynamicData.setFeature_start(Date feature_start) {
+        this.feature_start = feature_start;
+    }
+    
+    public Date SrLayerDynamicData.getFeature_end() {
+        return this.feature_end;
+    }
+    
+    public void SrLayerDynamicData.setFeature_end(Date feature_end) {
+        this.feature_end = feature_end;
+    }
+    
+    public Geometry SrLayerDynamicData.getGeometry() {
+        return this.geometry;
+    }
+    
+    public void SrLayerDynamicData.setGeometry(Geometry geometry) {
+        this.geometry = geometry;
     }
     
 }

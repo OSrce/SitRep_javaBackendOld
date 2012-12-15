@@ -44,7 +44,7 @@ define([
 		polygon: { label: "Add Polygons", img: "lib/OpenLayers/theme/default/img/draw_polygon_off.png" },
 		remove: { label: "Remove Features", img: "lib/OpenLayers/theme/default/img/remove_point_off.png" },
 		select: { label: "Select Features", img: "lib/OpenLayers/theme/default/img/pan_off.png" }
-	}	
+	};	
 
 	//BEGIN BUILD THE PRESETS
 	this.getPresets();

@@ -43,7 +43,7 @@ return declare(
 				// DEFINE ALL THE DIFFERENT TABLE WE CAN CONNECT TO:
 				this.tableList = {
 					"Calls for service - SPRINT" : "/srdata/cfs/"
-				}
+				};
 				this.selectedTable = "Calls for service - SPRINT";
 				this.selectedDataMenu = new dijit.Menu();
 				
@@ -114,7 +114,7 @@ return declare(
 							]
 					} ]
 					
-				}
+				};
 
 				this.srd_dataStore = new dojo.data.ObjectStore( { objectStore: this.srd_store } );
 /*				this.srd_datagrid = new dojox.grid.DataGrid( {
@@ -263,7 +263,7 @@ return declare(
 						count: 1
 					} ), function(results) {
 //						console.log("TEST1");
-						this.displayResults(results[0])
+						this.displayResults(results[0]);
 					}.bind(this)
 					);
 				}

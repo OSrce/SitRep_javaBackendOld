@@ -43,7 +43,7 @@ declare(
 					"Styles" : "/srdata/styles/",
 					"Style Presets" : "/srdata/stylepresets/",
 					"Calls for service - SPRINT" : "/srdata/cfs/"
-				}
+				};
 				this.selectedTable = "Users";
 				this.selectedDataMenu = new dijit.Menu();
 				for( var tmpTable in this.tableList) {
@@ -209,7 +209,7 @@ declare(
 							{ name: "Cross St 1", field:"cfs_cross1" },
 							{ name: "Cross St 2", field:"cfs_cross2" },
 							{ name: "Signal", field:"cfs_code", formatter:function(data) {
-									if(data) { return "10-"+data} else { return ''; } }
+									if(data) { return "10-"+data;} else { return ''; } }
 						  },
 							{ name: "Signal Info1", field:"cfs_codesup1" },
 							{ name: "Signal Info2", field:"cfs_codesup2" },
@@ -226,7 +226,7 @@ declare(
 							]
 					} ]
 					
-				}
+				};
 
 /*				for(var dataType in this.srd_selLayer.layer.features[0].data) {
 					theStruct.push( { 

@@ -15,4 +15,28 @@ privileged aspect SrStyleRules_Roo_JavaBean {
         this.id = id;
     }
     
+    public Integer SrStyleRules.getStyle_id() {
+        return this.style_id;
+    }
+    
+    public void SrStyleRules.setStyle_id(Integer style_id) {
+        this.style_id = style_id;
+    }
+    
+    public Integer SrStyleRules.getSymbolizer_id() {
+        return this.symbolizer_id;
+    }
+    
+    public void SrStyleRules.setSymbolizer_id(Integer symbolizer_id) {
+        this.symbolizer_id = symbolizer_id;
+    }
+    
+    public String SrStyleRules.getFilter_data() {
+        return this.filter_data;
+    }
+    
+    public void SrStyleRules.setFilter_data(String filter_data) {
+        this.filter_data = filter_data;
+    }
+    
 }

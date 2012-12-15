@@ -11,6 +11,7 @@
 define([ 
 	"dojo/_base/declare",
 	"srd/include_view",
+	"dojo/_base/lang",
 	"dijit/layout/BorderContainer",
 	"dijit/Menu",
 	"dijit/PopupMenuItem",
@@ -136,7 +137,7 @@ define([
 		// BEG formatSignal FUNCTION
 		formatSignal : function(data) {
 			if(data) {
-				return "10-"+data
+				return "10-"+data;
 			} else {
 				return ''; 
 			}

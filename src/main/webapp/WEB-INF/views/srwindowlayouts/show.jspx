@@ -6,8 +6,8 @@
         <field:display field="name" id="s_com_osrce_sitrep_domain_SrWindowLayout_name" object="${srwindowlayout}" z="7EfyZ+LFbpj8hiQd10aaAjshU+A="/>
         <field:display field="showname" id="s_com_osrce_sitrep_domain_SrWindowLayout_showname" object="${srwindowlayout}" z="y1U0zigzmyaUKqFSFK7bS1rZUsg="/>
         <field:display field="theme" id="s_com_osrce_sitrep_domain_SrWindowLayout_theme" object="${srwindowlayout}" z="2HPwsM2tMuXeSBxY9GR8DqsGrC0="/>
-        <field:display field="viewX" id="s_com_osrce_sitrep_domain_SrWindowLayout_viewX" object="${srwindowlayout}" z="pyG8A+g2JMsbpHdk2D6q17lSh/E="/>
-        <field:display field="viewY" id="s_com_osrce_sitrep_domain_SrWindowLayout_viewY" object="${srwindowlayout}" z="se+1dHpxQ1A252iP7oqNTdYPFj0="/>
-        <field:display field="viewData" id="s_com_osrce_sitrep_domain_SrWindowLayout_viewData" object="${srwindowlayout}" z="gZIlrXt1j6n8f3J8RFuLeCFv3Ho="/>
+        <field:display field="view_x" id="s_com_osrce_sitrep_domain_SrWindowLayout_view_x" object="${srwindowlayout}" z="siSddCreVlNNv/gbx4PKadeXERI="/>
+        <field:display field="view_y" id="s_com_osrce_sitrep_domain_SrWindowLayout_view_y" object="${srwindowlayout}" z="feh5ygEHEbjWdZRM1EQ8fvtJHas="/>
+        <field:display field="view_data" id="s_com_osrce_sitrep_domain_SrWindowLayout_view_data" object="${srwindowlayout}" z="bPU+UZS82+rWKx/AwrqO3Xu9ZiI="/>
     </page:show>
 </div>

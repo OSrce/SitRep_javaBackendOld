@@ -42,7 +42,7 @@ define ( [
 				// DEFINE ALL THE DIFFERENT TABLE WE CAN CONNECT TO:
 				this.tableList = {
 					"Calls for service - SPRINT" : "/srdata/cfs/"
-				}
+				};
 				this.selectedTable = "Calls for service - SPRINT";
 				this.selectedDataMenu = new dijit.Menu();
 				if(!this.autoRefresh) {
@@ -121,7 +121,7 @@ define ( [
 							{ name: "Unit Assigned", field:"cfs_assignedunit", width: "100px" },
 							{ name: "Priority", field:"cfs_priority", width: "50px" },
 							{ name: "Final Disposition", field:"cfs_finaldis", width: "90px", formatter:function(data) {
-									if(data) { return "10-"+data} else { return ''; } }
+									if(data) { return "10-"+data;} else { return ''; } }
 						  },
 							{ name: "Final Disposition Info", field:"cfs_finaldissup1", width: "150px" },
 							{ name: "Final Disposition Date/Time", field:"cfs_finaldisdate", width: "150px", formatter:this.dateToTime},
@@ -133,7 +133,7 @@ define ( [
 							]
 					} ]
 					
-				}
+				};
 
 				// Make Query Results from memstore here and observe handler.
 				this.theResults = this.srd_memStore.query();
@@ -244,7 +244,7 @@ define ( [
 				visibility: true,
 				type: "Vector",
 				format: "NONE"	
-			}
+			};
 			this.srd_layer = new srd_layer();
 			this.srd_layer.options = theOptions;
 			this.srd_layer.srd_styleArr = this.srd_doc.srd_styleArr;
@@ -374,7 +374,7 @@ define ( [
 						label: cfs.cfs_code,
 						body : "Signal: "+cfs.cfs_code+" Job :"+cfs.cfs_num,
 						style: 2001
-					}
+					};
 					var theFeat = new OpenLayers.Feature.Vector(theRefFeat[0].geometry,theFeatureAttr,null);
 					this.srd_layer.layer.addFeatures( Array( theFeat), {});
 				}

@@ -13,19 +13,8 @@ privileged aspect SrStyleRules_Roo_DbManaged {
     @NotNull
     private String SrStyleRules.name;
     
-    @Column(name = "style_id")
-    @NotNull
-    private Integer SrStyleRules.styleId;
-    
-    @Column(name = "symbolizer_id")
-    @NotNull
-    private Integer SrStyleRules.symbolizerId;
-    
     @Column(name = "elsefilter")
     private Boolean SrStyleRules.elsefilter;
-    
-    @Column(name = "filter_data")
-    private String SrStyleRules.filterData;
     
     public String SrStyleRules.getName() {
         return name;
@@ -35,36 +24,12 @@ privileged aspect SrStyleRules_Roo_DbManaged {
         this.name = name;
     }
     
-    public Integer SrStyleRules.getStyleId() {
-        return styleId;
-    }
-    
-    public void SrStyleRules.setStyleId(Integer styleId) {
-        this.styleId = styleId;
-    }
-    
-    public Integer SrStyleRules.getSymbolizerId() {
-        return symbolizerId;
-    }
-    
-    public void SrStyleRules.setSymbolizerId(Integer symbolizerId) {
-        this.symbolizerId = symbolizerId;
-    }
-    
     public Boolean SrStyleRules.getElsefilter() {
         return elsefilter;
     }
     
     public void SrStyleRules.setElsefilter(Boolean elsefilter) {
         this.elsefilter = elsefilter;
-    }
-    
-    public String SrStyleRules.getFilterData() {
-        return filterData;
-    }
-    
-    public void SrStyleRules.setFilterData(String filterData) {
-        this.filterData = filterData;
     }
     
 }

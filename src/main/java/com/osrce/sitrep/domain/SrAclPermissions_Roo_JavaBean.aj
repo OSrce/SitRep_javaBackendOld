@@ -3,8 +3,6 @@
 
 package com.osrce.sitrep.domain;
 
-import com.osrce.sitrep.domain.Permittype;
-import com.osrce.sitrep.domain.Roletype;
 import com.osrce.sitrep.domain.SrAclPermissions;
 
 privileged aspect SrAclPermissions_Roo_JavaBean {
@@ -17,43 +15,43 @@ privileged aspect SrAclPermissions_Roo_JavaBean {
         this.permissionId = permissionId;
     }
     
-    public Roletype SrAclPermissions.getRoleType() {
+    public String SrAclPermissions.getRoleType() {
         return this.roleType;
     }
     
-    public void SrAclPermissions.setRoleType(Roletype roleType) {
+    public void SrAclPermissions.setRoleType(String roleType) {
         this.roleType = roleType;
     }
     
-    public Permittype SrAclPermissions.getPermissionCreate() {
+    public String SrAclPermissions.getPermissionCreate() {
         return this.permissionCreate;
     }
     
-    public void SrAclPermissions.setPermissionCreate(Permittype permissionCreate) {
+    public void SrAclPermissions.setPermissionCreate(String permissionCreate) {
         this.permissionCreate = permissionCreate;
     }
     
-    public Permittype SrAclPermissions.getPermissionRead() {
+    public String SrAclPermissions.getPermissionRead() {
         return this.permissionRead;
     }
     
-    public void SrAclPermissions.setPermissionRead(Permittype permissionRead) {
+    public void SrAclPermissions.setPermissionRead(String permissionRead) {
         this.permissionRead = permissionRead;
     }
     
-    public Permittype SrAclPermissions.getPermissionUpdate() {
+    public String SrAclPermissions.getPermissionUpdate() {
         return this.permissionUpdate;
     }
     
-    public void SrAclPermissions.setPermissionUpdate(Permittype permissionUpdate) {
+    public void SrAclPermissions.setPermissionUpdate(String permissionUpdate) {
         this.permissionUpdate = permissionUpdate;
     }
     
-    public Permittype SrAclPermissions.getPermissionDelete() {
+    public String SrAclPermissions.getPermissionDelete() {
         return this.permissionDelete;
     }
     
-    public void SrAclPermissions.setPermissionDelete(Permittype permissionDelete) {
+    public void SrAclPermissions.setPermissionDelete(String permissionDelete) {
         this.permissionDelete = permissionDelete;
     }
     

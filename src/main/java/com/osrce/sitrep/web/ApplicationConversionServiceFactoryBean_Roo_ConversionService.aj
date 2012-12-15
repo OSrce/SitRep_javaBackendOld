@@ -63,7 +63,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrAclPermissions, String> ApplicationConversionServiceFactoryBean.getSrAclPermissionsToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrAclPermissions, java.lang.String>() {
             public String convert(SrAclPermissions srAclPermissions) {
-                return new StringBuilder().append(srAclPermissions.getRoleId()).append(' ').append(srAclPermissions.getResourceId()).toString();
+                return new StringBuilder().append(srAclPermissions.getRoleId()).append(' ').append(srAclPermissions.getResourceId()).append(' ').append(srAclPermissions.getRoleType()).append(' ').append(srAclPermissions.getPermissionCreate()).toString();
             }
         };
     }
@@ -135,7 +135,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrCfs, String> ApplicationConversionServiceFactoryBean.getSrCfsToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfs, java.lang.String>() {
             public String convert(SrCfs srCfs) {
-                return new StringBuilder().append(srCfs.getCfsLetter()).append(' ').append(srCfs.getCfsPct()).append(' ').append(srCfs.getCfsSector()).append(' ').append(srCfs.getCfsAddr()).toString();
+                return new StringBuilder().append(srCfs.getCfs_letter()).append(' ').append(srCfs.getCfs_pct()).append(' ').append(srCfs.getCfs_sector()).append(' ').append(srCfs.getCfs_addr()).toString();
             }
         };
     }
@@ -207,7 +207,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrLayerDynamicData, String> ApplicationConversionServiceFactoryBean.getSrLayerDynamicDataToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrLayerDynamicData, java.lang.String>() {
             public String convert(SrLayerDynamicData srLayerDynamicData) {
-                return new StringBuilder().append(srLayerDynamicData.getLayerId()).append(' ').append(srLayerDynamicData.getFeatureData()).append(' ').append(srLayerDynamicData.getFeatureStart()).append(' ').append(srLayerDynamicData.getFeatureEnd()).toString();
+                return new StringBuilder().append(srLayerDynamicData.getLayer_id()).append(' ').append(srLayerDynamicData.getFeature_data()).append(' ').append(srLayerDynamicData.getFeature_start()).append(' ').append(srLayerDynamicData.getFeature_end()).toString();
             }
         };
     }
@@ -415,7 +415,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrStyleRules, String> ApplicationConversionServiceFactoryBean.getSrStyleRulesToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrStyleRules, java.lang.String>() {
             public String convert(SrStyleRules srStyleRules) {
-                return new StringBuilder().append(srStyleRules.getName()).append(' ').append(srStyleRules.getStyleId()).append(' ').append(srStyleRules.getSymbolizerId()).append(' ').append(srStyleRules.getFilterData()).toString();
+                return new StringBuilder().append(srStyleRules.getName()).append(' ').append(srStyleRules.getStyle_id()).append(' ').append(srStyleRules.getSymbolizer_id()).append(' ').append(srStyleRules.getFilter_data()).toString();
             }
         };
     }
@@ -439,7 +439,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrStyleSymbolizers, String> ApplicationConversionServiceFactoryBean.getSrStyleSymbolizersToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrStyleSymbolizers, java.lang.String>() {
             public String convert(SrStyleSymbolizers srStyleSymbolizers) {
-                return new StringBuilder().append(srStyleSymbolizers.getName()).append(' ').append(srStyleSymbolizers.getLabel()).append(' ').append(srStyleSymbolizers.getFillcolor()).append(' ').append(srStyleSymbolizers.getFillopacity()).toString();
+                return new StringBuilder().append(srStyleSymbolizers.getName()).append(' ').append(srStyleSymbolizers.getLabel()).append(' ').append(srStyleSymbolizers.getRotation()).append(' ').append(srStyleSymbolizers.getCreatedOn()).toString();
             }
         };
     }
@@ -463,7 +463,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrStyles, String> ApplicationConversionServiceFactoryBean.getSrStylesToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrStyles, java.lang.String>() {
             public String convert(SrStyles srStyles) {
-                return new StringBuilder().append(srStyles.getName()).append(' ').append(srStyles.getStylemapId()).append(' ').append(srStyles.getRenderType()).append(' ').append(srStyles.getDefaultsymbolizerId()).toString();
+                return new StringBuilder().append(srStyles.getName()).append(' ').append(srStyles.getStylemap_id()).append(' ').append(srStyles.getRender_type()).append(' ').append(srStyles.getDefaultsymbolizer_id()).toString();
             }
         };
     }
@@ -511,7 +511,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrWindowLayout, String> ApplicationConversionServiceFactoryBean.getSrWindowLayoutToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrWindowLayout, java.lang.String>() {
             public String convert(SrWindowLayout srWindowLayout) {
-                return new StringBuilder().append(srWindowLayout.getName()).append(' ').append(srWindowLayout.getShowname()).append(' ').append(srWindowLayout.getTheme()).append(' ').append(srWindowLayout.getViewX()).toString();
+                return new StringBuilder().append(srWindowLayout.getName()).append(' ').append(srWindowLayout.getShowname()).append(' ').append(srWindowLayout.getTheme()).append(' ').append(srWindowLayout.getView_x()).toString();
             }
         };
     }

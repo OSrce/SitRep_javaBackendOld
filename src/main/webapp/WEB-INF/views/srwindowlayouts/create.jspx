@@ -6,9 +6,9 @@
         <field:input field="name" id="c_com_osrce_sitrep_domain_SrWindowLayout_name" required="true" z="hozX3937K42bNJhi8ncMy8JzlpQ="/>
         <field:input field="showname" id="c_com_osrce_sitrep_domain_SrWindowLayout_showname" required="true" validationMessageCode="field_invalid_integer" z="db1tBEci/4bdYZuqs/M6dJY7/SU="/>
         <field:input field="theme" id="c_com_osrce_sitrep_domain_SrWindowLayout_theme" required="true" validationMessageCode="field_invalid_integer" z="UwHlSFRWxS62YUw53+4oGQxQ19A="/>
-        <field:input field="viewX" id="c_com_osrce_sitrep_domain_SrWindowLayout_viewX" required="true" validationMessageCode="field_invalid_integer" z="24uuMMh2QbvujGKM3HSocULVQIU="/>
-        <field:input field="viewY" id="c_com_osrce_sitrep_domain_SrWindowLayout_viewY" required="true" validationMessageCode="field_invalid_integer" z="8N2zJNcWPazgPtpr9a4zH+xKh5U="/>
-        <field:input field="viewData" id="c_com_osrce_sitrep_domain_SrWindowLayout_viewData" z="Xr+h99t0O9sstruDjD6eKDoLgII="/>
+        <field:input field="view_x" id="c_com_osrce_sitrep_domain_SrWindowLayout_view_x" required="true" validationMessageCode="field_invalid_integer" z="6nD5ptb37qt+y9LCzQeMbsxbH1g="/>
+        <field:input field="view_y" id="c_com_osrce_sitrep_domain_SrWindowLayout_view_y" required="true" validationMessageCode="field_invalid_integer" z="4idibHCeYYIM2UqRBFVz/hNJVGQ="/>
+        <field:input field="view_data" id="c_com_osrce_sitrep_domain_SrWindowLayout_view_data" z="xCKGcebJWxk9khUJ7J3qwtwTzXE="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrWindowLayout" render="${not empty dependencies}" z="W8pj+8RzqGvyJN/YLcFrJb9OXnY="/>
 </div>

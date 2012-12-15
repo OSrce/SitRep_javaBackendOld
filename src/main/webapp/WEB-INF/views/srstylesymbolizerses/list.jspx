@@ -6,10 +6,10 @@
         <table:table data="${srstylesymbolizerses}" id="l_com_osrce_sitrep_domain_SrStyleSymbolizers" path="/srstylesymbolizerses" z="Mf0f67AfHZ9k1kQpHlq7+Gq3Vpo=">
             <table:column id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_name" property="name" z="lsNhSvUL8tyCiq1NWXTP6KEDrIs="/>
             <table:column id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_label" property="label" z="+R82eDKPDbsRUtFNzv3c6fPtRjw="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fillcolor" property="fillcolor" z="qEDdnygmdWOCRwUxjuGUKa3JdOk="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fillopacity" property="fillopacity" z="h91vJTMU/1MMJvybWpXJGbBWrY0="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_strokecolor" property="strokecolor" z="iou3xVfjPlFpG8PZr84r3GyddE4="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_strokeopacity" property="strokeopacity" z="hi8KOezhBeSVi5ZPCRmrFWKBEZg="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_rotation" property="rotation" z="HhcD0ozvudHeHtC+W3UihbPtqsA="/>
+            <table:column date="true" dateTimePattern="${srStyleSymbolizers_createdon_date_format}" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_createdOn" property="createdOn" z="tjBnw8Rn16F7vGJhbgKoTVu6NJA="/>
+            <table:column date="true" dateTimePattern="${srStyleSymbolizers_updatedon_date_format}" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedOn" property="updatedOn" z="31L94WKu2qzjyWSSRKSh2Xrx8S4="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_createdBy" property="createdBy" z="OH+y3Oh2qoSB54NeYiMkCQg+eaU="/>
         </table:table>
     </page:list>
 </div>

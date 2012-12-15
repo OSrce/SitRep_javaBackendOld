@@ -3,12 +3,9 @@
 
 package com.osrce.sitrep.web;
 
-import com.osrce.sitrep.domain.Layer_format;
-import com.osrce.sitrep.domain.Layer_type;
 import com.osrce.sitrep.domain.SrLayers;
 import com.osrce.sitrep.web.SrLayersController;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
@@ -99,8 +96,6 @@ privileged aspect SrLayersController_Roo_Controller {
     void SrLayersController.populateEditForm(Model uiModel, SrLayers srLayers) {
         uiModel.addAttribute("srLayers", srLayers);
         addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("layer_formats", Arrays.asList(Layer_format.values()));
-        uiModel.addAttribute("layer_types", Arrays.asList(Layer_type.values()));
     }
     
     String SrLayersController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

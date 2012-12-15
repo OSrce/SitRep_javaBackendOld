@@ -17,11 +17,11 @@
 
 <!-- files and directory locations -->
   <webresources.location>${project.build.directory}/WebResources</webresources.location>
-  <webresources.javascript.location>${webresources.location}/lib</webresources.javascript.location>
-  <dojo.version>1.8.1</dojo.version>
-  <dojo.source.basename>dojo-release-${dojo.version}-src</dojo.source.basename>
+  <webresources.javascript.location>${webresources.location}/externaljs</webresources.javascript.location>
+  <dojo.version>1.7.3</dojo.version>
+  <dojo.source.basename>dojo-release-${dojo.version}</dojo.source.basename>
   <dojo.source.friendlyname>dojo-${dojo.version}</dojo.source.friendlyname>
-  <dojo.source.local.unpacked.location>${webresources.javascript.location}/${dojo.source.friendlyname}</dojo.source.local.unpacked.location>
+  <dojo.source.local.unpacked.location>${webresources.location}/lib</dojo.source.local.unpacked.location>
    
   <!-- dojo custom build parameters -->
   <dojo.build.profileFile>${project.build.directory}/../src/main/webapp/lib/srd/srd.profile.js</dojo.build.profileFile>
@@ -30,7 +30,9 @@
   <dojo.build.release.name>dojo-release</dojo.build.release.name>
   <dojo.build.release.location>${webresources.javascript.location}</dojo.build.release.location>
     
-  <openlayers.unpacked.location>${webresources.javascript.location}/OpenLayers</openlayers.unpacked.location>
+  <openlayers.unpacked.location>${webresources.location}/lib/OpenLayers</openlayers.unpacked.location>
+  <cometd.unpacked.location>${webresources.location}/lib/org</cometd.unpacked.location>
+  <cometd.jsSourceDir>${webresources.location}/externaljs/cometd-javascript/common/src/main/js</cometd.jsSourceDir>
     
         
     </properties>
@@ -558,7 +560,7 @@
       					    <artifactItem>
      					       <groupId>org.dojotoolkit</groupId>
       					      <artifactId>dojo</artifactId>
-            				<classifier>sources</classifier>
+            				<classifier>release</classifier>
            					 <version>${dojo.version}</version>
            					 <type>zip</type>
          					   <outputDirectory>${webresources.javascript.location}</outputDirectory>
@@ -571,6 +573,22 @@
            					 <type>tar.gz</type>
          					   <outputDirectory>${webresources.javascript.location}</outputDirectory>
       				    </artifactItem>
+       				    <artifactItem>
+     						<groupId>org.cometd</groupId>
+      					      <artifactId>cometd-javascript-common</artifactId>
+            				<classifier>sources</classifier>
+           					 <version>2.5.1</version>
+           					 <type>tar.gz</type>
+         					   <outputDirectory>${webresources.javascript.location}</outputDirectory>
+      				    </artifactItem>
+       				    <artifactItem>
+     						<groupId>org.cometd</groupId>
+      					      <artifactId>cometd-javascript-dojo</artifactId>
+            				<classifier>sources</classifier>
+           					 <version>2.5.1</version>
+           					 <type>tar.gz</type>
+         					   <outputDirectory>${webresources.javascript.location}</outputDirectory>
+      				    </artifactItem>      				    
       				    
         </artifactItems>
       </configuration>
@@ -582,19 +600,32 @@
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-antrun-plugin</artifactId>
+  <version>1.7</version>
   <executions>
     <execution>
       <id>move</id>
       <configuration>
         <tasks>
-          <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.dojotoolkit-dojo-zip-sources-1.8.1.marker" />
+          <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.dojotoolkit-dojo-zip-release-1.7.3.marker" />
           <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.openlayers-openlayers-tar.gz-release-2.12.marker" />
+          <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.cometd-cometd-javascript-common-tar.gz-sources-2.5.1.marker" />
+          <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.cometd-cometd-javascript-dojo-tar.gz-sources-2.5.1.marker" />
           <move 
             file="${webresources.javascript.location}/${dojo.source.basename}"
             tofile="${dojo.source.local.unpacked.location}" />
            <move 
             file="${webresources.javascript.location}/OpenLayers-2.12"
-            tofile="${openlayers.unpacked.location}" />         
+            tofile="${openlayers.unpacked.location}" />
+            <move 
+            file="${webresources.javascript.location}/cometd-javascript/common/src/main/webapp/org"
+            tofile="${cometd.unpacked.location}" />
+            <copy
+            file="${webresources.javascript.location}/cometd-javascript/dojo/src/main/webapp/dojox/cometd/main.js"
+            tofile="${dojo.source.local.unpacked.location}/dojox/cometd.js" />
+            <move 
+            file="${webresources.javascript.location}/cometd-javascript/dojo/src/main/webapp/dojox"
+            tofile="${dojo.source.local.unpacked.location}/dojox" />  
+            
         </tasks>
       </configuration>
       <phase>process-sources</phase>
@@ -604,7 +635,54 @@
     </execution>
   </executions>
 </plugin>
-    
+
+<!-- BEGIN compress/aggregate js files into cometd.js (in org dir) CometD stuff   -->   
+
+<plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <id>aggregate-js</id>
+                        <goals>
+                            <goal>compress</goal>
+                        </goals>
+                        <configuration>
+                            <aggregations>
+                                <aggregation>
+                                    <output>${project.build.directory}/WebResources/lib/org/cometd.js</output>
+                                    <insertNewLine>true</insertNewLine>
+                                    <includes>
+                                        <include>${cometd.jsSourceDir}/org/cometd/cometd-header.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/cometd-namespace.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/cometd-json.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/Utils.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/TransportRegistry.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/Transport.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/RequestTransport.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/LongPollingTransport.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/CallbackPollingTransport.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/WebSocketTransport.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/Cometd.js</include>
+                                        <include>${cometd.jsSourceDir}/org/cometd/cometd-amd.js</include>
+                                    </includes>
+                                </aggregation>
+                            </aggregations>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <disableOptimizations>true</disableOptimizations>
+                    <nosuffix>true</nosuffix>
+                    <nomunge>true</nomunge>
+                    <jswarn>false</jswarn>
+                    <excludes>
+                        <exclude>${basedir}/src/main/webapp/**</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
     
     
 <!-- BEGIN Add dojo to WAR   -->
@@ -617,7 +695,12 @@
           <resource>
             <!-- this is relative to the pom.xml directory -->
             <directory>${webresources.location}</directory>
-            
+			<includes>
+              <include>lib/**</include>
+            </includes>       
+			<excludes>
+              <exclude>externaljs/**</exclude>
+            </excludes>            
           </resource>
         </webResources>
       </configuration>
@@ -675,6 +758,20 @@
               </pluginExecutionFilter>
               <action>
                 <ignore />
+              </action>
+            </pluginExecution>
+
+            <pluginExecution>
+              <pluginExecutionFilter>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <versionRange>[1.0,)</versionRange>
+                <goals>
+                  <goal>compress</goal>
+                </goals>
+              </pluginExecutionFilter>
+              <action>
+                <execute />
               </action>
             </pluginExecution>
              

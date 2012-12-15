@@ -36,7 +36,7 @@ srd_edit.prototype.loadEditTools = function() {
 
 
 
-}
+};
 
 
 

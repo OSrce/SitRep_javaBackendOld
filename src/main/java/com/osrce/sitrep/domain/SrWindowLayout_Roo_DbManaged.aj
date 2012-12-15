@@ -21,17 +21,6 @@ privileged aspect SrWindowLayout_Roo_DbManaged {
     @NotNull
     private Integer SrWindowLayout.theme;
     
-    @Column(name = "view_x")
-    @NotNull
-    private Integer SrWindowLayout.viewX;
-    
-    @Column(name = "view_y")
-    @NotNull
-    private Integer SrWindowLayout.viewY;
-    
-    @Column(name = "view_data")
-    private String SrWindowLayout.viewData;
-    
     public String SrWindowLayout.getName() {
         return name;
     }
@@ -54,30 +43,6 @@ privileged aspect SrWindowLayout_Roo_DbManaged {
     
     public void SrWindowLayout.setTheme(Integer theme) {
         this.theme = theme;
-    }
-    
-    public Integer SrWindowLayout.getViewX() {
-        return viewX;
-    }
-    
-    public void SrWindowLayout.setViewX(Integer viewX) {
-        this.viewX = viewX;
-    }
-    
-    public Integer SrWindowLayout.getViewY() {
-        return viewY;
-    }
-    
-    public void SrWindowLayout.setViewY(Integer viewY) {
-        this.viewY = viewY;
-    }
-    
-    public String SrWindowLayout.getViewData() {
-        return viewData;
-    }
-    
-    public void SrWindowLayout.setViewData(String viewData) {
-        this.viewData = viewData;
     }
     
 }

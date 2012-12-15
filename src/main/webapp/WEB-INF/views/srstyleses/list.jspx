@@ -5,9 +5,9 @@
     <page:list id="pl_com_osrce_sitrep_domain_SrStyles" items="${srstyleses}" z="rQPywQ85EFWoWJfrehqp2QKcfnI=">
         <table:table data="${srstyleses}" id="l_com_osrce_sitrep_domain_SrStyles" path="/srstyleses" z="QQCbjvi1AhnUWwLn8wZpcitUy9I=">
             <table:column id="c_com_osrce_sitrep_domain_SrStyles_name" property="name" z="bj+kBXBKedsCuULSN9sHHRcgnW4="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrStyles_stylemapId" property="stylemapId" z="/JJz1iuqpeDjvq3Hg33ZQ/lNzuU="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrStyles_renderType" property="renderType" z="N0hm3ta15Qo7/dcvr61t3T94OzQ="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrStyles_defaultsymbolizerId" property="defaultsymbolizerId" z="k2ixkVLj1USLeM8DpLGfZskOKjc="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrStyles_stylemap_id" property="stylemap_id" z="mXvC0wvqKMvjMP3Qzy6RUDhyqG8="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrStyles_render_type" property="render_type" z="LfvxSaeFSbwcJS7cFQb7XiK/h54="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrStyles_defaultsymbolizer_id" property="defaultsymbolizer_id" z="Lk+w6C0WldX4OK3T/yO1zqZRO4A="/>
         </table:table>
     </page:list>
 </div>

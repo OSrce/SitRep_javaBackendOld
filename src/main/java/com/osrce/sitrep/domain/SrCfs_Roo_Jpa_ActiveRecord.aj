@@ -7,13 +7,9 @@ import com.osrce.sitrep.domain.SrCfs;
 import com.osrce.sitrep.domain.SrCfsPK;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect SrCfs_Roo_Jpa_ActiveRecord {
-    
-    @PersistenceContext
-    transient EntityManager SrCfs.entityManager;
     
     public static final EntityManager SrCfs.entityManager() {
         EntityManager em = new SrCfs().entityManager;

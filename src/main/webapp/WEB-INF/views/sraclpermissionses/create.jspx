@@ -5,11 +5,11 @@
     <form:create id="fc_com_osrce_sitrep_domain_SrAclPermissions" modelAttribute="srAclPermissions" path="/sraclpermissionses" render="${empty dependencies}" z="FwC/PR2k//epC4rhcxj0fe7Yqto=">
         <field:input field="roleId" id="c_com_osrce_sitrep_domain_SrAclPermissions_roleId" required="true" validationMessageCode="field_invalid_integer" z="7SEnybMm4GzMBCsKS5wotMJj5B4="/>
         <field:input field="resourceId" id="c_com_osrce_sitrep_domain_SrAclPermissions_resourceId" required="true" validationMessageCode="field_invalid_integer" z="48oJcse5bdaaSpN8BCbRPs6bs+8="/>
-        <field:select field="roleType" id="c_com_osrce_sitrep_domain_SrAclPermissions_roleType" items="${roletypes}" path="roletypes" z="jJMNcsQF2KZFaAOzxpqJN6ingXY="/>
-        <field:select field="permissionCreate" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionCreate" items="${permittypes}" path="permittypes" z="R0HAzckO+BTc3qpNeJ+022wTtRw="/>
-        <field:select field="permissionRead" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionRead" items="${permittypes}" path="permittypes" z="ihu07lh+CJX+L23/5y1j8wwo82A="/>
-        <field:select field="permissionUpdate" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionUpdate" items="${permittypes}" path="permittypes" z="unLuVBv8QD82oVaDQrtaZ6pCMTE="/>
-        <field:select field="permissionDelete" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionDelete" items="${permittypes}" path="permittypes" z="fhhcrtf3Fxsks9x49jb3MbgdGj0="/>
+        <field:input field="roleType" id="c_com_osrce_sitrep_domain_SrAclPermissions_roleType" z="60IJU84fg4aZyJdMmn3ct5pGlfg="/>
+        <field:input field="permissionCreate" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionCreate" z="/qD1WQEZmUW4pqYmBniIQ/OwqWU="/>
+        <field:input field="permissionRead" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionRead" z="zdfH54gIIKz0diKglS8NO/lc/L4="/>
+        <field:input field="permissionUpdate" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionUpdate" z="EKX48EuT4bsYQ3MOvc9j4KFzAKs="/>
+        <field:input field="permissionDelete" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionDelete" z="D/G3J+LucThbVQHGzCcdw3/D2pA="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrAclPermissions" render="${not empty dependencies}" z="eDDjoIX0bLc+WrTNA27C+dWATcc="/>
 </div>

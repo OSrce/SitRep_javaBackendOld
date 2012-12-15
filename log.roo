@@ -158,3 +158,47 @@ perform tests
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-08 11:28:59
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-08 17:29:12
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-10 11:26:28
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-10 22:59:30
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-11 00:17:51
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-11 00:38:16
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-11 00:45:36
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-11 01:12:26
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-11 01:21:15
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-11 16:53:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-11 23:59:17
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-12 01:08:49
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-12 11:28:47
+help
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-12 17:27:31
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-12 17:28:27
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-12 17:50:42
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-13 10:33:25
+web mvc controller --class  ~.web.ViewHomeController 
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-13 11:17:25
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-13 11:18:23
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-13 11:28:28
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-13 11:54:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-13 13:04:53
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-13 13:07:34
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-13 13:09:26
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-13 13:16:37
+web mvc json all 
+json add --class ~.domain.SrQueries
+json all
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-13 18:10:00
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-13 22:53:33
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-14 00:37:25
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-14 10:23:58
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-14 10:30:12
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-14 10:34:21
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-14 11:58:26
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-14 12:02:24
+web mvc json all 
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-14 15:54:50
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-14 16:00:43
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-14 16:03:01
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-14 16:05:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-14 16:50:02
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-14 17:01:30
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-14 22:28:57
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-15 14:29:18

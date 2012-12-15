@@ -89,8 +89,8 @@ privileged aspect SrLayerDynamicDataController_Roo_Controller {
     }
     
     void SrLayerDynamicDataController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("srLayerDynamicData_featurestart_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("srLayerDynamicData_featureend_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("srLayerDynamicData_feature_start_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("srLayerDynamicData_feature_end_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     void SrLayerDynamicDataController.populateEditForm(Model uiModel, SrLayerDynamicData srLayerDynamicData) {

@@ -87,5 +87,8 @@
             <menu:item id="i_srlayerstaticdata_new" messageCode="global_menu_new" url="/srlayerstaticdatas?form" z="HqUUn32ia8rXHg/moWyfVMic4As="/>
             <menu:item id="i_srlayerstaticdata_list" messageCode="global_menu_list" url="/srlayerstaticdatas?page=1&amp;size=${empty param.size ? 10 : param.size}" z="8o0/VdK1ENVceFrSp/Xq85CkG0c="/>
         </menu:category>
+        <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
+            <menu:item id="i_controller__viewhomeindex_id" messageCode="global_generic" url="/viewhome/index" z="U3/9qb+Y5Y1jZITG2DM9LXnkj6A="/>
+        </menu:category>
     </menu:menu>
 </div>

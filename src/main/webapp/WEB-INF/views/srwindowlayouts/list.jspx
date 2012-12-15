@@ -7,9 +7,9 @@
             <table:column id="c_com_osrce_sitrep_domain_SrWindowLayout_name" property="name" z="J2Wq0C/5/ET7vytUCZoMn1Mv6xU="/>
             <table:column id="c_com_osrce_sitrep_domain_SrWindowLayout_showname" property="showname" z="nDFw5EdAmpk/orgcsjtTbly0BPg="/>
             <table:column id="c_com_osrce_sitrep_domain_SrWindowLayout_theme" property="theme" z="l8LerbSyLe2e2mkbnATpAsdnJAM="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrWindowLayout_viewX" property="viewX" z="OKKifLoG35Oq28UjqlOsdcywwkY="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrWindowLayout_viewY" property="viewY" z="53daa6z0ggvoR8UnKcrdrjdKnjY="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrWindowLayout_viewData" property="viewData" z="w2zNSAWG0+ie1kGf/XGdv+mOydI="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrWindowLayout_view_x" property="view_x" z="4for2I9efAgWRrlE6IiRJKeEh98="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrWindowLayout_view_y" property="view_y" z="NlSIZ9q5liRpbcEV/jkQh1tUHqo="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrWindowLayout_view_data" property="view_data" z="LR5rynGNGsPykptmd041q/h4wSE="/>
         </table:table>
     </page:list>
 </div>

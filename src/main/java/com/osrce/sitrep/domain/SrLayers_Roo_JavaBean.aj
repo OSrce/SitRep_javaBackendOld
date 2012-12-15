@@ -3,8 +3,6 @@
 
 package com.osrce.sitrep.domain;
 
-import com.osrce.sitrep.domain.Layer_format;
-import com.osrce.sitrep.domain.Layer_type;
 import com.osrce.sitrep.domain.SrLayers;
 
 privileged aspect SrLayers_Roo_JavaBean {
@@ -17,19 +15,19 @@ privileged aspect SrLayers_Roo_JavaBean {
         this.id = id;
     }
     
-    public Layer_type SrLayers.getLayerType() {
+    public String SrLayers.getLayerType() {
         return this.layerType;
     }
     
-    public void SrLayers.setLayerType(Layer_type layerType) {
+    public void SrLayers.setLayerType(String layerType) {
         this.layerType = layerType;
     }
     
-    public Layer_format SrLayers.getLayerFormat() {
+    public String SrLayers.getLayerFormat() {
         return this.layerFormat;
     }
     
-    public void SrLayers.setLayerFormat(Layer_format layerFormat) {
+    public void SrLayers.setLayerFormat(String layerFormat) {
         this.layerFormat = layerFormat;
     }
     

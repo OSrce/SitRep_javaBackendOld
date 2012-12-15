@@ -3,10 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_osrce_sitrep_domain_SrLayerDynamicData" object="${srlayerdynamicdata}" path="/srlayerdynamicdatas" z="S/ibr6Bc8yjyue5O8xJYPTK0EGQ=">
-        <field:display field="layerId" id="s_com_osrce_sitrep_domain_SrLayerDynamicData_layerId" object="${srlayerdynamicdata}" z="LdYb3NudXgUbTEYkqX/gS6Ktpu0="/>
-        <field:display field="featureData" id="s_com_osrce_sitrep_domain_SrLayerDynamicData_featureData" object="${srlayerdynamicdata}" z="tANPmiEa9mebvdqpUeVYgmqmM0Y="/>
-        <field:display date="true" dateTimePattern="${srLayerDynamicData_featurestart_date_format}" field="featureStart" id="s_com_osrce_sitrep_domain_SrLayerDynamicData_featureStart" object="${srlayerdynamicdata}" z="duehXSLRgZuYHS5F/Ew4H9DNxbs="/>
-        <field:display date="true" dateTimePattern="${srLayerDynamicData_featureend_date_format}" field="featureEnd" id="s_com_osrce_sitrep_domain_SrLayerDynamicData_featureEnd" object="${srlayerdynamicdata}" z="JkjjHaFswr0vc6PGYk/kbWk0IKw="/>
-        <field:display field="sr_geom" id="s_com_osrce_sitrep_domain_SrLayerDynamicData_sr_geom" object="${srlayerdynamicdata}" z="Q6RIZxKI1RaNZSGOWSGHTF7iLPc="/>
+        <field:display field="layer_id" id="s_com_osrce_sitrep_domain_SrLayerDynamicData_layer_id" object="${srlayerdynamicdata}" z="P2BNfxC9+4P0ly3KlH2T6aZ5wi4="/>
+        <field:display field="feature_data" id="s_com_osrce_sitrep_domain_SrLayerDynamicData_feature_data" object="${srlayerdynamicdata}" z="ByJR9mZf+laskVUUG79xgOev4DQ="/>
+        <field:display date="true" dateTimePattern="${srLayerDynamicData_feature_start_date_format}" field="feature_start" id="s_com_osrce_sitrep_domain_SrLayerDynamicData_feature_start" object="${srlayerdynamicdata}" z="zzl4qWOSsRM2CpB5hEOP2JE0LPo="/>
+        <field:display date="true" dateTimePattern="${srLayerDynamicData_feature_end_date_format}" field="feature_end" id="s_com_osrce_sitrep_domain_SrLayerDynamicData_feature_end" object="${srlayerdynamicdata}" z="JN8Udb4KK62DlEB2fnPI5DuPMc8="/>
+        <field:display field="geometry" id="s_com_osrce_sitrep_domain_SrLayerDynamicData_geometry" object="${srlayerdynamicdata}" z="jPiOz/YVChRpmIkUMQDoQcnEzLY="/>
     </page:show>
 </div>

@@ -4,8 +4,8 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_osrce_sitrep_domain_SrStyles" object="${srstyles}" path="/srstyleses" z="iPXW+ZkGwvd24qDgSgViseNOqAI=">
         <field:display field="name" id="s_com_osrce_sitrep_domain_SrStyles_name" object="${srstyles}" z="4/R3+V0nEbBbDIJi3wqb8FATRVk="/>
-        <field:display field="stylemapId" id="s_com_osrce_sitrep_domain_SrStyles_stylemapId" object="${srstyles}" z="XbW2DjK7AvCVaBw9Z0LqRS5vtIc="/>
-        <field:display field="renderType" id="s_com_osrce_sitrep_domain_SrStyles_renderType" object="${srstyles}" z="zuJtZSRjysJN8x4OEr4L9ExinqE="/>
-        <field:display field="defaultsymbolizerId" id="s_com_osrce_sitrep_domain_SrStyles_defaultsymbolizerId" object="${srstyles}" z="OSpep9SVbb87kObruqBlqFJPdlo="/>
+        <field:display field="stylemap_id" id="s_com_osrce_sitrep_domain_SrStyles_stylemap_id" object="${srstyles}" z="07zU2d7y000XqFb28bhSTazYG4A="/>
+        <field:display field="render_type" id="s_com_osrce_sitrep_domain_SrStyles_render_type" object="${srstyles}" z="7AYHbTR3P+qFkojYQuZhPs3YlgA="/>
+        <field:display field="defaultsymbolizer_id" id="s_com_osrce_sitrep_domain_SrStyles_defaultsymbolizer_id" object="${srstyles}" z="o+brKE5nIn3FtBbOxt/YgSCOqRg="/>
     </page:show>
 </div>

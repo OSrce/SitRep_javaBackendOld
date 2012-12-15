@@ -47,8 +47,9 @@ return declare(
 //				console.log("Selected Layer : "+this.srd_selLayer.name);
 				// DEFINE ALL THE DIFFERENT TABLE WE CAN CONNECT TO:
 				this.tableList = {
-					"Calls for service - SPRINT" : "/srdata/cfs/"
-				}
+					"Calls for service - SPRINT" : "/srcfses/"
+				};
+				
 				this.selectedTable = "Calls for service - SPRINT";
 				this.selectedDataMenu = new dijit.Menu();
 //				if(this.data.autoRefresh) {
@@ -177,7 +178,7 @@ return declare(
 				// CHECK TO SEE IF srd_queryid is set and if so, get QUERY FROM queryArr
 				if(this.data.srd_queryid && this.srd_queryArr[this.data.srd_queryid]) {
 					if(this.srd_queryArr[this.data.srd_queryid].data) {
-						this.data.srd_query = this.srd_queryArr[this.data.srd_queryid].data;
+						this.data.srd_query = dojo.fromJson(this.srd_queryArr[this.data.srd_queryid].data);
 					}
 				}
 	
@@ -508,7 +509,7 @@ return declare(
 		changeQuery: function(theQueryId) {
 			console.log("Change Query to id:"+theQueryId);
 			this.data.srd_queryid = theQueryId;
-			this.srd_query = this.srd_queryArr[theQueryId].data;
+			this.srd_query = dojo.fromJson( this.srd_queryArr[theQueryId].data );
 			this.refreshTable();
 			this.srd_doc.updateLayoutNameDisplay();
 

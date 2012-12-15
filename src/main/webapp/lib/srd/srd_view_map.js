@@ -9,8 +9,10 @@
 /////////////////////////////////
 define( 'srd/srd_view_map', [
 	"dojo/_base/declare",
+	"dojo/on",
+	"dojo/_base/lang",
 	"srd/srd_view"
-], function(declare, srd_view) {
+], function(declare, on, lang, srd_view) {
 
 
 //srd_view_map class definition using dojo.declare 
@@ -30,7 +32,7 @@ define( 'srd/srd_view_map', [
 		geolocateFirstTime : true,	
 		//CONSTUCTOR
 		constructor : function( view_data, parent_srd_doc) {
-			console.log("srd_view_map constructor called!");
+			console.log("srd_view_map constructor called !");
 			this.start_lat = view_data.start_lat;
 			this.start_lon = view_data.start_lon;
 			this.start_zoom = view_data.start_zoom;
@@ -39,7 +41,9 @@ define( 'srd/srd_view_map', [
 			this.srd_mapContent = new dijit.layout.ContentPane(
 	     {  splitter: 'false', style: "background-color:black;width:100%;height:100%;border:0px;margin:0px;padding:0px;", region: 'center'} );
 			this.srd_mapContent.connect(this.srd_mapContent,'onShow', function(data) { this.map_init(); }.bind(this)  );
+//			on( this.srd_mapContent, 'onShow', lang.hitch(this, "map_init") );
 			this.insideContainer.addChild(this.srd_mapContent);
+//			this.srd_mapContent.onShow();
 //			this.map_init();
 		},
 		map_init : function() {

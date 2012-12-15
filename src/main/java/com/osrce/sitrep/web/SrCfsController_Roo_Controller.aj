@@ -100,11 +100,11 @@ privileged aspect SrCfsController_Roo_Controller {
     }
     
     void SrCfsController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("srCfs_cfstimecreated_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("srCfs_cfstimeassigned_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("srCfs_cfsfinaldisdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("srCfs_cfscreatedon_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("srCfs_cfsupdatedon_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("srCfs_cfs_timecreated_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("srCfs_cfs_timeassigned_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("srCfs_cfs_finaldisdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("srCfs_cfs_created_on_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("srCfs_cfs_updated_on_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     void SrCfsController.populateEditForm(Model uiModel, SrCfs srCfs) {

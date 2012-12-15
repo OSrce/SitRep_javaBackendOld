@@ -3,10 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_osrce_sitrep_domain_SrLayerDynamicData" modelAttribute="srLayerDynamicData" path="/srlayerdynamicdatas" versionField="none" z="q2Zfl7aqRvXUtRC2qz3+vlLpCiw=">
-        <field:input field="layerId" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_layerId" required="true" validationMessageCode="field_invalid_integer" z="X6Lysn7hnfK8vfIQX3yy9FbWDZQ="/>
-        <field:input field="featureData" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureData" z="hUSIZn0Y8S3YYdUDORUjup5llUw="/>
-        <field:datetime dateTimePattern="${srLayerDynamicData_featurestart_date_format}" field="featureStart" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureStart" z="suwd8EOUK9Y0Eqo95oB1zM70BlM="/>
-        <field:datetime dateTimePattern="${srLayerDynamicData_featureend_date_format}" field="featureEnd" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureEnd" z="3A9cwCuxMwfY2jQOcvGFuycHVbM="/>
-        <field:input field="sr_geom" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_sr_geom" z="PHIaQCF5iAlfhLk8M3r9yMQLQDM="/>
+        <field:input field="layer_id" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_layer_id" required="true" validationMessageCode="field_invalid_integer" z="iZTuWFHfyRXNaYdmQ5EWjY66Q9s="/>
+        <field:input field="feature_data" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_feature_data" z="h2KAvU4nRNIoPH7iTxMxSRtze6k="/>
+        <field:datetime dateTimePattern="${srLayerDynamicData_feature_start_date_format}" field="feature_start" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_feature_start" z="bs6pldDq63j+aI70rmuhbFfQxI8="/>
+        <field:datetime dateTimePattern="${srLayerDynamicData_feature_end_date_format}" field="feature_end" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_feature_end" z="KFQHkPp/AppB9Vm1+DhQxmSTG9g="/>
+        <field:input field="geometry" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_geometry" z="2gVDEABR/mCxNlbJRNDOf++YhP0="/>
     </form:update>
 </div>

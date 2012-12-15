@@ -4,10 +4,10 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_osrce_sitrep_domain_SrStyleRules" modelAttribute="srStyleRules" path="/srstyleruleses" render="${empty dependencies}" z="HK6HKef+cgdXhAooKT4ZoSv7yiI=">
         <field:input field="name" id="c_com_osrce_sitrep_domain_SrStyleRules_name" required="true" z="X83+ATlhFqkECYt2igVXdV48aFg="/>
-        <field:input field="styleId" id="c_com_osrce_sitrep_domain_SrStyleRules_styleId" required="true" validationMessageCode="field_invalid_integer" z="e52UL2Kq6kTSaMqYgp3r27alSQI="/>
-        <field:input field="symbolizerId" id="c_com_osrce_sitrep_domain_SrStyleRules_symbolizerId" required="true" validationMessageCode="field_invalid_integer" z="TDTyE+8bl4+tM4QAymRX91xxqzM="/>
         <field:checkbox field="elsefilter" id="c_com_osrce_sitrep_domain_SrStyleRules_elsefilter" z="tsN4feuNJfWjp37vl+XnlJbCbjo="/>
-        <field:input field="filterData" id="c_com_osrce_sitrep_domain_SrStyleRules_filterData" z="O+9qnAq5Zy2AWfEYW+XBYUc/MUw="/>
+        <field:input field="style_id" id="c_com_osrce_sitrep_domain_SrStyleRules_style_id" required="true" validationMessageCode="field_invalid_integer" z="fufqaKu/2VvSogYit/HY8jwCLCI="/>
+        <field:input field="symbolizer_id" id="c_com_osrce_sitrep_domain_SrStyleRules_symbolizer_id" required="true" validationMessageCode="field_invalid_integer" z="rDxh8zehGxAyxdjt3IrFEX6OW1I="/>
+        <field:input field="filter_data" id="c_com_osrce_sitrep_domain_SrStyleRules_filter_data" z="S81j1/fFc0fJac/1eqovjuK9zOI="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrStyleRules" render="${not empty dependencies}" z="IE0qRoNHmp8BOpXiwoUQ8z2GJQQ="/>
 </div>

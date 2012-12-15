@@ -18,7 +18,7 @@
         <field:datetime dateTimePattern="${srLayers_updatedon_date_format}" field="updatedOn" id="c_com_osrce_sitrep_domain_SrLayers_updatedOn" z="kcq5B0/sIMum/zz6AAzp0MfdOYo="/>
         <field:input field="createdBy" id="c_com_osrce_sitrep_domain_SrLayers_createdBy" validationMessageCode="field_invalid_integer" z="3+NGQi5y6jtMpFEgxgz3bD9CIBE="/>
         <field:input field="updatedBy" id="c_com_osrce_sitrep_domain_SrLayers_updatedBy" validationMessageCode="field_invalid_integer" z="6VEtMVnZ/JOz4514bMRHhRpi9BA="/>
-        <field:select field="layerType" id="c_com_osrce_sitrep_domain_SrLayers_layerType" items="${layer_types}" path="layer_types" z="0OkTIJPcDKVw2xXK8O8FTlF0UTY="/>
-        <field:select field="layerFormat" id="c_com_osrce_sitrep_domain_SrLayers_layerFormat" items="${layer_formats}" path="layer_formats" z="8sCkenl9RnHq/MvLLHL6IVThT3g="/>
+        <field:input field="layerType" id="c_com_osrce_sitrep_domain_SrLayers_layerType" z="jLhr1ncye3e+n+L5dXQ2xU0nQyQ="/>
+        <field:input field="layerFormat" id="c_com_osrce_sitrep_domain_SrLayers_layerFormat" z="LFIglCVbzqNB62Upm0kMrIzx5dg="/>
     </form:update>
 </div>

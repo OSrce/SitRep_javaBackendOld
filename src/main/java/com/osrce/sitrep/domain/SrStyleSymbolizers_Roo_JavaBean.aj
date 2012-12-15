@@ -15,4 +15,148 @@ privileged aspect SrStyleSymbolizers_Roo_JavaBean {
         this.id = id;
     }
     
+    public String SrStyleSymbolizers.getFillColor() {
+        return this.fillColor;
+    }
+    
+    public void SrStyleSymbolizers.setFillColor(String fillColor) {
+        this.fillColor = fillColor;
+    }
+    
+    public Float SrStyleSymbolizers.getFillOpacity() {
+        return this.fillOpacity;
+    }
+    
+    public void SrStyleSymbolizers.setFillOpacity(Float fillOpacity) {
+        this.fillOpacity = fillOpacity;
+    }
+    
+    public String SrStyleSymbolizers.getStrokeColor() {
+        return this.strokeColor;
+    }
+    
+    public void SrStyleSymbolizers.setStrokeColor(String strokeColor) {
+        this.strokeColor = strokeColor;
+    }
+    
+    public Float SrStyleSymbolizers.getStrokeOpacity() {
+        return this.strokeOpacity;
+    }
+    
+    public void SrStyleSymbolizers.setStrokeOpacity(Float strokeOpacity) {
+        this.strokeOpacity = strokeOpacity;
+    }
+    
+    public Integer SrStyleSymbolizers.getStrokeWidth() {
+        return this.strokeWidth;
+    }
+    
+    public void SrStyleSymbolizers.setStrokeWidth(Integer strokeWidth) {
+        this.strokeWidth = strokeWidth;
+    }
+    
+    public Integer SrStyleSymbolizers.getPointRadius() {
+        return this.pointRadius;
+    }
+    
+    public void SrStyleSymbolizers.setPointRadius(Integer pointRadius) {
+        this.pointRadius = pointRadius;
+    }
+    
+    public String SrStyleSymbolizers.getFontColor() {
+        return this.fontColor;
+    }
+    
+    public void SrStyleSymbolizers.setFontColor(String fontColor) {
+        this.fontColor = fontColor;
+    }
+    
+    public Integer SrStyleSymbolizers.getFontSize() {
+        return this.fontSize;
+    }
+    
+    public void SrStyleSymbolizers.setFontSize(Integer fontSize) {
+        this.fontSize = fontSize;
+    }
+    
+    public String SrStyleSymbolizers.getFontFamily() {
+        return this.fontFamily;
+    }
+    
+    public void SrStyleSymbolizers.setFontFamily(String fontFamily) {
+        this.fontFamily = fontFamily;
+    }
+    
+    public String SrStyleSymbolizers.getFontWeight() {
+        return this.fontWeight;
+    }
+    
+    public void SrStyleSymbolizers.setFontWeight(String fontWeight) {
+        this.fontWeight = fontWeight;
+    }
+    
+    public Float SrStyleSymbolizers.getFontOpacity() {
+        return this.fontOpacity;
+    }
+    
+    public void SrStyleSymbolizers.setFontOpacity(Float fontOpacity) {
+        this.fontOpacity = fontOpacity;
+    }
+    
+    public String SrStyleSymbolizers.getLabelAlign() {
+        return this.labelAlign;
+    }
+    
+    public void SrStyleSymbolizers.setLabelAlign(String labelAlign) {
+        this.labelAlign = labelAlign;
+    }
+    
+    public Integer SrStyleSymbolizers.getLabelXOffset() {
+        return this.labelXOffset;
+    }
+    
+    public void SrStyleSymbolizers.setLabelXOffset(Integer labelXOffset) {
+        this.labelXOffset = labelXOffset;
+    }
+    
+    public Integer SrStyleSymbolizers.getLabelYOffset() {
+        return this.labelYOffset;
+    }
+    
+    public void SrStyleSymbolizers.setLabelYOffset(Integer labelYOffset) {
+        this.labelYOffset = labelYOffset;
+    }
+    
+    public String SrStyleSymbolizers.getExternalGraphic() {
+        return this.externalGraphic;
+    }
+    
+    public void SrStyleSymbolizers.setExternalGraphic(String externalGraphic) {
+        this.externalGraphic = externalGraphic;
+    }
+    
+    public Integer SrStyleSymbolizers.getGraphicWidth() {
+        return this.graphicWidth;
+    }
+    
+    public void SrStyleSymbolizers.setGraphicWidth(Integer graphicWidth) {
+        this.graphicWidth = graphicWidth;
+    }
+    
+    public Integer SrStyleSymbolizers.getGraphicHeight() {
+        return this.graphicHeight;
+    }
+    
+    public void SrStyleSymbolizers.setGraphicHeight(Integer graphicHeight) {
+        this.graphicHeight = graphicHeight;
+    }
+    
+    public Float SrStyleSymbolizers.getGraphicOpacity() {
+        return this.graphicOpacity;
+    }
+    
+    public void SrStyleSymbolizers.setGraphicOpacity(Float graphicOpacity) {
+        this.graphicOpacity = graphicOpacity;
+    }
+    
 }

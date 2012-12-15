@@ -5,35 +5,35 @@
     <form:create compositePkField="id" id="fc_com_osrce_sitrep_domain_SrCfs" modelAttribute="srCfs" path="/srcfses" render="${empty dependencies}" z="sqTRkKTSlf3eFoyOlnOXjzwr9uw=">
         <field:datetime dateTimePattern="${srCfs_id.cfsdate_date_format}" disableFormBinding="true" field="id.cfsDate" id="c_com_osrce_sitrep_domain_SrCfs_id_cfsDate" required="true" z="0uh883kyXvzAlv9g12+v4rcxdCg="/>
         <field:input disableFormBinding="true" field="id.cfsNum" id="c_com_osrce_sitrep_domain_SrCfs_id_cfsNum" required="true" validationMessageCode="field_invalid_integer" z="KTy018Trfft8RGoWMH8e17zyP8c="/>
-        <field:input field="cfsLetter" id="c_com_osrce_sitrep_domain_SrCfs_cfsLetter" required="true" z="tPSu4xB7/swNY10o5V2PqMpkjGk="/>
-        <field:input field="cfsPct" id="c_com_osrce_sitrep_domain_SrCfs_cfsPct" required="true" validationMessageCode="field_invalid_integer" z="jH6wirPfbcTwPg/qDu5M1Mf/0LY="/>
-        <field:input field="cfsSector" id="c_com_osrce_sitrep_domain_SrCfs_cfsSector" required="true" z="BYAfbPhUZlYGeO0JfT34SFjf1fY="/>
-        <field:input field="cfsAddr" id="c_com_osrce_sitrep_domain_SrCfs_cfsAddr" z="phXQjiJ7OQq3OSGCgHHozjJImXQ="/>
-        <field:input field="cfsCross1" id="c_com_osrce_sitrep_domain_SrCfs_cfsCross1" z="SbC5RP3R0Eg2t2Dai49r8gBrsaQ="/>
-        <field:input field="cfsCross2" id="c_com_osrce_sitrep_domain_SrCfs_cfsCross2" z="qzbVCUMyXxJX7AlkEQdodobK2OM="/>
-        <field:input field="cfsLocation" id="c_com_osrce_sitrep_domain_SrCfs_cfsLocation" validationMessageCode="field_invalid_integer" z="hT9MKZ/NP/ZggeJ+hZWN4gkQLII="/>
-        <field:input field="cfsCode" id="c_com_osrce_sitrep_domain_SrCfs_cfsCode" required="true" validationMessageCode="field_invalid_integer" z="SnxTgC9RI+zmM5NWRGNO9nr9TE8="/>
-        <field:input field="cfsCodesup1" id="c_com_osrce_sitrep_domain_SrCfs_cfsCodesup1" z="1g0zjRyA1UrLrTJIsdeSm6w2EyY="/>
-        <field:input field="cfsCodesup2" id="c_com_osrce_sitrep_domain_SrCfs_cfsCodesup2" z="/5DP+VSYvyl2CoXp1lnVDo7Zfiw="/>
-        <field:input field="cfsCreatedby" id="c_com_osrce_sitrep_domain_SrCfs_cfsCreatedby" z="+ZAq16wutBwm0is/xtWPxvpv/Js="/>
-        <field:input field="cfsDispatcherid" id="c_com_osrce_sitrep_domain_SrCfs_cfsDispatcherid" z="BfAyHboCBQelnTwuLyf7Wq9ImEQ="/>
-        <field:datetime dateTimePattern="${srCfs_cfstimecreated_date_format}" field="cfsTimecreated" id="c_com_osrce_sitrep_domain_SrCfs_cfsTimecreated" z="UnCDfVRIurJNi9ojzbVrIMs+nbk="/>
-        <field:datetime dateTimePattern="${srCfs_cfstimeassigned_date_format}" field="cfsTimeassigned" id="c_com_osrce_sitrep_domain_SrCfs_cfsTimeassigned" z="FbVC338qIBdBsav8Mn2GBJwcI4o="/>
-        <field:input field="cfsAssignedunit" id="c_com_osrce_sitrep_domain_SrCfs_cfsAssignedunit" z="K6aOZQcEAQnq4YZ3SeI9hvGFNAw="/>
-        <field:input field="cfsPriority" id="c_com_osrce_sitrep_domain_SrCfs_cfsPriority" validationMessageCode="field_invalid_integer" z="kruilpVaF/y5GoBmnffP8CUudhg="/>
-        <field:checkbox field="cfsRoutenotifications" id="c_com_osrce_sitrep_domain_SrCfs_cfsRoutenotifications" z="sd1OlXv33v4COKDYlV0OitSmg4A="/>
-        <field:input field="cfsFinaldis" id="c_com_osrce_sitrep_domain_SrCfs_cfsFinaldis" validationMessageCode="field_invalid_integer" z="puulOCdgVYXmnYrUFbCgSZelWZM="/>
-        <field:input field="cfsFinaldissup1" id="c_com_osrce_sitrep_domain_SrCfs_cfsFinaldissup1" z="qdGNyG/UqAQLiAvdzbyqf6YwGIw="/>
-        <field:datetime dateTimePattern="${srCfs_cfsfinaldisdate_date_format}" field="cfsFinaldisdate" id="c_com_osrce_sitrep_domain_SrCfs_cfsFinaldisdate" z="2PoO1mcJODBGG8awYpCipJD2OuI="/>
-        <field:input field="cfsFinaldisunit" id="c_com_osrce_sitrep_domain_SrCfs_cfsFinaldisunit" z="5CV8y+dsiWLcm3iLAEOmGSEYzZo="/>
-        <field:checkbox field="cfsCallback" id="c_com_osrce_sitrep_domain_SrCfs_cfsCallback" z="BlYOnhfm3QvhlC3CZswOFUJIz9Q="/>
-        <field:checkbox field="cfsDup" id="c_com_osrce_sitrep_domain_SrCfs_cfsDup" z="NBwvnK3HttjZbRjysD0L/hiBGzE="/>
-        <field:input field="cfsDupletter" id="c_com_osrce_sitrep_domain_SrCfs_cfsDupletter" z="wgR47hQHOREgWLYQu07lugOpYow="/>
-        <field:input field="cfsDupnum" id="c_com_osrce_sitrep_domain_SrCfs_cfsDupnum" validationMessageCode="field_invalid_integer" z="iveZnwOsBr9AMHaiqzKRcqbZ++M="/>
-        <field:input field="cfsBody" id="c_com_osrce_sitrep_domain_SrCfs_cfsBody" z="UdsznRlGYnbnmeehmu/WIY3/0T4="/>
-        <field:input field="cfsBodylastline" id="c_com_osrce_sitrep_domain_SrCfs_cfsBodylastline" z="9V61czsmHea8x6+V+U3gKVry7Nc="/>
-        <field:datetime dateTimePattern="${srCfs_cfscreatedon_date_format}" field="cfsCreatedOn" id="c_com_osrce_sitrep_domain_SrCfs_cfsCreatedOn" z="uWTCOwD6iSJ/eKQ1PqD+4q5jPkc="/>
-        <field:datetime dateTimePattern="${srCfs_cfsupdatedon_date_format}" field="cfsUpdatedOn" id="c_com_osrce_sitrep_domain_SrCfs_cfsUpdatedOn" z="nuuP4bas1ceij/b1oKJPlUfO4lU="/>
+        <field:input field="cfs_letter" id="c_com_osrce_sitrep_domain_SrCfs_cfs_letter" required="true" z="cz+w59jyUSxVzZxeoL/ThvEoYH0="/>
+        <field:input field="cfs_pct" id="c_com_osrce_sitrep_domain_SrCfs_cfs_pct" required="true" validationMessageCode="field_invalid_integer" z="RhTYl1BPmt1I0hDHj8YN63QBbf0="/>
+        <field:input field="cfs_sector" id="c_com_osrce_sitrep_domain_SrCfs_cfs_sector" required="true" z="ktUWeQiaselwryTiUFsyWT4LmHE="/>
+        <field:input field="cfs_addr" id="c_com_osrce_sitrep_domain_SrCfs_cfs_addr" z="ti2KefJzB/kxn2naN79gPHhw5hU="/>
+        <field:input field="cfs_cross1" id="c_com_osrce_sitrep_domain_SrCfs_cfs_cross1" z="1YWiJVknKPjJec0EbVB1ru2TK7Y="/>
+        <field:input field="cfs_cross2" id="c_com_osrce_sitrep_domain_SrCfs_cfs_cross2" z="E459FshfNvGyLxl8ORi2R9nwxJk="/>
+        <field:input field="cfs_location" id="c_com_osrce_sitrep_domain_SrCfs_cfs_location" validationMessageCode="field_invalid_integer" z="zu9x/bwaF2zn+cO1fgKSbfHmsvc="/>
+        <field:input field="cfs_code" id="c_com_osrce_sitrep_domain_SrCfs_cfs_code" required="true" validationMessageCode="field_invalid_integer" z="PYzWem6QxoqnrSrNM873yJPt+0Q="/>
+        <field:input field="cfs_codesup1" id="c_com_osrce_sitrep_domain_SrCfs_cfs_codesup1" z="/dBzvmzsk6cqRCK2ygJ5fzl1HUw="/>
+        <field:input field="cfs_codesup2" id="c_com_osrce_sitrep_domain_SrCfs_cfs_codesup2" z="lGndMb3yr4RR/bUPM+06ptWfoKg="/>
+        <field:input field="cfs_createdby" id="c_com_osrce_sitrep_domain_SrCfs_cfs_createdby" z="DIikY0PL1k/rNlOIjZlwZ1UCrRM="/>
+        <field:input field="cfs_dispatcherid" id="c_com_osrce_sitrep_domain_SrCfs_cfs_dispatcherid" z="DLOeU85sEEwW9LwfW8/dda2u1CU="/>
+        <field:datetime dateTimePattern="${srCfs_cfs_timecreated_date_format}" field="cfs_timecreated" id="c_com_osrce_sitrep_domain_SrCfs_cfs_timecreated" z="3oTQdst780eIzJmxSWlKjvfp8A0="/>
+        <field:datetime dateTimePattern="${srCfs_cfs_timeassigned_date_format}" field="cfs_timeassigned" id="c_com_osrce_sitrep_domain_SrCfs_cfs_timeassigned" z="7zeF9hyYmxGlC/EdMhiIGg9p0RQ="/>
+        <field:input field="cfs_assignedunit" id="c_com_osrce_sitrep_domain_SrCfs_cfs_assignedunit" z="afSg8UvVPL7gI1XgYTVWFxkccIY="/>
+        <field:input field="cfs_priority" id="c_com_osrce_sitrep_domain_SrCfs_cfs_priority" validationMessageCode="field_invalid_integer" z="lOYxooJGO4sagWFuzDdwtdjbC1c="/>
+        <field:checkbox field="cfs_routenotifications" id="c_com_osrce_sitrep_domain_SrCfs_cfs_routenotifications" z="tHil8IRvvyW560uEuErYazhcxRg="/>
+        <field:input field="cfs_finaldis" id="c_com_osrce_sitrep_domain_SrCfs_cfs_finaldis" validationMessageCode="field_invalid_integer" z="DLaIePk0fM1bK7Lss+OmBzrin6c="/>
+        <field:input field="cfs_finaldissup1" id="c_com_osrce_sitrep_domain_SrCfs_cfs_finaldissup1" z="1UcEK+6+mpzCmXuZq/rqOj3vFWo="/>
+        <field:datetime dateTimePattern="${srCfs_cfs_finaldisdate_date_format}" field="cfs_finaldisdate" id="c_com_osrce_sitrep_domain_SrCfs_cfs_finaldisdate" z="YQwj4pMYNmNize5gPI6bX4SHw/Q="/>
+        <field:input field="cfs_finaldisunit" id="c_com_osrce_sitrep_domain_SrCfs_cfs_finaldisunit" z="fsNn3kXjkT2J2EAG0vSEdWYj+qA="/>
+        <field:checkbox field="cfs_callback" id="c_com_osrce_sitrep_domain_SrCfs_cfs_callback" z="LxdYDRKFF6IjAZdrohfGqimeWcc="/>
+        <field:checkbox field="cfs_dup" id="c_com_osrce_sitrep_domain_SrCfs_cfs_dup" z="+3ZLT2FI+u/TEySDyHP0eIg/nRo="/>
+        <field:input field="cfs_dupletter" id="c_com_osrce_sitrep_domain_SrCfs_cfs_dupletter" z="ICuiSC/JQchumMSj5ZJGkdXR5h0="/>
+        <field:input field="cfs_dupnum" id="c_com_osrce_sitrep_domain_SrCfs_cfs_dupnum" validationMessageCode="field_invalid_integer" z="oAH0D115EmoZT38TYFwFWEirxZo="/>
+        <field:input field="cfs_body" id="c_com_osrce_sitrep_domain_SrCfs_cfs_body" z="Q+KbZCQMcFgGDghe1VnCzTXPwdg="/>
+        <field:input field="cfs_bodylastline" id="c_com_osrce_sitrep_domain_SrCfs_cfs_bodylastline" z="s2mHNvsiljVqEnH/p/4J5a+HQAk="/>
+        <field:datetime dateTimePattern="${srCfs_cfs_created_on_date_format}" field="cfs_created_on" id="c_com_osrce_sitrep_domain_SrCfs_cfs_created_on" z="8N3DmJbB66mjCIJ7zUa7baerN+k="/>
+        <field:datetime dateTimePattern="${srCfs_cfs_updated_on_date_format}" field="cfs_updated_on" id="c_com_osrce_sitrep_domain_SrCfs_cfs_updated_on" z="BA+Tl58TUqzTylxtNmh6IVrnCKY="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrCfs" render="${not empty dependencies}" z="w9eZWjHt/1k13qGa7tHf5BRkLfQ="/>
 </div>

@@ -4,11 +4,11 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_com_osrce_sitrep_domain_SrLayerDynamicData" items="${srlayerdynamicdatas}" z="ieR4DegKtcuJY9Md0/3pc0EeelA=">
         <table:table data="${srlayerdynamicdatas}" id="l_com_osrce_sitrep_domain_SrLayerDynamicData" path="/srlayerdynamicdatas" z="pxtq29iDyAMg4UOAcaqXN6Wfau8=">
-            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_layerId" property="layerId" z="E39RLpdN4ADlkm/X6NLmFoss658="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureData" property="featureData" z="OiLDMtKijySBEXDpC9X41pkYfiA="/>
-            <table:column date="true" dateTimePattern="${srLayerDynamicData_featurestart_date_format}" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureStart" property="featureStart" z="XuNPyPKNf7EnrFl7sL3LqimDtcI="/>
-            <table:column date="true" dateTimePattern="${srLayerDynamicData_featureend_date_format}" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_featureEnd" property="featureEnd" z="V0KrBzPYJYaHId1mwng4VmFOoo8="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_sr_geom" property="sr_geom" z="m4GyYFohhfg8P+4GQv4vy8tzpaM="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_layer_id" property="layer_id" z="8N7tT5J5Q94GES5v4aqMYml1NZE="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_feature_data" property="feature_data" z="g7j7xM4H6pd1xfE1R6LFtkv6p8E="/>
+            <table:column date="true" dateTimePattern="${srLayerDynamicData_feature_start_date_format}" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_feature_start" property="feature_start" z="S95k68Efvhf2GhrMOK7z1WnA8wA="/>
+            <table:column date="true" dateTimePattern="${srLayerDynamicData_feature_end_date_format}" id="c_com_osrce_sitrep_domain_SrLayerDynamicData_feature_end" property="feature_end" z="HN4XysT2WsgVJRmjrP5++bVtsdM="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrLayerDynamicData_geometry" property="geometry" z="ejnTl1hxF95EsvNVr38RwopTpzA="/>
         </table:table>
     </page:list>
 </div>
