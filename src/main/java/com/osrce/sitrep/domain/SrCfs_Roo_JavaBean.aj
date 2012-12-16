@@ -4,9 +4,42 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrCfs;
+import com.osrce.sitrep.domain.SrLocations;
 import java.util.Date;
 
 privileged aspect SrCfs_Roo_JavaBean {
+    
+    public Long SrCfs.getId() {
+        return this.id;
+    }
+    
+    public void SrCfs.setId(Long id) {
+        this.id = id;
+    }
+    
+    public SrLocations SrCfs.getCfs_location() {
+        return this.cfs_location;
+    }
+    
+    public void SrCfs.setCfs_location(SrLocations cfs_location) {
+        this.cfs_location = cfs_location;
+    }
+    
+    public Date SrCfs.getCfs_date() {
+        return this.cfs_date;
+    }
+    
+    public void SrCfs.setCfs_date(Date cfs_date) {
+        this.cfs_date = cfs_date;
+    }
+    
+    public Integer SrCfs.getCfs_num() {
+        return this.cfs_num;
+    }
+    
+    public void SrCfs.setCfs_num(Integer cfs_num) {
+        this.cfs_num = cfs_num;
+    }
     
     public Character SrCfs.getCfs_letter() {
         return this.cfs_letter;
@@ -54,14 +87,6 @@ privileged aspect SrCfs_Roo_JavaBean {
     
     public void SrCfs.setCfs_cross2(String cfs_cross2) {
         this.cfs_cross2 = cfs_cross2;
-    }
-    
-    public Integer SrCfs.getCfs_location() {
-        return this.cfs_location;
-    }
-    
-    public void SrCfs.setCfs_location(Integer cfs_location) {
-        this.cfs_location = cfs_location;
     }
     
     public Integer SrCfs.getCfs_code() {

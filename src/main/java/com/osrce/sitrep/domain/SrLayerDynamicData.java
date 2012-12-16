@@ -53,7 +53,6 @@ public class SrLayerDynamicData {
     @Type(type = "org.hibernate.spatial.GeometryType")
     @Column(name = "sr_geom", nullable = true, columnDefinition = "Geometry")
     private Geometry geometry;
-    
 
     public static List<com.osrce.sitrep.domain.SrLayerDynamicData> findAllWithLayerId(Integer theLayerId) {
         TypedQuery<SrLayerDynamicData> theQuery = entityManager().createQuery("SELECT o FROM SrLayerDynamicData o where layer_id=:theLayerId", SrLayerDynamicData.class);
@@ -62,7 +61,6 @@ public class SrLayerDynamicData {
     }
 
     public static String toJsonArray(Collection<com.osrce.sitrep.domain.SrLayerDynamicData> collection) {
-        return new JSONSerializer().include("id", "layer_id", "feature_data", "feature_start", "feature_end", "geometry")
-        		.transform( new GeometryTransformer() , "geometry"  ).exclude("*").serialize(collection);
+        return new JSONSerializer().include("id", "layer_id", "feature_data", "feature_start", "feature_end", "geometry").transform(new GeometryTransformer(), "geometry").exclude("*").serialize(collection);
     }
 }

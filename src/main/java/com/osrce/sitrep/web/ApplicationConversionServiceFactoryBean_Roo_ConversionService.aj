@@ -3,20 +3,15 @@
 
 package com.osrce.sitrep.web;
 
-import com.osrce.sitrep.domain.SpatialRefSys;
 import com.osrce.sitrep.domain.SrAclPermissions;
 import com.osrce.sitrep.domain.SrAssets;
 import com.osrce.sitrep.domain.SrAssetsStatus;
 import com.osrce.sitrep.domain.SrCfs;
-import com.osrce.sitrep.domain.SrCfsPK;
-import com.osrce.sitrep.domain.SrCfsUpdatequeue;
-import com.osrce.sitrep.domain.SrCfsUpdatequeuePK;
 import com.osrce.sitrep.domain.SrGroups;
 import com.osrce.sitrep.domain.SrLayerDynamicData;
 import com.osrce.sitrep.domain.SrLayerStaticData;
 import com.osrce.sitrep.domain.SrLayers;
 import com.osrce.sitrep.domain.SrLocations;
-import com.osrce.sitrep.domain.SrLocationsWorkqueue;
 import com.osrce.sitrep.domain.SrModules;
 import com.osrce.sitrep.domain.SrQueries;
 import com.osrce.sitrep.domain.SrSession;
@@ -27,7 +22,6 @@ import com.osrce.sitrep.domain.SrStyles;
 import com.osrce.sitrep.domain.SrUsers;
 import com.osrce.sitrep.domain.SrWindowLayout;
 import com.osrce.sitrep.web.ApplicationConversionServiceFactoryBean;
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
@@ -35,30 +29,6 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
-    
-    public Converter<SpatialRefSys, String> ApplicationConversionServiceFactoryBean.getSpatialRefSysToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SpatialRefSys, java.lang.String>() {
-            public String convert(SpatialRefSys spatialRefSys) {
-                return new StringBuilder().append(spatialRefSys.getAuthName()).append(' ').append(spatialRefSys.getAuthSrid()).append(' ').append(spatialRefSys.getSrtext()).append(' ').append(spatialRefSys.getProj4text()).toString();
-            }
-        };
-    }
-    
-    public Converter<Integer, SpatialRefSys> ApplicationConversionServiceFactoryBean.getIdToSpatialRefSysConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SpatialRefSys>() {
-            public com.osrce.sitrep.domain.SpatialRefSys convert(java.lang.Integer id) {
-                return SpatialRefSys.findSpatialRefSys(id);
-            }
-        };
-    }
-    
-    public Converter<String, SpatialRefSys> ApplicationConversionServiceFactoryBean.getStringToSpatialRefSysConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SpatialRefSys>() {
-            public com.osrce.sitrep.domain.SpatialRefSys convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SpatialRefSys.class);
-            }
-        };
-    }
     
     public Converter<SrAclPermissions, String> ApplicationConversionServiceFactoryBean.getSrAclPermissionsToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrAclPermissions, java.lang.String>() {
@@ -135,14 +105,14 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrCfs, String> ApplicationConversionServiceFactoryBean.getSrCfsToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfs, java.lang.String>() {
             public String convert(SrCfs srCfs) {
-                return new StringBuilder().append(srCfs.getCfs_letter()).append(' ').append(srCfs.getCfs_pct()).append(' ').append(srCfs.getCfs_sector()).append(' ').append(srCfs.getCfs_addr()).toString();
+                return new StringBuilder().append(srCfs.getCfs_date()).append(' ').append(srCfs.getCfs_num()).append(' ').append(srCfs.getCfs_letter()).append(' ').append(srCfs.getCfs_pct()).toString();
             }
         };
     }
     
-    public Converter<SrCfsPK, SrCfs> ApplicationConversionServiceFactoryBean.getIdToSrCfsConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfsPK, com.osrce.sitrep.domain.SrCfs>() {
-            public com.osrce.sitrep.domain.SrCfs convert(com.osrce.sitrep.domain.SrCfsPK id) {
+    public Converter<Long, SrCfs> ApplicationConversionServiceFactoryBean.getIdToSrCfsConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.SrCfs>() {
+            public com.osrce.sitrep.domain.SrCfs convert(java.lang.Long id) {
                 return SrCfs.findSrCfs(id);
             }
         };
@@ -151,31 +121,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<String, SrCfs> ApplicationConversionServiceFactoryBean.getStringToSrCfsConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrCfs>() {
             public com.osrce.sitrep.domain.SrCfs convert(String id) {
-                return getObject().convert(getObject().convert(id, SrCfsPK.class), SrCfs.class);
-            }
-        };
-    }
-    
-    public Converter<SrCfsUpdatequeue, String> ApplicationConversionServiceFactoryBean.getSrCfsUpdatequeueToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfsUpdatequeue, java.lang.String>() {
-            public String convert(SrCfsUpdatequeue srCfsUpdatequeue) {
-                return "(no displayable fields)";
-            }
-        };
-    }
-    
-    public Converter<SrCfsUpdatequeuePK, SrCfsUpdatequeue> ApplicationConversionServiceFactoryBean.getIdToSrCfsUpdatequeueConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfsUpdatequeuePK, com.osrce.sitrep.domain.SrCfsUpdatequeue>() {
-            public com.osrce.sitrep.domain.SrCfsUpdatequeue convert(com.osrce.sitrep.domain.SrCfsUpdatequeuePK id) {
-                return SrCfsUpdatequeue.findSrCfsUpdatequeue(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrCfsUpdatequeue> ApplicationConversionServiceFactoryBean.getStringToSrCfsUpdatequeueConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrCfsUpdatequeue>() {
-            public com.osrce.sitrep.domain.SrCfsUpdatequeue convert(String id) {
-                return getObject().convert(getObject().convert(id, SrCfsUpdatequeuePK.class), SrCfsUpdatequeue.class);
+                return getObject().convert(getObject().convert(id, Long.class), SrCfs.class);
             }
         };
     }
@@ -284,9 +230,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<Integer, SrLocations> ApplicationConversionServiceFactoryBean.getIdToSrLocationsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrLocations>() {
-            public com.osrce.sitrep.domain.SrLocations convert(java.lang.Integer id) {
+    public Converter<Long, SrLocations> ApplicationConversionServiceFactoryBean.getIdToSrLocationsConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.SrLocations>() {
+            public com.osrce.sitrep.domain.SrLocations convert(java.lang.Long id) {
                 return SrLocations.findSrLocations(id);
             }
         };
@@ -295,31 +241,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<String, SrLocations> ApplicationConversionServiceFactoryBean.getStringToSrLocationsConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrLocations>() {
             public com.osrce.sitrep.domain.SrLocations convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrLocations.class);
-            }
-        };
-    }
-    
-    public Converter<SrLocationsWorkqueue, String> ApplicationConversionServiceFactoryBean.getSrLocationsWorkqueueToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrLocationsWorkqueue, java.lang.String>() {
-            public String convert(SrLocationsWorkqueue srLocationsWorkqueue) {
-                return new StringBuilder().append(srLocationsWorkqueue.getLocationId()).toString();
-            }
-        };
-    }
-    
-    public Converter<Integer, SrLocationsWorkqueue> ApplicationConversionServiceFactoryBean.getIdToSrLocationsWorkqueueConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrLocationsWorkqueue>() {
-            public com.osrce.sitrep.domain.SrLocationsWorkqueue convert(java.lang.Integer id) {
-                return SrLocationsWorkqueue.findSrLocationsWorkqueue(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrLocationsWorkqueue> ApplicationConversionServiceFactoryBean.getStringToSrLocationsWorkqueueConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrLocationsWorkqueue>() {
-            public com.osrce.sitrep.domain.SrLocationsWorkqueue convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrLocationsWorkqueue.class);
+                return getObject().convert(getObject().convert(id, Long.class), SrLocations.class);
             }
         };
     }
@@ -532,42 +454,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<String, SrCfsUpdatequeuePK> ApplicationConversionServiceFactoryBean.getJsonToSrCfsUpdatequeuePKConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrCfsUpdatequeuePK>() {
-            public SrCfsUpdatequeuePK convert(String encodedJson) {
-                return SrCfsUpdatequeuePK.fromJsonToSrCfsUpdatequeuePK(new String(Base64.decodeBase64(encodedJson)));
-            }
-        };
-    }
-    
-    public Converter<SrCfsUpdatequeuePK, String> ApplicationConversionServiceFactoryBean.getSrCfsUpdatequeuePKToJsonConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfsUpdatequeuePK, java.lang.String>() {
-            public String convert(SrCfsUpdatequeuePK srCfsUpdatequeuePK) {
-                return Base64.encodeBase64URLSafeString(srCfsUpdatequeuePK.toJson().getBytes());
-            }
-        };
-    }
-    
-    public Converter<String, SrCfsPK> ApplicationConversionServiceFactoryBean.getJsonToSrCfsPKConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrCfsPK>() {
-            public SrCfsPK convert(String encodedJson) {
-                return SrCfsPK.fromJsonToSrCfsPK(new String(Base64.decodeBase64(encodedJson)));
-            }
-        };
-    }
-    
-    public Converter<SrCfsPK, String> ApplicationConversionServiceFactoryBean.getSrCfsPKToJsonConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfsPK, java.lang.String>() {
-            public String convert(SrCfsPK srCfsPK) {
-                return Base64.encodeBase64URLSafeString(srCfsPK.toJson().getBytes());
-            }
-        };
-    }
-    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
-        registry.addConverter(getSpatialRefSysToStringConverter());
-        registry.addConverter(getIdToSpatialRefSysConverter());
-        registry.addConverter(getStringToSpatialRefSysConverter());
         registry.addConverter(getSrAclPermissionsToStringConverter());
         registry.addConverter(getIdToSrAclPermissionsConverter());
         registry.addConverter(getStringToSrAclPermissionsConverter());
@@ -580,9 +467,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getSrCfsToStringConverter());
         registry.addConverter(getIdToSrCfsConverter());
         registry.addConverter(getStringToSrCfsConverter());
-        registry.addConverter(getSrCfsUpdatequeueToStringConverter());
-        registry.addConverter(getIdToSrCfsUpdatequeueConverter());
-        registry.addConverter(getStringToSrCfsUpdatequeueConverter());
         registry.addConverter(getSrGroupsToStringConverter());
         registry.addConverter(getIdToSrGroupsConverter());
         registry.addConverter(getStringToSrGroupsConverter());
@@ -598,9 +482,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getSrLocationsToStringConverter());
         registry.addConverter(getIdToSrLocationsConverter());
         registry.addConverter(getStringToSrLocationsConverter());
-        registry.addConverter(getSrLocationsWorkqueueToStringConverter());
-        registry.addConverter(getIdToSrLocationsWorkqueueConverter());
-        registry.addConverter(getStringToSrLocationsWorkqueueConverter());
         registry.addConverter(getSrModulesToStringConverter());
         registry.addConverter(getIdToSrModulesConverter());
         registry.addConverter(getStringToSrModulesConverter());
@@ -627,10 +508,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getSrWindowLayoutToStringConverter());
         registry.addConverter(getIdToSrWindowLayoutConverter());
         registry.addConverter(getStringToSrWindowLayoutConverter());
-        registry.addConverter(getJsonToSrCfsUpdatequeuePKConverter());
-        registry.addConverter(getSrCfsUpdatequeuePKToJsonConverter());
-        registry.addConverter(getJsonToSrCfsPKConverter());
-        registry.addConverter(getSrCfsPKToJsonConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

@@ -3,12 +3,12 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_osrce_sitrep_domain_SrAclPermissions" object="${sraclpermissions}" path="/sraclpermissionses" z="RzaWs7/aE2rQtsdMGVB8JEwld5M=">
-        <field:display field="roleId" id="s_com_osrce_sitrep_domain_SrAclPermissions_roleId" object="${sraclpermissions}" z="2VscwKs6WzqVUZzqnad4v+8zti8="/>
-        <field:display field="resourceId" id="s_com_osrce_sitrep_domain_SrAclPermissions_resourceId" object="${sraclpermissions}" z="zObTpzCKiosLHMo0n57Wbra8Z34="/>
         <field:display field="roleType" id="s_com_osrce_sitrep_domain_SrAclPermissions_roleType" object="${sraclpermissions}" z="+xe1onkQ1DOKRxV0t5zV+kodnl8="/>
         <field:display field="permissionCreate" id="s_com_osrce_sitrep_domain_SrAclPermissions_permissionCreate" object="${sraclpermissions}" z="+cyElNy5xbDbUQlI86vkmQ9v55w="/>
         <field:display field="permissionRead" id="s_com_osrce_sitrep_domain_SrAclPermissions_permissionRead" object="${sraclpermissions}" z="IC8hJLNMhlX5O54bI3HgwnIe2+E="/>
         <field:display field="permissionUpdate" id="s_com_osrce_sitrep_domain_SrAclPermissions_permissionUpdate" object="${sraclpermissions}" z="6CzyqpivUI+XjvDwIsT3uRnq3hQ="/>
         <field:display field="permissionDelete" id="s_com_osrce_sitrep_domain_SrAclPermissions_permissionDelete" object="${sraclpermissions}" z="I9BskaHlmgAYEOPAXmiF80bqMMM="/>
+        <field:display field="roleId" id="s_com_osrce_sitrep_domain_SrAclPermissions_roleId" object="${sraclpermissions}" z="2VscwKs6WzqVUZzqnad4v+8zti8="/>
+        <field:display field="resourceId" id="s_com_osrce_sitrep_domain_SrAclPermissions_resourceId" object="${sraclpermissions}" z="zObTpzCKiosLHMo0n57Wbra8Z34="/>
     </page:show>
 </div>

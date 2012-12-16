@@ -7,9 +7,9 @@
             <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfs_letter" property="cfs_letter" z="blhP1aTTnMmGEPGIv6qtp6Vp9Jk="/>
             <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfs_pct" property="cfs_pct" z="ulkbMavYTfwfX1hnvqbNK2YXl3U="/>
             <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfs_sector" property="cfs_sector" z="xW5J8dodqUb3pRRvOzfRCWgQqks="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfs_addr" property="cfs_addr" z="OzYCuQFL4dStq6/KJ3o1syunnHE="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfs_cross1" property="cfs_cross1" z="Izf01d8zrPi3xLQIj74Gn5otsbI="/>
-            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfs_cross2" property="cfs_cross2" z="ctkR+D8V+7sLIj/vApF39iqmVZc="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfs_location" property="cfs_location" z="D/0Mg4IHOjeY8gH18/N5pvnAo94="/>
+            <table:column date="true" dateTimePattern="${srCfs_cfs_date_date_format}" id="c_com_osrce_sitrep_domain_SrCfs_cfs_date" property="cfs_date" z="nmDcPi3lFNkrh1+Cwau73K0igRI="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrCfs_cfs_num" property="cfs_num" z="bDccqInegq2m9ztaQtY9PZWgnpI="/>
         </table:table>
     </page:list>
 </div>

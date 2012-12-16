@@ -9,7 +9,6 @@
         <field:display field="cfs_addr" id="s_com_osrce_sitrep_domain_SrCfs_cfs_addr" object="${srcfs}" z="9E0IehkE3EES3h6RsjGQk531l68="/>
         <field:display field="cfs_cross1" id="s_com_osrce_sitrep_domain_SrCfs_cfs_cross1" object="${srcfs}" z="L18ojwxRqVHBHDqKdHLMQ6q9yU0="/>
         <field:display field="cfs_cross2" id="s_com_osrce_sitrep_domain_SrCfs_cfs_cross2" object="${srcfs}" z="rdW/fLQIUPVeYynabQvzo0PnRu8="/>
-        <field:display field="cfs_location" id="s_com_osrce_sitrep_domain_SrCfs_cfs_location" object="${srcfs}" z="TAPloGk+ZOL7b1bJ0dCqleDczrM="/>
         <field:display field="cfs_code" id="s_com_osrce_sitrep_domain_SrCfs_cfs_code" object="${srcfs}" z="JRdj0U4Bl1OdIITX5goxiBIcMew="/>
         <field:display field="cfs_codesup1" id="s_com_osrce_sitrep_domain_SrCfs_cfs_codesup1" object="${srcfs}" z="PT9CuAV51U3qaT74h6HZnIeldGw="/>
         <field:display field="cfs_codesup2" id="s_com_osrce_sitrep_domain_SrCfs_cfs_codesup2" object="${srcfs}" z="sAWpYSfkUs1MsJkyQz24dhAsQLw="/>
@@ -32,5 +31,8 @@
         <field:display field="cfs_bodylastline" id="s_com_osrce_sitrep_domain_SrCfs_cfs_bodylastline" object="${srcfs}" z="r+m5Tk9YEEFvZ/askNGxNBlNRTY="/>
         <field:display date="true" dateTimePattern="${srCfs_cfs_created_on_date_format}" field="cfs_created_on" id="s_com_osrce_sitrep_domain_SrCfs_cfs_created_on" object="${srcfs}" z="jx+RP9NCqEsaFR5QodnL8SQzE+w="/>
         <field:display date="true" dateTimePattern="${srCfs_cfs_updated_on_date_format}" field="cfs_updated_on" id="s_com_osrce_sitrep_domain_SrCfs_cfs_updated_on" object="${srcfs}" z="IdGIYYp7tnvHHBUQrNIuC5IxawI="/>
+        <field:display field="cfs_location" id="s_com_osrce_sitrep_domain_SrCfs_cfs_location" object="${srcfs}" z="TAPloGk+ZOL7b1bJ0dCqleDczrM="/>
+        <field:display date="true" dateTimePattern="${srCfs_cfs_date_date_format}" field="cfs_date" id="s_com_osrce_sitrep_domain_SrCfs_cfs_date" object="${srcfs}" z="lT9E1gq0BOybbDysgt8SNfVcu6k="/>
+        <field:display field="cfs_num" id="s_com_osrce_sitrep_domain_SrCfs_cfs_num" object="${srcfs}" z="O1ZcKN7v+2Vjc/1xylyRUxVXu8Q="/>
     </page:show>
 </div>

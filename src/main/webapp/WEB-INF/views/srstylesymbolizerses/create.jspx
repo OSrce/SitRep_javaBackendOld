@@ -3,13 +3,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_osrce_sitrep_domain_SrStyleSymbolizers" modelAttribute="srStyleSymbolizers" path="/srstylesymbolizerses" render="${empty dependencies}" z="oY1lh4wsBcHHhq/+flRCanvxODM=">
-        <field:input field="name" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_name" required="true" z="H5Nb1RGD0hu6WjIIpLMD1wd1juM="/>
-        <field:input field="label" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_label" z="3z0plNKgWkjN78vNowMnrqxp4bs="/>
-        <field:input field="rotation" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_rotation" validationMessageCode="field_invalid_integer" z="xpor4U8njxQt2D8pp2d/5Eo8kZE="/>
-        <field:datetime dateTimePattern="${srStyleSymbolizers_createdon_date_format}" field="createdOn" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_createdOn" z="tW2/5neXh0SxcTSbVr+5mKtLdao="/>
-        <field:datetime dateTimePattern="${srStyleSymbolizers_updatedon_date_format}" field="updatedOn" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedOn" z="IaYd9bXgD0phNAfdBX6DDf4/r78="/>
-        <field:input field="createdBy" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_createdBy" validationMessageCode="field_invalid_integer" z="CK3nEGBxUHIUimddWAsbGLAwVrY="/>
-        <field:input field="updatedBy" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedBy" validationMessageCode="field_invalid_integer" z="iBaADI7NPjT3X3f/m4cEpHjnfEs="/>
         <field:input field="fillColor" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fillColor" z="4NhRF64Xon/b9q2LbB0e7qnjs8Q="/>
         <field:input field="fillOpacity" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_fillOpacity" validationMessageCode="field_invalid_number" z="iU1DILHIA+n5gEndIHGVwuyVbaY="/>
         <field:input field="strokeColor" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_strokeColor" z="aabw+QDPKUEAZ/MaMahuUhei8uw="/>
@@ -28,6 +21,13 @@
         <field:input field="graphicWidth" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicWidth" validationMessageCode="field_invalid_integer" z="Rmk/BU+Nn7AXzkp0nN/XB+1GC+I="/>
         <field:input field="graphicHeight" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicHeight" validationMessageCode="field_invalid_integer" z="2p4mhGDnFR3t6/E7jONqkwMfquw="/>
         <field:input field="graphicOpacity" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicOpacity" validationMessageCode="field_invalid_number" z="ky3Iy0zWpPQIsO/4wUjYVGzbV4g="/>
+        <field:input field="name" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_name" required="true" z="H5Nb1RGD0hu6WjIIpLMD1wd1juM="/>
+        <field:input field="label" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_label" z="3z0plNKgWkjN78vNowMnrqxp4bs="/>
+        <field:input field="rotation" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_rotation" validationMessageCode="field_invalid_integer" z="xpor4U8njxQt2D8pp2d/5Eo8kZE="/>
+        <field:datetime dateTimePattern="${srStyleSymbolizers_createdon_date_format}" field="createdOn" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_createdOn" z="tW2/5neXh0SxcTSbVr+5mKtLdao="/>
+        <field:datetime dateTimePattern="${srStyleSymbolizers_updatedon_date_format}" field="updatedOn" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedOn" z="IaYd9bXgD0phNAfdBX6DDf4/r78="/>
+        <field:input field="createdBy" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_createdBy" validationMessageCode="field_invalid_integer" z="CK3nEGBxUHIUimddWAsbGLAwVrY="/>
+        <field:input field="updatedBy" id="c_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedBy" validationMessageCode="field_invalid_integer" z="iBaADI7NPjT3X3f/m4cEpHjnfEs="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrStyleSymbolizers" render="${not empty dependencies}" z="34or6bcXHJ0TNEkD40/UAQJxUvI="/>
 </div>

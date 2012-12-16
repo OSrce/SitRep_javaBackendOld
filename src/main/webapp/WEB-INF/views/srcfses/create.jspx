@@ -2,16 +2,13 @@
 <div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:create compositePkField="id" id="fc_com_osrce_sitrep_domain_SrCfs" modelAttribute="srCfs" path="/srcfses" render="${empty dependencies}" z="sqTRkKTSlf3eFoyOlnOXjzwr9uw=">
-        <field:datetime dateTimePattern="${srCfs_id.cfsdate_date_format}" disableFormBinding="true" field="id.cfsDate" id="c_com_osrce_sitrep_domain_SrCfs_id_cfsDate" required="true" z="0uh883kyXvzAlv9g12+v4rcxdCg="/>
-        <field:input disableFormBinding="true" field="id.cfsNum" id="c_com_osrce_sitrep_domain_SrCfs_id_cfsNum" required="true" validationMessageCode="field_invalid_integer" z="KTy018Trfft8RGoWMH8e17zyP8c="/>
+    <form:create id="fc_com_osrce_sitrep_domain_SrCfs" modelAttribute="srCfs" path="/srcfses" render="${empty dependencies}" z="2H6Iaa5d6Pao7RBQauQhRYRkbEA=">
         <field:input field="cfs_letter" id="c_com_osrce_sitrep_domain_SrCfs_cfs_letter" required="true" z="cz+w59jyUSxVzZxeoL/ThvEoYH0="/>
         <field:input field="cfs_pct" id="c_com_osrce_sitrep_domain_SrCfs_cfs_pct" required="true" validationMessageCode="field_invalid_integer" z="RhTYl1BPmt1I0hDHj8YN63QBbf0="/>
         <field:input field="cfs_sector" id="c_com_osrce_sitrep_domain_SrCfs_cfs_sector" required="true" z="ktUWeQiaselwryTiUFsyWT4LmHE="/>
         <field:input field="cfs_addr" id="c_com_osrce_sitrep_domain_SrCfs_cfs_addr" z="ti2KefJzB/kxn2naN79gPHhw5hU="/>
         <field:input field="cfs_cross1" id="c_com_osrce_sitrep_domain_SrCfs_cfs_cross1" z="1YWiJVknKPjJec0EbVB1ru2TK7Y="/>
         <field:input field="cfs_cross2" id="c_com_osrce_sitrep_domain_SrCfs_cfs_cross2" z="E459FshfNvGyLxl8ORi2R9nwxJk="/>
-        <field:input field="cfs_location" id="c_com_osrce_sitrep_domain_SrCfs_cfs_location" validationMessageCode="field_invalid_integer" z="zu9x/bwaF2zn+cO1fgKSbfHmsvc="/>
         <field:input field="cfs_code" id="c_com_osrce_sitrep_domain_SrCfs_cfs_code" required="true" validationMessageCode="field_invalid_integer" z="PYzWem6QxoqnrSrNM873yJPt+0Q="/>
         <field:input field="cfs_codesup1" id="c_com_osrce_sitrep_domain_SrCfs_cfs_codesup1" z="/dBzvmzsk6cqRCK2ygJ5fzl1HUw="/>
         <field:input field="cfs_codesup2" id="c_com_osrce_sitrep_domain_SrCfs_cfs_codesup2" z="lGndMb3yr4RR/bUPM+06ptWfoKg="/>
@@ -34,6 +31,9 @@
         <field:input field="cfs_bodylastline" id="c_com_osrce_sitrep_domain_SrCfs_cfs_bodylastline" z="s2mHNvsiljVqEnH/p/4J5a+HQAk="/>
         <field:datetime dateTimePattern="${srCfs_cfs_created_on_date_format}" field="cfs_created_on" id="c_com_osrce_sitrep_domain_SrCfs_cfs_created_on" z="8N3DmJbB66mjCIJ7zUa7baerN+k="/>
         <field:datetime dateTimePattern="${srCfs_cfs_updated_on_date_format}" field="cfs_updated_on" id="c_com_osrce_sitrep_domain_SrCfs_cfs_updated_on" z="BA+Tl58TUqzTylxtNmh6IVrnCKY="/>
+        <field:select field="cfs_location" id="c_com_osrce_sitrep_domain_SrCfs_cfs_location" itemValue="id" items="${srlocationses}" path="/srlocationses" z="RAP+AP1PPs9U7cfaRv27xClSkyY="/>
+        <field:datetime dateTimePattern="${srCfs_cfs_date_date_format}" field="cfs_date" id="c_com_osrce_sitrep_domain_SrCfs_cfs_date" required="true" z="KhvkbUJ7D6tJZotHjC0SuDKXyls="/>
+        <field:input field="cfs_num" id="c_com_osrce_sitrep_domain_SrCfs_cfs_num" required="true" validationMessageCode="field_invalid_integer" z="Ay8RhZvLoUozEE4nLLoXfZTVqAA="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrCfs" render="${not empty dependencies}" z="w9eZWjHt/1k13qGa7tHf5BRkLfQ="/>
 </div>

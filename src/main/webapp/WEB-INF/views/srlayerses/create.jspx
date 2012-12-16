@@ -3,6 +3,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_osrce_sitrep_domain_SrLayers" modelAttribute="srLayers" path="/srlayerses" render="${empty dependencies}" z="fEUtZs87cBglMtJFITF9cC6NjTY=">
+        <field:input field="layerType" id="c_com_osrce_sitrep_domain_SrLayers_layerType" z="jLhr1ncye3e+n+L5dXQ2xU0nQyQ="/>
+        <field:input field="layerFormat" id="c_com_osrce_sitrep_domain_SrLayers_layerFormat" z="LFIglCVbzqNB62Upm0kMrIzx5dg="/>
         <field:input field="name" id="c_com_osrce_sitrep_domain_SrLayers_name" required="true" z="WW85FKo7ZQPDofU4z1YtwODdPzY="/>
         <field:checkbox field="isbaselayer" id="c_com_osrce_sitrep_domain_SrLayers_isbaselayer" z="jwH+/SXq9W6Xut9LSN6aCr6NTvI="/>
         <field:input field="projection" id="c_com_osrce_sitrep_domain_SrLayers_projection" z="HCkAEhaQi9UIZGA+mTd04LkJ0Ks="/>
@@ -18,8 +20,6 @@
         <field:datetime dateTimePattern="${srLayers_updatedon_date_format}" field="updatedOn" id="c_com_osrce_sitrep_domain_SrLayers_updatedOn" z="kcq5B0/sIMum/zz6AAzp0MfdOYo="/>
         <field:input field="createdBy" id="c_com_osrce_sitrep_domain_SrLayers_createdBy" validationMessageCode="field_invalid_integer" z="3+NGQi5y6jtMpFEgxgz3bD9CIBE="/>
         <field:input field="updatedBy" id="c_com_osrce_sitrep_domain_SrLayers_updatedBy" validationMessageCode="field_invalid_integer" z="6VEtMVnZ/JOz4514bMRHhRpi9BA="/>
-        <field:input field="layerType" id="c_com_osrce_sitrep_domain_SrLayers_layerType" z="jLhr1ncye3e+n+L5dXQ2xU0nQyQ="/>
-        <field:input field="layerFormat" id="c_com_osrce_sitrep_domain_SrLayers_layerFormat" z="LFIglCVbzqNB62Upm0kMrIzx5dg="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrLayers" render="${not empty dependencies}" z="mo9nznprrq0NLjOsk3uT4PcCZKk="/>
 </div>

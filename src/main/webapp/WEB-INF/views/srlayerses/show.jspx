@@ -3,6 +3,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_osrce_sitrep_domain_SrLayers" object="${srlayers}" path="/srlayerses" z="U8gbG1j10Li+xDfimtXC8cVE+GQ=">
+        <field:display field="layerType" id="s_com_osrce_sitrep_domain_SrLayers_layerType" object="${srlayers}" z="JPq+4pA6B+nI7B1VePlXhohLK18="/>
+        <field:display field="layerFormat" id="s_com_osrce_sitrep_domain_SrLayers_layerFormat" object="${srlayers}" z="UTXITt9t7hMLOeTtjDGQCl1CfnA="/>
         <field:display field="name" id="s_com_osrce_sitrep_domain_SrLayers_name" object="${srlayers}" z="gCTg/JCjockGnR/o66w1RJhXeJQ="/>
         <field:display field="isbaselayer" id="s_com_osrce_sitrep_domain_SrLayers_isbaselayer" object="${srlayers}" z="UNo/ylpEnKLN9aOWIYFfkJUQeP4="/>
         <field:display field="projection" id="s_com_osrce_sitrep_domain_SrLayers_projection" object="${srlayers}" z="5k4yIHGgi7Enzxn2H7q96almh6g="/>
@@ -18,7 +20,5 @@
         <field:display date="true" dateTimePattern="${srLayers_updatedon_date_format}" field="updatedOn" id="s_com_osrce_sitrep_domain_SrLayers_updatedOn" object="${srlayers}" z="tpDNQwBuE+R9MJtboLwcnqQ0CiM="/>
         <field:display field="createdBy" id="s_com_osrce_sitrep_domain_SrLayers_createdBy" object="${srlayers}" z="ZQu8AR6x6uBC4nLf1iZ7H7F+xfY="/>
         <field:display field="updatedBy" id="s_com_osrce_sitrep_domain_SrLayers_updatedBy" object="${srlayers}" z="WrHS5v1i0qYtAP8X3Z1TUQy4dHI="/>
-        <field:display field="layerType" id="s_com_osrce_sitrep_domain_SrLayers_layerType" object="${srlayers}" z="JPq+4pA6B+nI7B1VePlXhohLK18="/>
-        <field:display field="layerFormat" id="s_com_osrce_sitrep_domain_SrLayers_layerFormat" object="${srlayers}" z="UTXITt9t7hMLOeTtjDGQCl1CfnA="/>
     </page:show>
 </div>

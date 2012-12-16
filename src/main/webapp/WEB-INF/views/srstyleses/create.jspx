@@ -3,10 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_osrce_sitrep_domain_SrStyles" modelAttribute="srStyles" path="/srstyleses" render="${empty dependencies}" z="X9EhqXQOfT1IKY2MjPBQ7tRgkT0=">
-        <field:input field="name" id="c_com_osrce_sitrep_domain_SrStyles_name" required="true" z="ALa50MaDDKb2cpR6lzyEEL/htqQ="/>
         <field:input field="stylemap_id" id="c_com_osrce_sitrep_domain_SrStyles_stylemap_id" required="true" validationMessageCode="field_invalid_integer" z="Kx/MIgS9FzzDX2nyz980ti65erk="/>
         <field:input field="render_type" id="c_com_osrce_sitrep_domain_SrStyles_render_type" required="true" z="HJ3xGtY8tjFZZFAIc0uqZzlbtmg="/>
         <field:input field="defaultsymbolizer_id" id="c_com_osrce_sitrep_domain_SrStyles_defaultsymbolizer_id" validationMessageCode="field_invalid_integer" z="Hs+IC0NFmvkxICVbXh/L2a92i2U="/>
+        <field:input field="name" id="c_com_osrce_sitrep_domain_SrStyles_name" required="true" z="ALa50MaDDKb2cpR6lzyEEL/htqQ="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrStyles" render="${not empty dependencies}" z="MLF6bxV12qrrNhdkU5WgypEyM6o="/>
 </div>

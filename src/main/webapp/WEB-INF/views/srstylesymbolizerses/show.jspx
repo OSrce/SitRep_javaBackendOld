@@ -3,13 +3,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_osrce_sitrep_domain_SrStyleSymbolizers" object="${srstylesymbolizers}" path="/srstylesymbolizerses" z="BPTHL5kBB8j1d3L5Mpggxnnq1Ww=">
-        <field:display field="name" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_name" object="${srstylesymbolizers}" z="N2kGtDZC4FmzJ+QBasOrSJ+/E7w="/>
-        <field:display field="label" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_label" object="${srstylesymbolizers}" z="3sODeBpjFiynNYeuu1cfHmOQEyc="/>
-        <field:display field="rotation" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_rotation" object="${srstylesymbolizers}" z="8l1ZHeUwImJhJnrwC8f0xm5kvwM="/>
-        <field:display date="true" dateTimePattern="${srStyleSymbolizers_createdon_date_format}" field="createdOn" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_createdOn" object="${srstylesymbolizers}" z="DFslg9PPAB/6sNf/lk7G4jbju0I="/>
-        <field:display date="true" dateTimePattern="${srStyleSymbolizers_updatedon_date_format}" field="updatedOn" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedOn" object="${srstylesymbolizers}" z="6ucUaeuGzE++Rh4d9rrYE8AbQWs="/>
-        <field:display field="createdBy" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_createdBy" object="${srstylesymbolizers}" z="ve27eMWKMMolxzxEyiWVzzKgtHw="/>
-        <field:display field="updatedBy" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedBy" object="${srstylesymbolizers}" z="esvtF4fHn6bG/6dZKRWhyqXVYBA="/>
         <field:display field="fillColor" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_fillColor" object="${srstylesymbolizers}" z="E3IdHJpzdv5uKc/aXjsyqzFTRF8="/>
         <field:display field="fillOpacity" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_fillOpacity" object="${srstylesymbolizers}" z="bgxFY9CozP58dcXhz7G9nw5xenY="/>
         <field:display field="strokeColor" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_strokeColor" object="${srstylesymbolizers}" z="K3ly/RHuUePTEtgkBo69FW32wcw="/>
@@ -28,5 +21,12 @@
         <field:display field="graphicWidth" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicWidth" object="${srstylesymbolizers}" z="cdsjEE+Ag9oObyayCRJ/0MmPyHc="/>
         <field:display field="graphicHeight" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicHeight" object="${srstylesymbolizers}" z="mdmLflKnQm2AmDeU0h2O95ys+qQ="/>
         <field:display field="graphicOpacity" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_graphicOpacity" object="${srstylesymbolizers}" z="ycSMannUeW5QtzoKzinQ7Q1OOR8="/>
+        <field:display field="name" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_name" object="${srstylesymbolizers}" z="N2kGtDZC4FmzJ+QBasOrSJ+/E7w="/>
+        <field:display field="label" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_label" object="${srstylesymbolizers}" z="3sODeBpjFiynNYeuu1cfHmOQEyc="/>
+        <field:display field="rotation" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_rotation" object="${srstylesymbolizers}" z="8l1ZHeUwImJhJnrwC8f0xm5kvwM="/>
+        <field:display date="true" dateTimePattern="${srStyleSymbolizers_createdon_date_format}" field="createdOn" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_createdOn" object="${srstylesymbolizers}" z="DFslg9PPAB/6sNf/lk7G4jbju0I="/>
+        <field:display date="true" dateTimePattern="${srStyleSymbolizers_updatedon_date_format}" field="updatedOn" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedOn" object="${srstylesymbolizers}" z="6ucUaeuGzE++Rh4d9rrYE8AbQWs="/>
+        <field:display field="createdBy" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_createdBy" object="${srstylesymbolizers}" z="ve27eMWKMMolxzxEyiWVzzKgtHw="/>
+        <field:display field="updatedBy" id="s_com_osrce_sitrep_domain_SrStyleSymbolizers_updatedBy" object="${srstylesymbolizers}" z="esvtF4fHn6bG/6dZKRWhyqXVYBA="/>
     </page:show>
 </div>

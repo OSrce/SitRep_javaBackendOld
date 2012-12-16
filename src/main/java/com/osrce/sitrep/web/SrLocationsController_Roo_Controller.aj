@@ -3,6 +3,7 @@
 
 package com.osrce.sitrep.web;
 
+import com.osrce.sitrep.domain.SrCfs;
 import com.osrce.sitrep.domain.SrLocations;
 import com.osrce.sitrep.web.SrLocationsController;
 import java.io.UnsupportedEncodingException;
@@ -39,7 +40,7 @@ privileged aspect SrLocationsController_Roo_Controller {
     }
     
     @RequestMapping(value = "/{id}", produces = "text/html")
-    public String SrLocationsController.show(@PathVariable("id") Integer id, Model uiModel) {
+    public String SrLocationsController.show(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("srlocations", SrLocations.findSrLocations(id));
         uiModel.addAttribute("itemId", id);
@@ -73,13 +74,13 @@ privileged aspect SrLocationsController_Roo_Controller {
     }
     
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String SrLocationsController.updateForm(@PathVariable("id") Integer id, Model uiModel) {
+    public String SrLocationsController.updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, SrLocations.findSrLocations(id));
         return "srlocationses/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String SrLocationsController.delete(@PathVariable("id") Integer id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    public String SrLocationsController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         SrLocations srLocations = SrLocations.findSrLocations(id);
         srLocations.remove();
         uiModel.asMap().clear();
@@ -96,6 +97,7 @@ privileged aspect SrLocationsController_Roo_Controller {
     void SrLocationsController.populateEditForm(Model uiModel, SrLocations srLocations) {
         uiModel.addAttribute("srLocations", srLocations);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("srcfses", SrCfs.findAllSrCfses());
     }
     
     String SrLocationsController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

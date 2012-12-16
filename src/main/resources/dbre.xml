@@ -5,16 +5,7 @@
     <option key="activeRecord" value="true"/>
     <option key="includeNonPortableAttributes" value="false"/>
     <option key="testAutomatically" value="false"/>
-    <table alias="public" name="spatial_ref_sys">
-        <column name="srid" primaryKey="true" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="auth_name" primaryKey="false" required="false" scale="0" size="256" type="12,varchar"/>
-        <column name="auth_srid" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="srtext" primaryKey="false" required="false" scale="0" size="2048" type="12,varchar"/>
-        <column name="proj4text" primaryKey="false" required="false" scale="0" size="2048" type="12,varchar"/>
-        <unique name="spatial_ref_sys_pkey">
-            <unique-column name="srid"/>
-        </unique>
-    </table>
+
     <table alias="public" name="sr_acl_permissions">
         <column name="permission_id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
         <column name="role_type" primaryKey="false" required="true" scale="0" size="2147483647" type="1111,roletype"/>
@@ -55,15 +46,16 @@
         </unique>
     </table>
     <table alias="public" name="sr_cfs">
-        <column name="cfs_date" primaryKey="true" required="true" scale="0" size="13" type="91,date"/>
+        <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
+        <column name="cfs_date" primaryKey="false" required="true" scale="0" size="13" type="91,date"/>
         <column name="cfs_letter" primaryKey="false" required="true" scale="0" size="1" type="1,bpchar"/>
-        <column name="cfs_num" primaryKey="true" required="true" scale="0" size="10" type="4,int4"/>
+        <column name="cfs_num" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
         <column name="cfs_pct" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
         <column name="cfs_sector" primaryKey="false" required="true" scale="0" size="1" type="1,bpchar"/>
         <column name="cfs_addr" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
         <column name="cfs_cross1" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
         <column name="cfs_cross2" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="cfs_location" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
+        <column name="cfs_location" primaryKey="false" required="false" scale="0" size="19" type="-5,int8"/>
         <column name="cfs_code" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
         <column name="cfs_codesup1" primaryKey="false" required="false" scale="0" size="8" type="12,varchar"/>
         <column name="cfs_codesup2" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
@@ -86,26 +78,13 @@
         <column name="cfs_bodylastline" primaryKey="false" required="false" scale="0" size="100" type="12,varchar"/>
         <column name="cfs_created_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
         <column name="cfs_updated_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <unique name="sr_cfs_pkey">
-            <unique-column name="cfs_date"/>
-            <unique-column name="cfs_num"/>
-        </unique>
-        <index name="cfs_finaldis_idx">
-            <index-column name="cfs_finaldis"/>
-        </index>
-        <index name="cfs_finaldisdate_idx">
-            <index-column name="cfs_finaldisdate"/>
-        </index>
-        <index name="cfs_timecreated_idx">
-            <index-column name="cfs_timecreated"/>
-        </index>
-    </table>
-    <table alias="public" name="sr_cfs_updatequeue">
-        <column name="cfs_date" primaryKey="true" required="true" scale="0" size="13" type="91,date"/>
-        <column name="cfs_num" primaryKey="true" required="true" scale="0" size="10" type="4,int4"/>
-        <unique name="sr_cfs_updatequeue_pkey">
-            <unique-column name="cfs_date"/>
-            <unique-column name="cfs_num"/>
+        <foreign-key foreignTable="sr_locations" name="sr_cfs_cfs_location_fkey" onDelete="none" onUpdate="none">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="cfs_location"/>
+        </foreign-key>
+        <unique name="sr_cfs_pkey1">
+            <unique-column name="id"/>
         </unique>
     </table>
     <table alias="public" name="sr_groups">
@@ -169,7 +148,7 @@
         </unique>
     </table>
     <table alias="public" name="sr_locations">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
+        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="-5,bigserial"/>
         <column name="pct" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="sector" primaryKey="false" required="false" scale="0" size="1" type="1,bpchar"/>
         <column name="source" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
@@ -180,14 +159,12 @@
         <column name="created_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
         <column name="last_used" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
         <column name="sr_geom" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,geometry"/>
+        <foreign-key foreignTable="sr_cfs" name="sr_cfs_cfs_location_fkey" onDelete="none" onUpdate="none">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="true"/>
+            <reference foreign="cfs_location" local="id"/>
+        </foreign-key>
         <unique name="sr_locations_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table alias="public" name="sr_locations_workqueue">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
-        <column name="location_id" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <unique name="sr_locations_workqueue_pkey">
             <unique-column name="id"/>
         </unique>
     </table>

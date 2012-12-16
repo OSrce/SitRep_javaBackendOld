@@ -4,7 +4,6 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrCfs;
-import com.osrce.sitrep.domain.SrCfsPK;
 import java.util.List;
 import javax.persistence.EntityManager;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +24,7 @@ privileged aspect SrCfs_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM SrCfs o", SrCfs.class).getResultList();
     }
     
-    public static SrCfs SrCfs.findSrCfs(SrCfsPK id) {
+    public static SrCfs SrCfs.findSrCfs(Long id) {
         if (id == null) return null;
         return entityManager().find(SrCfs.class, id);
     }

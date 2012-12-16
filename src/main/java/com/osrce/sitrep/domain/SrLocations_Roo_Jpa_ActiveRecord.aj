@@ -28,7 +28,7 @@ privileged aspect SrLocations_Roo_Jpa_ActiveRecord {
         return entityManager().createQuery("SELECT o FROM SrLocations o", SrLocations.class).getResultList();
     }
     
-    public static SrLocations SrLocations.findSrLocations(Integer id) {
+    public static SrLocations SrLocations.findSrLocations(Long id) {
         if (id == null) return null;
         return entityManager().find(SrLocations.class, id);
     }

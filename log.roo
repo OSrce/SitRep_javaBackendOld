@@ -202,3 +202,31 @@ web mvc json all
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-14 17:01:30
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-14 22:28:57
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-15 14:29:18
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables "sr_cfs"
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables "sr_cfs, sr_acl_permissions, sr_assets, sr_assets_status, sr_groups, sr_layer_dynamic_data, sr_layers, sr_layer_static_data, sr_locations, sr_modules, sr_queries, sr_session, sr_style_presets, sr_style_rules, sr_styles, sr_style_symbolizers, sr_users, sr_window_layout"
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-15 19:13:04
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-15 19:38:14
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-15 19:42:54
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-15 19:45:43
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables "sr_cfs, sr_acl_permissions, sr_assets, sr_assets_status, sr_groups, sr_layer_dynamic_data, sr_layers, sr_layer_static_data, sr_locations, sr_modules, sr_queries, sr_session, sr_style_presets, sr_style_rules, sr_styles, sr_style_symbolizers, sr_users, sr_window_layout"
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables "sr_cfs, sr_acl_permissions, sr_assets, sr_assets_status, sr_groups, sr_layer_dynamic_data, sr_layers, sr_layer_static_data, sr_locations, sr_modules, sr_queries, sr_session, sr_style_presets, sr_style_rules, sr_styles, sr_style_symbolizers, sr_users, sr_window_layout"
+hint 
+perform tests
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-15 20:13:52
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-15 20:25:31
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables "sr_cfs, sr_acl_permissions, sr_assets, sr_assets_status, sr_groups, sr_layer_dynamic_data, sr_layers, sr_layer_static_data, sr_locations, sr_modules, sr_queries, sr_session, sr_style_presets, sr_style_rules, sr_styles, sr_style_symbolizers, sr_users, sr_window_layout"
+// [failed] database reverse engineer --package ~.domain --schema PUBLIC --includeTables "sr_cfs, sr_acl_permissions, sr_assets, sr_assets_status, sr_groups, sr_layer_dynamic_data, sr_layers, sr_layer_static_data, sr_locations, sr_modules, sr_queries, sr_session, sr_style_presets, sr_style_rules, sr_styles, sr_style_symbolizers, sr_users, sr_window_layout"
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables "sr_cfs, sr_acl_permissions, sr_assets, sr_assets_status, sr_groups, sr_layer_dynamic_data, sr_layers, sr_layer_static_data, sr_locations, sr_modules, sr_queries, sr_session, sr_style_presets, sr_style_rules, sr_styles, sr_style_symbolizers, sr_users, sr_window_layout"
+database reverse engineer --package ~.domain --schema PUBLIC
+
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-15 21:41:37
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-15 21:42:41
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-15 22:57:41
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-15 22:58:39
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-15 23:44:56
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-15 23:46:13
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-15 23:51:21
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-16 12:47:25
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-16 13:26:41
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-16 13:27:42
+hint 

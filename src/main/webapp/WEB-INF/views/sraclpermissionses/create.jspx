@@ -3,13 +3,13 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_osrce_sitrep_domain_SrAclPermissions" modelAttribute="srAclPermissions" path="/sraclpermissionses" render="${empty dependencies}" z="FwC/PR2k//epC4rhcxj0fe7Yqto=">
-        <field:input field="roleId" id="c_com_osrce_sitrep_domain_SrAclPermissions_roleId" required="true" validationMessageCode="field_invalid_integer" z="7SEnybMm4GzMBCsKS5wotMJj5B4="/>
-        <field:input field="resourceId" id="c_com_osrce_sitrep_domain_SrAclPermissions_resourceId" required="true" validationMessageCode="field_invalid_integer" z="48oJcse5bdaaSpN8BCbRPs6bs+8="/>
         <field:input field="roleType" id="c_com_osrce_sitrep_domain_SrAclPermissions_roleType" z="60IJU84fg4aZyJdMmn3ct5pGlfg="/>
         <field:input field="permissionCreate" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionCreate" z="/qD1WQEZmUW4pqYmBniIQ/OwqWU="/>
         <field:input field="permissionRead" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionRead" z="zdfH54gIIKz0diKglS8NO/lc/L4="/>
         <field:input field="permissionUpdate" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionUpdate" z="EKX48EuT4bsYQ3MOvc9j4KFzAKs="/>
         <field:input field="permissionDelete" id="c_com_osrce_sitrep_domain_SrAclPermissions_permissionDelete" z="D/G3J+LucThbVQHGzCcdw3/D2pA="/>
+        <field:input field="roleId" id="c_com_osrce_sitrep_domain_SrAclPermissions_roleId" required="true" validationMessageCode="field_invalid_integer" z="7SEnybMm4GzMBCsKS5wotMJj5B4="/>
+        <field:input field="resourceId" id="c_com_osrce_sitrep_domain_SrAclPermissions_resourceId" required="true" validationMessageCode="field_invalid_integer" z="48oJcse5bdaaSpN8BCbRPs6bs+8="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrAclPermissions" render="${not empty dependencies}" z="eDDjoIX0bLc+WrTNA27C+dWATcc="/>
 </div>

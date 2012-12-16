@@ -20,10 +20,6 @@ privileged aspect SrCfs_Roo_Json {
         return new JSONDeserializer<SrCfs>().use(null, SrCfs.class).deserialize(json);
     }
     
-    public static String SrCfs.toJsonArray(Collection<SrCfs> collection) {
-        return new JSONSerializer().exclude("*.class").serialize(collection);
-    }
-    
     public static Collection<SrCfs> SrCfs.fromJsonArrayToSrCfses(String json) {
         return new JSONDeserializer<List<SrCfs>>().use(null, ArrayList.class).use("values", SrCfs.class).deserialize(json);
     }

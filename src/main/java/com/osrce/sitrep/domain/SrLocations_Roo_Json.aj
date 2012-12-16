@@ -5,23 +5,14 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrLocations;
 import flexjson.JSONDeserializer;
-import flexjson.JSONSerializer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 privileged aspect SrLocations_Roo_Json {
     
-    public String SrLocations.toJson() {
-        return new JSONSerializer().exclude("*.class").serialize(this);
-    }
-    
     public static SrLocations SrLocations.fromJsonToSrLocations(String json) {
         return new JSONDeserializer<SrLocations>().use(null, SrLocations.class).deserialize(json);
-    }
-    
-    public static String SrLocations.toJsonArray(Collection<SrLocations> collection) {
-        return new JSONSerializer().exclude("*.class").serialize(collection);
     }
     
     public static Collection<SrLocations> SrLocations.fromJsonArrayToSrLocationses(String json) {

@@ -4,15 +4,13 @@
 package com.osrce.sitrep.web;
 
 import com.osrce.sitrep.domain.SrCfs;
-import com.osrce.sitrep.domain.SrCfsPK;
+import com.osrce.sitrep.domain.SrLocations;
 import com.osrce.sitrep.web.SrCfsController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.core.convert.ConversionService;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,14 +22,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect SrCfsController_Roo_Controller {
     
-    private ConversionService SrCfsController.conversionService;
-    
-    @Autowired
-    public SrCfsController.new(ConversionService conversionService) {
-        super();
-        this.conversionService = conversionService;
-    }
-
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String SrCfsController.create(@Valid SrCfs srCfs, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
@@ -40,7 +30,7 @@ privileged aspect SrCfsController_Roo_Controller {
         }
         uiModel.asMap().clear();
         srCfs.persist();
-        return "redirect:/srcfses/" + encodeUrlPathSegment(conversionService.convert(srCfs.getId(), String.class), httpServletRequest);
+        return "redirect:/srcfses/" + encodeUrlPathSegment(srCfs.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(params = "form", produces = "text/html")
@@ -50,10 +40,10 @@ privileged aspect SrCfsController_Roo_Controller {
     }
     
     @RequestMapping(value = "/{id}", produces = "text/html")
-    public String SrCfsController.show(@PathVariable("id") SrCfsPK id, Model uiModel) {
+    public String SrCfsController.show(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("srcfs", SrCfs.findSrCfs(id));
-        uiModel.addAttribute("itemId", conversionService.convert(id, String.class));
+        uiModel.addAttribute("itemId", id);
         return "srcfses/show";
     }
     
@@ -80,17 +70,17 @@ privileged aspect SrCfsController_Roo_Controller {
         }
         uiModel.asMap().clear();
         srCfs.merge();
-        return "redirect:/srcfses/" + encodeUrlPathSegment(conversionService.convert(srCfs.getId(), String.class), httpServletRequest);
+        return "redirect:/srcfses/" + encodeUrlPathSegment(srCfs.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String SrCfsController.updateForm(@PathVariable("id") SrCfsPK id, Model uiModel) {
+    public String SrCfsController.updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, SrCfs.findSrCfs(id));
         return "srcfses/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String SrCfsController.delete(@PathVariable("id") SrCfsPK id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    public String SrCfsController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         SrCfs srCfs = SrCfs.findSrCfs(id);
         srCfs.remove();
         uiModel.asMap().clear();
@@ -100,6 +90,7 @@ privileged aspect SrCfsController_Roo_Controller {
     }
     
     void SrCfsController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("srCfs_cfs_date_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("srCfs_cfs_timecreated_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("srCfs_cfs_timeassigned_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("srCfs_cfs_finaldisdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
@@ -110,6 +101,7 @@ privileged aspect SrCfsController_Roo_Controller {
     void SrCfsController.populateEditForm(Model uiModel, SrCfs srCfs) {
         uiModel.addAttribute("srCfs", srCfs);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("srlocationses", SrLocations.findAllSrLocationses());
     }
     
     String SrCfsController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

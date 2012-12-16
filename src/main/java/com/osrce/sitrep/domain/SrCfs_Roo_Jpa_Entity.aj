@@ -4,8 +4,6 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrCfs;
-import com.osrce.sitrep.domain.SrCfsPK;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -14,16 +12,5 @@ privileged aspect SrCfs_Roo_Jpa_Entity {
     declare @type: SrCfs: @Entity;
     
     declare @type: SrCfs: @Table(schema = "public", name = "sr_cfs");
-    
-    @EmbeddedId
-    private SrCfsPK SrCfs.id;
-    
-    public SrCfsPK SrCfs.getId() {
-        return this.id;
-    }
-    
-    public void SrCfs.setId(SrCfsPK id) {
-        this.id = id;
-    }
     
 }

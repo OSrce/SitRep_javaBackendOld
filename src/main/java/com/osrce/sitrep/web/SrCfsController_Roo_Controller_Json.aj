@@ -4,7 +4,6 @@
 package com.osrce.sitrep.web;
 
 import com.osrce.sitrep.domain.SrCfs;
-import com.osrce.sitrep.domain.SrCfsPK;
 import com.osrce.sitrep.web.SrCfsController;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,7 +18,7 @@ privileged aspect SrCfsController_Roo_Controller_Json {
     
     @RequestMapping(value = "/{id}", headers = "Accept=application/json")
     @ResponseBody
-    public ResponseEntity<String> SrCfsController.showJson(@PathVariable("id") SrCfsPK id) {
+    public ResponseEntity<String> SrCfsController.showJson(@PathVariable("id") Long id) {
         SrCfs srCfs = SrCfs.findSrCfs(id);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=utf-8");
@@ -72,7 +71,7 @@ privileged aspect SrCfsController_Roo_Controller_Json {
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-    public ResponseEntity<String> SrCfsController.deleteFromJson(@PathVariable("id") SrCfsPK id) {
+    public ResponseEntity<String> SrCfsController.deleteFromJson(@PathVariable("id") Long id) {
         SrCfs srCfs = SrCfs.findSrCfs(id);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");

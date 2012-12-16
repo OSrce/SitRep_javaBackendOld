@@ -3,6 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_osrce_sitrep_domain_SrLocations" object="${srlocations}" path="/srlocationses" z="6hylPmUfoKUPUrHvIWSa3njBqCk=">
+        <field:display field="sr_geom" id="s_com_osrce_sitrep_domain_SrLocations_sr_geom" object="${srlocations}" z="jABQlhMWbIQZ5xD8w6IsHSTrDvo="/>
         <field:display field="pct" id="s_com_osrce_sitrep_domain_SrLocations_pct" object="${srlocations}" z="Aap31QzaaQN0a0twk8tH6Ynxo60="/>
         <field:display field="sector" id="s_com_osrce_sitrep_domain_SrLocations_sector" object="${srlocations}" z="9fITyMKW9fwAfUu0x9X4vy6dt1Q="/>
         <field:display field="source" id="s_com_osrce_sitrep_domain_SrLocations_source" object="${srlocations}" z="8x6wZe5eGzCKQz47ChESZMwlMoU="/>
@@ -12,6 +13,5 @@
         <field:display field="rating" id="s_com_osrce_sitrep_domain_SrLocations_rating" object="${srlocations}" z="wXsX3g0HzTtzU0S2C6J7RRZ1YwU="/>
         <field:display date="true" dateTimePattern="${srLocations_createdon_date_format}" field="createdOn" id="s_com_osrce_sitrep_domain_SrLocations_createdOn" object="${srlocations}" z="MmTkGsCIPdCm7IEGSy+oJlNPyxM="/>
         <field:display date="true" dateTimePattern="${srLocations_lastused_date_format}" field="lastUsed" id="s_com_osrce_sitrep_domain_SrLocations_lastUsed" object="${srlocations}" z="VIcEg9vDHwGFc9BV9Zv4KsXuMNU="/>
-        <field:display field="sr_geom" id="s_com_osrce_sitrep_domain_SrLocations_sr_geom" object="${srlocations}" z="jABQlhMWbIQZ5xD8w6IsHSTrDvo="/>
     </page:show>
 </div>

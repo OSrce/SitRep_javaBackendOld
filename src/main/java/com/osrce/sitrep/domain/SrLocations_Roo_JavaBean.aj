@@ -3,16 +3,26 @@
 
 package com.osrce.sitrep.domain;
 
+import com.osrce.sitrep.domain.SrCfs;
 import com.osrce.sitrep.domain.SrLocations;
 import com.vividsolutions.jts.geom.Geometry;
+import java.util.Set;
 
 privileged aspect SrLocations_Roo_JavaBean {
     
-    public Integer SrLocations.getId() {
+    public Set<SrCfs> SrLocations.getSrCfss() {
+        return this.srCfss;
+    }
+    
+    public void SrLocations.setSrCfss(Set<SrCfs> srCfss) {
+        this.srCfss = srCfss;
+    }
+    
+    public Long SrLocations.getId() {
         return this.id;
     }
     
-    public void SrLocations.setId(Integer id) {
+    public void SrLocations.setId(Long id) {
         this.id = id;
     }
     

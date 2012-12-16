@@ -19,7 +19,7 @@ privileged aspect SrLocationsController_Roo_Controller_Json {
     
     @RequestMapping(value = "/{id}", headers = "Accept=application/json")
     @ResponseBody
-    public ResponseEntity<String> SrLocationsController.showJson(@PathVariable("id") Integer id) {
+    public ResponseEntity<String> SrLocationsController.showJson(@PathVariable("id") Long id) {
         SrLocations srLocations = SrLocations.findSrLocations(id);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=utf-8");
@@ -81,7 +81,7 @@ privileged aspect SrLocationsController_Roo_Controller_Json {
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-    public ResponseEntity<String> SrLocationsController.deleteFromJson(@PathVariable("id") Integer id) {
+    public ResponseEntity<String> SrLocationsController.deleteFromJson(@PathVariable("id") Long id) {
         SrLocations srLocations = SrLocations.findSrLocations(id);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
