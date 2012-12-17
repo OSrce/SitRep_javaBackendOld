@@ -20,10 +20,6 @@ privileged aspect SrLayerStaticData_Roo_Json {
         return new JSONDeserializer<SrLayerStaticData>().use(null, SrLayerStaticData.class).deserialize(json);
     }
     
-    public static String SrLayerStaticData.toJsonArray(Collection<SrLayerStaticData> collection) {
-        return new JSONSerializer().exclude("*.class").serialize(collection);
-    }
-    
     public static Collection<SrLayerStaticData> SrLayerStaticData.fromJsonArrayToSrLayerStaticDatas(String json) {
         return new JSONDeserializer<List<SrLayerStaticData>>().use(null, ArrayList.class).use("values", SrLayerStaticData.class).deserialize(json);
     }

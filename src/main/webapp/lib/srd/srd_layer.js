@@ -322,11 +322,15 @@ loadData : function( ) {
 
 		} else if(this.options.layerFormat == "SRJSON" ) {
 				console.log("Create SRJson Layer Run From Server="+this.options.name+"===");
-				this.store = new dojo.store.Cache(
+				var theUrl = "/srlayerdynamicdatas/";
+				if( this.options.url ) {
+					theUrl = this.options.url;
+				}
+ 				this.store = new dojo.store.Cache(
 					dojo.store.JsonRest( { 
 //						idProperty: { "layer_id", "feature_id"},
 //						idProperty: "feature_id",
-						target: "/srlayerdynamicdatas/"
+						target: theUrl
 					} ),
 					dojo.store.Memory()
 				);

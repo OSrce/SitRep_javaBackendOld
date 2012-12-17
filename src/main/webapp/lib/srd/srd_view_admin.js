@@ -34,15 +34,17 @@ declare(
 //				console.log("Selected Layer : "+this.srd_selLayer.name);
 				// DEFINE ALL THE DIFFERENT TABLE WE CAN CONNECT TO:
 				this.tableList = {
-					"Users" : "/srdata/users/",
-					"Groups" : "/srdata/groups/",
-					"Permissions" : "/srdata/permissions/",
-					"Modules" : "/srdata/modules/",
-					"Sessions" : "/srdata/sessions/",
-					"Layers" : "/srdata/layers/",
-					"Styles" : "/srdata/styles/",
-					"Style Presets" : "/srdata/stylepresets/",
-					"Calls for service - SPRINT" : "/srdata/cfs/"
+					"Users" : "/sruserses/",
+					"Groups" : "/srgroupses/",
+					"Permissions" : "/sraclpermissionses/",
+					"Modules" : "/srmoduleses/",
+					"Sessions" : "/srsessions/",
+					"Layers" : "/srlayerses/",
+					"Styles" : "/srstyleses/",
+					"Style Symbolizers" : "/srstylesymbolizerses/",
+					"Style Rules" : "/srstyleruleses/",
+					"Style Presets" : "/srstylepresetses/",
+					"Calls for service - SPRINT" : "/srcfses/"
 				};
 				this.selectedTable = "Users";
 				this.selectedDataMenu = new dijit.Menu();

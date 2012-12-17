@@ -75,9 +75,9 @@
 
 
 			
-			loadsrd.siteLeftImage = '/lib/img/Test1.png'; 
-			loadsrd.siteRightImage = '/lib/img/Test2.png';
-			loadsrd.siteTitle = 'SitRep Title';
+			loadsrd.siteLeftImage = '/lib/img/SitRepIcon_Small.png'; 
+			loadsrd.siteRightImage = '/lib/img/SitRepLogo_Tiny.png';
+			loadsrd.siteTitle = 'SitRep Demo';
 
 			
 			require([

@@ -3,10 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_osrce_sitrep_domain_SrLayerStaticData" modelAttribute="srLayerStaticData" path="/srlayerstaticdatas" render="${empty dependencies}" z="4bczlVIK4LeRCtlCttAhZPhEu7I=">
-        <field:input field="sr_geom" id="c_com_osrce_sitrep_domain_SrLayerStaticData_sr_geom" z="Z/dCOFtUtUkXLl5lej9b50/a1+Q="/>
-        <field:input field="layerId" id="c_com_osrce_sitrep_domain_SrLayerStaticData_layerId" required="true" validationMessageCode="field_invalid_integer" z="NuuMy7H3V2n0T8PNsNWLasvBZdw="/>
-        <field:input field="featureStyle" id="c_com_osrce_sitrep_domain_SrLayerStaticData_featureStyle" validationMessageCode="field_invalid_integer" z="J+DJrZmVIOo/UDkWfUag4sKbgBo="/>
-        <field:input field="featureData" id="c_com_osrce_sitrep_domain_SrLayerStaticData_featureData" z="6C2weAGWGHcCWzJMWlabDNAwnVY="/>
+        <field:input field="layer_id" id="c_com_osrce_sitrep_domain_SrLayerStaticData_layer_id" required="true" validationMessageCode="field_invalid_integer" z="17z9srLRC8jjoVXz6fhvO84iJVU="/>
+        <field:input field="feature_style" id="c_com_osrce_sitrep_domain_SrLayerStaticData_feature_style" validationMessageCode="field_invalid_integer" z="/9rs3jR0EQNhHVw73tapAXs8IzU="/>
+        <field:input field="feature_data" id="c_com_osrce_sitrep_domain_SrLayerStaticData_feature_data" z="vxKrXh02Au5vIQcrQxYB5KJQxhI="/>
+        <field:input field="geometry" id="c_com_osrce_sitrep_domain_SrLayerStaticData_geometry" z="Gd7RYpUgRiIcHwjvNmLN98S4SaU="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrLayerStaticData" render="${not empty dependencies}" z="OmVk52l0OqMujPasH58DMJyK5T8="/>
 </div>

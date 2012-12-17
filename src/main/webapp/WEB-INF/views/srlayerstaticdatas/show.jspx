@@ -3,9 +3,9 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_osrce_sitrep_domain_SrLayerStaticData" object="${srlayerstaticdata}" path="/srlayerstaticdatas" z="oLLOFeq/R66fC4lQwz68zWPnSxo=">
-        <field:display field="sr_geom" id="s_com_osrce_sitrep_domain_SrLayerStaticData_sr_geom" object="${srlayerstaticdata}" z="wgTGIQpoihMOKST/X+8fw3iDDd0="/>
-        <field:display field="layerId" id="s_com_osrce_sitrep_domain_SrLayerStaticData_layerId" object="${srlayerstaticdata}" z="6l+38bM9rNCEuqucjHAFs85zfBg="/>
-        <field:display field="featureStyle" id="s_com_osrce_sitrep_domain_SrLayerStaticData_featureStyle" object="${srlayerstaticdata}" z="Kp761mtPGbxndh5RdOhkSP1pAYY="/>
-        <field:display field="featureData" id="s_com_osrce_sitrep_domain_SrLayerStaticData_featureData" object="${srlayerstaticdata}" z="iiqSD6ol8um5OledsIJ/x3pPut4="/>
+        <field:display field="layer_id" id="s_com_osrce_sitrep_domain_SrLayerStaticData_layer_id" object="${srlayerstaticdata}" z="t3Ykt/P3MtNZ9XH+bnnR7WLuw2s="/>
+        <field:display field="feature_style" id="s_com_osrce_sitrep_domain_SrLayerStaticData_feature_style" object="${srlayerstaticdata}" z="lb29WTRoLcWkE2DgC3fvCAylawk="/>
+        <field:display field="feature_data" id="s_com_osrce_sitrep_domain_SrLayerStaticData_feature_data" object="${srlayerstaticdata}" z="D2DspmZhekg4kJCsHU7UifIh3AI="/>
+        <field:display field="geometry" id="s_com_osrce_sitrep_domain_SrLayerStaticData_geometry" object="${srlayerstaticdata}" z="dDuXiBXs5w0ylAVhKIp/p+rUXoc="/>
     </page:show>
 </div>

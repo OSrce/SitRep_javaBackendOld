@@ -237,7 +237,13 @@ srd_init : function() {
 
 	var theLayers = this.loadsrd.theLayers;
 	var theStyles = this.loadsrd.theStyles;
-	var theStyleSymbolizers = this.loadsrd.theStyleSymbolizers;
+//	var theStyleSymbolizers = this.loadsrd.theStyleSymbolizers;
+	var theStyleSymbolizers = {};
+	for (theId in this.loadsrd.theStyleSymbolizers) {
+		console.log("theId:"+theId+"  ID:"+this.loadsrd.theStyleSymbolizers[theId]["id"] );
+		theStyleSymbolizers[this.loadsrd.theStyleSymbolizers[theId]["id"] ] = this.loadsrd.theStyleSymbolizers[theId];
+	}
+	
 	var theStyleRules = this.loadsrd.theStyleRules;
 
 

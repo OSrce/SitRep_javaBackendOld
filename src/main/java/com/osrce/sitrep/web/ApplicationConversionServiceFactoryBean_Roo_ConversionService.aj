@@ -105,7 +105,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrCfs, String> ApplicationConversionServiceFactoryBean.getSrCfsToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfs, java.lang.String>() {
             public String convert(SrCfs srCfs) {
-                return new StringBuilder().append(srCfs.getCfs_date()).append(' ').append(srCfs.getCfs_num()).append(' ').append(srCfs.getCfs_letter()).append(' ').append(srCfs.getCfs_pct()).toString();
+                return new StringBuilder().append(srCfs.getGeometry()).append(' ').append(srCfs.getCfs_date()).append(' ').append(srCfs.getCfs_num()).append(' ').append(srCfs.getCfs_letter()).toString();
             }
         };
     }
@@ -177,7 +177,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SrLayerStaticData, String> ApplicationConversionServiceFactoryBean.getSrLayerStaticDataToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrLayerStaticData, java.lang.String>() {
             public String convert(SrLayerStaticData srLayerStaticData) {
-                return new StringBuilder().append(srLayerStaticData.getLayerId()).append(' ').append(srLayerStaticData.getFeatureStyle()).append(' ').append(srLayerStaticData.getFeatureData()).append(' ').append(srLayerStaticData.getSr_geom()).toString();
+                return new StringBuilder().append(srLayerStaticData.getLayer_id()).append(' ').append(srLayerStaticData.getFeature_style()).append(' ').append(srLayerStaticData.getFeature_data()).append(' ').append(srLayerStaticData.getGeometry()).toString();
             }
         };
     }

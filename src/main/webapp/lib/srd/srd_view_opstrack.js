@@ -297,20 +297,22 @@ return declare(
 				id:'-1',
 				isBaseLayer: false,
 				visibility: true,
-				type: "Vector",
-				format: "NONE"	
-			}
+				layerType: "Vector",
+				layerFormat: "NONE"	
+			};
 			this.srd_layer = new srd_layer();
 			this.srd_layer.options = theOptions;
 			this.srd_layer.srd_styleArr = this.srd_doc.srd_styleArr;
 			this.srd_layer.srd_styleMap = this.srd_layer.srd_styleArr["5001"];
 			this.srd_layer.loadData();
+			console.log("Calling for loop TEST5");
 			// NEED TO FIX TODO:::
 			for(var tmpId in this.data.linkViewArr) {
 				if( this.data.linkViewArr[tmpId].data.type == 'map') {
 					this.srd_layer.addLayerToMap(this.data.linkViewArr[tmpId].map);
 				}
 			}
+			console.log("Calling srd_view_opstrack createMapFeatures");
 			this.createMapFeatures();
 			}.bind(this) );
 		},
@@ -444,7 +446,7 @@ return declare(
 						label: cfs.cfs_code,
 						body : "Signal: "+cfs.cfs_code+" Job :"+cfs.cfs_num,
 						sr_status: "Open-Unassigned"
-					}
+					};
 					var theFeat = new OpenLayers.Feature.Vector(theRefFeat[0].geometry,theFeatureAttr,null);
 					this.srd_layer.layer.addFeatures( Array( theFeat), {});
 				}
@@ -463,7 +465,7 @@ return declare(
 						body : "Signal: "+cfs.cfs_code+" Job :"+cfs.cfs_num,
 						sr_status: "Open-Unassigned"
 						
-					}
+					};
 					var theFeat = new OpenLayers.Feature.Vector(theRefFeat[0].geometry,theFeatureAttr,null);
 					this.srd_layer.layer.addFeatures( Array( theFeat), {});
 				}
@@ -475,7 +477,7 @@ return declare(
 					body : "Signal: 10-"+cfs.cfs_code+" Job :"+cfs.cfs_num,
 					cfs : cfs,
 					sr_status: "Open-Unassigned"
-				}
+				};
 				if( cfs.cfs_assignedunit) {
 					theFeatureAttr.sr_status = "Open-Assigned";
 				}

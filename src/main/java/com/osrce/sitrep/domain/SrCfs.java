@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.dbre.RooDbManaged;
@@ -19,7 +20,12 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
+import com.vividsolutions.jts.geom.Geometry;
+
+import flexjson.JSON;
 import flexjson.JSONSerializer;
+import flexjson.transformer.BasicDateTransformer;
+import flexjson.transformer.DateTransformer;
 
 @RooJavaBean
 @RooToString
@@ -38,11 +44,11 @@ public class SrCfs {
     @ManyToOne
     @JoinColumn(name = "cfs_location", referencedColumnName = "id")
     private SrLocations cfs_location;
-
+       
     @Column(name = "cfs_date")
     @NotNull
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(style = "M-")
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date cfs_date;
 
     @Column(name = "cfs_num")
@@ -88,12 +94,12 @@ public class SrCfs {
 
     @Column(name = "cfs_timecreated")
     @Temporal(TemporalType.TIME)
-    @DateTimeFormat(style = "M-")
+    @DateTimeFormat(pattern = "hh:mm:ss")
     private Date cfs_timecreated;
 
     @Column(name = "cfs_timeassigned")
     @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
+    @DateTimeFormat(pattern = "hh:mm:ss")
     private Date cfs_timeassigned;
 
     @Column(name = "cfs_assignedunit", length = 16)
@@ -146,13 +152,28 @@ public class SrCfs {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date cfs_updated_on;
+    
+    @Transient
+    private Geometry geometry;
+    
+    public Geometry getGeometry() {
+    	return this.cfs_location.getSr_geom();
+    }
 
     public static List<com.osrce.sitrep.domain.SrCfs> findAllSrCfsWithQuery(String theQuery) {
         return entityManager().createNativeQuery("SELECT * FROM sr_cfs where " + theQuery, SrCfs.class).getResultList();
     }
     
     public static String toJsonArray(Collection<SrCfs> collection) {
-        return new JSONSerializer().include("id", "cfs_date", "cfs_num", "cfs_letter", "cfs_pct", "cfs_sector", "cfs_code", "cfs_timeassigned", "cfs_finaldis" ).exclude("*").serialize(collection);
+        return new JSONSerializer()
+//        	.include("id", "cfs_date", "cfs_num", "cfs_letter", "cfs_pct", "cfs_sector", "cfs_code", "cfs_timeassigned", "cfs_finaldis", "geometry" )
+        	.transform(new GeometryTransformer(), "geometry")
+        	.transform(new DateTransformer("yyyy-MM-dd"), "cfs_date" )
+        	.transform(new DateTransformer("hh:mm:ss"), "cfs_timecreated", "cfs_timeassigned")
+        	.transform(new DateTransformer("yyyy-MM-dd hh:mm:ss"), "cfs_finaldisdate", "cfs_updated_on")
+//        	.exclude("*")
+        	.exclude("*.class", "cfs_location", "cfs_updated_on")
+        	.serialize(collection);
     }
     
     

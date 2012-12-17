@@ -34,5 +34,6 @@
         <field:display field="cfs_location" id="s_com_osrce_sitrep_domain_SrCfs_cfs_location" object="${srcfs}" z="TAPloGk+ZOL7b1bJ0dCqleDczrM="/>
         <field:display date="true" dateTimePattern="${srCfs_cfs_date_date_format}" field="cfs_date" id="s_com_osrce_sitrep_domain_SrCfs_cfs_date" object="${srcfs}" z="lT9E1gq0BOybbDysgt8SNfVcu6k="/>
         <field:display field="cfs_num" id="s_com_osrce_sitrep_domain_SrCfs_cfs_num" object="${srcfs}" z="O1ZcKN7v+2Vjc/1xylyRUxVXu8Q="/>
+        <field:display field="geometry" id="s_com_osrce_sitrep_domain_SrCfs_geometry" object="${srcfs}" z="Jev26+UKQG7LVzMbXqqcUdba3Ik="/>
     </page:show>
 </div>

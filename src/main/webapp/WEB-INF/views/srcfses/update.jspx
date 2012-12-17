@@ -34,5 +34,6 @@
         <field:select field="cfs_location" id="c_com_osrce_sitrep_domain_SrCfs_cfs_location" itemValue="id" items="${srlocationses}" path="/srlocationses" z="RAP+AP1PPs9U7cfaRv27xClSkyY="/>
         <field:datetime dateTimePattern="${srCfs_cfs_date_date_format}" field="cfs_date" id="c_com_osrce_sitrep_domain_SrCfs_cfs_date" required="true" z="KhvkbUJ7D6tJZotHjC0SuDKXyls="/>
         <field:input field="cfs_num" id="c_com_osrce_sitrep_domain_SrCfs_cfs_num" required="true" validationMessageCode="field_invalid_integer" z="Ay8RhZvLoUozEE4nLLoXfZTVqAA="/>
+        <field:input field="geometry" id="c_com_osrce_sitrep_domain_SrCfs_geometry" z="LClSmqr1w6IMlwvX0axRw3pUvC4="/>
     </form:update>
 </div>

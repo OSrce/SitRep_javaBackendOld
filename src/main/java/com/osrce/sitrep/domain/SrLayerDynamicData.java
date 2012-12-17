@@ -61,6 +61,7 @@ public class SrLayerDynamicData {
     }
 
     public static String toJsonArray(Collection<com.osrce.sitrep.domain.SrLayerDynamicData> collection) {
-        return new JSONSerializer().include("id", "layer_id", "feature_data", "feature_start", "feature_end", "geometry").transform(new GeometryTransformer(), "geometry").exclude("*").serialize(collection);
+//        return new JSONSerializer().include("id", "layer_id", "feature_data", "feature_start", "feature_end", "geometry").transform(new GeometryTransformer(), "geometry").exclude("*").serialize(collection);
+        return new JSONSerializer().transform(new GeometryTransformer(), "geometry").exclude("*.class").serialize(collection);
     }
 }

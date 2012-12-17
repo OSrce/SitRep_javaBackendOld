@@ -5,6 +5,7 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrCfs;
 import com.osrce.sitrep.domain.SrLocations;
+import com.vividsolutions.jts.geom.Geometry;
 import java.util.Date;
 
 privileged aspect SrCfs_Roo_JavaBean {
@@ -263,6 +264,10 @@ privileged aspect SrCfs_Roo_JavaBean {
     
     public void SrCfs.setCfs_updated_on(Date cfs_updated_on) {
         this.cfs_updated_on = cfs_updated_on;
+    }
+    
+    public void SrCfs.setGeometry(Geometry geometry) {
+        this.geometry = geometry;
     }
     
 }

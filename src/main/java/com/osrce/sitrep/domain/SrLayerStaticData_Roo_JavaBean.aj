@@ -16,12 +16,36 @@ privileged aspect SrLayerStaticData_Roo_JavaBean {
         this.id = id;
     }
     
-    public Geometry SrLayerStaticData.getSr_geom() {
-        return this.sr_geom;
+    public Integer SrLayerStaticData.getLayer_id() {
+        return this.layer_id;
     }
     
-    public void SrLayerStaticData.setSr_geom(Geometry sr_geom) {
-        this.sr_geom = sr_geom;
+    public void SrLayerStaticData.setLayer_id(Integer layer_id) {
+        this.layer_id = layer_id;
+    }
+    
+    public Integer SrLayerStaticData.getFeature_style() {
+        return this.feature_style;
+    }
+    
+    public void SrLayerStaticData.setFeature_style(Integer feature_style) {
+        this.feature_style = feature_style;
+    }
+    
+    public String SrLayerStaticData.getFeature_data() {
+        return this.feature_data;
+    }
+    
+    public void SrLayerStaticData.setFeature_data(String feature_data) {
+        this.feature_data = feature_data;
+    }
+    
+    public Geometry SrLayerStaticData.getGeometry() {
+        return this.geometry;
+    }
+    
+    public void SrLayerStaticData.setGeometry(Geometry geometry) {
+        this.geometry = geometry;
     }
     
 }
