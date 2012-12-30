@@ -66,6 +66,12 @@ privileged aspect SrLayers_Roo_DbManaged {
     @Column(name = "updated_by")
     private Integer SrLayers.updatedBy;
     
+    @Column(name = "bgcolor", length = 8)
+    private String SrLayers.bgcolor;
+    
+    @Column(name = "opacity", precision = 8, scale = 8)
+    private Float SrLayers.opacity;
+    
     public String SrLayers.getName() {
         return name;
     }
@@ -184,6 +190,22 @@ privileged aspect SrLayers_Roo_DbManaged {
     
     public void SrLayers.setUpdatedBy(Integer updatedBy) {
         this.updatedBy = updatedBy;
+    }
+    
+    public String SrLayers.getBgcolor() {
+        return bgcolor;
+    }
+    
+    public void SrLayers.setBgcolor(String bgcolor) {
+        this.bgcolor = bgcolor;
+    }
+    
+    public Float SrLayers.getOpacity() {
+        return opacity;
+    }
+    
+    public void SrLayers.setOpacity(Float opacity) {
+        this.opacity = opacity;
     }
     
 }

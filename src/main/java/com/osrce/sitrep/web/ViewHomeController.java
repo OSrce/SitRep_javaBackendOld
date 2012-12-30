@@ -16,7 +16,7 @@ import com.osrce.sitrep.domain.SrStyleSymbolizers;
 import com.osrce.sitrep.domain.SrStyles;
 import com.osrce.sitrep.domain.SrWindowLayout;
 
-@RequestMapping("/viewhome/**")
+@RequestMapping("/")
 @Controller
 public class ViewHomeController {
 

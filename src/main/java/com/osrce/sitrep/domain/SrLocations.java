@@ -1,9 +1,7 @@
 package com.osrce.sitrep.domain;
 
 import com.vividsolutions.jts.geom.Geometry;
-
 import flexjson.JSONSerializer;
-
 import java.util.Collection;
 import java.util.Set;
 import javax.persistence.Column;
@@ -37,15 +35,12 @@ public class SrLocations {
     @Type(type = "org.hibernate.spatial.GeometryType")
     @Column(name = "sr_geom", nullable = true, columnDefinition = "GeometryType")
     private Geometry sr_geom;
-    
+
     public String toJson() {
         return new JSONSerializer().include("id", "sr_geom").transform(new GeometryTransformer(), "sr_geom").exclude("*").serialize(this);
     }
-    
-    public static String toJsonArray(Collection<SrLocations> collection) {
+
+    public static String toJsonArray(Collection<com.osrce.sitrep.domain.SrLocations> collection) {
         return new JSONSerializer().include("id", "sr_geom").transform(new GeometryTransformer(), "sr_geom").exclude("*").serialize(collection);
     }
-   
-    
-    
 }

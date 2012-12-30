@@ -1,5 +1,10 @@
 package com.osrce.sitrep.domain;
 
+import com.vividsolutions.jts.geom.Geometry;
+import flexjson.JSON;
+import flexjson.JSONSerializer;
+import flexjson.transformer.BasicDateTransformer;
+import flexjson.transformer.DateTransformer;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -20,13 +25,6 @@ import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
-import com.vividsolutions.jts.geom.Geometry;
-
-import flexjson.JSON;
-import flexjson.JSONSerializer;
-import flexjson.transformer.BasicDateTransformer;
-import flexjson.transformer.DateTransformer;
-
 @RooJavaBean
 @RooToString
 @RooDbManaged(automaticallyDelete = true)
@@ -40,11 +38,11 @@ public class SrCfs {
     @Id
     @Column(name = "id")
     private Long id;
-    
+
     @ManyToOne
     @JoinColumn(name = "cfs_location", referencedColumnName = "id")
     private SrLocations cfs_location;
-       
+
     @Column(name = "cfs_date")
     @NotNull
     @Temporal(TemporalType.DATE)
@@ -152,30 +150,19 @@ public class SrCfs {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date cfs_updated_on;
-    
+
     @Transient
     private Geometry geometry;
-    
+
     public Geometry getGeometry() {
-    	return this.cfs_location.getSr_geom();
+        return this.cfs_location.getSr_geom();
     }
 
     public static List<com.osrce.sitrep.domain.SrCfs> findAllSrCfsWithQuery(String theQuery) {
         return entityManager().createNativeQuery("SELECT * FROM sr_cfs where " + theQuery, SrCfs.class).getResultList();
     }
-    
-    public static String toJsonArray(Collection<SrCfs> collection) {
-        return new JSONSerializer()
-//        	.include("id", "cfs_date", "cfs_num", "cfs_letter", "cfs_pct", "cfs_sector", "cfs_code", "cfs_timeassigned", "cfs_finaldis", "geometry" )
-        	.transform(new GeometryTransformer(), "geometry")
-        	.transform(new DateTransformer("yyyy-MM-dd"), "cfs_date" )
-        	.transform(new DateTransformer("hh:mm:ss"), "cfs_timecreated", "cfs_timeassigned")
-        	.transform(new DateTransformer("yyyy-MM-dd hh:mm:ss"), "cfs_finaldisdate", "cfs_updated_on")
-//        	.exclude("*")
-        	.exclude("*.class", "cfs_location", "cfs_updated_on")
-        	.serialize(collection);
+
+    public static String toJsonArray(Collection<com.osrce.sitrep.domain.SrCfs> collection) {
+        return new JSONSerializer().transform(new GeometryTransformer(), "geometry").transform(new DateTransformer("yyyy-MM-dd"), "cfs_date").transform(new DateTransformer("hh:mm:ss"), "cfs_timecreated", "cfs_timeassigned").transform(new DateTransformer("yyyy-MM-dd hh:mm:ss"), "cfs_finaldisdate", "cfs_updated_on").exclude("*.class", "cfs_location", "cfs_updated_on").serialize(collection);
     }
-    
-    
-    
 }

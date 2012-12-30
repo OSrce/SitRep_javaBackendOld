@@ -20,5 +20,7 @@
         <field:display date="true" dateTimePattern="${srLayers_updatedon_date_format}" field="updatedOn" id="s_com_osrce_sitrep_domain_SrLayers_updatedOn" object="${srlayers}" z="tpDNQwBuE+R9MJtboLwcnqQ0CiM="/>
         <field:display field="createdBy" id="s_com_osrce_sitrep_domain_SrLayers_createdBy" object="${srlayers}" z="ZQu8AR6x6uBC4nLf1iZ7H7F+xfY="/>
         <field:display field="updatedBy" id="s_com_osrce_sitrep_domain_SrLayers_updatedBy" object="${srlayers}" z="WrHS5v1i0qYtAP8X3Z1TUQy4dHI="/>
+        <field:display field="bgcolor" id="s_com_osrce_sitrep_domain_SrLayers_bgcolor" object="${srlayers}" z="leDT9hHRRDVS7VB++Bf859Dtr8I="/>
+        <field:display field="opacity" id="s_com_osrce_sitrep_domain_SrLayers_opacity" object="${srlayers}" z="9NNMZQwgNZ73u96fCFFIRJj/cLM="/>
     </page:show>
 </div>

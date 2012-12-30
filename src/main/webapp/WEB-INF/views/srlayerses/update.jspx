@@ -20,5 +20,7 @@
         <field:datetime dateTimePattern="${srLayers_updatedon_date_format}" field="updatedOn" id="c_com_osrce_sitrep_domain_SrLayers_updatedOn" z="kcq5B0/sIMum/zz6AAzp0MfdOYo="/>
         <field:input field="createdBy" id="c_com_osrce_sitrep_domain_SrLayers_createdBy" validationMessageCode="field_invalid_integer" z="3+NGQi5y6jtMpFEgxgz3bD9CIBE="/>
         <field:input field="updatedBy" id="c_com_osrce_sitrep_domain_SrLayers_updatedBy" validationMessageCode="field_invalid_integer" z="6VEtMVnZ/JOz4514bMRHhRpi9BA="/>
+        <field:input field="bgcolor" id="c_com_osrce_sitrep_domain_SrLayers_bgcolor" z="1kGSMgXPsAu+U+WtPtIPh8bP9hc="/>
+        <field:input field="opacity" id="c_com_osrce_sitrep_domain_SrLayers_opacity" validationMessageCode="field_invalid_number" z="kM1TmdGs64rdiVdFGTCCMAItzqY="/>
     </form:update>
 </div>

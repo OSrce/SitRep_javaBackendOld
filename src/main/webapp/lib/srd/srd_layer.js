@@ -215,21 +215,26 @@ loadData : function( ) {
 			} 
 		);
 	} else if (this.options.layerType == "WMS" ) {
+		this.options.transparent = 'false';
+		if(this.options.opacity < 1) {
+			this.options.transparent = 'true';
+		}
 		console.log("WMS Layer Created : "+this.options.name+":::"+this.options.url+":::");
 		this.layer = new OpenLayers.Layer.WMS ( 
 			this.options.name,
 			this.options.url,
 			{
 				// TESTING ONLY
-				layers: "RAS_RIDGE_NEXRAD",
-				transparent : "true",
+				layers: this.options.name,
+				transparent : this.options.transparent,
 				format : 'image/png',
-				srs: 'EPSG:900913'
+				bgcolor: this.options.bgcolor,
+				srs: this.options.projection
 			},
 			{
-				opacity: 0.5,
+				opacity: this.options.opacity,
 				isBaseLayer:	this.options.isBaseLayer,
-				visibility:		this.options.visibility 
+				visibility:		this.options.visibility
 				
  			}
 		);
@@ -367,10 +372,12 @@ loadData : function( ) {
 				if(this.options.url == null || this.options.url == "") {
 						this.layerProtocol = new OpenLayers.Protocol.HTTP( {
 //								url: "/srdata/Geojsonstatic/layer_id/"+this.options.id+"/",
-								url: "/srdata/geojsonstatic/?layer_id="+this.options.id,
+							url: "/srlayerstaticdatas/?layer_id="+this.options.id,
+//							url: "/srdata/geojsonstatic/?layer_id="+this.options.id,
 //							params: { layer_id : this.options.id },
 //							readWithPOST: true,
-							format: new OpenLayers.Format.GeoJSON( { } )
+							headers: {'Accept':'application/json'},
+							format: new OpenLayers.Format.JSON( { } )
 						} );
 				} else {
 						this.layerProtocol = new OpenLayers.Protocol.HTTP( {
@@ -378,8 +385,9 @@ loadData : function( ) {
 							headers: { layer_id : this.options.id },
 							params: { layer_id : this.options.id },
 							url:			this.options.url,
+							headers: {'Accept':'application/json'},
 							callback: function(resp ) { this.crudComplete(resp); }.bind(this),
-							format: new OpenLayers.Format.GeoJSON( {
+							format: new OpenLayers.Format.JSON( {
 //								'internalProjection' : new OpenLayers.Projection("EPSG:900913"),
 //								'externalProjection' : new OpenLayers.Projection("EPSG:4326")
 							 } )
