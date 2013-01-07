@@ -68,4 +68,13 @@
         <property name="persistenceUnitName" value="persistenceUnit"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    
+    <bean id="tokenRepository"
+      class="org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl">
+      <property name="createTableOnStartup" value="false" />
+      <property name="dataSource" ref="dataSource"/>
+   </bean>
+
+
+    
 </beans>

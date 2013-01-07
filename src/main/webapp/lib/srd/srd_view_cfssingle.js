@@ -42,7 +42,7 @@ return declare(
 //				console.log("Selected Layer : "+this.srd_selLayer.name);
 				// DEFINE ALL THE DIFFERENT TABLE WE CAN CONNECT TO:
 				this.tableList = {
-					"Calls for service - SPRINT" : "/srdata/cfs/"
+					"Calls for service - SPRINT" : "/srcfses/"
 				};
 				this.selectedTable = "Calls for service - SPRINT";
 				this.selectedDataMenu = new dijit.Menu();

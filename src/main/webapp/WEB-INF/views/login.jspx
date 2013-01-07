@@ -54,6 +54,8 @@
         <spring:message code="button_reset" var="reset_label" htmlEscape="false" />
         <input id="reset" type="reset" value="${fn:escapeXml(reset_label)}" />
       </div>
+      <p><input type='checkbox' name='_spring_security_remember_me' value="on" checked="checked"/> Remember me on this computer.</p>
+      
     </form>
   </util:panel>
 </div>

@@ -392,7 +392,7 @@ define ( [
 						label: cfs.cfs_code,
 						body : "Signal: "+cfs.cfs_code+" Job :"+cfs.cfs_num,
 						style: 2001
-					}
+					};
 					var theFeat = new OpenLayers.Feature.Vector(theRefFeat[0].geometry,theFeatureAttr,null);
 					this.srd_layer.layer.addFeatures( Array( theFeat), {});
 				}
@@ -404,7 +404,7 @@ define ( [
 					body : "Signal: 10-"+cfs.cfs_code+" Job :"+cfs.cfs_num,
 					cfs : cfs,
 					style: 5001
-				}
+				};
 				if( cfs.cfs_assignedunit) {
 					theFeatureAttr.style = 5002;
 				}
@@ -426,7 +426,7 @@ define ( [
 			var theDate = this.srd_datagrid.store.getValue( selectedItem, 'cfs_date' );
 			var theJobNum = this.srd_datagrid.store.getValue( selectedItem, 'cfs_num' );
 			console.log("popupCfsSingle CALLED: "+theDate+" ::: "+theJobNum);
-			var urlStr = '/home/cfssingle?cfs_date='+theDate+"&cfs_num="+theJobNum;
+			var urlStr = '/cfssingle?cfs_date='+theDate+"&cfs_num="+theJobNum;
 //			var theWindow = window.open(urlStr,'Calls For Service - Single View','width=650px');	
 			var theWindow = window.open(urlStr,'CallsForService','width=612,scrollbars=1,resizeable=1');	
 

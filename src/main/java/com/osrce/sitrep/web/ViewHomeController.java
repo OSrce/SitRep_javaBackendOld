@@ -16,15 +16,10 @@ import com.osrce.sitrep.domain.SrStyleSymbolizers;
 import com.osrce.sitrep.domain.SrStyles;
 import com.osrce.sitrep.domain.SrWindowLayout;
 
-@RequestMapping("/")
 @Controller
 public class ViewHomeController {
 
-    @RequestMapping(method = RequestMethod.POST, value = "{id}")
-    public void post(@PathVariable Long id, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
-    }
-
-    @RequestMapping
+    @RequestMapping( { "/", "/viewhome" }  )
     public String index(ModelMap model) {
     	String message = "Hello World, Spring 3.0!";
     	model.addAttribute("message", message);

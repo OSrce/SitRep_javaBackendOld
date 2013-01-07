@@ -33,7 +33,7 @@ public class SrLayerDynamicDataController {
         } else  {
         	result = SrLayerDynamicData.findAllSrLayerDynamicDatas();
         }
-        System.out.println( "TEST==="+ SrLayerDynamicData.toJsonArray(result)  );
+//        System.out.println( "TEST==="+ SrLayerDynamicData.toJsonArray(result)  );
         
         return new ResponseEntity<String>(SrLayerDynamicData.toJsonArray(result), headers, HttpStatus.OK);
     }

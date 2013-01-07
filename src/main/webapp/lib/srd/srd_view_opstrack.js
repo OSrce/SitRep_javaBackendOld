@@ -98,7 +98,7 @@ return declare(
 						label: this.srd_queryArr[theQueryId].name+" : "+this.srd_queryArr[theQueryId].notes,
 						value: theQueryId,
 						srd_view: this,
-						onClick: function() { this.srd_view.changeQuery(this.value) }
+						onClick: function() { this.srd_view.changeQuery(this.value); }
 					} ) );
 				}
 				var changeQueryMenuItem = new dijit.PopupMenuItem( {
@@ -154,7 +154,7 @@ return declare(
 							{ name: "Unit Assigned", field:"cfs_assignedunit", width: "100px" },
 							{ name: "Priority", field:"cfs_priority", width: "50px" },
 							{ name: "Final Disposition", field:"cfs_finaldis", width: "90px", formatter:function(data) {
-									if(data) { return "10-"+data} else { return ''; } }
+									if(data) { return "10-"+data; } else { return ''; } }
 						  },
 							{ name: "Final Disposition Info", field:"cfs_finaldissup1", width: "150px" },
 							{ name: "Final Disposition Date/Time", field:"cfs_finaldisdate", width: "150px", formatter:this.dateToTime},
@@ -166,7 +166,7 @@ return declare(
 							]
 					} ]
 					
-				}
+				};
 
 				// Make Query Results from memstore here and observe handler.
 				this.theResults = this.srd_memStore.query();
@@ -500,7 +500,7 @@ return declare(
 			var theDate = this.srd_datagrid.store.getValue( selectedItem, 'cfs_date' );
 			var theJobNum = this.srd_datagrid.store.getValue( selectedItem, 'cfs_num' );
 			console.log("popupCfsSingle CALLED: "+theDate+" ::: "+theJobNum);
-			var urlStr = '/home/cfssingle?cfs_date='+theDate+"&cfs_num="+theJobNum;
+			var urlStr = '/cfssingle?cfs_date='+theDate+"&cfs_num="+theJobNum;
 //			var theWindow = window.open(urlStr,'Calls For Service - Single View','width=650px');	
 			
 			var theWindow = window.open(urlStr,'CallsForService','width=612,height='+screen.height+',resizeable=1');	

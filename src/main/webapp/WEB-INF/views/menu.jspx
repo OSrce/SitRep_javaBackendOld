@@ -89,6 +89,7 @@
         </menu:category>
         <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
             <menu:item id="i_controller__viewhomeindex_id" messageCode="global_generic" url="/viewhome/index" z="U3/9qb+Y5Y1jZITG2DM9LXnkj6A="/>
+            <menu:item id="i_controller__cfssingleindex_id" messageCode="global_generic" url="/cfssingle/index" z="FHB7lx06/1yhgrNcejobAFjuMrU="/>
         </menu:category>
     </menu:menu>
 </div>

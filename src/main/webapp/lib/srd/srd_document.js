@@ -1255,7 +1255,7 @@ getView : function(theId) {
 // THEN REDIRECT TO /login/logout
 logout : function() {	
 					console.log("Logging Out User : "+this.staticVals.user_lastname);
-					window.location.href = "/login/index/logout";	
+					window.location.href = "/resources/j_spring_security_logout";	
 
 },
 	
