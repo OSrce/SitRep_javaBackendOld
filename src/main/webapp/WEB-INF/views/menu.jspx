@@ -91,5 +91,21 @@
             <menu:item id="i_controller__viewhomeindex_id" messageCode="global_generic" url="/viewhome/index" z="U3/9qb+Y5Y1jZITG2DM9LXnkj6A="/>
             <menu:item id="i_controller__cfssingleindex_id" messageCode="global_generic" url="/cfssingle/index" z="FHB7lx06/1yhgrNcejobAFjuMrU="/>
         </menu:category>
+        <menu:category id="c_entitystatus" z="4ghM1jtfqz8DtVVjGcMLEEYM9Mk=">
+            <menu:item id="i_entitystatus_new" messageCode="global_menu_new" url="/entitystatuses?form" z="Kn+t3QoSMilOMKFvf0Ddo/lG+bA="/>
+            <menu:item id="i_entitystatus_list" messageCode="global_menu_list" url="/entitystatuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="BMDxg8hh86UaRGVoggZeBdbjO+8="/>
+        </menu:category>
+        <menu:category id="c_entity" z="iXHa1fwpPfVl8UGAiPoh0Ml+/2Y=">
+            <menu:item id="i_entity_new" messageCode="global_menu_new" url="/entitys?form" z="JPj1z0rbjYbJ6+LWR18NGqqUKdw="/>
+            <menu:item id="i_entity_list" messageCode="global_menu_list" url="/entitys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="xvmuCFC0Y47vADidpEsgmVproDg="/>
+        </menu:category>
+        <menu:category id="c_srquerymonitor" z="kHNgcCdtxHqO5TPODtB38i5w8v8=">
+            <menu:item id="i_srquerymonitor_new" messageCode="global_menu_new" url="/srquerymonitors?form" z="9s8TdMV+u5jComUPN46NxLMvnMk="/>
+            <menu:item id="i_srquerymonitor_list" messageCode="global_menu_list" url="/srquerymonitors?page=1&amp;size=${empty param.size ? 10 : param.size}" z="zwP3/ByP07IOhuUD31HgEPslEp0="/>
+        </menu:category>
+        <menu:category id="c_srquerymonitorresults" z="BxWKClQbZIvxH0VuU7uUhQRzLSY=">
+            <menu:item id="i_srquerymonitorresults_new" messageCode="global_menu_new" url="/srquerymonitorresultses?form" z="3soW6LFPSuu2CFmjvKaXwTegl+g="/>
+            <menu:item id="i_srquerymonitorresults_list" messageCode="global_menu_list" url="/srquerymonitorresultses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="/ZLrNtkSo8nqREeVWItsGtjJqoU="/>
+        </menu:category>
     </menu:menu>
 </div>

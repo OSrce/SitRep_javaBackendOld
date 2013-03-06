@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_Entity" object="${entity}" path="/entitys" z="8X6Zv5PqoUjdPWBzhbIYGtaEKQQ=">
+        <field:display field="name" id="s_com_osrce_sitrep_domain_Entity_name" object="${entity}" z="qh219V2nVJeIcrJ3tCSRQ8CKOp8="/>
+        <field:display field="lastStatusId" id="s_com_osrce_sitrep_domain_Entity_lastStatusId" object="${entity}" z="5LrR7FAtsTClWFn9EJmUj7tDBJU="/>
+        <field:display field="lastLocationStatusId" id="s_com_osrce_sitrep_domain_Entity_lastLocationStatusId" object="${entity}" z="VQzu6Lla4fxitSolruy/VDgH2Zo="/>
+        <field:display field="data" id="s_com_osrce_sitrep_domain_Entity_data" object="${entity}" z="KSi4oJ3J+u10VT5VjkkN35riF4M="/>
+        <field:display date="true" dateTimePattern="${entity_createdon_date_format}" field="createdOn" id="s_com_osrce_sitrep_domain_Entity_createdOn" object="${entity}" z="GEwMgXeL/zzxUn9VFiVccf7xPDI="/>
+        <field:display date="true" dateTimePattern="${entity_updatedon_date_format}" field="updatedOn" id="s_com_osrce_sitrep_domain_Entity_updatedOn" object="${entity}" z="MdK0maugWYF7pKhxu25KNrA9cyw="/>
+        <field:display field="entityGroup" id="s_com_osrce_sitrep_domain_Entity_entityGroup" object="${entity}" z="9uG8dnHQX0P5YPw2k192WBwAJVo="/>
+        <field:display field="hasData" id="s_com_osrce_sitrep_domain_Entity_hasData" object="${entity}" z="wyWxBerg4q0oKzAyNUqo5ia2XgQ="/>
+        <field:display field="hasLocation" id="s_com_osrce_sitrep_domain_Entity_hasLocation" object="${entity}" z="6NmNmPpyvJqfJRY1G5fbikkVkho="/>
+        <field:display field="location" id="s_com_osrce_sitrep_domain_Entity_location" object="${entity}" z="ni74KvhoalY/yG8tx68sZ4v4f0Y="/>
+    </page:show>
+</div>

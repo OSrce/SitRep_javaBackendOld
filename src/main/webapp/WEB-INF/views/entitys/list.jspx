@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_Entity" items="${entitys}" z="TNz8Qn8RnWzjquAeRcLohJdwl2M=">
+        <table:table data="${entitys}" id="l_com_osrce_sitrep_domain_Entity" path="/entitys" z="aR7uaG3nasSprpI8hQdnqr/1rr0=">
+            <table:column id="c_com_osrce_sitrep_domain_Entity_name" property="name" z="GicDjUK9fB2T3QYRETN+GjNg01c="/>
+            <table:column id="c_com_osrce_sitrep_domain_Entity_entityGroup" property="entityGroup" z="D4q7caQuAEZbfAhwgMbb/NGMOLA="/>
+            <table:column id="c_com_osrce_sitrep_domain_Entity_hasData" property="hasData" z="BZr8PQEILVdziisoYXCu6QHZHJU="/>
+            <table:column id="c_com_osrce_sitrep_domain_Entity_hasLocation" property="hasLocation" z="ZWjg4TsFOgAibFc8mfY9ZP4t9wc="/>
+            <table:column id="c_com_osrce_sitrep_domain_Entity_lastStatusId" property="lastStatusId" z="DqoUJECKvH3aPAtIVx3SHXSYfE0="/>
+        </table:table>
+    </page:list>
+</div>

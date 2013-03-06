@@ -68,14 +68,14 @@ define( 'srd/srd_view_map', [
 						new OpenLayers.Control.KeyboardDefaults(),
 						this.geolocateControl
 					],
-					projection : "EPSG:900913",
-					displayProjection: "EPSG:4326",
-					units: "m",
+					projection : new OpenLayers.Projection("EPSG:900913"),
+//					displayProjection: new OpenLayers.Projection("EPSG:4326"),
+//					units: "m",
 					maxExtent : new OpenLayers.Bounds(-20037508.34,-20037508.34, 20037508.34, 20037508.34)
 				} );
 				this.map.render( this.mapDiv  ); 
 
-				console.log("DONE CREATING MAP!!!!");
+				console.log("DONE CREATING MAP1!!!!");
 			////////////////////////
 			///// LAYER CREATION ////
 

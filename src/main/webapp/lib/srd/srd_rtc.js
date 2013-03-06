@@ -31,19 +31,32 @@ define("srd/srd_rtc", [
 				cometd.disconnect(true);
 			} );
 
-			this.url = location.protocol+ "//" + location.host + ":8080/sitrep/cometd";
+//			this.url = location.protocol+ "//" + location.host + ":8080/sitrep/cometd";
+			this.url = "http://localhost:8080/cometd";
+
+			
 //			cometd.init(this.url);
 
 			cometd.configure( {
 				url: this.url,
-				logLevel: 'debug'
+				logLevel: 'warn'
+//				logLevel: 'debug'
 			} );
 
 			cometd.addListener('/meta/handshake', this._metaHandshake);
-			cometd.addListener('/meta/connect', this._metaConnect);
+			cometd.addListener('/meta/connect', function(message) { this._metaConnect(message); }.bind(this) );
 //			this.initConnection();
 			cometd.handshake();
-
+			
+			
+			//BEGIN TEST1
+			console.log("#############TEST 1#############");
+			cometd.subscribe("/query/1", function(message) {
+				console.log("Subscribed to query!"); 
+			} );
+			
+			//END TEST1
+			
 		},
 		// END CONSTRUCTORi
 
@@ -59,9 +72,10 @@ define("srd/srd_rtc", [
 		},
 		// END _metaHandshake
 		_metaConnect: function(message) {
+			console.log("metaConnect Called2!");
 			if(cometd.isDisconnected() ) {
 				this.connected = false;
-				_connectionClosed();
+				this._connectionClosed();
 				return;
 			}
 			var wasConnected = this.connected;
@@ -76,18 +90,21 @@ define("srd/srd_rtc", [
 		// BEGIN _connectionEstablished
 		_connectionEstablished : function() {
 			console.log("@@@@@@@@@@ CONNECTION ESTABLISHED!");
+			this.srd_doc.setStatus('ONLINE');
 
 		},
 		// END _connectionEstablished
 		// BEGIN _connectionBroken
 		_connectionBroken : function() {
 			console.log("@@@@@@@@@@ CONNECTION BROKEN!");
+			this.srd_doc.setStatus('OFFLINE-RECONNECTING');
 
 		},
 		// END _connectionBroken
 		// BEGIN _connectionClosed
 		_connectionClosed : function() {
 			console.log("@@@@@@@@@@ CONNECTION CLOSED!");
+			this.srd_doc.setStatus('OFFLINE');
 
 
 		},

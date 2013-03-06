@@ -3,7 +3,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_osrce_sitrep_domain_SrLocations" modelAttribute="srLocations" path="/srlocationses" versionField="none" z="OPwSkX95GYE0xlD5Nf+m1vk93kA=">
-        <field:input field="sr_geom" id="c_com_osrce_sitrep_domain_SrLocations_sr_geom" z="k54lCrZNKEENBROTwHIOqheGJ6k="/>
         <field:simple field="srCfss" id="c_com_osrce_sitrep_domain_SrLocations_srCfss" messageCode="entity_reference_not_managed" messageCodeAttribute="Sr Cfs" z="HM6+Vz5Y4hI8tpUdIErh2PRJmjE="/>
         <field:input field="pct" id="c_com_osrce_sitrep_domain_SrLocations_pct" validationMessageCode="field_invalid_integer" z="OIArMxpj6SpyZnPIq0I0C/eI9kU="/>
         <field:input field="sector" id="c_com_osrce_sitrep_domain_SrLocations_sector" z="6wsxFJqex4HhVbQB8YJcCGE9oP8="/>
@@ -14,5 +13,8 @@
         <field:input field="rating" id="c_com_osrce_sitrep_domain_SrLocations_rating" validationMessageCode="field_invalid_integer" z="qKYa4lCSMqw5ChHzDoFunPsh2Xg="/>
         <field:datetime dateTimePattern="${srLocations_createdon_date_format}" field="createdOn" id="c_com_osrce_sitrep_domain_SrLocations_createdOn" z="Bm/7zwctKik4cYIiZ+94IGOJaaw="/>
         <field:datetime dateTimePattern="${srLocations_lastused_date_format}" field="lastUsed" id="c_com_osrce_sitrep_domain_SrLocations_lastUsed" z="7BrBfgBjKXJndsWqsgTSqpG8ooI="/>
+        <field:input field="sr_geom" id="c_com_osrce_sitrep_domain_SrLocations_sr_geom" z="k54lCrZNKEENBROTwHIOqheGJ6k="/>
+        <field:simple field="entities" id="c_com_osrce_sitrep_domain_SrLocations_entities" messageCode="entity_reference_not_managed" messageCodeAttribute="Entity" z="Rfo9PKdP5NDaki697Datb4/FaY0="/>
+        <field:simple field="entityStatuses" id="c_com_osrce_sitrep_domain_SrLocations_entityStatuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Entity Status" z="5R4QQpGQKylPR2WtXJBBeImJAxs="/>
     </form:update>
 </div>

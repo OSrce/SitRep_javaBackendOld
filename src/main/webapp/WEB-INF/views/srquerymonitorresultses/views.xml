@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="srquerymonitorresultses/list">
+        <put-attribute name="body" value="/WEB-INF/views/srquerymonitorresultses/list.jspx"/>
+    </definition>
+<definition extends="default" name="srquerymonitorresultses/show">
+        <put-attribute name="body" value="/WEB-INF/views/srquerymonitorresultses/show.jspx"/>
+    </definition>
+<definition extends="default" name="srquerymonitorresultses/create">
+        <put-attribute name="body" value="/WEB-INF/views/srquerymonitorresultses/create.jspx"/>
+    </definition>
+<definition extends="default" name="srquerymonitorresultses/update">
+        <put-attribute name="body" value="/WEB-INF/views/srquerymonitorresultses/update.jspx"/>
+    </definition>
+</tiles-definitions>

@@ -54,6 +54,12 @@ public class SrLayerDynamicData {
     @Column(name = "sr_geom", nullable = true, columnDefinition = "Geometry")
     private Geometry geometry;
 
+    public static List<com.osrce.sitrep.domain.SrLayerDynamicData> findAllWithEndTime(Integer theLayerId, Date theFeatureEnd) {
+        TypedQuery<SrLayerDynamicData> theQuery = entityManager().createQuery("SELECT o FROM SrLayerDynamicData o where layer_id=:theLayerId", SrLayerDynamicData.class);
+        theQuery.setParameter("theLayerId", theLayerId);
+        return theQuery.getResultList();
+    }
+
     public static List<com.osrce.sitrep.domain.SrLayerDynamicData> findAllWithLayerId(Integer theLayerId) {
         TypedQuery<SrLayerDynamicData> theQuery = entityManager().createQuery("SELECT o FROM SrLayerDynamicData o where layer_id=:theLayerId", SrLayerDynamicData.class);
         theQuery.setParameter("theLayerId", theLayerId);

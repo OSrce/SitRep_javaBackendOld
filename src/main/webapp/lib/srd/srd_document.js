@@ -160,6 +160,9 @@ return declare( null, {
 			start_zoom : 12
 		}
 	};
+	
+	//REAL TIME CODE RELATED :
+	this.status = 'OFFLINE';
 
 // BEGIN ASSOCIATE DATA FROM SERVER
 	this.staticVals = loadsrd.staticVals;
@@ -258,8 +261,9 @@ srd_init : function() {
 			theOptions['isDefault'] = true;
 		}
 		for(var theRId in theStyleRules) {
+//			console.log("Iterating through Rules, Iter:"+theRId+" theId="+theId);
 			var tmpRule = theStyleRules[theRId];
-			if( tmpRule["style_id"] == theId) {
+			if( tmpRule["style_id"] == theStyles[theId]['stylemap_id'] ) {
 				var filterData = dojo.fromJson( tmpRule["filter_data"] );
 				var theFilter = null;
 				if(filterData == null) {
@@ -270,6 +274,28 @@ srd_init : function() {
 						theFilter = new OpenLayers.Filter.Comparison({
 							type: OpenLayers.Filter.Comparison.EQUAL_TO,
 							property: filterData.property,
+							value: filterData.value
+						} );
+					break;
+					case "<" :
+						theFilter = new OpenLayers.Filter.Comparison({
+							type: OpenLayers.Filter.Comparison.LESS_THAN,
+							property: filterData.property,
+							value: filterData.value
+						} );
+					break;
+					case ">" :
+						theFilter = new OpenLayers.Filter.Comparison({
+							type: OpenLayers.Filter.Comparison.GREATER_THAN,
+							property: filterData.property,
+							value: filterData.value
+						} );
+					break;
+					case "><" :
+						theFilter = new OpenLayers.Filter.Comparison({
+							type: OpenLayers.Filter.Comparison.BETWEEN,
+							lowerBoundary: filterData.lowerBoundary,
+							upperBoundary: filterData.upperBoundary,
 							value: filterData.value
 						} );
 					break;
@@ -294,6 +320,11 @@ srd_init : function() {
 				}	
 			}
 		}
+		if(theStyle.stylemap_id == 2013) {
+			console.log("jonTest3 === theOptions***************");
+			jonTest3 = theOptions;
+		}
+		
 		theOptions.defaultsPerSymbolizer = false;	
 
 		theStyleMaps[theStyle.stylemap_id][theStyle.render_type] = new OpenLayers.Style( theStyleSymbolizers[theStyle.defaultsymbolizer_id] , theOptions);
@@ -350,7 +381,7 @@ srd_init : function() {
 
 //	this.srd_displayMenuBar();
 	
-//	this.rtc = new srd_rtc(this);
+	this.rtc = new srd_rtc(this);
 },
 // END srd_init
 
@@ -1307,7 +1338,7 @@ updateLayoutNameDisplay : function() {
 toggleAutoRefresh : function() {
 	if(this.staticVals.autoRefresh != null ) {
 		if(this.staticVals.autoRefresh == true) {
-			this.srd_timer = new dojox.timing.Timer(15000);
+			this.srd_timer = new dojox.timing.Timer(5000);
 			this.srd_timer.onTick = function() { 
 				this.sendRefresh();
 			}.bind(this);
@@ -1326,8 +1357,11 @@ toggleAutoRefresh : function() {
 sendRefresh : function() {
 		console.log("SRD DOC sendRefresh Called!");
 		for( var i in this.srd_layerArr) {
-			if( this.srd_layerArr[i].options != null ) {
-				if( this.srd_layerArr[i].options.visibility == true && this.srd_layerArr[i].options.format == "SRJSON") {
+//			console.log("Refresh LayerID:"+i);
+			if( this.srd_layerArr[i].options &&  this.srd_layerArr[i].options.layerFormat == "SRJSON") {
+//				console.log(" Actual ID:"+this.srd_layerArr[i].options.id+"FORMAT="+this.srd_layerArr[i].options.layerFormat);
+				if( this.srd_layerArr[i].layer && this.srd_layerArr[i].layer.visibility == true ) {
+//					console.log(" Visibility:"+this.srd_layerArr[i].layer.visibility );
 					this.srd_layerArr[i].refresh();
 				}
 			}
@@ -1374,9 +1408,24 @@ loadedViews : function() {
 		}.bind(this) );
 	}	
 	return;
-}
+},
 // END loadedViews
-
+	
+	//BEGIN setStatus
+	setStatus : function(status) {
+		if(status == 'ONLINE') {
+			console.log("############# We're ONLINE!");
+			this.status = 'ONLINE';
+		}
+		
+	},
+	//END setStatus
+	//BEGIN getStatus
+	getStatus: function() {
+		return this.status;
+	}
+	//END getStatus
+	
 } );
 
 } );

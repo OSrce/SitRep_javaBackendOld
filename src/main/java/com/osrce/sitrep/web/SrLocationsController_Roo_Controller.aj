@@ -3,6 +3,8 @@
 
 package com.osrce.sitrep.web;
 
+import com.osrce.sitrep.domain.Entity;
+import com.osrce.sitrep.domain.EntityStatus;
 import com.osrce.sitrep.domain.SrCfs;
 import com.osrce.sitrep.domain.SrLocations;
 import com.osrce.sitrep.web.SrLocationsController;
@@ -97,6 +99,8 @@ privileged aspect SrLocationsController_Roo_Controller {
     void SrLocationsController.populateEditForm(Model uiModel, SrLocations srLocations) {
         uiModel.addAttribute("srLocations", srLocations);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("entitys", Entity.findAllEntitys());
+        uiModel.addAttribute("entitystatuses", EntityStatus.findAllEntityStatuses());
         uiModel.addAttribute("srcfses", SrCfs.findAllSrCfses());
     }
     

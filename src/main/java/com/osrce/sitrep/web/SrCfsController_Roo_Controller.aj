@@ -5,6 +5,7 @@ package com.osrce.sitrep.web;
 
 import com.osrce.sitrep.domain.SrCfs;
 import com.osrce.sitrep.domain.SrLocations;
+import com.osrce.sitrep.domain.SrQueryMonitorResults;
 import com.osrce.sitrep.web.SrCfsController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
@@ -102,6 +103,7 @@ privileged aspect SrCfsController_Roo_Controller {
         uiModel.addAttribute("srCfs", srCfs);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("srlocationses", SrLocations.findAllSrLocationses());
+        uiModel.addAttribute("srquerymonitorresultses", SrQueryMonitorResults.findAllSrQueryMonitorResultses());
     }
     
     String SrCfsController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

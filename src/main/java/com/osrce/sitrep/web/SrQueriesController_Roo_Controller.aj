@@ -4,6 +4,7 @@
 package com.osrce.sitrep.web;
 
 import com.osrce.sitrep.domain.SrQueries;
+import com.osrce.sitrep.domain.SrQueryMonitor;
 import com.osrce.sitrep.web.SrQueriesController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
@@ -86,6 +87,7 @@ privileged aspect SrQueriesController_Roo_Controller {
     
     void SrQueriesController.populateEditForm(Model uiModel, SrQueries srQueries) {
         uiModel.addAttribute("srQueries", srQueries);
+        uiModel.addAttribute("srquerymonitors", SrQueryMonitor.findAllSrQueryMonitors());
     }
     
     String SrQueriesController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

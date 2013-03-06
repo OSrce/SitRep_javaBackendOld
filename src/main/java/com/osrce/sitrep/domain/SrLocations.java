@@ -2,6 +2,7 @@ package com.osrce.sitrep.domain;
 
 import com.vividsolutions.jts.geom.Geometry;
 import flexjson.JSONSerializer;
+import flexjson.transformer.AbstractTransformer;
 import java.util.Collection;
 import java.util.Set;
 import javax.persistence.Column;
@@ -28,12 +29,18 @@ public class SrLocations {
     @OneToMany(mappedBy = "cfs_location")
     private Set<SrCfs> srCfss;
 
+    @OneToMany(mappedBy = "location")
+    private Set<Entity> entities;
+
+    @OneToMany(mappedBy = "locationId")
+    private Set<EntityStatus> entityStatuses;
+
     @Id
     @Column(name = "id")
     private Long id;
 
     @Type(type = "org.hibernate.spatial.GeometryType")
-    @Column(name = "sr_geom", nullable = true, columnDefinition = "GeometryType")
+    @Column(name = "sr_geom", nullable = true, columnDefinition = "Geometry")
     private Geometry sr_geom;
 
     public String toJson() {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_SrQueryMonitorResults" items="${srquerymonitorresultses}" z="VoYO2vbitRcCDwQJFwPzCu80mgU=">
+        <table:table data="${srquerymonitorresultses}" id="l_com_osrce_sitrep_domain_SrQueryMonitorResults" path="/srquerymonitorresultses" z="Wdl8ACP2j0ahfanuDGLaxv1YZhs=">
+            <table:column id="c_com_osrce_sitrep_domain_SrQueryMonitorResults_resultid" property="resultid" z="WxRrNO+jDUwB+mByThj1Gv0SZ3s="/>
+            <table:column id="c_com_osrce_sitrep_domain_SrQueryMonitorResults_monitorid" property="monitorid" z="7Msdqigk80iU2960Zv8Yd1mUodQ="/>
+            <table:column date="true" dateTimePattern="${srQueryMonitorResults_updatedon_date_format}" id="c_com_osrce_sitrep_domain_SrQueryMonitorResults_updatedon" property="updatedon" z="ocz8yyXGBIaM/iDy1mUpbrk2N1c="/>
+        </table:table>
+    </page:list>
+</div>

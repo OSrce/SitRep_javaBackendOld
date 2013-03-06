@@ -339,30 +339,71 @@ loadData : function( ) {
 					} ),
 					dojo.store.Memory()
 				);
+/*
+ 				//BEGIN TEST1
+ 				if(this.options.id == 2013) {
+ 					this.layer = new OpenLayers.Layer.Vector(this.options.name, {
+ 						isBaseLayer:	this.options.isBaseLayer,
+ 						projection:		new OpenLayers.Projection(this.options.projection),
+// 						units:				"degrees",
+ 						visibility:		this.options.visibility,
+ 						renderers: ['Canvas','SVG'],
+ 						strategies:	[
+//new OpenLayers.Strategy.Fixed(),
+new OpenLayers.Strategy.Cluster( { distance: 45 })					           	 
+ 						           	 ],
+ 					
+ 						styleMap:			this.srd_styleMap
+ 					} );
+ 				} else {
+ */					
 				this.layer = new OpenLayers.Layer.Vector(this.options.name, {
 					isBaseLayer:	this.options.isBaseLayer,
 					projection:		new OpenLayers.Projection(this.options.projection),
-					units:				"degrees",
+//					units:				"degrees",
 					visibility:		this.options.visibility,
 					styleMap:			this.srd_styleMap
 				} );
-				dojo.when(this.store.query({"layer_id":this.options.id}), function(theFeatArr) {
+//				}
+				//END TEST1
+				this.format = new OpenLayers.Format.WKT( {
+					externalProjection : new OpenLayers.Projection(this.options.projection),
+					internalProjection : new OpenLayers.Projection("EPSG:900913")
+				} );
+				var testVar = null;
+				dojo.when(this.store.query({"layer_id":this.options.id }), function(theFeatArr) {
 					dojo.forEach( theFeatArr, function(theFeat) {
-						var theFeature = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.fromWKT( theFeat.geometry), dojo.fromJson(theFeat.feature_data) );
+						
+						var theFeature;
+						if(this.options.url == '/entitys') {
+							theFeature =  this.format.read( theFeat.location.sr_geom);
+							theFeature.attributes = {};
+							if(theFeat.data) {
+								theFeature.attributes = dojo.fromJson(theFeat.data);
+							}
+							if(theFeat.name) {
+								theFeature.attributes.name = theFeat.name;
+							}
+							
+						}else {
+							theFeature =  this.format.read( theFeat.geometry);
+							theFeature.attributes = dojo.fromJson(theFeat.feature_data);
+
+						}
 						theFeature.db_id = theFeat.id;
 //						theFeature.fid = theFeat.feature_id;
 //						theFeature.id = theFeat.feature_id;
-						console.log("Adding Feature: "+theFeature.db_id+" on Layer: "+this.options.id);
+//						console.log("Adding Feature: "+theFeature.db_id+" on Layer: "+this.options.id);
 						this.layer.addFeatures( [theFeature] ); 
 	
 					}.bind(this) );
-
+/*
 					this.layer.events.register("featureadded", this, this.srd_create);
 					this.layer.events.register("featuremodified", this, this.srd_update);
 					this.layer.events.register("featureremoved", this, this.srd_delete);
 					this.layer.events.register("featureselected", this, this.onFeatureSelect);
 					this.layer.events.register("featureunselected", this, this.onFeatureUnselect);
-
+*/
 				}.bind(this) );
 
 		} else if(this.options.layerFormat == "GeoJSON" ) {
@@ -1192,7 +1233,7 @@ refresh : function() {
 				var theFeature = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.fromWKT( theFeatArr[j].geometry), dojo.fromJson(theFeatArr[j].feature_data) );
 				theFeature.db_id = theFeatArr[j].id;
 //				theFeature.fid = theFeatArr[j].feature_id;
-				console.log("Adding Feature: "+theFeature.db_id+" on Layer: "+this.options.id);
+//				console.log("Adding Feature: "+theFeature.db_id+" on Layer: "+this.options.id);
 				this.layer.addFeatures( [theFeature], {silent:true} ); 
 			}
 		}	
@@ -1207,13 +1248,30 @@ compareAndUpdateFeature : function(oldFeat, newFeat) {
 	console.log("Compare from Server Feature: "+oldFeat.db_id+" on Layer: "+this.options.id);
 	var tmpDataStr = dojo.toJson(oldFeat.attributes);
 	var updateFeature = false;
+/*
 	if(tmpDataStr != newFeat.feature_data) {
 		console.log(oldFeat.db_id+" DIFF IN DATA :"+tmpDataStr+" ::: "+newFeat.feature_data);
 		updateFeature = true;
 		delete oldFeat.attributes;
 		oldFeat.attributes = dojo.toJson(newFeat.feature_data);
 	} 
+*/	
+
+	
+	
   var tmpGeomStr = oldFeat.geometry.toString();
+  
+  if(this.options.url == '/entitys') {
+//		theFeature =  this.format.read( theFeat.location.sr_geom);
+		if( tmpGeomStr != newFeat.location.sr_geom ) {
+			console.log(oldFeat.db_id+" DIFF IN GEOM :"+tmpGeomStr+" ::: "+newFeat.geometry);
+			updateFeature = true;
+			this.layer.removeFeatures([oldFeat], {silent:true} );	
+			delete oldFeat.geometry;
+			oldFeat.geometry =  new OpenLayers.Geometry.fromWKT( newFeat.geometry);
+			this.layer.addFeatures([oldFeat], {silent:true} );
+		}
+  } else {
 	if( tmpGeomStr != newFeat.geometry ) {
 		console.log(oldFeat.db_id+" DIFF IN GEOM :"+tmpGeomStr+" ::: "+newFeat.geometry);
 		updateFeature = true;
@@ -1222,6 +1280,7 @@ compareAndUpdateFeature : function(oldFeat, newFeat) {
 		oldFeat.geometry =  new OpenLayers.Geometry.fromWKT( newFeat.geometry);
 		this.layer.addFeatures([oldFeat], {silent:true} );
 	}
+  }
 	if(updateFeature == true) {
 //		this.layer.drawFeature(oldFeat);
 	}

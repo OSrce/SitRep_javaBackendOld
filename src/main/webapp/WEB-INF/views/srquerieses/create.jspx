@@ -8,6 +8,7 @@
         <field:input field="name" id="c_com_osrce_sitrep_domain_SrQueries_name" required="true" z="G+fA4ZBKC4VDhSfXb7MitIQVmlM="/>
         <field:input field="notes" id="c_com_osrce_sitrep_domain_SrQueries_notes" z="g1pALib8oC1yyZf3A93QlHj+M2w="/>
         <field:input field="data" id="c_com_osrce_sitrep_domain_SrQueries_data" z="V2qUMguburreClGK/a1AA+Py7kI="/>
+        <field:simple field="srQueryMonitors" id="c_com_osrce_sitrep_domain_SrQueries_srQueryMonitors" messageCode="entity_reference_not_managed" messageCodeAttribute="Sr Query Monitor" z="3rk1ea649ym24otxlHlcfSzJc5M="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_SrQueries" render="${not empty dependencies}" z="uGa3FaIq2jni9hxqSR6ORnHvLTc="/>
 </div>

@@ -3,6 +3,8 @@
 
 package com.osrce.sitrep.web;
 
+import com.osrce.sitrep.domain.Entity;
+import com.osrce.sitrep.domain.EntityStatus;
 import com.osrce.sitrep.domain.SrAclPermissions;
 import com.osrce.sitrep.domain.SrAssets;
 import com.osrce.sitrep.domain.SrAssetsStatus;
@@ -14,6 +16,8 @@ import com.osrce.sitrep.domain.SrLayers;
 import com.osrce.sitrep.domain.SrLocations;
 import com.osrce.sitrep.domain.SrModules;
 import com.osrce.sitrep.domain.SrQueries;
+import com.osrce.sitrep.domain.SrQueryMonitor;
+import com.osrce.sitrep.domain.SrQueryMonitorResults;
 import com.osrce.sitrep.domain.SrSession;
 import com.osrce.sitrep.domain.SrStylePresets;
 import com.osrce.sitrep.domain.SrStyleRules;
@@ -29,6 +33,54 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
+    
+    public Converter<Entity, String> ApplicationConversionServiceFactoryBean.getEntityToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Entity, java.lang.String>() {
+            public String convert(Entity entity) {
+                return new StringBuilder().append(entity.getEntityGroup()).append(' ').append(entity.getName()).append(' ').append(entity.getLastStatusId()).append(' ').append(entity.getLastLocationStatusId()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Entity> ApplicationConversionServiceFactoryBean.getIdToEntityConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Entity>() {
+            public com.osrce.sitrep.domain.Entity convert(java.lang.Long id) {
+                return Entity.findEntity(id);
+            }
+        };
+    }
+    
+    public Converter<String, Entity> ApplicationConversionServiceFactoryBean.getStringToEntityConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Entity>() {
+            public com.osrce.sitrep.domain.Entity convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Entity.class);
+            }
+        };
+    }
+    
+    public Converter<EntityStatus, String> ApplicationConversionServiceFactoryBean.getEntityStatusToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.EntityStatus, java.lang.String>() {
+            public String convert(EntityStatus entityStatus) {
+                return new StringBuilder().append(entityStatus.getStatus()).append(' ').append(entityStatus.getData()).append(' ').append(entityStatus.getDataBegin()).append(' ').append(entityStatus.getDataEnd()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, EntityStatus> ApplicationConversionServiceFactoryBean.getIdToEntityStatusConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.EntityStatus>() {
+            public com.osrce.sitrep.domain.EntityStatus convert(java.lang.Long id) {
+                return EntityStatus.findEntityStatus(id);
+            }
+        };
+    }
+    
+    public Converter<String, EntityStatus> ApplicationConversionServiceFactoryBean.getStringToEntityStatusConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.EntityStatus>() {
+            public com.osrce.sitrep.domain.EntityStatus convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), EntityStatus.class);
+            }
+        };
+    }
     
     public Converter<SrAclPermissions, String> ApplicationConversionServiceFactoryBean.getSrAclPermissionsToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrAclPermissions, java.lang.String>() {
@@ -294,6 +346,54 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<SrQueryMonitor, String> ApplicationConversionServiceFactoryBean.getSrQueryMonitorToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrQueryMonitor, java.lang.String>() {
+            public String convert(SrQueryMonitor srQueryMonitor) {
+                return "(no displayable fields)";
+            }
+        };
+    }
+    
+    public Converter<Long, SrQueryMonitor> ApplicationConversionServiceFactoryBean.getIdToSrQueryMonitorConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.SrQueryMonitor>() {
+            public com.osrce.sitrep.domain.SrQueryMonitor convert(java.lang.Long id) {
+                return SrQueryMonitor.findSrQueryMonitor(id);
+            }
+        };
+    }
+    
+    public Converter<String, SrQueryMonitor> ApplicationConversionServiceFactoryBean.getStringToSrQueryMonitorConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrQueryMonitor>() {
+            public com.osrce.sitrep.domain.SrQueryMonitor convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), SrQueryMonitor.class);
+            }
+        };
+    }
+    
+    public Converter<SrQueryMonitorResults, String> ApplicationConversionServiceFactoryBean.getSrQueryMonitorResultsToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrQueryMonitorResults, java.lang.String>() {
+            public String convert(SrQueryMonitorResults srQueryMonitorResults) {
+                return new StringBuilder().append(srQueryMonitorResults.getUpdatedon()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, SrQueryMonitorResults> ApplicationConversionServiceFactoryBean.getIdToSrQueryMonitorResultsConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.SrQueryMonitorResults>() {
+            public com.osrce.sitrep.domain.SrQueryMonitorResults convert(java.lang.Long id) {
+                return SrQueryMonitorResults.findSrQueryMonitorResults(id);
+            }
+        };
+    }
+    
+    public Converter<String, SrQueryMonitorResults> ApplicationConversionServiceFactoryBean.getStringToSrQueryMonitorResultsConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrQueryMonitorResults>() {
+            public com.osrce.sitrep.domain.SrQueryMonitorResults convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), SrQueryMonitorResults.class);
+            }
+        };
+    }
+    
     public Converter<SrSession, String> ApplicationConversionServiceFactoryBean.getSrSessionToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrSession, java.lang.String>() {
             public String convert(SrSession srSession) {
@@ -455,6 +555,12 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
+        registry.addConverter(getEntityToStringConverter());
+        registry.addConverter(getIdToEntityConverter());
+        registry.addConverter(getStringToEntityConverter());
+        registry.addConverter(getEntityStatusToStringConverter());
+        registry.addConverter(getIdToEntityStatusConverter());
+        registry.addConverter(getStringToEntityStatusConverter());
         registry.addConverter(getSrAclPermissionsToStringConverter());
         registry.addConverter(getIdToSrAclPermissionsConverter());
         registry.addConverter(getStringToSrAclPermissionsConverter());
@@ -488,6 +594,12 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getSrQueriesToStringConverter());
         registry.addConverter(getIdToSrQueriesConverter());
         registry.addConverter(getStringToSrQueriesConverter());
+        registry.addConverter(getSrQueryMonitorToStringConverter());
+        registry.addConverter(getIdToSrQueryMonitorConverter());
+        registry.addConverter(getStringToSrQueryMonitorConverter());
+        registry.addConverter(getSrQueryMonitorResultsToStringConverter());
+        registry.addConverter(getIdToSrQueryMonitorResultsConverter());
+        registry.addConverter(getStringToSrQueryMonitorResultsConverter());
         registry.addConverter(getSrSessionToStringConverter());
         registry.addConverter(getIdToSrSessionConverter());
         registry.addConverter(getSrStylePresetsToStringConverter());

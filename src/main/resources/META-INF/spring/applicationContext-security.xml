@@ -15,7 +15,7 @@
         <intercept-url pattern="/login" access="permitAll" />
           <intercept-url pattern="/**" access="isAuthenticated()" />
     <session-management>
-        <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+        <concurrency-control max-sessions="1" error-if-maximum-exceeded="false" />
     </session-management>
     <remember-me key="_spring_security_remember_me" token-repository-ref="tokenRepository"  user-service-ref="ldapUserService" token-validity-seconds="8640000"  />
     <logout delete-cookies="JSESSIONID" />

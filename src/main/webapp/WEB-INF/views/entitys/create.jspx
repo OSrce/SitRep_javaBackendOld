@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_osrce_sitrep_domain_Entity" modelAttribute="entity" path="/entitys" render="${empty dependencies}" z="AHmVurNegwro+0RFt3OvarIqBmE=">
+        <field:simple field="entityStatuses" id="c_com_osrce_sitrep_domain_Entity_entityStatuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Entity Status" z="BHIjmNUbBTBPoFz5MlrFyfMTqqA="/>
+        <field:input field="name" id="c_com_osrce_sitrep_domain_Entity_name" required="true" z="7a3mTo8DoHFNU2kuocWa8DwnDU4="/>
+        <field:input field="lastStatusId" id="c_com_osrce_sitrep_domain_Entity_lastStatusId" required="true" validationMessageCode="field_invalid_integer" z="iDrj/PHkA5dxVEIEScAMzcmrtNQ="/>
+        <field:input field="lastLocationStatusId" id="c_com_osrce_sitrep_domain_Entity_lastLocationStatusId" required="true" validationMessageCode="field_invalid_integer" z="SeTnnh9gNL7+dSdKdbgNuHbCNn8="/>
+        <field:input field="data" id="c_com_osrce_sitrep_domain_Entity_data" z="aMGtpmylmHtdH7VGgnSCPRFoiS8="/>
+        <field:datetime dateTimePattern="${entity_createdon_date_format}" field="createdOn" id="c_com_osrce_sitrep_domain_Entity_createdOn" z="xpXEzXmqmwh82TLTgbTe3obs2xU="/>
+        <field:datetime dateTimePattern="${entity_updatedon_date_format}" field="updatedOn" id="c_com_osrce_sitrep_domain_Entity_updatedOn" z="2MrY72RX9c8Y970522Mt5RVvLd8="/>
+        <field:input field="entityGroup" id="c_com_osrce_sitrep_domain_Entity_entityGroup" required="true" validationMessageCode="field_invalid_integer" z="fMZq9Y9mIsR1GBc8iuQwMMAaAcY="/>
+        <field:checkbox field="hasData" id="c_com_osrce_sitrep_domain_Entity_hasData" z="bwR4pYJztQ0c7GjtMJxA2uvTTag="/>
+        <field:checkbox field="hasLocation" id="c_com_osrce_sitrep_domain_Entity_hasLocation" z="kZXDz1pEeXl/3q/QasVoNar1yAA="/>
+        <field:select field="location" id="c_com_osrce_sitrep_domain_Entity_location" itemValue="id" items="${srlocationses}" path="/srlocationses" z="oyrobBP0u9mpcVwEO3+qgfNTxzU="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_Entity" render="${not empty dependencies}" z="E5lcmUk6Mt+dyeEos4hv/qM91GE="/>
+</div>

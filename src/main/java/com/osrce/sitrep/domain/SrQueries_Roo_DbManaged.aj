@@ -4,10 +4,16 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.SrQueries;
+import com.osrce.sitrep.domain.SrQueryMonitor;
+import java.util.Set;
 import javax.persistence.Column;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 privileged aspect SrQueries_Roo_DbManaged {
+    
+    @OneToMany(mappedBy = "queryid")
+    private Set<SrQueryMonitor> SrQueries.srQueryMonitors;
     
     @Column(name = "parent")
     @NotNull
@@ -26,6 +32,14 @@ privileged aspect SrQueries_Roo_DbManaged {
     
     @Column(name = "data")
     private String SrQueries.data;
+    
+    public Set<SrQueryMonitor> SrQueries.getSrQueryMonitors() {
+        return srQueryMonitors;
+    }
+    
+    public void SrQueries.setSrQueryMonitors(Set<SrQueryMonitor> srQueryMonitors) {
+        this.srQueryMonitors = srQueryMonitors;
+    }
     
     public Long SrQueries.getParent() {
         return parent;
