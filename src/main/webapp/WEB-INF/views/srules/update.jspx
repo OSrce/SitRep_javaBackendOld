@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_osrce_sitrep_domain_Srule" modelAttribute="srule" path="/srules" versionField="none" z="kWPMon5CaaeUKm2xTN56hPflu8o=">
+        <field:input field="name" id="c_com_osrce_sitrep_domain_Srule_name" required="true" z="OzABVIlAm6daGK4DIkefmn9jJQw="/>
+        <field:input field="styleId" id="c_com_osrce_sitrep_domain_Srule_styleId" required="true" validationMessageCode="field_invalid_integer" z="rvftV3OkR5D0pXvlkZPFo6buLSk="/>
+        <field:input field="symbolizerId" id="c_com_osrce_sitrep_domain_Srule_symbolizerId" required="true" validationMessageCode="field_invalid_integer" z="92WM87vHHX52aBDE3U3RRIaw6fI="/>
+        <field:checkbox field="elsefilter" id="c_com_osrce_sitrep_domain_Srule_elsefilter" z="IU0SRuan5j5kOlJIYMsQaNS3h8g="/>
+        <field:input field="filterData" id="c_com_osrce_sitrep_domain_Srule_filterData" z="Jg85aooRTn8JAhplAh3Uip7icrw="/>
+        <field:datetime dateTimePattern="${srule_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Srule_updated" required="true" z="uXoZptSnk/aQ7QjKdXvwOEIlEo4="/>
+    </form:update>
+</div>

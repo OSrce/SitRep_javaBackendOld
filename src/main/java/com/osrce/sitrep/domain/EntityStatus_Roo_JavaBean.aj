@@ -3,9 +3,28 @@
 
 package com.osrce.sitrep.domain;
 
+import com.osrce.sitrep.domain.Entity;
 import com.osrce.sitrep.domain.EntityStatus;
+import com.osrce.sitrep.domain.Hstore;
+import java.util.Set;
 
 privileged aspect EntityStatus_Roo_JavaBean {
+    
+    public Set<Entity> EntityStatus.getEntitys() {
+        return this.entitys;
+    }
+    
+    public void EntityStatus.setEntitys(Set<Entity> entitys) {
+        this.entitys = entitys;
+    }
+    
+    public Long EntityStatus.getEntity() {
+        return this.entity;
+    }
+    
+    public void EntityStatus.setEntity(Long entity) {
+        this.entity = entity;
+    }
     
     public Long EntityStatus.getId() {
         return this.id;
@@ -13,6 +32,14 @@ privileged aspect EntityStatus_Roo_JavaBean {
     
     public void EntityStatus.setId(Long id) {
         this.id = id;
+    }
+    
+    public Hstore EntityStatus.getData() {
+        return this.data;
+    }
+    
+    public void EntityStatus.setData(Hstore data) {
+        this.data = data;
     }
     
 }

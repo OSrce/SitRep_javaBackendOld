@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_com_osrce_sitrep_domain_SrGroups" object="${srgroups}" path="/srgroupses" z="q1PPU0lTMFzPjRZTN/2HKOJbWzk=">
-        <field:display field="groupname" id="s_com_osrce_sitrep_domain_SrGroups_groupname" object="${srgroups}" z="2c4SjAP3YSVMcbsLCWJXqtGNjtg="/>
-        <field:display field="parentGid" id="s_com_osrce_sitrep_domain_SrGroups_parentGid" object="${srgroups}" z="oEmx+rMTf98ubSORSIP7jhzMPZY="/>
-    </page:show>
-</div>

@@ -5,26 +5,16 @@ package com.osrce.sitrep.web;
 
 import com.osrce.sitrep.domain.Entity;
 import com.osrce.sitrep.domain.EntityStatus;
-import com.osrce.sitrep.domain.SrAclPermissions;
-import com.osrce.sitrep.domain.SrAssets;
-import com.osrce.sitrep.domain.SrAssetsStatus;
-import com.osrce.sitrep.domain.SrCfs;
-import com.osrce.sitrep.domain.SrGroups;
-import com.osrce.sitrep.domain.SrLayerDynamicData;
-import com.osrce.sitrep.domain.SrLayerStaticData;
-import com.osrce.sitrep.domain.SrLayers;
-import com.osrce.sitrep.domain.SrLocations;
-import com.osrce.sitrep.domain.SrModules;
-import com.osrce.sitrep.domain.SrQueries;
-import com.osrce.sitrep.domain.SrQueryMonitor;
-import com.osrce.sitrep.domain.SrQueryMonitorResults;
-import com.osrce.sitrep.domain.SrSession;
-import com.osrce.sitrep.domain.SrStylePresets;
-import com.osrce.sitrep.domain.SrStyleRules;
-import com.osrce.sitrep.domain.SrStyleSymbolizers;
-import com.osrce.sitrep.domain.SrStyles;
-import com.osrce.sitrep.domain.SrUsers;
-import com.osrce.sitrep.domain.SrWindowLayout;
+import com.osrce.sitrep.domain.Event;
+import com.osrce.sitrep.domain.Layer;
+import com.osrce.sitrep.domain.Location;
+import com.osrce.sitrep.domain.Query;
+import com.osrce.sitrep.domain.Srgroup;
+import com.osrce.sitrep.domain.Srmap;
+import com.osrce.sitrep.domain.Srule;
+import com.osrce.sitrep.domain.Sruser;
+import com.osrce.sitrep.domain.Ssymbolizer;
+import com.osrce.sitrep.domain.Style;
 import com.osrce.sitrep.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
@@ -37,7 +27,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Entity, String> ApplicationConversionServiceFactoryBean.getEntityToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Entity, java.lang.String>() {
             public String convert(Entity entity) {
-                return new StringBuilder().append(entity.getEntityGroup()).append(' ').append(entity.getName()).append(' ').append(entity.getLastStatusId()).append(' ').append(entity.getLastLocationStatusId()).toString();
+                return new StringBuilder().append(entity.getGroupId()).append(' ').append(entity.getName()).append(' ').append(entity.getCreated()).append(' ').append(entity.getUpdated()).toString();
             }
         };
     }
@@ -61,7 +51,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<EntityStatus, String> ApplicationConversionServiceFactoryBean.getEntityStatusToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.EntityStatus, java.lang.String>() {
             public String convert(EntityStatus entityStatus) {
-                return new StringBuilder().append(entityStatus.getStatus()).append(' ').append(entityStatus.getData()).append(' ').append(entityStatus.getDataBegin()).append(' ').append(entityStatus.getDataEnd()).toString();
+                return new StringBuilder().append(entityStatus.getCreated()).append(' ').append(entityStatus.getUpdated()).append(' ').append(entityStatus.getDataBegin()).append(' ').append(entityStatus.getDataEnd()).toString();
             }
         };
     }
@@ -82,474 +72,242 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<SrAclPermissions, String> ApplicationConversionServiceFactoryBean.getSrAclPermissionsToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrAclPermissions, java.lang.String>() {
-            public String convert(SrAclPermissions srAclPermissions) {
-                return new StringBuilder().append(srAclPermissions.getRoleId()).append(' ').append(srAclPermissions.getResourceId()).append(' ').append(srAclPermissions.getRoleType()).append(' ').append(srAclPermissions.getPermissionCreate()).toString();
+    public Converter<Event, String> ApplicationConversionServiceFactoryBean.getEventToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Event, java.lang.String>() {
+            public String convert(Event event) {
+                return new StringBuilder().append(event.getGroupId()).append(' ').append(event.getCreated()).append(' ').append(event.getUpdated()).append(' ').append(event.getDataBegin()).toString();
             }
         };
     }
     
-    public Converter<Integer, SrAclPermissions> ApplicationConversionServiceFactoryBean.getIdToSrAclPermissionsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrAclPermissions>() {
-            public com.osrce.sitrep.domain.SrAclPermissions convert(java.lang.Integer id) {
-                return SrAclPermissions.findSrAclPermissions(id);
+    public Converter<Long, Event> ApplicationConversionServiceFactoryBean.getIdToEventConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Event>() {
+            public com.osrce.sitrep.domain.Event convert(java.lang.Long id) {
+                return Event.findEvent(id);
             }
         };
     }
     
-    public Converter<String, SrAclPermissions> ApplicationConversionServiceFactoryBean.getStringToSrAclPermissionsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrAclPermissions>() {
-            public com.osrce.sitrep.domain.SrAclPermissions convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrAclPermissions.class);
+    public Converter<String, Event> ApplicationConversionServiceFactoryBean.getStringToEventConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Event>() {
+            public com.osrce.sitrep.domain.Event convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Event.class);
             }
         };
     }
     
-    public Converter<SrAssets, String> ApplicationConversionServiceFactoryBean.getSrAssetsToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrAssets, java.lang.String>() {
-            public String convert(SrAssets srAssets) {
-                return new StringBuilder().append(srAssets.getName()).append(' ').append(srAssets.getLastStatusId()).append(' ').append(srAssets.getLastLocationStatusId()).append(' ').append(srAssets.getLocationId()).toString();
+    public Converter<Layer, String> ApplicationConversionServiceFactoryBean.getLayerToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Layer, java.lang.String>() {
+            public String convert(Layer layer) {
+                return new StringBuilder().append(layer.getName()).append(' ').append(layer.getProjection()).append(' ').append(layer.getUrl()).append(' ').append(layer.getNumzoomlevels()).toString();
             }
         };
     }
     
-    public Converter<Integer, SrAssets> ApplicationConversionServiceFactoryBean.getIdToSrAssetsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrAssets>() {
-            public com.osrce.sitrep.domain.SrAssets convert(java.lang.Integer id) {
-                return SrAssets.findSrAssets(id);
+    public Converter<Long, Layer> ApplicationConversionServiceFactoryBean.getIdToLayerConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Layer>() {
+            public com.osrce.sitrep.domain.Layer convert(java.lang.Long id) {
+                return Layer.findLayer(id);
             }
         };
     }
     
-    public Converter<String, SrAssets> ApplicationConversionServiceFactoryBean.getStringToSrAssetsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrAssets>() {
-            public com.osrce.sitrep.domain.SrAssets convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrAssets.class);
+    public Converter<String, Layer> ApplicationConversionServiceFactoryBean.getStringToLayerConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Layer>() {
+            public com.osrce.sitrep.domain.Layer convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Layer.class);
             }
         };
     }
     
-    public Converter<SrAssetsStatus, String> ApplicationConversionServiceFactoryBean.getSrAssetsStatusToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrAssetsStatus, java.lang.String>() {
-            public String convert(SrAssetsStatus srAssetsStatus) {
-                return new StringBuilder().append(srAssetsStatus.getAssetId()).append(' ').append(srAssetsStatus.getLocationId()).append(' ').append(srAssetsStatus.getStatus()).append(' ').append(srAssetsStatus.getData()).toString();
+    public Converter<Location, String> ApplicationConversionServiceFactoryBean.getLocationToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Location, java.lang.String>() {
+            public String convert(Location location) {
+                return new StringBuilder().append(location.getSource()).append(' ').append(location.getCreated()).append(' ').append(location.getUpdated()).append(' ').append(location.getGeometry()).toString();
             }
         };
     }
     
-    public Converter<Integer, SrAssetsStatus> ApplicationConversionServiceFactoryBean.getIdToSrAssetsStatusConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrAssetsStatus>() {
-            public com.osrce.sitrep.domain.SrAssetsStatus convert(java.lang.Integer id) {
-                return SrAssetsStatus.findSrAssetsStatus(id);
+    public Converter<Long, Location> ApplicationConversionServiceFactoryBean.getIdToLocationConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Location>() {
+            public com.osrce.sitrep.domain.Location convert(java.lang.Long id) {
+                return Location.findLocation(id);
             }
         };
     }
     
-    public Converter<String, SrAssetsStatus> ApplicationConversionServiceFactoryBean.getStringToSrAssetsStatusConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrAssetsStatus>() {
-            public com.osrce.sitrep.domain.SrAssetsStatus convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrAssetsStatus.class);
+    public Converter<String, Location> ApplicationConversionServiceFactoryBean.getStringToLocationConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Location>() {
+            public com.osrce.sitrep.domain.Location convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Location.class);
             }
         };
     }
     
-    public Converter<SrCfs, String> ApplicationConversionServiceFactoryBean.getSrCfsToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrCfs, java.lang.String>() {
-            public String convert(SrCfs srCfs) {
-                return new StringBuilder().append(srCfs.getGeometry()).append(' ').append(srCfs.getCfs_date()).append(' ').append(srCfs.getCfs_num()).append(' ').append(srCfs.getCfs_letter()).toString();
+    public Converter<Query, String> ApplicationConversionServiceFactoryBean.getQueryToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Query, java.lang.String>() {
+            public String convert(Query query) {
+                return new StringBuilder().append(query.getName()).append(' ').append(query.getNotes()).append(' ').append(query.getData()).toString();
             }
         };
     }
     
-    public Converter<Long, SrCfs> ApplicationConversionServiceFactoryBean.getIdToSrCfsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.SrCfs>() {
-            public com.osrce.sitrep.domain.SrCfs convert(java.lang.Long id) {
-                return SrCfs.findSrCfs(id);
+    public Converter<Long, Query> ApplicationConversionServiceFactoryBean.getIdToQueryConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Query>() {
+            public com.osrce.sitrep.domain.Query convert(java.lang.Long id) {
+                return Query.findQuery(id);
             }
         };
     }
     
-    public Converter<String, SrCfs> ApplicationConversionServiceFactoryBean.getStringToSrCfsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrCfs>() {
-            public com.osrce.sitrep.domain.SrCfs convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), SrCfs.class);
+    public Converter<String, Query> ApplicationConversionServiceFactoryBean.getStringToQueryConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Query>() {
+            public com.osrce.sitrep.domain.Query convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Query.class);
             }
         };
     }
     
-    public Converter<SrGroups, String> ApplicationConversionServiceFactoryBean.getSrGroupsToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrGroups, java.lang.String>() {
-            public String convert(SrGroups srGroups) {
-                return new StringBuilder().append(srGroups.getGroupname()).append(' ').append(srGroups.getParentGid()).toString();
+    public Converter<Srgroup, String> ApplicationConversionServiceFactoryBean.getSrgroupToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Srgroup, java.lang.String>() {
+            public String convert(Srgroup srgroup) {
+                return new StringBuilder().append(srgroup.getName()).append(' ').append(srgroup.getParentId()).append(' ').append(srgroup.getCreated()).append(' ').append(srgroup.getUpdated()).toString();
             }
         };
     }
     
-    public Converter<Integer, SrGroups> ApplicationConversionServiceFactoryBean.getIdToSrGroupsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrGroups>() {
-            public com.osrce.sitrep.domain.SrGroups convert(java.lang.Integer id) {
-                return SrGroups.findSrGroups(id);
+    public Converter<Long, Srgroup> ApplicationConversionServiceFactoryBean.getIdToSrgroupConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Srgroup>() {
+            public com.osrce.sitrep.domain.Srgroup convert(java.lang.Long id) {
+                return Srgroup.findSrgroup(id);
             }
         };
     }
     
-    public Converter<String, SrGroups> ApplicationConversionServiceFactoryBean.getStringToSrGroupsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrGroups>() {
-            public com.osrce.sitrep.domain.SrGroups convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrGroups.class);
+    public Converter<String, Srgroup> ApplicationConversionServiceFactoryBean.getStringToSrgroupConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Srgroup>() {
+            public com.osrce.sitrep.domain.Srgroup convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Srgroup.class);
             }
         };
     }
     
-    public Converter<SrLayerDynamicData, String> ApplicationConversionServiceFactoryBean.getSrLayerDynamicDataToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrLayerDynamicData, java.lang.String>() {
-            public String convert(SrLayerDynamicData srLayerDynamicData) {
-                return new StringBuilder().append(srLayerDynamicData.getLayer_id()).append(' ').append(srLayerDynamicData.getFeature_data()).append(' ').append(srLayerDynamicData.getFeature_start()).append(' ').append(srLayerDynamicData.getFeature_end()).toString();
+    public Converter<Srmap, String> ApplicationConversionServiceFactoryBean.getSrmapToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Srmap, java.lang.String>() {
+            public String convert(Srmap srmap) {
+                return new StringBuilder().append(srmap.getGroupId()).append(' ').append(srmap.getGeometry()).toString();
             }
         };
     }
     
-    public Converter<Integer, SrLayerDynamicData> ApplicationConversionServiceFactoryBean.getIdToSrLayerDynamicDataConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrLayerDynamicData>() {
-            public com.osrce.sitrep.domain.SrLayerDynamicData convert(java.lang.Integer id) {
-                return SrLayerDynamicData.findSrLayerDynamicData(id);
+    public Converter<Long, Srmap> ApplicationConversionServiceFactoryBean.getIdToSrmapConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Srmap>() {
+            public com.osrce.sitrep.domain.Srmap convert(java.lang.Long id) {
+                return Srmap.findSrmap(id);
             }
         };
     }
     
-    public Converter<String, SrLayerDynamicData> ApplicationConversionServiceFactoryBean.getStringToSrLayerDynamicDataConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrLayerDynamicData>() {
-            public com.osrce.sitrep.domain.SrLayerDynamicData convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrLayerDynamicData.class);
+    public Converter<String, Srmap> ApplicationConversionServiceFactoryBean.getStringToSrmapConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Srmap>() {
+            public com.osrce.sitrep.domain.Srmap convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Srmap.class);
             }
         };
     }
     
-    public Converter<SrLayerStaticData, String> ApplicationConversionServiceFactoryBean.getSrLayerStaticDataToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrLayerStaticData, java.lang.String>() {
-            public String convert(SrLayerStaticData srLayerStaticData) {
-                return new StringBuilder().append(srLayerStaticData.getLayer_id()).append(' ').append(srLayerStaticData.getFeature_style()).append(' ').append(srLayerStaticData.getFeature_data()).append(' ').append(srLayerStaticData.getGeometry()).toString();
+    public Converter<Srule, String> ApplicationConversionServiceFactoryBean.getSruleToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Srule, java.lang.String>() {
+            public String convert(Srule srule) {
+                return new StringBuilder().append(srule.getName()).append(' ').append(srule.getStyleId()).append(' ').append(srule.getSymbolizerId()).append(' ').append(srule.getFilterData()).toString();
             }
         };
     }
     
-    public Converter<Integer, SrLayerStaticData> ApplicationConversionServiceFactoryBean.getIdToSrLayerStaticDataConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrLayerStaticData>() {
-            public com.osrce.sitrep.domain.SrLayerStaticData convert(java.lang.Integer id) {
-                return SrLayerStaticData.findSrLayerStaticData(id);
+    public Converter<Long, Srule> ApplicationConversionServiceFactoryBean.getIdToSruleConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Srule>() {
+            public com.osrce.sitrep.domain.Srule convert(java.lang.Long id) {
+                return Srule.findSrule(id);
             }
         };
     }
     
-    public Converter<String, SrLayerStaticData> ApplicationConversionServiceFactoryBean.getStringToSrLayerStaticDataConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrLayerStaticData>() {
-            public com.osrce.sitrep.domain.SrLayerStaticData convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrLayerStaticData.class);
+    public Converter<String, Srule> ApplicationConversionServiceFactoryBean.getStringToSruleConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Srule>() {
+            public com.osrce.sitrep.domain.Srule convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Srule.class);
             }
         };
     }
     
-    public Converter<SrLayers, String> ApplicationConversionServiceFactoryBean.getSrLayersToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrLayers, java.lang.String>() {
-            public String convert(SrLayers srLayers) {
-                return new StringBuilder().append(srLayers.getName()).append(' ').append(srLayers.getProjection()).append(' ').append(srLayers.getUrl()).append(' ').append(srLayers.getNumzoomlevels()).toString();
+    public Converter<Sruser, String> ApplicationConversionServiceFactoryBean.getSruserToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Sruser, java.lang.String>() {
+            public String convert(Sruser sruser) {
+                return new StringBuilder().append(sruser.getGroupId()).append(' ').append(sruser.getName()).append(' ').append(sruser.getCreated()).append(' ').append(sruser.getUpdated()).toString();
             }
         };
     }
     
-    public Converter<Integer, SrLayers> ApplicationConversionServiceFactoryBean.getIdToSrLayersConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrLayers>() {
-            public com.osrce.sitrep.domain.SrLayers convert(java.lang.Integer id) {
-                return SrLayers.findSrLayers(id);
+    public Converter<Long, Sruser> ApplicationConversionServiceFactoryBean.getIdToSruserConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Sruser>() {
+            public com.osrce.sitrep.domain.Sruser convert(java.lang.Long id) {
+                return Sruser.findSruser(id);
             }
         };
     }
     
-    public Converter<String, SrLayers> ApplicationConversionServiceFactoryBean.getStringToSrLayersConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrLayers>() {
-            public com.osrce.sitrep.domain.SrLayers convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrLayers.class);
+    public Converter<String, Sruser> ApplicationConversionServiceFactoryBean.getStringToSruserConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Sruser>() {
+            public com.osrce.sitrep.domain.Sruser convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Sruser.class);
             }
         };
     }
     
-    public Converter<SrLocations, String> ApplicationConversionServiceFactoryBean.getSrLocationsToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrLocations, java.lang.String>() {
-            public String convert(SrLocations srLocations) {
-                return new StringBuilder().append(srLocations.getPct()).append(' ').append(srLocations.getSector()).append(' ').append(srLocations.getSource()).append(' ').append(srLocations.getAddress()).toString();
+    public Converter<Ssymbolizer, String> ApplicationConversionServiceFactoryBean.getSsymbolizerToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Ssymbolizer, java.lang.String>() {
+            public String convert(Ssymbolizer ssymbolizer) {
+                return new StringBuilder().append(ssymbolizer.getName()).append(' ').append(ssymbolizer.getLabel()).append(' ').append(ssymbolizer.getRotation()).append(' ').append(ssymbolizer.getCreated()).toString();
             }
         };
     }
     
-    public Converter<Long, SrLocations> ApplicationConversionServiceFactoryBean.getIdToSrLocationsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.SrLocations>() {
-            public com.osrce.sitrep.domain.SrLocations convert(java.lang.Long id) {
-                return SrLocations.findSrLocations(id);
+    public Converter<Long, Ssymbolizer> ApplicationConversionServiceFactoryBean.getIdToSsymbolizerConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Ssymbolizer>() {
+            public com.osrce.sitrep.domain.Ssymbolizer convert(java.lang.Long id) {
+                return Ssymbolizer.findSsymbolizer(id);
             }
         };
     }
     
-    public Converter<String, SrLocations> ApplicationConversionServiceFactoryBean.getStringToSrLocationsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrLocations>() {
-            public com.osrce.sitrep.domain.SrLocations convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), SrLocations.class);
+    public Converter<String, Ssymbolizer> ApplicationConversionServiceFactoryBean.getStringToSsymbolizerConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Ssymbolizer>() {
+            public com.osrce.sitrep.domain.Ssymbolizer convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Ssymbolizer.class);
             }
         };
     }
     
-    public Converter<SrModules, String> ApplicationConversionServiceFactoryBean.getSrModulesToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrModules, java.lang.String>() {
-            public String convert(SrModules srModules) {
-                return new StringBuilder().append(srModules.getName()).toString();
+    public Converter<Style, String> ApplicationConversionServiceFactoryBean.getStyleToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Style, java.lang.String>() {
+            public String convert(Style style) {
+                return new StringBuilder().append(style.getName()).append(' ').append(style.getStylemapId()).append(' ').append(style.getRenderType()).append(' ').append(style.getDefaultsymbolizerId()).toString();
             }
         };
     }
     
-    public Converter<Integer, SrModules> ApplicationConversionServiceFactoryBean.getIdToSrModulesConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrModules>() {
-            public com.osrce.sitrep.domain.SrModules convert(java.lang.Integer id) {
-                return SrModules.findSrModules(id);
+    public Converter<Long, Style> ApplicationConversionServiceFactoryBean.getIdToStyleConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.Style>() {
+            public com.osrce.sitrep.domain.Style convert(java.lang.Long id) {
+                return Style.findStyle(id);
             }
         };
     }
     
-    public Converter<String, SrModules> ApplicationConversionServiceFactoryBean.getStringToSrModulesConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrModules>() {
-            public com.osrce.sitrep.domain.SrModules convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrModules.class);
-            }
-        };
-    }
-    
-    public Converter<SrQueries, String> ApplicationConversionServiceFactoryBean.getSrQueriesToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrQueries, java.lang.String>() {
-            public String convert(SrQueries srQueries) {
-                return new StringBuilder().append(srQueries.getParent()).append(' ').append(srQueries.getName()).append(' ').append(srQueries.getNotes()).append(' ').append(srQueries.getData()).toString();
-            }
-        };
-    }
-    
-    public Converter<Integer, SrQueries> ApplicationConversionServiceFactoryBean.getIdToSrQueriesConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrQueries>() {
-            public com.osrce.sitrep.domain.SrQueries convert(java.lang.Integer id) {
-                return SrQueries.findSrQueries(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrQueries> ApplicationConversionServiceFactoryBean.getStringToSrQueriesConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrQueries>() {
-            public com.osrce.sitrep.domain.SrQueries convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrQueries.class);
-            }
-        };
-    }
-    
-    public Converter<SrQueryMonitor, String> ApplicationConversionServiceFactoryBean.getSrQueryMonitorToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrQueryMonitor, java.lang.String>() {
-            public String convert(SrQueryMonitor srQueryMonitor) {
-                return "(no displayable fields)";
-            }
-        };
-    }
-    
-    public Converter<Long, SrQueryMonitor> ApplicationConversionServiceFactoryBean.getIdToSrQueryMonitorConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.SrQueryMonitor>() {
-            public com.osrce.sitrep.domain.SrQueryMonitor convert(java.lang.Long id) {
-                return SrQueryMonitor.findSrQueryMonitor(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrQueryMonitor> ApplicationConversionServiceFactoryBean.getStringToSrQueryMonitorConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrQueryMonitor>() {
-            public com.osrce.sitrep.domain.SrQueryMonitor convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), SrQueryMonitor.class);
-            }
-        };
-    }
-    
-    public Converter<SrQueryMonitorResults, String> ApplicationConversionServiceFactoryBean.getSrQueryMonitorResultsToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrQueryMonitorResults, java.lang.String>() {
-            public String convert(SrQueryMonitorResults srQueryMonitorResults) {
-                return new StringBuilder().append(srQueryMonitorResults.getUpdatedon()).toString();
-            }
-        };
-    }
-    
-    public Converter<Long, SrQueryMonitorResults> ApplicationConversionServiceFactoryBean.getIdToSrQueryMonitorResultsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.osrce.sitrep.domain.SrQueryMonitorResults>() {
-            public com.osrce.sitrep.domain.SrQueryMonitorResults convert(java.lang.Long id) {
-                return SrQueryMonitorResults.findSrQueryMonitorResults(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrQueryMonitorResults> ApplicationConversionServiceFactoryBean.getStringToSrQueryMonitorResultsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrQueryMonitorResults>() {
-            public com.osrce.sitrep.domain.SrQueryMonitorResults convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), SrQueryMonitorResults.class);
-            }
-        };
-    }
-    
-    public Converter<SrSession, String> ApplicationConversionServiceFactoryBean.getSrSessionToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrSession, java.lang.String>() {
-            public String convert(SrSession srSession) {
-                return new StringBuilder().append(srSession.getModified()).append(' ').append(srSession.getLifetime()).append(' ').append(srSession.getData()).toString();
-            }
-        };
-    }
-    
-    public Converter<String, SrSession> ApplicationConversionServiceFactoryBean.getIdToSrSessionConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrSession>() {
-            public com.osrce.sitrep.domain.SrSession convert(java.lang.String id) {
-                return SrSession.findSrSession(id);
-            }
-        };
-    }
-    
-    public Converter<SrStylePresets, String> ApplicationConversionServiceFactoryBean.getSrStylePresetsToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrStylePresets, java.lang.String>() {
-            public String convert(SrStylePresets srStylePresets) {
-                return new StringBuilder().append(srStylePresets.getName()).append(' ').append(srStylePresets.getStyleId()).append(' ').append(srStylePresets.getLayerId()).append(' ').append(srStylePresets.getCreatedOn()).toString();
-            }
-        };
-    }
-    
-    public Converter<Integer, SrStylePresets> ApplicationConversionServiceFactoryBean.getIdToSrStylePresetsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrStylePresets>() {
-            public com.osrce.sitrep.domain.SrStylePresets convert(java.lang.Integer id) {
-                return SrStylePresets.findSrStylePresets(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrStylePresets> ApplicationConversionServiceFactoryBean.getStringToSrStylePresetsConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrStylePresets>() {
-            public com.osrce.sitrep.domain.SrStylePresets convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrStylePresets.class);
-            }
-        };
-    }
-    
-    public Converter<SrStyleRules, String> ApplicationConversionServiceFactoryBean.getSrStyleRulesToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrStyleRules, java.lang.String>() {
-            public String convert(SrStyleRules srStyleRules) {
-                return new StringBuilder().append(srStyleRules.getName()).append(' ').append(srStyleRules.getStyle_id()).append(' ').append(srStyleRules.getSymbolizer_id()).append(' ').append(srStyleRules.getFilter_data()).toString();
-            }
-        };
-    }
-    
-    public Converter<Integer, SrStyleRules> ApplicationConversionServiceFactoryBean.getIdToSrStyleRulesConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrStyleRules>() {
-            public com.osrce.sitrep.domain.SrStyleRules convert(java.lang.Integer id) {
-                return SrStyleRules.findSrStyleRules(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrStyleRules> ApplicationConversionServiceFactoryBean.getStringToSrStyleRulesConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrStyleRules>() {
-            public com.osrce.sitrep.domain.SrStyleRules convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrStyleRules.class);
-            }
-        };
-    }
-    
-    public Converter<SrStyleSymbolizers, String> ApplicationConversionServiceFactoryBean.getSrStyleSymbolizersToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrStyleSymbolizers, java.lang.String>() {
-            public String convert(SrStyleSymbolizers srStyleSymbolizers) {
-                return new StringBuilder().append(srStyleSymbolizers.getName()).append(' ').append(srStyleSymbolizers.getLabel()).append(' ').append(srStyleSymbolizers.getRotation()).append(' ').append(srStyleSymbolizers.getCreatedOn()).toString();
-            }
-        };
-    }
-    
-    public Converter<Integer, SrStyleSymbolizers> ApplicationConversionServiceFactoryBean.getIdToSrStyleSymbolizersConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrStyleSymbolizers>() {
-            public com.osrce.sitrep.domain.SrStyleSymbolizers convert(java.lang.Integer id) {
-                return SrStyleSymbolizers.findSrStyleSymbolizers(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrStyleSymbolizers> ApplicationConversionServiceFactoryBean.getStringToSrStyleSymbolizersConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrStyleSymbolizers>() {
-            public com.osrce.sitrep.domain.SrStyleSymbolizers convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrStyleSymbolizers.class);
-            }
-        };
-    }
-    
-    public Converter<SrStyles, String> ApplicationConversionServiceFactoryBean.getSrStylesToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrStyles, java.lang.String>() {
-            public String convert(SrStyles srStyles) {
-                return new StringBuilder().append(srStyles.getName()).append(' ').append(srStyles.getStylemap_id()).append(' ').append(srStyles.getRender_type()).append(' ').append(srStyles.getDefaultsymbolizer_id()).toString();
-            }
-        };
-    }
-    
-    public Converter<Integer, SrStyles> ApplicationConversionServiceFactoryBean.getIdToSrStylesConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrStyles>() {
-            public com.osrce.sitrep.domain.SrStyles convert(java.lang.Integer id) {
-                return SrStyles.findSrStyles(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrStyles> ApplicationConversionServiceFactoryBean.getStringToSrStylesConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrStyles>() {
-            public com.osrce.sitrep.domain.SrStyles convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrStyles.class);
-            }
-        };
-    }
-    
-    public Converter<SrUsers, String> ApplicationConversionServiceFactoryBean.getSrUsersToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrUsers, java.lang.String>() {
-            public String convert(SrUsers srUsers) {
-                return new StringBuilder().append(srUsers.getGid()).append(' ').append(srUsers.getUsername()).append(' ').append(srUsers.getFirstname()).append(' ').append(srUsers.getLastname()).toString();
-            }
-        };
-    }
-    
-    public Converter<Integer, SrUsers> ApplicationConversionServiceFactoryBean.getIdToSrUsersConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrUsers>() {
-            public com.osrce.sitrep.domain.SrUsers convert(java.lang.Integer id) {
-                return SrUsers.findSrUsers(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrUsers> ApplicationConversionServiceFactoryBean.getStringToSrUsersConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrUsers>() {
-            public com.osrce.sitrep.domain.SrUsers convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrUsers.class);
-            }
-        };
-    }
-    
-    public Converter<SrWindowLayout, String> ApplicationConversionServiceFactoryBean.getSrWindowLayoutToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.SrWindowLayout, java.lang.String>() {
-            public String convert(SrWindowLayout srWindowLayout) {
-                return new StringBuilder().append(srWindowLayout.getName()).append(' ').append(srWindowLayout.getShowname()).append(' ').append(srWindowLayout.getTheme()).append(' ').append(srWindowLayout.getView_x()).toString();
-            }
-        };
-    }
-    
-    public Converter<Integer, SrWindowLayout> ApplicationConversionServiceFactoryBean.getIdToSrWindowLayoutConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Integer, com.osrce.sitrep.domain.SrWindowLayout>() {
-            public com.osrce.sitrep.domain.SrWindowLayout convert(java.lang.Integer id) {
-                return SrWindowLayout.findSrWindowLayout(id);
-            }
-        };
-    }
-    
-    public Converter<String, SrWindowLayout> ApplicationConversionServiceFactoryBean.getStringToSrWindowLayoutConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.SrWindowLayout>() {
-            public com.osrce.sitrep.domain.SrWindowLayout convert(String id) {
-                return getObject().convert(getObject().convert(id, Integer.class), SrWindowLayout.class);
+    public Converter<String, Style> ApplicationConversionServiceFactoryBean.getStringToStyleConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.osrce.sitrep.domain.Style>() {
+            public com.osrce.sitrep.domain.Style convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Style.class);
             }
         };
     }
@@ -561,65 +319,36 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getEntityStatusToStringConverter());
         registry.addConverter(getIdToEntityStatusConverter());
         registry.addConverter(getStringToEntityStatusConverter());
-        registry.addConverter(getSrAclPermissionsToStringConverter());
-        registry.addConverter(getIdToSrAclPermissionsConverter());
-        registry.addConverter(getStringToSrAclPermissionsConverter());
-        registry.addConverter(getSrAssetsToStringConverter());
-        registry.addConverter(getIdToSrAssetsConverter());
-        registry.addConverter(getStringToSrAssetsConverter());
-        registry.addConverter(getSrAssetsStatusToStringConverter());
-        registry.addConverter(getIdToSrAssetsStatusConverter());
-        registry.addConverter(getStringToSrAssetsStatusConverter());
-        registry.addConverter(getSrCfsToStringConverter());
-        registry.addConverter(getIdToSrCfsConverter());
-        registry.addConverter(getStringToSrCfsConverter());
-        registry.addConverter(getSrGroupsToStringConverter());
-        registry.addConverter(getIdToSrGroupsConverter());
-        registry.addConverter(getStringToSrGroupsConverter());
-        registry.addConverter(getSrLayerDynamicDataToStringConverter());
-        registry.addConverter(getIdToSrLayerDynamicDataConverter());
-        registry.addConverter(getStringToSrLayerDynamicDataConverter());
-        registry.addConverter(getSrLayerStaticDataToStringConverter());
-        registry.addConverter(getIdToSrLayerStaticDataConverter());
-        registry.addConverter(getStringToSrLayerStaticDataConverter());
-        registry.addConverter(getSrLayersToStringConverter());
-        registry.addConverter(getIdToSrLayersConverter());
-        registry.addConverter(getStringToSrLayersConverter());
-        registry.addConverter(getSrLocationsToStringConverter());
-        registry.addConverter(getIdToSrLocationsConverter());
-        registry.addConverter(getStringToSrLocationsConverter());
-        registry.addConverter(getSrModulesToStringConverter());
-        registry.addConverter(getIdToSrModulesConverter());
-        registry.addConverter(getStringToSrModulesConverter());
-        registry.addConverter(getSrQueriesToStringConverter());
-        registry.addConverter(getIdToSrQueriesConverter());
-        registry.addConverter(getStringToSrQueriesConverter());
-        registry.addConverter(getSrQueryMonitorToStringConverter());
-        registry.addConverter(getIdToSrQueryMonitorConverter());
-        registry.addConverter(getStringToSrQueryMonitorConverter());
-        registry.addConverter(getSrQueryMonitorResultsToStringConverter());
-        registry.addConverter(getIdToSrQueryMonitorResultsConverter());
-        registry.addConverter(getStringToSrQueryMonitorResultsConverter());
-        registry.addConverter(getSrSessionToStringConverter());
-        registry.addConverter(getIdToSrSessionConverter());
-        registry.addConverter(getSrStylePresetsToStringConverter());
-        registry.addConverter(getIdToSrStylePresetsConverter());
-        registry.addConverter(getStringToSrStylePresetsConverter());
-        registry.addConverter(getSrStyleRulesToStringConverter());
-        registry.addConverter(getIdToSrStyleRulesConverter());
-        registry.addConverter(getStringToSrStyleRulesConverter());
-        registry.addConverter(getSrStyleSymbolizersToStringConverter());
-        registry.addConverter(getIdToSrStyleSymbolizersConverter());
-        registry.addConverter(getStringToSrStyleSymbolizersConverter());
-        registry.addConverter(getSrStylesToStringConverter());
-        registry.addConverter(getIdToSrStylesConverter());
-        registry.addConverter(getStringToSrStylesConverter());
-        registry.addConverter(getSrUsersToStringConverter());
-        registry.addConverter(getIdToSrUsersConverter());
-        registry.addConverter(getStringToSrUsersConverter());
-        registry.addConverter(getSrWindowLayoutToStringConverter());
-        registry.addConverter(getIdToSrWindowLayoutConverter());
-        registry.addConverter(getStringToSrWindowLayoutConverter());
+        registry.addConverter(getEventToStringConverter());
+        registry.addConverter(getIdToEventConverter());
+        registry.addConverter(getStringToEventConverter());
+        registry.addConverter(getLayerToStringConverter());
+        registry.addConverter(getIdToLayerConverter());
+        registry.addConverter(getStringToLayerConverter());
+        registry.addConverter(getLocationToStringConverter());
+        registry.addConverter(getIdToLocationConverter());
+        registry.addConverter(getStringToLocationConverter());
+        registry.addConverter(getQueryToStringConverter());
+        registry.addConverter(getIdToQueryConverter());
+        registry.addConverter(getStringToQueryConverter());
+        registry.addConverter(getSrgroupToStringConverter());
+        registry.addConverter(getIdToSrgroupConverter());
+        registry.addConverter(getStringToSrgroupConverter());
+        registry.addConverter(getSrmapToStringConverter());
+        registry.addConverter(getIdToSrmapConverter());
+        registry.addConverter(getStringToSrmapConverter());
+        registry.addConverter(getSruleToStringConverter());
+        registry.addConverter(getIdToSruleConverter());
+        registry.addConverter(getStringToSruleConverter());
+        registry.addConverter(getSruserToStringConverter());
+        registry.addConverter(getIdToSruserConverter());
+        registry.addConverter(getStringToSruserConverter());
+        registry.addConverter(getSsymbolizerToStringConverter());
+        registry.addConverter(getIdToSsymbolizerConverter());
+        registry.addConverter(getStringToSsymbolizerConverter());
+        registry.addConverter(getStyleToStringConverter());
+        registry.addConverter(getIdToStyleConverter());
+        registry.addConverter(getStringToStyleConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

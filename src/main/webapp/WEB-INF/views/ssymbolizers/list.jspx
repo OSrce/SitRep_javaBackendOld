@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_Ssymbolizer" items="${ssymbolizers}" z="W3Xo8MyDD9NLL+IdxVrpOYT0M3U=">
+        <table:table data="${ssymbolizers}" id="l_com_osrce_sitrep_domain_Ssymbolizer" path="/ssymbolizers" z="5MSLiPgmIjuLt3vu98WEhfKldH0=">
+            <table:column id="c_com_osrce_sitrep_domain_Ssymbolizer_name" property="name" z="pHWfyECa0I6E5HRqH7ezDBDt1zY="/>
+            <table:column id="c_com_osrce_sitrep_domain_Ssymbolizer_label" property="label" z="LdlU+B92i6VU93VYPokGeyz6bhw="/>
+            <table:column id="c_com_osrce_sitrep_domain_Ssymbolizer_rotation" property="rotation" z="nB+EPehGhwVQEYj4cqj3ABEVYC0="/>
+            <table:column date="true" dateTimePattern="${ssymbolizer_created_date_format}" id="c_com_osrce_sitrep_domain_Ssymbolizer_created" property="created" z="sLuWHYBZWxZdvi0fNhgzL7R5hrM="/>
+            <table:column date="true" dateTimePattern="${ssymbolizer_updated_date_format}" id="c_com_osrce_sitrep_domain_Ssymbolizer_updated" property="updated" z="IfjNiS3SjeJ3lSow767SMmR3/E4="/>
+            <table:column id="c_com_osrce_sitrep_domain_Ssymbolizer_fillColor" property="fillColor" z="NWaswemQw+0VcrjBmQVlq/WZDeY="/>
+        </table:table>
+    </page:list>
+</div>

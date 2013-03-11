@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_Location" object="${location}" path="/locations" z="f13qmRFd/Tix1AshKRLk6EHgFRc=">
+        <field:display field="source" id="s_com_osrce_sitrep_domain_Location_source" object="${location}" z="FL+xpsY2EEQXOfPHIbqMZ+JN8So="/>
+        <field:display field="hasData" id="s_com_osrce_sitrep_domain_Location_hasData" object="${location}" z="tUDM3Ltu0ytED8VCmzmYMGldsdo="/>
+        <field:display date="true" dateTimePattern="${location_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Location_updated" object="${location}" z="Jr4GcZIUc67KwEgKkQJ4jV9g8x8="/>
+        <field:display field="geometry" id="s_com_osrce_sitrep_domain_Location_geometry" object="${location}" z="czT0eoH7Jcy0E3QRHsMGjyIi73A="/>
+        <field:display field="data" id="s_com_osrce_sitrep_domain_Location_data" object="${location}" z="ttOn9KObJ4NudrQsZ9cA75lE9TU="/>
+    </page:show>
+</div>

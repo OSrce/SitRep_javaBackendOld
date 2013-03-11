@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_osrce_sitrep_domain_Sruser" modelAttribute="sruser" path="/srusers" versionField="none" z="DK+YPKeZ6BcqtklCMRVr3WEvCHA=">
+        <field:input field="groupId" id="c_com_osrce_sitrep_domain_Sruser_groupId" required="true" validationMessageCode="field_invalid_integer" z="0M1ZmE5r5sex/hZm4ziOT9hF20s="/>
+        <field:input field="name" id="c_com_osrce_sitrep_domain_Sruser_name" required="true" z="CEsKdr8+PyGQ5R3ACct7eeC3N5s="/>
+        <field:checkbox field="hasData" id="c_com_osrce_sitrep_domain_Sruser_hasData" z="ylSXBTVGD3JACy7AHf/r+0W30Ro="/>
+        <field:datetime dateTimePattern="${sruser_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Sruser_updated" required="true" z="KZgAZcutwgl2uIroMYxWHox97Hk="/>
+        <field:input field="data" id="c_com_osrce_sitrep_domain_Sruser_data" z="V8AK9JNzIbq93DPtyLXLHnRQndw="/>
+    </form:update>
+</div>

@@ -3,17 +3,14 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_osrce_sitrep_domain_EntityStatus" object="${entitystatus}" path="/entitystatuses" z="LIfje1dyIbfDp6bovFsS+xvHjT8=">
-        <field:display field="entityId" id="s_com_osrce_sitrep_domain_EntityStatus_entityId" object="${entitystatus}" z="HN0o6SGnBF//ImDcoKtWU41RdKo="/>
-        <field:display field="locationId" id="s_com_osrce_sitrep_domain_EntityStatus_locationId" object="${entitystatus}" z="lh8Ly+Y1vUOsH26F/a2qB4AdJEU="/>
-        <field:display field="status" id="s_com_osrce_sitrep_domain_EntityStatus_status" object="${entitystatus}" z="DfGfOMM+Tr+cxIeOv8nBmR6iQi0="/>
-        <field:display field="data" id="s_com_osrce_sitrep_domain_EntityStatus_data" object="${entitystatus}" z="uuvbtPTrI+IvXEwNSPUl+91t2F0="/>
-        <field:display date="true" dateTimePattern="${entityStatus_updatedon_date_format}" field="updatedOn" id="s_com_osrce_sitrep_domain_EntityStatus_updatedOn" object="${entitystatus}" z="vbshA/U1jC3Klxo8jJDbW81ubYI="/>
-        <field:display field="hasStatus" id="s_com_osrce_sitrep_domain_EntityStatus_hasStatus" object="${entitystatus}" z="9a7/WtJxMKh4UWGKzct1tB48ZvU="/>
         <field:display field="hasData" id="s_com_osrce_sitrep_domain_EntityStatus_hasData" object="${entitystatus}" z="uBHA8m4+g2b/EGuWHuF7/1SCdOo="/>
         <field:display field="hasBegin" id="s_com_osrce_sitrep_domain_EntityStatus_hasBegin" object="${entitystatus}" z="UxdKUyhjo+bQJFPRGf+bRiihxRw="/>
         <field:display field="hasEnd" id="s_com_osrce_sitrep_domain_EntityStatus_hasEnd" object="${entitystatus}" z="OFZWcCG98hQOwSUCQYUiXD3Z5as="/>
         <field:display date="true" dateTimePattern="${entityStatus_databegin_date_format}" field="dataBegin" id="s_com_osrce_sitrep_domain_EntityStatus_dataBegin" object="${entitystatus}" z="yR5/bNl7GN7yNkkRMN2V1BkrQLA="/>
         <field:display date="true" dateTimePattern="${entityStatus_dataend_date_format}" field="dataEnd" id="s_com_osrce_sitrep_domain_EntityStatus_dataEnd" object="${entitystatus}" z="Hy0XvLqPwmKLeB+jXXiwsev5YNo="/>
-        <field:display date="true" dateTimePattern="${entityStatus_createdon_date_format}" field="createdOn" id="s_com_osrce_sitrep_domain_EntityStatus_createdOn" object="${entitystatus}" z="PKhW4BDzKfKNL3FZyj5sInnsQ1E="/>
+        <field:display field="location" id="s_com_osrce_sitrep_domain_EntityStatus_location" object="${entitystatus}" z="13/GGX9iReQXT2oIXMk+UB5Dr3E="/>
+        <field:display date="true" dateTimePattern="${entityStatus_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_EntityStatus_updated" object="${entitystatus}" z="yMaJW885mXkXJvnBhk2/nIEBGSg="/>
+        <field:display field="data" id="s_com_osrce_sitrep_domain_EntityStatus_data" object="${entitystatus}" z="uuvbtPTrI+IvXEwNSPUl+91t2F0="/>
+        <field:display field="entity" id="s_com_osrce_sitrep_domain_EntityStatus_entity" object="${entitystatus}" z="sPQvnmjVk2G+o63XYgJGudNZ0o8="/>
     </page:show>
 </div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_Sruser" items="${srusers}" z="7N8qRV2pVei5P70kInFIVfhsB/g=">
+        <table:table data="${srusers}" id="l_com_osrce_sitrep_domain_Sruser" path="/srusers" z="36YfQWnCZzlN6xm6DkfSKUuoC4Q=">
+            <table:column id="c_com_osrce_sitrep_domain_Sruser_groupId" property="groupId" z="LtMBUaoG7JLJ3zCg8DgZWloTAwY="/>
+            <table:column id="c_com_osrce_sitrep_domain_Sruser_name" property="name" z="nAkXKaC5ZOcn+Vs/B6jMdMlI16c="/>
+            <table:column id="c_com_osrce_sitrep_domain_Sruser_hasData" property="hasData" z="JabAgRTzA+MlkATyrb82ah+uqUo="/>
+            <table:column date="true" dateTimePattern="${sruser_created_date_format}" id="c_com_osrce_sitrep_domain_Sruser_created" property="created" z="i2MAKrcmwc0g0Ou3oyXenepKqiA="/>
+            <table:column date="true" dateTimePattern="${sruser_updated_date_format}" id="c_com_osrce_sitrep_domain_Sruser_updated" property="updated" z="oQKhtbO/HwTfzOfwrK5cn+Y+Qx8="/>
+            <table:column id="c_com_osrce_sitrep_domain_Sruser_data" property="data" z="z7j/Ffx3gxhMkeU97mR74oIyLrc="/>
+        </table:table>
+    </page:list>
+</div>

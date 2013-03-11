@@ -1,7 +1,5 @@
 package com.osrce.sitrep.domain;
 
-import com.vividsolutions.jts.geom.Geometry;
-
 import flexjson.transformer.AbstractTransformer;
 
 public class GeometryTransformer extends AbstractTransformer {

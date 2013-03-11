@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_Layer" object="${layer}" path="/layers" z="esIB4LXoAWITPiSjaqNB2fIR1P0=">
+        <field:display field="name" id="s_com_osrce_sitrep_domain_Layer_name" object="${layer}" z="ixVab+WYHIYPiJRTw9H6Mo076+U="/>
+        <field:display field="isbaselayer" id="s_com_osrce_sitrep_domain_Layer_isbaselayer" object="${layer}" z="sTvORhUyA3H/UMxLymtYgc+gM1U="/>
+        <field:display field="projection" id="s_com_osrce_sitrep_domain_Layer_projection" object="${layer}" z="BOhGsYQwVU+s2srHCkdYW1Kwh58="/>
+        <field:display field="visibility" id="s_com_osrce_sitrep_domain_Layer_visibility" object="${layer}" z="pb9ZMvY3cAvwMIuKVGMpeusSS9w="/>
+        <field:display field="sphericalmercator" id="s_com_osrce_sitrep_domain_Layer_sphericalmercator" object="${layer}" z="aVLQOBYOS3QuV7Bi8PHo0gHNtKw="/>
+        <field:display field="url" id="s_com_osrce_sitrep_domain_Layer_url" object="${layer}" z="BaC7ujksTOGCztB3sbhHWkKgs/8="/>
+        <field:display field="numzoomlevels" id="s_com_osrce_sitrep_domain_Layer_numzoomlevels" object="${layer}" z="QkEF0Y1J4NkDXD9PNSQ4xuxuTfU="/>
+        <field:display field="minzoomlevel" id="s_com_osrce_sitrep_domain_Layer_minzoomlevel" object="${layer}" z="gaxqTK8+HgxAcMJI12gTM8swwsk="/>
+        <field:display field="maxzoomlevel" id="s_com_osrce_sitrep_domain_Layer_maxzoomlevel" object="${layer}" z="szHldXAS7rfQQYWwkW9Ojd2DjfE="/>
+        <field:display field="attribution" id="s_com_osrce_sitrep_domain_Layer_attribution" object="${layer}" z="i+J6E/H+fAB9HilnTdeNHglITUY="/>
+        <field:display field="defaultstyle" id="s_com_osrce_sitrep_domain_Layer_defaultstyle" object="${layer}" z="SGaqv450OT5YPbeRuLWexdotojQ="/>
+        <field:display field="bgcolor" id="s_com_osrce_sitrep_domain_Layer_bgcolor" object="${layer}" z="9o9Aw1HckuLlfrUucfoqr7ILBtE="/>
+        <field:display field="opacity" id="s_com_osrce_sitrep_domain_Layer_opacity" object="${layer}" z="dcVfyXuNzv4bGlSY6ZxUfDUnak0="/>
+        <field:display date="true" dateTimePattern="${layer_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Layer_updated" object="${layer}" z="D5brwrsDcOMLcMFdEKq0yy+stAg="/>
+        <field:display field="urlparams" id="s_com_osrce_sitrep_domain_Layer_urlparams" object="${layer}" z="fUBMZwr2DWDRDmVltvqorRY50P0="/>
+        <field:display field="ltype" id="s_com_osrce_sitrep_domain_Layer_ltype" object="${layer}" z="rM50s1kneA+OMIr6vx7P8kj33fU="/>
+        <field:display field="lformat" id="s_com_osrce_sitrep_domain_Layer_lformat" object="${layer}" z="h1z6wyUR/U8nOlv4UHmwWtaqunE="/>
+    </page:show>
+</div>

@@ -4,8 +4,6 @@
 package com.osrce.sitrep.web;
 
 import com.osrce.sitrep.domain.Entity;
-import com.osrce.sitrep.domain.EntityStatus;
-import com.osrce.sitrep.domain.SrLocations;
 import com.osrce.sitrep.web.EntityController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
@@ -91,15 +89,8 @@ privileged aspect EntityController_Roo_Controller {
     }
     
     void EntityController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("entity_createdon_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("entity_updatedon_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-    }
-    
-    void EntityController.populateEditForm(Model uiModel, Entity entity) {
-        uiModel.addAttribute("entity", entity);
-        addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("entitystatuses", EntityStatus.findAllEntityStatuses());
-        uiModel.addAttribute("srlocationses", SrLocations.findAllSrLocationses());
+        uiModel.addAttribute("entity_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("entity_updated_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String EntityController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

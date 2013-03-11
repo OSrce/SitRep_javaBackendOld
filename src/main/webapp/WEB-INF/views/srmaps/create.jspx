@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_osrce_sitrep_domain_Srmap" modelAttribute="srmap" path="/srmaps" render="${empty dependencies}" z="gIIK2ISvt3vnYC0coj0uofakCZs=">
+        <field:input field="groupId" id="c_com_osrce_sitrep_domain_Srmap_groupId" required="true" validationMessageCode="field_invalid_integer" z="GDZuQML1X16cW7I1y6+B58wiQd4="/>
+        <field:checkbox field="hasData" id="c_com_osrce_sitrep_domain_Srmap_hasData" z="HxLtlLdq8jR57ojcbSKHQIdkfTs="/>
+        <field:input field="geometry" id="c_com_osrce_sitrep_domain_Srmap_geometry" z="Sar83uxiLY84TJ6AmgmAffMpxtw="/>
+        <field:input field="data" id="c_com_osrce_sitrep_domain_Srmap_data" z="5Rq52KHNOhgOOXHDfnDct9UBBEc="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_Srmap" render="${not empty dependencies}" z="Vn+98T16QJNa+1lEl9EYXE7DMns="/>
+</div>

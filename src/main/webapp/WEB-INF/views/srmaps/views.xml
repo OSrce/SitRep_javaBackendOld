@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="srmaps/list">
+        <put-attribute name="body" value="/WEB-INF/views/srmaps/list.jspx"/>
+    </definition>
+<definition extends="default" name="srmaps/show">
+        <put-attribute name="body" value="/WEB-INF/views/srmaps/show.jspx"/>
+    </definition>
+<definition extends="default" name="srmaps/create">
+        <put-attribute name="body" value="/WEB-INF/views/srmaps/create.jspx"/>
+    </definition>
+<definition extends="default" name="srmaps/update">
+        <put-attribute name="body" value="/WEB-INF/views/srmaps/update.jspx"/>
+    </definition>
+</tiles-definitions>

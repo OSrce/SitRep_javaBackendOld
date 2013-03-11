@@ -29,8 +29,8 @@ constructor : function ( ) {
 		this.options = {
 			name : null,
 			id : null,
-			layerType : null,
-			layerFormat : null,
+			ltype : null,
+			lformat : null,
 			isBaseLayer : null,
 			projection : null,
 			visibility : null,
@@ -180,12 +180,12 @@ addLayerToMap : function(theMap) {
 	console.log("Adding Layer to Map. For Layer "+this.options.name);
 	this.map.addLayer( this.layer );
 	console.log("Adding Controls to Map...");
-	if(this.options.layerType == "Vector" && this.options.feature_update) {
+	if(this.options.ltype == "Vector" && this.options.feature_update) {
 		for( theCon in this.srd_drawControls) {
 			this.map.addControl(this.srd_drawControls[theCon]);
 		}
 	}
-	if(this.options.layerFormat == "NONE" ) {
+	if(this.options.lformat == "NONE" ) {
 		this.map.addControl(this.selectControl);
 		this.selectControl.activate();
 	}
@@ -197,7 +197,7 @@ addLayerToMap : function(theMap) {
 loadData : function( ) { 
 //srd_layer.prototype.loadData = function(type, name, source, settings ) { 
 
-	if( this.options.layerType == "XYZ" ) {
+	if( this.options.ltype == "XYZ" ) {
 		console.log("XYZ Layer Created : "+this.options.name+":::"+this.options.url+":::");
 		if( !this.options.attribution) {
 			this.options.attribution = "";
@@ -214,7 +214,7 @@ loadData : function( ) {
 				sphericalMercator: 	this.options.sphericalMercator
 			} 
 		);
-	} else if (this.options.layerType == "WMS" ) {
+	} else if (this.options.ltype == "WMS" ) {
 		this.options.transparent = 'false';
 		if(this.options.opacity < 1) {
 			this.options.transparent = 'true';
@@ -238,12 +238,12 @@ loadData : function( ) {
 				
  			}
 		);
-	} else if (this.options.layerType == "Vector" ) {
+	} else if (this.options.ltype == "Vector" ) {
 
 	console.log("Vector Layer created:"+this.options.name);
 // BEGIN MESSY STYLE RULE CODE
 
-		if(this.options.layerFormat == "GML" ) {
+		if(this.options.lformat == "GML" ) {
 			this.runFromServer = true;
 			if( this.runFromServer == false ) {
 				console.log("Create GML Layer="+this.options.name+"===");
@@ -302,7 +302,7 @@ loadData : function( ) {
 
 			}
 
-		} else if(this.options.layerFormat == "NONE" ) {
+		} else if(this.options.lformat == "NONE" ) {
 				console.log("Create Plain Vector  Layer "+this.options.name+"===");
 				this.store = new dojo.store.Memory();
 				this.layer = new OpenLayers.Layer.Vector(this.options.name, {
@@ -325,7 +325,7 @@ loadData : function( ) {
 					} );
 					 
 
-		} else if(this.options.layerFormat == "SRJSON" ) {
+		} else if(this.options.lformat == "SRJSON" ) {
 				console.log("Create SRJson Layer Run From Server="+this.options.name+"===");
 				var theUrl = "/srlayerdynamicdatas/";
 				if( this.options.url ) {
@@ -370,32 +370,53 @@ new OpenLayers.Strategy.Cluster( { distance: 45 })
 					externalProjection : new OpenLayers.Projection(this.options.projection),
 					internalProjection : new OpenLayers.Projection("EPSG:900913")
 				} );
-				var testVar = null;
-				dojo.when(this.store.query({"layer_id":this.options.id }), function(theFeatArr) {
+//				var testVar = null;
+//				var urlparams = dojo.fromJson(this.options.urlparams);
+				dojo.when(this.store.query(  this.options.urlparams  ), function(theFeatArr) {
+//				dojo.when(this.store.query( urlparams ), function(theFeatArr) {
 					dojo.forEach( theFeatArr, function(theFeat) {
 						
 						var theFeature;
 						if(this.options.url == '/entitys') {
-							theFeature =  this.format.read( theFeat.location.sr_geom);
-							theFeature.attributes = {};
-							if(theFeat.data) {
-								theFeature.attributes = dojo.fromJson(theFeat.data);
-							}
-							if(theFeat.name) {
-								theFeature.attributes.name = theFeat.name;
-							}
+							console.log("Adding entity Feature:"+theFeat.name);
+							if(theFeat.status && theFeat.status.location) {
+								console.log("Status ID:"+theFeat.status.id);
+								console.log("Location ID:"+theFeat.status.location.id);
+
+								theFeature =  this.format.read( theFeat.status.location.geometry);
 							
+								theFeature.attributes = {};
+//								if(theFeat.status.data) {
+//									theFeature.attributes = dojo.fromJson(theFeat.status.data);
+								theFeature.attributes.data = theFeat.data;
+								theFeature.attributes.status = theFeat.status.data;
+
+//								}							
+								if(theFeat.name) {
+									theFeature.attributes.name = theFeat.name;
+								}
+							}
+						} else if(this.options.url == '/srmaps') {
+//							console.log("Adding srmaps Feature:"+theFeat.name);
+							theFeature =  this.format.read( theFeat.geometry);
+							theFeature.attributes = {};
+							if(theFeat.hasData == true) {
+								theFeature.attributes = theFeat.data;
+								theFeature.data = theFeat.data;
+							}				
 						}else {
 							theFeature =  this.format.read( theFeat.geometry);
 							theFeature.attributes = dojo.fromJson(theFeat.feature_data);
 
 						}
-						theFeature.db_id = theFeat.id;
 //						theFeature.fid = theFeat.feature_id;
 //						theFeature.id = theFeat.feature_id;
 //						console.log("Adding Feature: "+theFeature.db_id+" on Layer: "+this.options.id);
-						this.layer.addFeatures( [theFeature] ); 
-	
+						if(theFeature) {
+							theFeature.db_id = theFeat.id;
+//							console.log("Adding Feature:"+theFeature.db_id );
+							this.layer.addFeatures( [theFeature] ); 
+						}		
 					}.bind(this) );
 /*
 					this.layer.events.register("featureadded", this, this.srd_create);
@@ -404,9 +425,19 @@ new OpenLayers.Strategy.Cluster( { distance: 45 })
 					this.layer.events.register("featureselected", this, this.onFeatureSelect);
 					this.layer.events.register("featureunselected", this, this.onFeatureUnselect);
 */
+					//BEGIN TESTING ONLY FORCE REFRESH
+					if(this.options.url == "/entitys" ) {
+						this.srd_timer = new dojox.timing.Timer(5000);
+						this.srd_timer.onTick = function() { 
+							this.refresh();
+						}.bind(this);
+						this.srd_timer.start();
+					}
+					///END TESTING ONLY
+					
 				}.bind(this) );
 
-		} else if(this.options.layerFormat == "GeoJSON" ) {
+		} else if(this.options.lformat == "GeoJSON" ) {
 
 				this.layerProtocol = null;
 				this.options.url =null;
@@ -446,7 +477,7 @@ new OpenLayers.Strategy.Cluster( { distance: 45 })
 					protocol:			this.layerProtocol
 				} );
 
-		} else if(this.options.layerFormat == "WFST" ) {
+		} else if(this.options.lformat == "WFST" ) {
 			this.saveStrategy = new OpenLayers.Strategy.Save( ); //{ auto: true } );
  			this.saveStrategy.events.register("success", '', showSuccessMsg);
 			this.saveStrategy.events.register("fail", '', showFailureMsg);	
@@ -546,7 +577,7 @@ new OpenLayers.Strategy.Cluster( { distance: 45 })
 
 
 			//This creates the mode drop down list (point, line, select, etc...)
-			if(this.options.layerType == "Vector" && this.options.feature_update == "true") {
+			if(this.options.ltype == "Vector" && this.options.feature_update == "true") {
 				this.editPalette.addControl("activeControlPicker","Edit Mode","activeControl",this.srd_drawControls);
 			}
 			
@@ -590,7 +621,7 @@ new OpenLayers.Strategy.Cluster( { distance: 45 })
 
 // DEFINE preFeatureInsert for Dynamic Layers so that we can add appropriate styling
 srd_preFeatureInsert : function(feature) {
-	if( this.options.layerType=="Vector" && this.options.feature_update == true) {
+	if( this.options.ltype=="Vector" && this.options.feature_update == true) {
 		if(feature.attributes.customStyle == null) {
 			feature.attributes.customStyle = true;
 			for(var styleAttribute in this.srd_featureAttributes) {
@@ -614,7 +645,7 @@ onFeatureSelect : function(evt) {
 
 //	theFeature.
 	this.selectedFeature = theFeature;
-	if(this.options.layerFormat == "NONE") {	
+	if(this.options.lformat == "NONE") {	
 		console.log("TEST:::"+this.selectedFeature.geometry.getCentroid().toString() );
 /*		 var popup = new OpenLayers.Popup.FramedCloud("popup",
 			this.selectedFeature.geometry.getBounds().getCenterLonLat(),
@@ -641,7 +672,7 @@ onFeatureUnselect : function(evt) {
 	var theFeature = evt.feature;
 	console.log("Feature unselected: "+theFeature.db_id);
 //	this.editPalette.setFeatureAttributes( this.srd_featureAttributes );
-	if(this.options.layerFormat == "NONE") {	
+	if(this.options.lformat == "NONE") {	
 		this.map.removePopup(this.selectedFeature.popup);
 		this.selectedFeature.popup.destroy();
 		this.selectedFeature.popup = null;
@@ -981,7 +1012,7 @@ srd_update : function(evt) {
 	evt.srd_layer = this;
 	dojo.when( this.store.put(item), function(returnId) {
 //		console.log("Created Feature on server side! ID:"+returnId);
-		var retItem = dojo.fromJson(returnId);
+//		var retItem = dojo.fromJson(returnId);
 //		console.log("Created Feature on server side! ID:"+this.feature.fid);
 //		this.feature.db_id=returnId;
 //		console.log("Created Feature on server side! ID:"+this.feature.fid);
@@ -996,7 +1027,7 @@ srd_delete : function(evt) {
 	evt.srd_layer = this;
 	dojo.when( this.store.remove(evt.feature.db_id), function(returnId) {
 //	dojo.when( this.store.remove(itemStr), function(returnId) {
-		var retItem = dojo.fromJson(returnId);
+//		var retItem = dojo.fromJson(returnId);
 //		this.feature.fid=returnId;
 //		console.log("Created Feature on server side! ID:"+this.feature.fid);
 	}.bind(evt) );	
@@ -1204,8 +1235,10 @@ srd_beforeAdd : function( theObject ) {
 
 // BEFORE refresh
 refresh : function() {
+	//TEST need to remove:
+	this.srd_timer.stop();
 	console.log("REFRESH on layer: "+this.options.id);
-	dojo.when(this.store.query({"layer_id":this.options.id}), function(theFeatArr) {
+	dojo.when(this.store.query(this.options.urlparams), function(theFeatArr) {
 		for(var i in this.layer.features) {
 			var foundUpdateId = null;
 			for(var j in theFeatArr) {
@@ -1223,20 +1256,25 @@ refresh : function() {
 			}
 		}
 		for(var j in theFeatArr) {
-		var addFeature = true;
+			var addFeature = true;
 			for(var i in this.layer.features) {
 				if(this.layer.features[i].db_id == theFeatArr[j].id) {	
 					addFeature = false;
 				}
 			}
-			if(addFeature == true) {
-				var theFeature = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.fromWKT( theFeatArr[j].geometry), dojo.fromJson(theFeatArr[j].feature_data) );
+			if(addFeature == true && theFeatArr[j].hasStatus==true && theFeatArr[j].status.location ) {
+				console.log("Need to add feature with db_id="+theFeatArr[j].id);
+				var theFeature = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.fromWKT( theFeatArr[j].status.location.geometry), theFeatArr[j].data );
 				theFeature.db_id = theFeatArr[j].id;
 //				theFeature.fid = theFeatArr[j].feature_id;
 //				console.log("Adding Feature: "+theFeature.db_id+" on Layer: "+this.options.id);
 				this.layer.addFeatures( [theFeature], {silent:true} ); 
 			}
 		}	
+	//TEST need to remove:
+	this.srd_timer.start();
+
+		
 	}.bind(this) );
 	return;
 },
@@ -1246,7 +1284,7 @@ refresh : function() {
 // BEGIN srd_compareAndUpdateFeature 
 compareAndUpdateFeature : function(oldFeat, newFeat) {
 	console.log("Compare from Server Feature: "+oldFeat.db_id+" on Layer: "+this.options.id);
-	var tmpDataStr = dojo.toJson(oldFeat.attributes);
+//	var tmpDataStr = dojo.toJson(oldFeat.attributes);
 	var updateFeature = false;
 /*
 	if(tmpDataStr != newFeat.feature_data) {
@@ -1258,22 +1296,30 @@ compareAndUpdateFeature : function(oldFeat, newFeat) {
 */	
 
 	
-	
-  var tmpGeomStr = oldFeat.geometry.toString();
+	var oldGeom = new OpenLayers.Geometry.Point();
+//	oldGeom.clone(oldFeat.geometry);
+	//oldFeat.geometry.transform( new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326") );
+
+  var oldGeomStr = oldFeat.geometry.toString();
   
   if(this.options.url == '/entitys') {
 //		theFeature =  this.format.read( theFeat.location.sr_geom);
-		if( tmpGeomStr != newFeat.location.sr_geom ) {
-			console.log(oldFeat.db_id+" DIFF IN GEOM :"+tmpGeomStr+" ::: "+newFeat.geometry);
+	  	var newGeom = new OpenLayers.Geometry.fromWKT( newFeat.status.location.geometry );
+	  	newGeom.transform( new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913") );
+	  	var newGeomStr = newGeom.toString();
+//	    console.log("oldGeom="+oldGeomStr+" ,newGeom="+newGeomStr);
+
+		if( oldGeomStr != newGeomStr ) {
+			console.log(oldFeat.attributes.name+" "+oldFeat.db_id+" DIFF IN GEOM :::"+oldGeomStr+" ::: "+newGeomStr);
 			updateFeature = true;
 			this.layer.removeFeatures([oldFeat], {silent:true} );	
 			delete oldFeat.geometry;
-			oldFeat.geometry =  new OpenLayers.Geometry.fromWKT( newFeat.geometry);
+			oldFeat.geometry =  newGeom; //new OpenLayers.Geometry.fromWKT( newFeat.status.location.geometry);
 			this.layer.addFeatures([oldFeat], {silent:true} );
 		}
   } else {
-	if( tmpGeomStr != newFeat.geometry ) {
-		console.log(oldFeat.db_id+" DIFF IN GEOM :"+tmpGeomStr+" ::: "+newFeat.geometry);
+	if( oldGeomStr != newFeat.geometry ) {
+		console.log(oldFeat.db_id+" DIFF IN GEOM :"+oldGeomStr+" ::: "+newFeat.geometry);
 		updateFeature = true;
 		this.layer.removeFeatures([oldFeat], {silent:true} );	
 		delete oldFeat.geometry;

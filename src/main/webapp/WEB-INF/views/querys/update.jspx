@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_osrce_sitrep_domain_Query" modelAttribute="query" path="/querys" versionField="none" z="3JSkxe9g47mTRf04hV+kGL1+bdQ=">
+        <field:input field="name" id="c_com_osrce_sitrep_domain_Query_name" required="true" z="PUFsHyX5zHfEvWnIohszC6MvI6E="/>
+        <field:input field="notes" id="c_com_osrce_sitrep_domain_Query_notes" z="Av65pSc2ElhMPOpKDmsVTMWRKYY="/>
+        <field:input field="data" id="c_com_osrce_sitrep_domain_Query_data" z="87/f4D7yZ57TjVDig1OZD8N8SuI="/>
+    </form:update>
+</div>

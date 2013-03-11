@@ -5,16 +5,11 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Entity;
 import flexjson.JSONDeserializer;
-import flexjson.JSONSerializer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 privileged aspect Entity_Roo_Json {
-    
-    public String Entity.toJson() {
-        return new JSONSerializer().exclude("*.class").serialize(this);
-    }
     
     public static Entity Entity.fromJsonToEntity(String json) {
         return new JSONDeserializer<Entity>().use(null, Entity.class).deserialize(json);

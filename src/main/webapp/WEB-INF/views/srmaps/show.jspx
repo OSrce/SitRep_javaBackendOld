@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_Srmap" object="${srmap}" path="/srmaps" z="v8Dc9vhfexX5+/Quudnk+gBnlsI=">
+        <field:display field="groupId" id="s_com_osrce_sitrep_domain_Srmap_groupId" object="${srmap}" z="xyw19b6tLLQcOjvVbWIWNHnlud8="/>
+        <field:display field="hasData" id="s_com_osrce_sitrep_domain_Srmap_hasData" object="${srmap}" z="5RPpZOyvWCFf7Dc2xh8lDnxVDLc="/>
+        <field:display field="geometry" id="s_com_osrce_sitrep_domain_Srmap_geometry" object="${srmap}" z="EuEJqLFS9LGn4WqZ91sl5iWy/RQ="/>
+        <field:display field="data" id="s_com_osrce_sitrep_domain_Srmap_data" object="${srmap}" z="qfeLlvWxCpZ9IFsdSMbYY/Wm/7A="/>
+    </page:show>
+</div>

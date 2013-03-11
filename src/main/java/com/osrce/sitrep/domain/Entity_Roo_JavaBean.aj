@@ -4,7 +4,8 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Entity;
-import com.osrce.sitrep.domain.SrLocations;
+import com.osrce.sitrep.domain.EntityStatus;
+import com.osrce.sitrep.domain.Hstore;
 
 privileged aspect Entity_Roo_JavaBean {
     
@@ -16,12 +17,20 @@ privileged aspect Entity_Roo_JavaBean {
         this.id = id;
     }
     
-    public SrLocations Entity.getLocation() {
-        return this.location;
+    public EntityStatus Entity.getStatus() {
+        return this.status;
     }
     
-    public void Entity.setLocation(SrLocations location) {
-        this.location = location;
+    public void Entity.setStatus(EntityStatus status) {
+        this.status = status;
+    }
+    
+    public Hstore Entity.getData() {
+        return this.data;
+    }
+    
+    public void Entity.setData(Hstore data) {
+        this.data = data;
     }
     
 }

@@ -503,7 +503,7 @@ return declare(
 			var urlStr = '/cfssingle?cfs_date='+theDate+"&cfs_num="+theJobNum;
 //			var theWindow = window.open(urlStr,'Calls For Service - Single View','width=650px');	
 			
-			var theWindow = window.open(urlStr,'CallsForService','width=612,height='+screen.height+',resizeable=1');	
+			window.open(urlStr,'CallsForService','width=612,height='+screen.height+',resizeable=1');	
 
 		},
 		// END popupCfsSingle

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="srusers/list">
+        <put-attribute name="body" value="/WEB-INF/views/srusers/list.jspx"/>
+    </definition>
+<definition extends="default" name="srusers/show">
+        <put-attribute name="body" value="/WEB-INF/views/srusers/show.jspx"/>
+    </definition>
+<definition extends="default" name="srusers/create">
+        <put-attribute name="body" value="/WEB-INF/views/srusers/create.jspx"/>
+    </definition>
+<definition extends="default" name="srusers/update">
+        <put-attribute name="body" value="/WEB-INF/views/srusers/update.jspx"/>
+    </definition>
+</tiles-definitions>

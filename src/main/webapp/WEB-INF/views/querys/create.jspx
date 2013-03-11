@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_osrce_sitrep_domain_Query" modelAttribute="query" path="/querys" render="${empty dependencies}" z="1e3+AERNnXfw7mRl455Z77usrzM=">
+        <field:input field="name" id="c_com_osrce_sitrep_domain_Query_name" required="true" z="PUFsHyX5zHfEvWnIohszC6MvI6E="/>
+        <field:input field="notes" id="c_com_osrce_sitrep_domain_Query_notes" z="Av65pSc2ElhMPOpKDmsVTMWRKYY="/>
+        <field:input field="data" id="c_com_osrce_sitrep_domain_Query_data" z="87/f4D7yZ57TjVDig1OZD8N8SuI="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_Query" render="${not empty dependencies}" z="e3u9HoP/kSXE92xhA8IVE3umZ5g="/>
+</div>

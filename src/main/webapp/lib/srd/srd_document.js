@@ -253,17 +253,17 @@ srd_init : function() {
 	var theStyleMaps = {};
 	for( var theId in theStyles) {
 		var theStyle = theStyles[theId];
-		if(theStyleMaps[theStyle.stylemap_id] == null ) {
-				theStyleMaps[theStyle.stylemap_id] = {};
+		if(theStyleMaps[theStyle.stylemapId] == null ) {
+				theStyleMaps[theStyle.stylemapId] = {};
 		}
 		var theOptions = {};
-		if(theStyle.render_type == 'default') {
+		if(theStyle.renderType == 'default') {
 			theOptions['isDefault'] = true;
 		}
 		for(var theRId in theStyleRules) {
 //			console.log("Iterating through Rules, Iter:"+theRId+" theId="+theId);
 			var tmpRule = theStyleRules[theRId];
-			if( tmpRule["style_id"] == theStyles[theId]['stylemap_id'] ) {
+			if( tmpRule["style_id"] == theStyles[theId]['stylemapId'] ) {
 				var filterData = dojo.fromJson( tmpRule["filter_data"] );
 				var theFilter = null;
 				if(filterData == null) {
@@ -320,14 +320,14 @@ srd_init : function() {
 				}	
 			}
 		}
-		if(theStyle.stylemap_id == 2013) {
+		if(theStyle.stylemapId == 2013) {
 			console.log("jonTest3 === theOptions***************");
 			jonTest3 = theOptions;
 		}
 		
 		theOptions.defaultsPerSymbolizer = false;	
 
-		theStyleMaps[theStyle.stylemap_id][theStyle.render_type] = new OpenLayers.Style( theStyleSymbolizers[theStyle.defaultsymbolizer_id] , theOptions);
+		theStyleMaps[theStyle.stylemapId][theStyle.renderType] = new OpenLayers.Style( theStyleSymbolizers[theStyle.defaultsymbolizerId] , theOptions);
 
 	}	
 	for ( var theId in theStyleMaps) {
@@ -381,7 +381,8 @@ srd_init : function() {
 
 //	this.srd_displayMenuBar();
 	
-	this.rtc = new srd_rtc(this);
+	//TODO PUT BACK IN FOR COMETD STUFF.
+//	this.rtc = new srd_rtc(this);
 },
 // END srd_init
 
@@ -617,7 +618,7 @@ srd_createLayer : function(theName,theUrl) {
 							this.srd_menuBar.addChild(new dijit.MenuBarItem( {
 								label: '<img src="'+this.serverBaseUrl+'/lib/img/SitRepIcon_Small.png" height="20" width="20">' } ) );
 							//// SitRep MENU /////	
-							var srd_sitrepMenu = new dijit.Menu({});
+//							var srd_sitrepMenu = new dijit.Menu({});
 							this.srd_menuBar.addChild(new dijit.MenuBarItem({
 								label: "SitRep" 
 							} ) );

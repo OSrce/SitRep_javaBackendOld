@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_Srule" items="${srules}" z="Y57b6JHXia8hP4n3K2uyL6Aeq9A=">
+        <table:table data="${srules}" id="l_com_osrce_sitrep_domain_Srule" path="/srules" z="tbh1iOI8z/lKxPz6nsc3PAzTzZE=">
+            <table:column id="c_com_osrce_sitrep_domain_Srule_name" property="name" z="kkd/UWkYBh7CUWPvfymdnz677RI="/>
+            <table:column id="c_com_osrce_sitrep_domain_Srule_styleId" property="styleId" z="ALn+503RMAtPFqPQ8I9OZy0WDAs="/>
+            <table:column id="c_com_osrce_sitrep_domain_Srule_symbolizerId" property="symbolizerId" z="QKsjN/hLrys3B3iRoAVf9xv6LWQ="/>
+            <table:column id="c_com_osrce_sitrep_domain_Srule_elsefilter" property="elsefilter" z="WpHd6MD33El8td4ZWPZwWPLzr00="/>
+            <table:column id="c_com_osrce_sitrep_domain_Srule_filterData" property="filterData" z="WlvdJMXDLjjkwlO0cU8Au3ybctA="/>
+            <table:column date="true" dateTimePattern="${srule_created_date_format}" id="c_com_osrce_sitrep_domain_Srule_created" property="created" z="dzls6jhDS5OD0gBKNb0eSPxU0T4="/>
+        </table:table>
+    </page:list>
+</div>

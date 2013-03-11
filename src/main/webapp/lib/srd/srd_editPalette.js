@@ -330,14 +330,14 @@ getPresets : function() {
 
 						switch(item.data) {
 							case "point" :
-								var shape = avatarsurface.createCircle({ cx: 8, cy: 5, r: 4 }).setFill("yellow").setStroke("blue");
+								avatarsurface.createCircle({ cx: 8, cy: 5, r: 4 }).setFill("yellow").setStroke("blue");
 							break;
 							case "line" :
-								var shape = avatarsurface.createLine({ x1: 4, y1: 8, x2: 12, y2: 0 }).setStroke("blue");
+								avatarsurface.createLine({ x1: 4, y1: 8, x2: 12, y2: 0 }).setStroke("blue");
 		
 							break;
 							case "polygon" :
-								var shape = avatarsurface.createRect({ x: 4, y: 1, width: 8, height: 8 }).setFill("red").setStroke("blue");
+								avatarsurface.createRect({ x: 4, y: 1, width: 8, height: 8 }).setFill("red").setStroke("blue");
 							break;
 						}	
 								

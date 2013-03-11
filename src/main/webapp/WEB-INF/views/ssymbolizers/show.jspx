@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_Ssymbolizer" object="${ssymbolizer}" path="/ssymbolizers" z="Lxdzh3jt69LWeERH3WaNX1dtGU0=">
+        <field:display field="name" id="s_com_osrce_sitrep_domain_Ssymbolizer_name" object="${ssymbolizer}" z="ukXUbsK+wBYHP0eJwyyGjCwXNCg="/>
+        <field:display field="label" id="s_com_osrce_sitrep_domain_Ssymbolizer_label" object="${ssymbolizer}" z="Tjsaa+RHKmXCOhVxOMCNmkvABug="/>
+        <field:display field="rotation" id="s_com_osrce_sitrep_domain_Ssymbolizer_rotation" object="${ssymbolizer}" z="OcsIhsowGL7KL9Jdeg9zvZKNoVI="/>
+        <field:display date="true" dateTimePattern="${ssymbolizer_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Ssymbolizer_updated" object="${ssymbolizer}" z="PqcHXFdg3imozyz0P2fFneSlW6w="/>
+        <field:display field="fillColor" id="s_com_osrce_sitrep_domain_Ssymbolizer_fillColor" object="${ssymbolizer}" z="vojXQLyxUoTwD04doOu9zGRUzfI="/>
+        <field:display field="fillOpacity" id="s_com_osrce_sitrep_domain_Ssymbolizer_fillOpacity" object="${ssymbolizer}" z="1EL4KZ7wM5Ji4xqEjrHthh3fWL8="/>
+        <field:display field="strokeColor" id="s_com_osrce_sitrep_domain_Ssymbolizer_strokeColor" object="${ssymbolizer}" z="W4CGZrauT5MBMeJgjY4oTFPneSA="/>
+        <field:display field="strokeOpacity" id="s_com_osrce_sitrep_domain_Ssymbolizer_strokeOpacity" object="${ssymbolizer}" z="wI2K1fQ+k3XM9VG0bldropgzsh4="/>
+        <field:display field="strokeWidth" id="s_com_osrce_sitrep_domain_Ssymbolizer_strokeWidth" object="${ssymbolizer}" z="TViKCVGUg/bSkeimh8BgQOT3bdo="/>
+        <field:display field="pointRadius" id="s_com_osrce_sitrep_domain_Ssymbolizer_pointRadius" object="${ssymbolizer}" z="CnpbYXyHUpxkd+qgl4JFABiIudc="/>
+        <field:display field="fontColor" id="s_com_osrce_sitrep_domain_Ssymbolizer_fontColor" object="${ssymbolizer}" z="itGD6kHzglwEG+43vhDORcE+Sw0="/>
+        <field:display field="fontSize" id="s_com_osrce_sitrep_domain_Ssymbolizer_fontSize" object="${ssymbolizer}" z="q3PgWEPL07NTgviTC9jj3sLmA1A="/>
+        <field:display field="fontFamily" id="s_com_osrce_sitrep_domain_Ssymbolizer_fontFamily" object="${ssymbolizer}" z="+NLztLhNn2OgCUjeKKpVaGPGEX0="/>
+        <field:display field="fontWeight" id="s_com_osrce_sitrep_domain_Ssymbolizer_fontWeight" object="${ssymbolizer}" z="9zIa/r6qXyoZE96NFspumbyt59c="/>
+        <field:display field="fontOpacity" id="s_com_osrce_sitrep_domain_Ssymbolizer_fontOpacity" object="${ssymbolizer}" z="hoOGsWlZEYIW++qL1xeJSxBw/jE="/>
+        <field:display field="labelAlign" id="s_com_osrce_sitrep_domain_Ssymbolizer_labelAlign" object="${ssymbolizer}" z="6WPYHfbDxu+lGSKbNe6SlsmHLMc="/>
+        <field:display field="labelXOffset" id="s_com_osrce_sitrep_domain_Ssymbolizer_labelXOffset" object="${ssymbolizer}" z="yNzx98fEmv3tq9UtZGsrrFSPDJg="/>
+        <field:display field="labelYOffset" id="s_com_osrce_sitrep_domain_Ssymbolizer_labelYOffset" object="${ssymbolizer}" z="PNLFBtai2YX04Qtts/aUN822Dwo="/>
+        <field:display field="externalGraphic" id="s_com_osrce_sitrep_domain_Ssymbolizer_externalGraphic" object="${ssymbolizer}" z="S4lCzOnMDcX6uOPbCB2QNOm5IYg="/>
+        <field:display field="graphicWidth" id="s_com_osrce_sitrep_domain_Ssymbolizer_graphicWidth" object="${ssymbolizer}" z="YB5Ry273ES1nbQXX7yUdpY9LbJY="/>
+        <field:display field="graphicHeight" id="s_com_osrce_sitrep_domain_Ssymbolizer_graphicHeight" object="${ssymbolizer}" z="fWQ99fyUD1J53Upbci6zYkFYAKk="/>
+        <field:display field="graphicOpacity" id="s_com_osrce_sitrep_domain_Ssymbolizer_graphicOpacity" object="${ssymbolizer}" z="z20ffF+GP8ldpAs6X4kgls+5rbk="/>
+    </page:show>
+</div>

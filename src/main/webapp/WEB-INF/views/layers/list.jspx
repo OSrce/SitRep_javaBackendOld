@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_Layer" items="${layers}" z="lAwA+k4M7uz+pNYovSy2Y/jWrtU=">
+        <table:table data="${layers}" id="l_com_osrce_sitrep_domain_Layer" path="/layers" z="5RBhuidk5ONuokK5Hjw8GEr2bIE=">
+            <table:column id="c_com_osrce_sitrep_domain_Layer_name" property="name" z="D62pqg9iNBb+UUUK9rWNC0R/9CI="/>
+            <table:column id="c_com_osrce_sitrep_domain_Layer_isbaselayer" property="isbaselayer" z="5RJFgjD9HxS+2kalC9vrrDxQQ2s="/>
+            <table:column id="c_com_osrce_sitrep_domain_Layer_projection" property="projection" z="WL76bOOvck3krMQBenZMevSTiGQ="/>
+            <table:column id="c_com_osrce_sitrep_domain_Layer_visibility" property="visibility" z="0DKRV0XrdydY+PKzoLPkCkmQ0oE="/>
+            <table:column id="c_com_osrce_sitrep_domain_Layer_sphericalmercator" property="sphericalmercator" z="DLkAQBeuzpQtMNfM+KTenhuvP6k="/>
+            <table:column id="c_com_osrce_sitrep_domain_Layer_url" property="url" z="fJe9rp6dQTT+D3RkuWaHmJVkTwA="/>
+        </table:table>
+    </page:list>
+</div>

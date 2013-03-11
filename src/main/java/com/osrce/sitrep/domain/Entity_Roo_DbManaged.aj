@@ -16,14 +16,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Entity_Roo_DbManaged {
     
-    @OneToMany(mappedBy = "entityId")
+    @OneToMany(mappedBy = "entity")
     private Set<EntityStatus> Entity.entityStatuses;
     
-    @Column(name = "entity_group")
+    @Column(name = "group_id")
     @NotNull
-    private Long Entity.entityGroup;
+    private Long Entity.groupId;
     
-    @Column(name = "name", length = 64)
+    @Column(name = "name", length = 128)
     @NotNull
     private String Entity.name;
     
@@ -31,30 +31,21 @@ privileged aspect Entity_Roo_DbManaged {
     @NotNull
     private boolean Entity.hasData;
     
-    @Column(name = "has_location")
+    @Column(name = "has_status")
     @NotNull
-    private boolean Entity.hasLocation;
+    private boolean Entity.hasStatus;
     
-    @Column(name = "last_status_id")
+    @Column(name = "created", updatable = false)
     @NotNull
-    private Long Entity.lastStatusId;
-    
-    @Column(name = "last_location_status_id")
-    @NotNull
-    private Long Entity.lastLocationStatusId;
-    
-    @Column(name = "data")
-    private String Entity.data;
-    
-    @Column(name = "created_on")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
-    private Date Entity.createdOn;
+    private Date Entity.created = new Date();
     
-    @Column(name = "updated_on")
+    @Column(name = "updated")
+    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
-    private Date Entity.updatedOn;
+    private Date Entity.updated;
     
     public Set<EntityStatus> Entity.getEntityStatuses() {
         return entityStatuses;
@@ -64,12 +55,12 @@ privileged aspect Entity_Roo_DbManaged {
         this.entityStatuses = entityStatuses;
     }
     
-    public Long Entity.getEntityGroup() {
-        return entityGroup;
+    public Long Entity.getGroupId() {
+        return groupId;
     }
     
-    public void Entity.setEntityGroup(Long entityGroup) {
-        this.entityGroup = entityGroup;
+    public void Entity.setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
     
     public String Entity.getName() {
@@ -88,52 +79,28 @@ privileged aspect Entity_Roo_DbManaged {
         this.hasData = hasData;
     }
     
-    public boolean Entity.isHasLocation() {
-        return hasLocation;
+    public boolean Entity.isHasStatus() {
+        return hasStatus;
     }
     
-    public void Entity.setHasLocation(boolean hasLocation) {
-        this.hasLocation = hasLocation;
+    public void Entity.setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
     }
     
-    public Long Entity.getLastStatusId() {
-        return lastStatusId;
+    public Date Entity.getCreated() {
+        return created;
     }
     
-    public void Entity.setLastStatusId(Long lastStatusId) {
-        this.lastStatusId = lastStatusId;
+    public void Entity.setCreated(Date created) {
+        this.created = created;
     }
     
-    public Long Entity.getLastLocationStatusId() {
-        return lastLocationStatusId;
+    public Date Entity.getUpdated() {
+        return updated;
     }
     
-    public void Entity.setLastLocationStatusId(Long lastLocationStatusId) {
-        this.lastLocationStatusId = lastLocationStatusId;
-    }
-    
-    public String Entity.getData() {
-        return data;
-    }
-    
-    public void Entity.setData(String data) {
-        this.data = data;
-    }
-    
-    public Date Entity.getCreatedOn() {
-        return createdOn;
-    }
-    
-    public void Entity.setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
-    }
-    
-    public Date Entity.getUpdatedOn() {
-        return updatedOn;
-    }
-    
-    public void Entity.setUpdatedOn(Date updatedOn) {
-        this.updatedOn = updatedOn;
+    public void Entity.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
 }

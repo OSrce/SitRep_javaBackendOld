@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_Event" object="${event}" path="/events" z="4MhMDPRZ8Q3Jrf93R4vnkCo/tn8=">
+        <field:display field="location" id="s_com_osrce_sitrep_domain_Event_location" object="${event}" z="ARH3H28xdA4gEyJalPDa1dHE23U="/>
+        <field:display field="groupId" id="s_com_osrce_sitrep_domain_Event_groupId" object="${event}" z="00s0gfZNYENadQRtFVT711r6ifU="/>
+        <field:display field="hasData" id="s_com_osrce_sitrep_domain_Event_hasData" object="${event}" z="OYmF2f3ZqjPyq8ZtwRM0y/dCutU="/>
+        <field:display field="hasBegin" id="s_com_osrce_sitrep_domain_Event_hasBegin" object="${event}" z="Hf4ZQuV3NEZjX/oJE8Luo4sGIko="/>
+        <field:display field="hasEnd" id="s_com_osrce_sitrep_domain_Event_hasEnd" object="${event}" z="GXlUsya3M+J5k+t+Z+996NtrDVo="/>
+        <field:display date="true" dateTimePattern="${event_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Event_updated" object="${event}" z="3Q+NdUOImrRdn0kXa4E35Mfl678="/>
+        <field:display date="true" dateTimePattern="${event_databegin_date_format}" field="dataBegin" id="s_com_osrce_sitrep_domain_Event_dataBegin" object="${event}" z="G9IryjLv8rTtymaK3FTQKVDE0T8="/>
+        <field:display date="true" dateTimePattern="${event_dataend_date_format}" field="dataEnd" id="s_com_osrce_sitrep_domain_Event_dataEnd" object="${event}" z="oA0RBT8c1BdHKKu9vLwn1fFMlHk="/>
+        <field:display field="data" id="s_com_osrce_sitrep_domain_Event_data" object="${event}" z="EWhUCV6Xuz2M5sr4ZpSnvQ2pqzc="/>
+    </page:show>
+</div>

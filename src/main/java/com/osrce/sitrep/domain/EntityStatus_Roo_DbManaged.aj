@@ -3,9 +3,8 @@
 
 package com.osrce.sitrep.domain;
 
-import com.osrce.sitrep.domain.Entity;
 import com.osrce.sitrep.domain.EntityStatus;
-import com.osrce.sitrep.domain.SrLocations;
+import com.osrce.sitrep.domain.Location;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
@@ -18,16 +17,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 privileged aspect EntityStatus_Roo_DbManaged {
     
     @ManyToOne
-    @JoinColumn(name = "entity_id", referencedColumnName = "id", nullable = false)
-    private Entity EntityStatus.entityId;
-    
-    @ManyToOne
-    @JoinColumn(name = "location_id", referencedColumnName = "id")
-    private SrLocations EntityStatus.locationId;
-    
-    @Column(name = "has_status")
-    @NotNull
-    private boolean EntityStatus.hasStatus;
+    @JoinColumn(name = "location", referencedColumnName = "id")
+    private Location EntityStatus.location;
     
     @Column(name = "has_data")
     @NotNull
@@ -41,11 +32,17 @@ privileged aspect EntityStatus_Roo_DbManaged {
     @NotNull
     private boolean EntityStatus.hasEnd;
     
-    @Column(name = "status", length = 128)
-    private String EntityStatus.status;
+    @Column(name = "created", updatable = false)
+    @NotNull
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(style = "M-")
+    private Date EntityStatus.created = new Date();
     
-    @Column(name = "data")
-    private String EntityStatus.data;
+    @Column(name = "updated")
+    @NotNull
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(style = "M-")
+    private Date EntityStatus.updated;
     
     @Column(name = "data_begin")
     @Temporal(TemporalType.TIMESTAMP)
@@ -57,38 +54,12 @@ privileged aspect EntityStatus_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date EntityStatus.dataEnd;
     
-    @Column(name = "created_on")
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
-    private Date EntityStatus.createdOn;
-    
-    @Column(name = "updated_on")
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
-    private Date EntityStatus.updatedOn;
-    
-    public Entity EntityStatus.getEntityId() {
-        return entityId;
+    public Location EntityStatus.getLocation() {
+        return location;
     }
     
-    public void EntityStatus.setEntityId(Entity entityId) {
-        this.entityId = entityId;
-    }
-    
-    public SrLocations EntityStatus.getLocationId() {
-        return locationId;
-    }
-    
-    public void EntityStatus.setLocationId(SrLocations locationId) {
-        this.locationId = locationId;
-    }
-    
-    public boolean EntityStatus.isHasStatus() {
-        return hasStatus;
-    }
-    
-    public void EntityStatus.setHasStatus(boolean hasStatus) {
-        this.hasStatus = hasStatus;
+    public void EntityStatus.setLocation(Location location) {
+        this.location = location;
     }
     
     public boolean EntityStatus.isHasData() {
@@ -115,20 +86,20 @@ privileged aspect EntityStatus_Roo_DbManaged {
         this.hasEnd = hasEnd;
     }
     
-    public String EntityStatus.getStatus() {
-        return status;
+    public Date EntityStatus.getCreated() {
+        return created;
     }
     
-    public void EntityStatus.setStatus(String status) {
-        this.status = status;
+    public void EntityStatus.setCreated(Date created) {
+        this.created = created;
     }
     
-    public String EntityStatus.getData() {
-        return data;
+    public Date EntityStatus.getUpdated() {
+        return updated;
     }
     
-    public void EntityStatus.setData(String data) {
-        this.data = data;
+    public void EntityStatus.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
     public Date EntityStatus.getDataBegin() {
@@ -145,22 +116,6 @@ privileged aspect EntityStatus_Roo_DbManaged {
     
     public void EntityStatus.setDataEnd(Date dataEnd) {
         this.dataEnd = dataEnd;
-    }
-    
-    public Date EntityStatus.getCreatedOn() {
-        return createdOn;
-    }
-    
-    public void EntityStatus.setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
-    }
-    
-    public Date EntityStatus.getUpdatedOn() {
-        return updatedOn;
-    }
-    
-    public void EntityStatus.setUpdatedOn(Date updatedOn) {
-        this.updatedOn = updatedOn;
     }
     
 }

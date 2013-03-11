@@ -388,3 +388,90 @@ web mvc json all
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-05 13:49:16
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-05 22:36:38
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-06 10:29:35
+// [failed] database reverse engineer --package ~.domain --schema PUBLIC
+
+database reverse engineer --package ~.domain --schema PUBLIC
+
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-06 18:04:48
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-06 21:10:38
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables  "entity  entity_status event layer location query srgroup sruser srmap style srule ssymbolizer"
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-06 21:21:47
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-06 21:23:39
+web mvc all --package ~.web
+web mvc json all
+
+json all
+
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-06 21:43:18
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-06 21:48:43
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-06 21:53:01
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-06 21:54:20
+json all
+
+web mvc json all
+
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-06 23:07:45
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-06 23:31:44
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-06 23:33:21
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-06 23:34:57
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-06 23:51:49
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-06 23:53:42
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-06 23:56:21
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-06 23:58:01
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-06 23:59:27
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-07 00:01:53
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-07 00:26:16
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-07 00:27:53
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-07 00:32:50
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-07 00:35:40
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-07 00:40:17
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-07 00:41:39
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-07 00:50:51
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-07 09:58:54
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-07 15:13:42
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-07 15:29:22
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-07 15:35:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-07 15:36:46
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-07 15:40:19
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-07 15:47:05
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-07 15:52:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-07 15:54:27
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-07 18:07:13
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-07 20:13:13
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-07 23:53:07
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-08 09:58:30
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables  "entity  entity_status event layer location query srgroup sruser srmap style srule ssymbolizer"
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-08 16:04:12
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-08 16:05:08
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-08 17:54:52
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-08 17:57:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-08 18:16:02
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 00:07:48
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 00:08:42
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 00:20:06
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 01:32:52
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 01:33:52
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 01:44:57
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 14:41:05
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 14:47:15
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 14:49:51
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 15:25:59
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 15:27:01
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 15:34:05
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 15:35:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 17:46:42
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 17:48:02
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 17:53:26
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 17:55:18
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 20:46:16
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 20:48:06
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 23:20:04
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 23:20:46
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-09 23:29:13
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-09 23:30:48
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-11 10:04:58
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-11 10:06:29
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-11 11:41:07
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-11 11:43:52
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-11 16:13:57
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-11 16:35:13

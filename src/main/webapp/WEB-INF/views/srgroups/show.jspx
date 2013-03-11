@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_Srgroup" object="${srgroup}" path="/srgroups" z="BWFpXVkvmA54RQLH/NW9jlc+12Y=">
+        <field:display field="name" id="s_com_osrce_sitrep_domain_Srgroup_name" object="${srgroup}" z="P3EZOOQVRlRT9GJIjSPCUMXWWYM="/>
+        <field:display field="parentId" id="s_com_osrce_sitrep_domain_Srgroup_parentId" object="${srgroup}" z="ni/SkIFSoH/mk7g4YWSsyq2SbCw="/>
+        <field:display field="hasData" id="s_com_osrce_sitrep_domain_Srgroup_hasData" object="${srgroup}" z="M6zsB5OX8fsfzQKYhtMbU6Klez4="/>
+        <field:display date="true" dateTimePattern="${srgroup_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Srgroup_updated" object="${srgroup}" z="m+6/txRI2GSqitZU7XDtC6ROJIg="/>
+        <field:display field="data" id="s_com_osrce_sitrep_domain_Srgroup_data" object="${srgroup}" z="jz0cDFg+s7b8ZTDw7QCio/iN43c="/>
+    </page:show>
+</div>

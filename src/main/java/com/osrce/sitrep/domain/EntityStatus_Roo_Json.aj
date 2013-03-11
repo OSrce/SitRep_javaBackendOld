@@ -5,23 +5,14 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.EntityStatus;
 import flexjson.JSONDeserializer;
-import flexjson.JSONSerializer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 privileged aspect EntityStatus_Roo_Json {
     
-    public String EntityStatus.toJson() {
-        return new JSONSerializer().exclude("*.class").serialize(this);
-    }
-    
     public static EntityStatus EntityStatus.fromJsonToEntityStatus(String json) {
         return new JSONDeserializer<EntityStatus>().use(null, EntityStatus.class).deserialize(json);
-    }
-    
-    public static String EntityStatus.toJsonArray(Collection<EntityStatus> collection) {
-        return new JSONSerializer().exclude("*.class").serialize(collection);
     }
     
     public static Collection<EntityStatus> EntityStatus.fromJsonArrayToEntityStatuses(String json) {

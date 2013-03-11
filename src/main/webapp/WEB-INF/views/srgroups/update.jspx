@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_osrce_sitrep_domain_Srgroup" modelAttribute="srgroup" path="/srgroups" versionField="none" z="s1gQh+9sGQJcby1VqxJskjr61jM=">
+        <field:input field="name" id="c_com_osrce_sitrep_domain_Srgroup_name" required="true" z="fVyujiP2tXTs7UAp1sjJPedoy8o="/>
+        <field:input field="parentId" id="c_com_osrce_sitrep_domain_Srgroup_parentId" required="true" validationMessageCode="field_invalid_integer" z="g0zJEIgh2iAoi/r1UQ8IhMYedls="/>
+        <field:checkbox field="hasData" id="c_com_osrce_sitrep_domain_Srgroup_hasData" z="S1jXrrXzJZJvurHdgNN4MDLuGQk="/>
+        <field:datetime dateTimePattern="${srgroup_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Srgroup_updated" required="true" z="5AHojKW4x+7tfVhkPCCJwha+u/s="/>
+        <field:input field="data" id="c_com_osrce_sitrep_domain_Srgroup_data" z="uVYuzfnFhux3gPHOhVDdqDiWFLI="/>
+    </form:update>
+</div>

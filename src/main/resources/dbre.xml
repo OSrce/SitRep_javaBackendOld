@@ -7,334 +7,189 @@
     <option key="testAutomatically" value="false"/>
     <table alias="public" name="entity">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
-        <column name="entity_group" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
-        <column name="name" primaryKey="false" required="true" scale="0" size="64" type="12,varchar"/>
+        <column name="group_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
+        <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
         <column name="has_data" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
-        <column name="has_location" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
-        <column name="last_status_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
-        <column name="last_location_status_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
-        <column name="location_id" primaryKey="false" required="false" scale="0" size="19" type="-5,int8"/>
-        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
-        <column name="created_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="updated_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <foreign-key foreignTable="sr_locations" name="entity_location_id_fkey1" onDelete="none" onUpdate="none">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="false"/>
-            <reference foreign="id" local="location_id"/>
-        </foreign-key>
-        <foreign-key foreignTable="entity_status" name="entity_status_entity_id_fkey1" onDelete="none" onUpdate="none">
+        <column name="has_status" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+        <column name="status" primaryKey="false" required="false" scale="0" size="19" type="-5,int8"/>
+        <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <foreign-key foreignTable="entity_status" name="entity_status_entity_fkey" onDelete="none" onUpdate="none">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="true"/>
-            <reference foreign="entity_id" local="id"/>
+            <reference foreign="entity" local="id"/>
         </foreign-key>
-        <unique name="entity_pkey1">
+        <unique name="entity_pkey">
             <unique-column name="id"/>
         </unique>
+        <index name="entity_idx2">
+            <index-column name="group_id"/>
+            <index-column name="id"/>
+        </index>
     </table>
     <table alias="public" name="entity_status">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
-        <column name="entity_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
-        <column name="location_id" primaryKey="false" required="false" scale="0" size="19" type="-5,int8"/>
-        <column name="has_status" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+        <column name="entity" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
+        <column name="location" primaryKey="false" required="false" scale="0" size="19" type="-5,int8"/>
         <column name="has_data" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
         <column name="has_begin" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
         <column name="has_end" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
-        <column name="status" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
+        <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
         <column name="data_begin" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
         <column name="data_end" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="created_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="updated_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <foreign-key foreignTable="entity" name="entity_status_entity_id_fkey1" onDelete="none" onUpdate="none">
+        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <foreign-key foreignTable="entity" name="entity_status_entity_fkey" onDelete="none" onUpdate="none">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="false"/>
-            <reference foreign="id" local="entity_id"/>
+            <reference foreign="id" local="entity"/>
         </foreign-key>
-        <foreign-key foreignTable="sr_locations" name="entity_status_location_id_fkey1" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="location" name="entity_status_location_fkey" onDelete="none" onUpdate="none">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="false"/>
-            <reference foreign="id" local="location_id"/>
+            <reference foreign="id" local="location"/>
         </foreign-key>
-        <unique name="entity_status_pkey1">
+        <unique name="entity_status_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
-    <table alias="public" name="sr_acl_permissions">
-        <column name="permission_id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
-        <column name="role_type" primaryKey="false" required="true" scale="0" size="2147483647" type="1111,roletype"/>
-        <column name="role_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="resource_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="permission_create" primaryKey="false" required="true" scale="0" size="2147483647" type="1111,permittype"/>
-        <column name="permission_read" primaryKey="false" required="true" scale="0" size="2147483647" type="1111,permittype"/>
-        <column name="permission_update" primaryKey="false" required="true" scale="0" size="2147483647" type="1111,permittype"/>
-        <column name="permission_delete" primaryKey="false" required="true" scale="0" size="2147483647" type="1111,permittype"/>
-        <unique name="sr_acl_permissions_pkey">
-            <unique-column name="permission_id"/>
-        </unique>
-    </table>
-    <table alias="public" name="sr_assets">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
-        <column name="name" primaryKey="false" required="false" scale="0" size="64" type="12,varchar"/>
-        <column name="last_status_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="last_location_status_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="location_id" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
-        <column name="created_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="updated_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <unique name="sr_assets_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table alias="public" name="sr_assets_status">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
-        <column name="asset_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="location_id" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="status" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
-        <column name="sr_start" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="sr_end" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="updated_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <unique name="sr_assets_status_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table alias="public" name="sr_cfs">
+    <table alias="public" name="event">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
-        <column name="cfs_date" primaryKey="false" required="true" scale="0" size="13" type="91,date"/>
-        <column name="cfs_letter" primaryKey="false" required="true" scale="0" size="1" type="1,bpchar"/>
-        <column name="cfs_num" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="cfs_pct" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="cfs_sector" primaryKey="false" required="true" scale="0" size="1" type="1,bpchar"/>
-        <column name="cfs_addr" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="cfs_cross1" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="cfs_cross2" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="cfs_location" primaryKey="false" required="false" scale="0" size="19" type="-5,int8"/>
-        <column name="cfs_code" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="cfs_codesup1" primaryKey="false" required="false" scale="0" size="8" type="12,varchar"/>
-        <column name="cfs_codesup2" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="cfs_createdby" primaryKey="false" required="false" scale="0" size="16" type="12,varchar"/>
-        <column name="cfs_dispatcherid" primaryKey="false" required="false" scale="0" size="8" type="12,varchar"/>
-        <column name="cfs_timecreated" primaryKey="false" required="false" scale="6" size="15" type="92,time"/>
-        <column name="cfs_timeassigned" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="cfs_assignedunit" primaryKey="false" required="false" scale="0" size="16" type="12,varchar"/>
-        <column name="cfs_priority" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="cfs_routenotifications" primaryKey="false" required="false" scale="0" size="1" type="-7,bool"/>
-        <column name="cfs_finaldis" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="cfs_finaldissup1" primaryKey="false" required="false" scale="0" size="32" type="12,varchar"/>
-        <column name="cfs_finaldisdate" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="cfs_finaldisunit" primaryKey="false" required="false" scale="0" size="16" type="12,varchar"/>
-        <column name="cfs_callback" primaryKey="false" required="false" scale="0" size="1" type="-7,bool"/>
-        <column name="cfs_dup" primaryKey="false" required="false" scale="0" size="1" type="-7,bool"/>
-        <column name="cfs_dupletter" primaryKey="false" required="false" scale="0" size="1" type="1,bpchar"/>
-        <column name="cfs_dupnum" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="cfs_body" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
-        <column name="cfs_bodylastline" primaryKey="false" required="false" scale="0" size="100" type="12,varchar"/>
-        <column name="cfs_created_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="cfs_updated_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <foreign-key foreignTable="sr_locations" name="sr_cfs_cfs_location_fkey" onDelete="none" onUpdate="none">
+        <column name="group_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
+        <column name="location" primaryKey="false" required="false" scale="0" size="19" type="-5,int8"/>
+        <column name="has_data" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+        <column name="has_begin" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+        <column name="has_end" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+        <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="data_begin" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
+        <column name="data_end" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
+        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <foreign-key foreignTable="location" name="event_location_fkey" onDelete="none" onUpdate="none">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="false"/>
-            <reference foreign="id" local="cfs_location"/>
+            <reference foreign="id" local="location"/>
         </foreign-key>
-        <foreign-key foreignTable="sr_query_monitor_results" name="sr_query_monitor_results_resultid_fkey" onDelete="none" onUpdate="none">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="true"/>
-            <reference foreign="resultid" local="id"/>
-        </foreign-key>
-        <unique name="sr_cfs_pkey1">
+        <unique name="event_pkey">
             <unique-column name="id"/>
         </unique>
-    </table>
-    <table alias="public" name="sr_groups">
-        <column name="gid" primaryKey="true" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="groupname" primaryKey="false" required="false" scale="0" size="40" type="12,varchar"/>
-        <column name="parent_gid" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <unique name="sr_groups_pkey">
-            <unique-column name="gid"/>
-        </unique>
-    </table>
-    <table alias="public" name="sr_layer_dynamic_data">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
-        <column name="layer_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="feature_data" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
-        <column name="feature_start" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="feature_end" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="sr_geom" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,geometry"/>
-        <unique name="sr_layer_dynamic_data_pkey">
-            <unique-column name="id"/>
-        </unique>
-        <index name="sr_layer_dynamic_data_idx2">
-            <index-column name="layer_id"/>
+        <index name="event_idx2">
+            <index-column name="group_id"/>
             <index-column name="id"/>
         </index>
     </table>
-    <table alias="public" name="sr_layer_static_data">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
-        <column name="layer_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="feature_style" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="feature_data" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
-        <column name="sr_geom" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,geometry"/>
-        <unique name="sr_layer_static_data_pkey">
-            <unique-column name="id"/>
-        </unique>
-        <index name="sr_layer_static_data_idx2">
-            <index-column name="layer_id"/>
-            <index-column name="id"/>
-        </index>
-    </table>
-    <table alias="public" name="sr_layers">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
+    <table alias="public" name="layer">
+        <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
-        <column name="type" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,layer_type"/>
-        <column name="format" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,layer_format"/>
+        <column name="ltype" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,layer_type"/>
+        <column name="lformat" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,layer_format"/>
         <column name="isbaselayer" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
         <column name="projection" primaryKey="false" required="false" scale="0" size="16" type="12,varchar"/>
         <column name="visibility" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
         <column name="sphericalmercator" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
         <column name="url" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
+        <column name="urlparams" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
         <column name="numzoomlevels" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="minzoomlevel" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="maxzoomlevel" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="attribution" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
         <column name="defaultstyle" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="created_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="updated_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="created_by" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="updated_by" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="bgcolor" primaryKey="false" required="false" scale="0" size="8" type="12,varchar"/>
         <column name="opacity" primaryKey="false" required="false" scale="8" size="8" type="7,float4"/>
-        <unique name="sr_layers_pkey">
+        <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <unique name="layer_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
-    <table alias="public" name="sr_locations">
+    <table alias="public" name="location">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
-        <column name="pct" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="sector" primaryKey="false" required="false" scale="0" size="1" type="1,bpchar"/>
-        <column name="source" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="address" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="cross1" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="cross2" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="rating" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="created_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="last_used" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="sr_geom" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,geometry"/>
-        <foreign-key foreignTable="entity" name="entity_location_id_fkey1" onDelete="none" onUpdate="none">
+        <column name="source" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
+        <column name="has_data" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+        <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <column name="geometry" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,geometry"/>
+        <foreign-key foreignTable="entity_status" name="entity_status_location_fkey" onDelete="none" onUpdate="none">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="true"/>
-            <reference foreign="location_id" local="id"/>
+            <reference foreign="location" local="id"/>
         </foreign-key>
-        <foreign-key foreignTable="entity_status" name="entity_status_location_id_fkey1" onDelete="none" onUpdate="none">
+        <foreign-key foreignTable="event" name="event_location_fkey" onDelete="none" onUpdate="none">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="true"/>
-            <reference foreign="location_id" local="id"/>
+            <reference foreign="location" local="id"/>
         </foreign-key>
-        <foreign-key foreignTable="sr_cfs" name="sr_cfs_cfs_location_fkey" onDelete="none" onUpdate="none">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="true"/>
-            <reference foreign="cfs_location" local="id"/>
-        </foreign-key>
-        <unique name="sr_locations_pkey1">
+        <unique name="location_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
-    <table alias="public" name="sr_modules">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
-        <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
-        <unique name="sr_modules_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table alias="public" name="sr_queries">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
-        <column name="parent" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
-        <column name="children" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+    <table alias="public" name="query">
+        <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
         <column name="notes" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
         <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
-        <foreign-key foreignTable="sr_query_monitor" name="sr_query_monitor_queryid_fkey" onDelete="none" onUpdate="none">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="true"/>
-            <reference foreign="queryid" local="id"/>
-        </foreign-key>
-        <unique name="sr_queries_pkey">
+        <unique name="query_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
-    <table alias="public" name="sr_query_monitor">
+    <table alias="public" name="srgroup">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
-        <column name="queryid" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <foreign-key foreignTable="sr_queries" name="sr_query_monitor_queryid_fkey" onDelete="none" onUpdate="none">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="false"/>
-            <reference foreign="id" local="queryid"/>
-        </foreign-key>
-        <foreign-key foreignTable="sr_query_monitor_results" name="sr_query_monitor_results_monitorid_fkey" onDelete="none" onUpdate="none">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="true"/>
-            <reference foreign="monitorid" local="id"/>
-        </foreign-key>
-        <unique name="sr_query_monitor_pkey">
+        <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
+        <column name="parent_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
+        <column name="has_data" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+        <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <unique name="srgroup_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
-    <table alias="public" name="sr_query_monitor_results">
+    <table alias="public" name="srmap">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
-        <column name="monitorid" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
-        <column name="resultid" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
-        <column name="updatedon" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <foreign-key foreignTable="sr_cfs" name="sr_query_monitor_results_resultid_fkey" onDelete="none" onUpdate="none">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="false"/>
-            <reference foreign="id" local="resultid"/>
-        </foreign-key>
-        <foreign-key foreignTable="sr_query_monitor" name="sr_query_monitor_results_monitorid_fkey" onDelete="none" onUpdate="none">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="false"/>
-            <reference foreign="id" local="monitorid"/>
-        </foreign-key>
-        <unique name="sr_query_monitor_results_pkey">
+        <column name="group_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
+        <column name="has_data" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <column name="geometry" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,geometry"/>
+        <unique name="srmap_pkey">
             <unique-column name="id"/>
         </unique>
+        <index name="srmap_idx2">
+            <index-column name="group_id"/>
+            <index-column name="id"/>
+        </index>
     </table>
-    <table alias="public" name="sr_session">
-        <column name="id" primaryKey="true" required="true" scale="0" size="32" type="1,bpchar"/>
-        <column name="modified" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="lifetime" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
-        <unique name="sr_session_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table alias="public" name="sr_style_presets">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
+    <table alias="public" name="srule">
+        <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
-        <column name="style_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="layer_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="created_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="updated_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="created_by" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="updated_by" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <unique name="sr_style_presets_pkey">
-            <unique-column name="id"/>
-        </unique>
-    </table>
-    <table alias="public" name="sr_style_rules">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
-        <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
-        <column name="style_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="symbolizer_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
+        <column name="style_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
+        <column name="symbolizer_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
         <column name="elsefilter" primaryKey="false" required="false" scale="0" size="1" type="-7,bool"/>
         <column name="filter_data" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
-        <unique name="sr_style_rules_pkey">
+        <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <unique name="srule_pkey">
             <unique-column name="id"/>
         </unique>
-        <index name="sr_style_rules_idx2">
+        <index name="srule_idx2">
             <index-column name="style_id"/>
         </index>
     </table>
-    <table alias="public" name="sr_style_symbolizers">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
+    <table alias="public" name="sruser">
+        <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
+        <column name="group_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
+        <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
+        <column name="has_data" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+        <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <unique name="sruser_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table alias="public" name="ssymbolizer">
+        <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
         <column name="label" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
         <column name="fillcolor" primaryKey="false" required="false" scale="0" size="32" type="12,varchar"/>
@@ -356,53 +211,23 @@
         <column name="graphicheight" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="graphicopacity" primaryKey="false" required="false" scale="8" size="8" type="7,float4"/>
         <column name="rotation" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="created_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="updated_on" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <column name="created_by" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="updated_by" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <unique name="sr_style_symbolizers_pkey">
+        <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <unique name="ssymbolizer_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
-    <table alias="public" name="sr_styles">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
+    <table alias="public" name="style">
+        <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
-        <column name="stylemap_id" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
+        <column name="stylemap_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
         <column name="render_type" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
-        <column name="defaultsymbolizer_id" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <unique name="sr_styles_pkey">
+        <column name="defaultsymbolizer_id" primaryKey="false" required="false" scale="0" size="19" type="-5,int8"/>
+        <unique name="style_pkey">
             <unique-column name="id"/>
         </unique>
-        <index name="sr_styles_idx2">
+        <index name="style_idx2">
             <index-column name="stylemap_id"/>
         </index>
-    </table>
-    <table alias="public" name="sr_users">
-        <column name="uid" primaryKey="true" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="gid" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="username" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
-        <column name="firstname" primaryKey="false" required="false" scale="0" size="40" type="12,varchar"/>
-        <column name="lastname" primaryKey="false" required="false" scale="0" size="40" type="12,varchar"/>
-        <column name="title" primaryKey="false" required="false" scale="0" size="40" type="12,varchar"/>
-        <column name="titlecode" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
-        <column name="email" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
-        <column name="dn" primaryKey="false" required="false" scale="0" size="256" type="12,varchar"/>
-        <column name="wlayout" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="last_login" primaryKey="false" required="false" scale="6" size="29" type="93,timestamp"/>
-        <unique name="sr_users_pkey">
-            <unique-column name="uid"/>
-        </unique>
-    </table>
-    <table alias="public" name="sr_window_layout">
-        <column name="id" primaryKey="true" required="true" scale="0" size="10" type="4,serial"/>
-        <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
-        <column name="showname" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="theme" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="view_x" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="view_y" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <column name="view_data" primaryKey="false" required="false" scale="0" size="2147483647" type="12,text"/>
-        <unique name="sr_window_layout_pkey">
-            <unique-column name="id"/>
-        </unique>
     </table>
 </database>

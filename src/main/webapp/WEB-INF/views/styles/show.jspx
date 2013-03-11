@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_osrce_sitrep_domain_Style" object="${style}" path="/styles" z="ovYtK+3w3oEHZM71iMqP6fUf1IA=">
+        <field:display field="name" id="s_com_osrce_sitrep_domain_Style_name" object="${style}" z="k52hOD2E5CbKLzFOAEE6gj3bjsk="/>
+        <field:display field="stylemapId" id="s_com_osrce_sitrep_domain_Style_stylemapId" object="${style}" z="z/YtX7Vn0E8HW9yAlhiV8xmNCBQ="/>
+        <field:display field="renderType" id="s_com_osrce_sitrep_domain_Style_renderType" object="${style}" z="0d8f/tvXR85z0hMRfqduukhHVvE="/>
+        <field:display field="defaultsymbolizerId" id="s_com_osrce_sitrep_domain_Style_defaultsymbolizerId" object="${style}" z="YMnUj+0/T40h+TgEh2pepJ8Om00="/>
+    </page:show>
+</div>

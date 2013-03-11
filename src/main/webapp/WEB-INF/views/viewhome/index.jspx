@@ -50,6 +50,19 @@
 			<script data-dojo-config="async: 0" src="lib/srd/include_view.js" ></script>
 			//			test=${  };
 			
+			
+			
+//			loadsrd.srd_queryArr = ${theQueries};
+//			loadsrd.theLayers = ${theLayers};
+//			loadsrd.theStyles = ${theStyles};
+//			loadsrd.theStyleSymbolizers = ${theStyleSymbolizers};
+//			loadsrd.theStyleRules = ${theStyleRules};
+//			loadsrd.srd_wlayoutArr =	${theWLayouts};
+//			loadsrd.srd_presetArr = ${thePresets};
+			
+			                         //{"elsefilter":true,"filter_data":"{\"type\":\"==\",\"property\":\"sr_status\", \"value\":\"Open-Unassigned\" }","id":1,"name":"Job Unassigned","style_id":5001,"symbolizer_id":5001},{"elsefilter":true,"filter_data":"{\"type\":\"==\",\"property\":\"sr_status\", \"value\":\"Open-Assigned\" }","id":2,"name":"Job Assigned","style_id":5001,"symbolizer_id":5002},{"elsefilter":true,"filter_data":"{\"type\":\"==\",\"property\":\"sr_status\", \"value\":\"Open-Onscene\" }","id":3,"name":"Job Unit On Scene","style_id":5001,"symbolizer_id":5003},{"elsefilter":true,"filter_data":"{\"type\":\"==\",\"property\":\"sr_status\", \"value\":\"Closed\" }","id":4,"name":"Job Closed","style_id":5001,"symbolizer_id":5004},{"elsefilter":true,"filter_data":"{\"type\":\"<\",\"property\":\"CustomersAffected\", \"value\":15 }","id":5,"name":"ConEdLowRule","style_id":2013,"symbolizer_id":5010},{"elsefilter":true,"filter_data":"{\"type\":\"><\",\"property\":\"CustomersAffected\", \"lowerBoundary\":15, \"upperBoundary\":50 }","id":6,"name":"ConEdMedRule","style_id":2013,"symbolizer_id":5011},{"elsefilter":true,"filter_data":"{\"type\":\">\",\"property\":\"CustomersAffected\", \"value\":50 }","id":7,"name":"ConEdHighRule","style_id":2013,"symbolizer_id":5012}];
+			
+			
 	-->
 	
 			
@@ -59,20 +72,19 @@
 			
 			loadsrd.staticVals = { "default_wlayout":2, "user_title":"Mr", "user_lastname":"Lastname" };
 			
-			loadsrd.srd_queryArr = ${theQueries};
+			loadsrd.srd_queryArr = [{"children":false,"data":"{\"SREXPR\": \"( cfs_finaldis IS NULL OR cfs_finaldisdate >= current_timestamp - interval '15 minutes' ) AND cfs_priority=1\" }","id":1,"name":"Priority 1","notes":"Priority 1 CFS - Citywide","parent":0} ]
 			
 			loadsrd.theLayers = ${theLayers};
 			
 			loadsrd.theStyles = ${theStyles};
-
+				
 			loadsrd.theStyleSymbolizers = ${theStyleSymbolizers};
-
-			loadsrd.theStyleRules = ${theStyleRules};
 			
-			loadsrd.srd_wlayoutArr = ${theWLayouts};
+			loadsrd.theStyleRules = ${theStyleRules};
 
-			loadsrd.srd_presetArr = ${thePresets};
-
+			loadsrd.srd_wlayoutArr = [{"id":1,"name":"Main Layout","showname":0,"theme":0,"view_data":"[[{\"type\":\"opstrack\",\"id\":1,\"linkViewIdArr\":[2],\"autoRefresh\":true,\"mapData\":true,\"querysort\":{\"cfs_finaldisdate\":\"desc\",\"cfs_timecreated\":\"desc\"},\"srd_queryid\":1 }], [{\"type\":\"map\",\"id\":2,\"linkViewIdArr\":[1],\"start_lat\":40.713,\"start_lon\":-73.996,\"start_zoom\":12,\"start_base_layer\":1002}] ]","view_x":2,"view_y":1},{"id":2,"name":"CFS Only Layout","showname":0,"theme":0,"view_data":"[[{\"type\":\"opstrack\",\"id\":1,\"autoRefresh\":true,\"querysort\":{\"cfs_finaldisdate\":\"desc\",\"cfs_timecreated\":\"desc\"},\"srd_queryid\":1 }] ]","view_x":1,"view_y":1},{"id":3,"name":"Map Only Layout","showname":0,"theme":0,"view_data":"[ [{\"type\":\"map\",\"id\":2,\"linkViewIdArr\":[1],\"start_lat\":40.713,\"start_lon\":-73.996,\"start_zoom\":12,\"start_base_layer\":1002}] ]","view_x":1,"view_y":1},{"id":4,"name":"Main Layout Dark","showname":1,"theme":0,"view_data":"[[{\"type\":\"opstrack\",\"id\":1,\"linkViewIdArr\":[2],\"autoRefresh\":true,\"mapData\":true,\"querysort\":{\"cfs_finaldisdate\":\"desc\",\"cfs_timecreated\":\"desc\"},\"srd_queryid\":1 }], [{\"type\":\"map\",\"id\":2,\"linkViewIdArr\":[1],\"start_lat\":40.713,\"start_lon\":-73.996,\"start_zoom\":12,\"start_base_layer\":1003}] ]","view_x":2,"view_y":1}];
+		
+			
 
 			
 			loadsrd.siteLeftImage = '/lib/img/SitRepIcon_Small.png'; 

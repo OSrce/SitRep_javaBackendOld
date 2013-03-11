@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_osrce_sitrep_domain_Location" items="${locations}" z="biGBYtQh126yiVBH1wUIYv+heFs=">
+        <table:table data="${locations}" id="l_com_osrce_sitrep_domain_Location" path="/locations" z="OY6OoP2GaIQDGuYFzkBOnx2Lt+E=">
+            <table:column id="c_com_osrce_sitrep_domain_Location_source" property="source" z="bhGHOnrOeCSrnR5i39JrcQNBIhQ="/>
+            <table:column id="c_com_osrce_sitrep_domain_Location_hasData" property="hasData" z="uwytNMnn2co0g8nJYMlCKuPhMek="/>
+            <table:column date="true" dateTimePattern="${location_created_date_format}" id="c_com_osrce_sitrep_domain_Location_created" property="created" z="FHDndkLYjoFXv+WpBw3HWgyR7KQ="/>
+            <table:column date="true" dateTimePattern="${location_updated_date_format}" id="c_com_osrce_sitrep_domain_Location_updated" property="updated" z="fQmXBptGyOwAKP7WPo+EwcbQe0o="/>
+        </table:table>
+    </page:list>
+</div>
