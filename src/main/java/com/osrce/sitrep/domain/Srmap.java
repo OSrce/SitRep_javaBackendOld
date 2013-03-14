@@ -12,7 +12,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.TypedQuery;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.annotations.Type;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.ejb.HibernateEntityManager;
 import org.springframework.roo.addon.dbre.RooDbManaged;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
@@ -49,10 +53,13 @@ public class Srmap {
         return new JSONSerializer().transform(new GeometryTransformer(), Geometry.class).serialize(collection);
     }
 
-    public static List<com.osrce.sitrep.domain.Srmap> findAllWithGroupId(Long theGroupId) {
-        System.out.println("TEST=== Srmap findAllWithGroupId called!");
-        TypedQuery<Srmap> theQuery = entityManager().createQuery("SELECT o FROM Srmap o where group_id=:theGroupId", Srmap.class);
-        theQuery.setParameter("theGroupId", theGroupId);
-        return theQuery.getResultList();
+    public static List<com.osrce.sitrep.domain.Srmap> findAllWithParams(Map<java.lang.String, java.lang.String[]> theParams) {
+        HibernateEntityManager hem = entityManager().unwrap(HibernateEntityManager.class);
+        Session session = hem.getSession();
+        Criteria theCriteria = session.createCriteria(Srmap.class);
+        if (theParams.containsKey("groupId")) {
+            theCriteria.add(Restrictions.eq("groupId", Long.valueOf(theParams.get("groupId")[0])));
+        }
+        return theCriteria.list();
     }
 }

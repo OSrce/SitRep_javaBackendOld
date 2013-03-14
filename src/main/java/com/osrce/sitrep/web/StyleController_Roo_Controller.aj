@@ -8,6 +8,8 @@ import com.osrce.sitrep.web.StyleController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,6 +40,7 @@ privileged aspect StyleController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String StyleController.show(@PathVariable("id") Long id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("style", Style.findStyle(id));
         uiModel.addAttribute("itemId", id);
         return "styles/show";
@@ -54,6 +57,7 @@ privileged aspect StyleController_Roo_Controller {
         } else {
             uiModel.addAttribute("styles", Style.findAllStyles());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "styles/list";
     }
     
@@ -84,8 +88,14 @@ privileged aspect StyleController_Roo_Controller {
         return "redirect:/styles";
     }
     
+    void StyleController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("style_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("style_updated_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+    }
+    
     void StyleController.populateEditForm(Model uiModel, Style style) {
         uiModel.addAttribute("style", style);
+        addDateTimeFormatPatterns(uiModel);
     }
     
     String StyleController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

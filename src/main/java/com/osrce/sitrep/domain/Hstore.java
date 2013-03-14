@@ -58,7 +58,7 @@ public class Hstore extends HashMap<String, String> {
 	}
 	
 
-    private static final String K_V_SEPARATOR = "=>";
+    private static final String K_V_SEPARATOR = "\"=>\"";
  
     public static String toString(Hstore m) {
 /*
@@ -74,7 +74,7 @@ public class Hstore extends HashMap<String, String> {
         StringBuilder sb = new StringBuilder();
         int n = m.size();
         for (String key : m.keySet()) {
-            sb.append("\"" + key + "\"" + K_V_SEPARATOR + "\"" + m.get(key) + "\"" );
+            sb.append("\"" + key  + K_V_SEPARATOR  + m.get(key) + "\"" );
             if (n > 1) {
                 sb.append(", ");
                 n--;
@@ -84,20 +84,36 @@ public class Hstore extends HashMap<String, String> {
     }
  
     public static Hstore toMap(String s) {
-//    	System.out.println("TEST1###"+s);
         Hstore m = new Hstore();
         if (! StringUtils.hasText(s)) {
             return m;
         }
-        String[] tokens = s.split(", ");
-        for (String token : tokens) {
-            String[] kv = token.split(K_V_SEPARATOR);
-            String k = kv[0];
-            k = k.trim().substring(1, k.length() - 1);
-            String v = kv[1];
-            v = v.trim().substring(1, v.length() - 1);
-//            System.out.println("TEST1### KeyK = " + k + ", ValueV = " + v);
-            m.put(k, v);
+        String[] tokens = s.split("\", \"");
+//        for (String token : tokens) {
+//    	System.out.println("TEST_toMap_Length"+ tokens.length+", Str###"+s);
+        for(int i=0; i<tokens.length; i++) {
+        	String token = tokens[i]; 
+//            System.out.println("Token### = " + token );
+
+        	String[] kv = token.split(K_V_SEPARATOR);
+        	String k, v;
+        	if( kv.length > 1) {
+//        		System.out.println("Before### KeyK = " + kv[0] + ", ValueV = " + kv[1]);
+        		k = kv[0].replaceAll("^\"", "");
+        		v = kv[1].replaceAll("\"$", "");
+//                System.out.println("After### KeyK = " + k + ", ValueV = " + v);
+        		 m.put(k, v);
+        	} else if( kv.length==1 ) {
+        		k = kv[0];
+        		v = "";
+//              System.out.println("After### KeyK = " + k + ", ValueV = " + v);
+        		m.put(k, v);
+        	}
+//            k = k.trim().substring(1, k.length() - 1);
+//            v = v.trim().substring(1, v.length() - 1);
+        
+//            System.out.println("After### KeyK = " + k + ", ValueV = " + v);
+//            m.put(k, v);
         }
         
 /*        for (Map.Entry entry : m.entrySet()) {

@@ -4,8 +4,12 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Style;
+import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Style_Roo_DbManaged {
     
@@ -23,6 +27,18 @@ privileged aspect Style_Roo_DbManaged {
     
     @Column(name = "defaultsymbolizer_id")
     private Long Style.defaultsymbolizerId;
+    
+    @Column(name = "created", updatable = false)
+    @NotNull
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(style = "M-")
+    private Date Style.created = new Date();
+    
+    @Column(name = "updated")
+    @NotNull
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(style = "M-")
+    private Date Style.updated;
     
     public String Style.getName() {
         return name;
@@ -54,6 +70,22 @@ privileged aspect Style_Roo_DbManaged {
     
     public void Style.setDefaultsymbolizerId(Long defaultsymbolizerId) {
         this.defaultsymbolizerId = defaultsymbolizerId;
+    }
+    
+    public Date Style.getCreated() {
+        return created;
+    }
+    
+    public void Style.setCreated(Date created) {
+        this.created = created;
+    }
+    
+    public Date Style.getUpdated() {
+        return updated;
+    }
+    
+    public void Style.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
 }

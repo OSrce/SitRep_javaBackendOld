@@ -9,7 +9,7 @@
             <table:column id="c_com_osrce_sitrep_domain_Event_hasData" property="hasData" z="5uUwqNAWpNuuZbRjav9NwRp7qxw="/>
             <table:column id="c_com_osrce_sitrep_domain_Event_hasBegin" property="hasBegin" z="uyu/wx9KmWGn6iuIER88yznBYXM="/>
             <table:column id="c_com_osrce_sitrep_domain_Event_hasEnd" property="hasEnd" z="v1qyB1/wC6x9fnsHiUD1yAi/PGY="/>
-            <table:column date="true" dateTimePattern="${event_created_date_format}" id="c_com_osrce_sitrep_domain_Event_created" property="created" z="eb85WO1L26vysOGaCJd69m4Ypg8="/>
+            <table:column id="c_com_osrce_sitrep_domain_Event_hasLocation" property="hasLocation" z="bvYYmm+wyBGPaZvUX41p9H2zhVE="/>
         </table:table>
     </page:list>
 </div>

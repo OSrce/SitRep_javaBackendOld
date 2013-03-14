@@ -613,6 +613,8 @@
            					 <type>zip</type>
          					   <outputDirectory>${webresources.javascript.location}</outputDirectory>
       				    </artifactItem>
+
+<!-- 
       				    <artifactItem>
      						<groupId>org.openlayers</groupId>
       					      <artifactId>openlayers</artifactId>
@@ -621,6 +623,7 @@
            					 <type>tar.gz</type>
          					   <outputDirectory>${webresources.javascript.location}</outputDirectory>
       				    </artifactItem>
+-->      				    
        				    <artifactItem>
      						<groupId>org.cometd</groupId>
       					      <artifactId>cometd-javascript-common</artifactId>
@@ -655,15 +658,19 @@
       <configuration>
         <tasks>
           <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.dojotoolkit-dojo-zip-release-1.7.3.marker" />
-          <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.openlayers-openlayers-tar.gz-release-2.12.marker" />
+<!--
+            <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.openlayers-openlayers-tar.gz-release-2.12.marker" />
+-->
           <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.cometd-cometd-javascript-common-tar.gz-sources-2.5.1.marker" />
           <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.cometd-cometd-javascript-dojo-tar.gz-sources-2.5.1.marker" />
           <move 
             file="${webresources.javascript.location}/${dojo.source.basename}"
             tofile="${dojo.source.local.unpacked.location}" />
+<!-- 
            <move 
             file="${webresources.javascript.location}/OpenLayers-2.12"
             tofile="${openlayers.unpacked.location}" />
+-->
             <move 
             file="${webresources.javascript.location}/cometd-javascript/common/src/main/webapp/org"
             tofile="${cometd.unpacked.location}" />

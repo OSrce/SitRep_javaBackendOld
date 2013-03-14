@@ -41,10 +41,6 @@ public class Entity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "status", referencedColumnName = "id")
-    private EntityStatus status;
-
     @Type(type = "hstore")
     @Column(name = "data", columnDefinition = "hstore")
     private Hstore data = new Hstore();

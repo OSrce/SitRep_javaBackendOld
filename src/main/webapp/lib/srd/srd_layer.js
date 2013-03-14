@@ -339,24 +339,25 @@ loadData : function( ) {
 					} ),
 					dojo.store.Memory()
 				);
-/*
+
  				//BEGIN TEST1
+/*
  				if(this.options.id == 2013) {
  					this.layer = new OpenLayers.Layer.Vector(this.options.name, {
  						isBaseLayer:	this.options.isBaseLayer,
  						projection:		new OpenLayers.Projection(this.options.projection),
 // 						units:				"degrees",
  						visibility:		this.options.visibility,
- 						renderers: ['Canvas','SVG'],
+// 						renderers: ['Canvas','SVG'],
  						strategies:	[
 //new OpenLayers.Strategy.Fixed(),
-new OpenLayers.Strategy.Cluster( { distance: 45 })					           	 
+new OpenLayers.Strategy.Cluster( { distance: 25 })					           	 
  						           	 ],
  					
  						styleMap:			this.srd_styleMap
  					} );
  				} else {
- */					
+*/ 					
 				this.layer = new OpenLayers.Layer.Vector(this.options.name, {
 					isBaseLayer:	this.options.isBaseLayer,
 					projection:		new OpenLayers.Projection(this.options.projection),
@@ -377,25 +378,38 @@ new OpenLayers.Strategy.Cluster( { distance: 45 })
 					dojo.forEach( theFeatArr, function(theFeat) {
 						
 						var theFeature;
-						if(this.options.url == '/entitys') {
+						if(this.options.url == '/entitystatuses') {
 							console.log("Adding entity Feature:"+theFeat.name);
-							if(theFeat.status && theFeat.status.location) {
-								console.log("Status ID:"+theFeat.status.id);
-								console.log("Location ID:"+theFeat.status.location.id);
+							if(theFeat.hasLocation) {
+								console.log("Status ID:"+theFeat.id);
+								console.log("Location ID:"+theFeat.location.id);
 
-								theFeature =  this.format.read( theFeat.status.location.geometry);
+								theFeature =  this.format.read( theFeat.location.geometry);
 							
 								theFeature.attributes = {};
 //								if(theFeat.status.data) {
 //									theFeature.attributes = dojo.fromJson(theFeat.status.data);
 								theFeature.attributes.data = theFeat.data;
-								theFeature.attributes.status = theFeat.status.data;
+								theFeature.attributes.entity = theFeat.entity.data;
+								theFeature.attributes.name = theFeat.entity.name;
+
 
 //								}							
-								if(theFeat.name) {
-									theFeature.attributes.name = theFeat.name;
-								}
+					//			if(theFeat.name) {
+					//				theFeature.attributes.name = theFeat.name;
+					//			}
 							}
+							theFeature.db_id = theFeat.entity.id;
+						} else if(this.options.url == '/events') {
+//							console.log("Adding event Feature:"+theFeat.name);
+							if(theFeat.hasLocation) {
+								theFeature =  this.format.read( theFeat.location.geometry);
+								theFeature.attributes = {};
+//								theFeature.attributes.data = theFeat.data;
+								theFeature.attributes.data = theFeat.data;
+							}
+							theFeature.db_id = theFeat.id;
+
 						} else if(this.options.url == '/srmaps') {
 //							console.log("Adding srmaps Feature:"+theFeat.name);
 							theFeature =  this.format.read( theFeat.geometry);
@@ -403,17 +417,19 @@ new OpenLayers.Strategy.Cluster( { distance: 45 })
 							if(theFeat.hasData == true) {
 								theFeature.attributes = theFeat.data;
 								theFeature.data = theFeat.data;
-							}				
+							}
+							theFeature.db_id = theFeat.id;
+
 						}else {
 							theFeature =  this.format.read( theFeat.geometry);
 							theFeature.attributes = dojo.fromJson(theFeat.feature_data);
+							theFeature.db_id = theFeat.id;
 
 						}
 //						theFeature.fid = theFeat.feature_id;
 //						theFeature.id = theFeat.feature_id;
 //						console.log("Adding Feature: "+theFeature.db_id+" on Layer: "+this.options.id);
 						if(theFeature) {
-							theFeature.db_id = theFeat.id;
 //							console.log("Adding Feature:"+theFeature.db_id );
 							this.layer.addFeatures( [theFeature] ); 
 						}		
@@ -426,7 +442,7 @@ new OpenLayers.Strategy.Cluster( { distance: 45 })
 					this.layer.events.register("featureunselected", this, this.onFeatureUnselect);
 */
 					//BEGIN TESTING ONLY FORCE REFRESH
-					if(this.options.url == "/entitys" ) {
+					if(this.options.url == "/entitystatuses" ) {
 						this.srd_timer = new dojox.timing.Timer(5000);
 						this.srd_timer.onTick = function() { 
 							this.refresh();
@@ -1243,7 +1259,8 @@ refresh : function() {
 			var foundUpdateId = null;
 			for(var j in theFeatArr) {
 				// IF FOUND -> CHECK FOR UPDATE ON THAT FEATURE.
-				if(this.layer.features[i].db_id == theFeatArr[j].id) {	
+				///TODO NEED TO FIX theFeatArr[j].id vs theFeatArr[j].entity.id
+				if(this.layer.features[i].db_id == theFeatArr[j].entity.id) {	
 					foundUpdateId = this.layer.features[i].db_id;
 					this.compareAndUpdateFeature(this.layer.features[i], theFeatArr[j]);
 //					console.log("Update Feature: "+this.layer.features[i].db_id+" on Layer: "+this.options.id);
@@ -1258,14 +1275,15 @@ refresh : function() {
 		for(var j in theFeatArr) {
 			var addFeature = true;
 			for(var i in this.layer.features) {
-				if(this.layer.features[i].db_id == theFeatArr[j].id) {	
+				///TODO NEED TO FIX theFeatArr[j].id vs theFeatArr[j].entity.id
+				if(this.layer.features[i].db_id == theFeatArr[j].entity.id) {	
 					addFeature = false;
 				}
 			}
-			if(addFeature == true && theFeatArr[j].hasStatus==true && theFeatArr[j].status.location ) {
-				console.log("Need to add feature with db_id="+theFeatArr[j].id);
-				var theFeature = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.fromWKT( theFeatArr[j].status.location.geometry), theFeatArr[j].data );
-				theFeature.db_id = theFeatArr[j].id;
+			if(addFeature == true && theFeatArr[j].hasLocation ) {
+				console.log("Need to add feature with db_id="+theFeatArr[j].entity.id);
+				var theFeature = new OpenLayers.Feature.Vector( new OpenLayers.Geometry.fromWKT( theFeatArr[j].location.geometry), theFeatArr[j].data );
+				theFeature.db_id = theFeatArr[j].entity.id;
 //				theFeature.fid = theFeatArr[j].feature_id;
 //				console.log("Adding Feature: "+theFeature.db_id+" on Layer: "+this.options.id);
 				this.layer.addFeatures( [theFeature], {silent:true} ); 
@@ -1283,7 +1301,7 @@ refresh : function() {
 
 // BEGIN srd_compareAndUpdateFeature 
 compareAndUpdateFeature : function(oldFeat, newFeat) {
-	console.log("Compare from Server Feature: "+oldFeat.db_id+" on Layer: "+this.options.id);
+//	console.log("Compare from Server Feature: "+oldFeat.db_id+" on Layer: "+this.options.id);
 //	var tmpDataStr = dojo.toJson(oldFeat.attributes);
 	var updateFeature = false;
 /*
@@ -1302,15 +1320,15 @@ compareAndUpdateFeature : function(oldFeat, newFeat) {
 
   var oldGeomStr = oldFeat.geometry.toString();
   
-  if(this.options.url == '/entitys') {
+  if(this.options.url == '/entitystatuses') {
 //		theFeature =  this.format.read( theFeat.location.sr_geom);
-	  	var newGeom = new OpenLayers.Geometry.fromWKT( newFeat.status.location.geometry );
+	  	var newGeom = new OpenLayers.Geometry.fromWKT( newFeat.location.geometry );
 	  	newGeom.transform( new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913") );
 	  	var newGeomStr = newGeom.toString();
 //	    console.log("oldGeom="+oldGeomStr+" ,newGeom="+newGeomStr);
 
 		if( oldGeomStr != newGeomStr ) {
-			console.log(oldFeat.attributes.name+" "+oldFeat.db_id+" DIFF IN GEOM :::"+oldGeomStr+" ::: "+newGeomStr);
+			console.log(oldFeat.attributes.name+" With ID:"+oldFeat.db_id+" DIFF IN GEOM :::"+oldGeomStr+" ::: "+newGeomStr);
 			updateFeature = true;
 			this.layer.removeFeatures([oldFeat], {silent:true} );	
 			delete oldFeat.geometry;

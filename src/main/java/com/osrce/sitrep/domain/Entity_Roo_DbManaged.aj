@@ -31,10 +31,6 @@ privileged aspect Entity_Roo_DbManaged {
     @NotNull
     private boolean Entity.hasData;
     
-    @Column(name = "has_status")
-    @NotNull
-    private boolean Entity.hasStatus;
-    
     @Column(name = "created", updatable = false)
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
@@ -77,14 +73,6 @@ privileged aspect Entity_Roo_DbManaged {
     
     public void Entity.setHasData(boolean hasData) {
         this.hasData = hasData;
-    }
-    
-    public boolean Entity.isHasStatus() {
-        return hasStatus;
-    }
-    
-    public void Entity.setHasStatus(boolean hasStatus) {
-        this.hasStatus = hasStatus;
     }
     
     public Date Entity.getCreated() {

@@ -8,6 +8,8 @@
             <table:column id="c_com_osrce_sitrep_domain_Style_stylemapId" property="stylemapId" z="T4wUXJS+KgO1Rhn+6zZcBkaFoOE="/>
             <table:column id="c_com_osrce_sitrep_domain_Style_renderType" property="renderType" z="0cdQvh8JX7fRdL1rcJTcRmj3I+0="/>
             <table:column id="c_com_osrce_sitrep_domain_Style_defaultsymbolizerId" property="defaultsymbolizerId" z="4N07z8GJKBDrtXABs8LrsLOWmOg="/>
+            <table:column date="true" dateTimePattern="${style_created_date_format}" id="c_com_osrce_sitrep_domain_Style_created" property="created" z="exU/f2tT5MdfhHjySRTSn9JxbFM="/>
+            <table:column date="true" dateTimePattern="${style_updated_date_format}" id="c_com_osrce_sitrep_domain_Style_updated" property="updated" z="esq5WmWj5isZOrlLjJ4yeOFJRIU="/>
         </table:table>
     </page:list>
 </div>

@@ -5,23 +5,14 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Event;
 import flexjson.JSONDeserializer;
-import flexjson.JSONSerializer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 privileged aspect Event_Roo_Json {
     
-    public String Event.toJson() {
-        return new JSONSerializer().exclude("*.class").serialize(this);
-    }
-    
     public static Event Event.fromJsonToEvent(String json) {
         return new JSONDeserializer<Event>().use(null, Event.class).deserialize(json);
-    }
-    
-    public static String Event.toJsonArray(Collection<Event> collection) {
-        return new JSONSerializer().exclude("*.class").serialize(collection);
     }
     
     public static Collection<Event> Event.fromJsonArrayToEvents(String json) {

@@ -8,8 +8,8 @@
             <table:column id="c_com_osrce_sitrep_domain_EntityStatus_hasBegin" property="hasBegin" z="3hArhoY2jv5RM0vj4fqi9SW6ioI="/>
             <table:column id="c_com_osrce_sitrep_domain_EntityStatus_hasEnd" property="hasEnd" z="ctxQfXnazH+BN22aJeCanQ//2Xo="/>
             <table:column id="c_com_osrce_sitrep_domain_EntityStatus_location" property="location" z="AryWXtGYTJbyUIM7pscKsjADdgI="/>
-            <table:column date="true" dateTimePattern="${entityStatus_created_date_format}" id="c_com_osrce_sitrep_domain_EntityStatus_created" property="created" z="xTRyClpv2mns3U7KAxl+XsK7xEg="/>
-            <table:column date="true" dateTimePattern="${entityStatus_updated_date_format}" id="c_com_osrce_sitrep_domain_EntityStatus_updated" property="updated" z="Il7mEuq4aEPE1W6ZzXh7LHIhTJ8="/>
+            <table:column id="c_com_osrce_sitrep_domain_EntityStatus_hasLocation" property="hasLocation" z="MeOomBokUiqXb/9TpuMQXOLwcXs="/>
+            <table:column id="c_com_osrce_sitrep_domain_EntityStatus_entity" property="entity" z="f00T1GrswXvrdVcJ+hHQm8t0DTw="/>
         </table:table>
     </page:list>
 </div>

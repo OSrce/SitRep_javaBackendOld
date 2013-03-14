@@ -127,9 +127,10 @@ return declare( null, {
 			layerCount: null
 	};
 	// srd_themeArr == Array of objects about available css themes.
+
 	this.srd_themeArr = [
-		{ 'name': 'Light on Dark Theme', 'classType':'tundra' },
-		{ 'name': 'Dark on Light Theme', 'classType':'SitRep_Dark' }
+		{ 'name': 'Dark on Light Theme', 'classType':'tundra' },
+		{ 'name': 'Light on Dark Theme', 'classType':'SitRep_Dark' }
 	];
 
 	// srd_document should have a list of sub-objects - srd_view
@@ -263,41 +264,123 @@ srd_init : function() {
 		for(var theRId in theStyleRules) {
 //			console.log("Iterating through Rules, Iter:"+theRId+" theId="+theId);
 			var tmpRule = theStyleRules[theRId];
-			if( tmpRule["style_id"] == theStyles[theId]['stylemapId'] ) {
-				var filterData = dojo.fromJson( tmpRule["filter_data"] );
+			if( tmpRule["styleId"] == theStyles[theId]['stylemapId'] ) {
+				var filterData = dojo.fromJson( tmpRule["filterData"] );
 				var theFilter = null;
 				if(filterData == null) {
 					filterData = {};
 				}
 				switch(String(filterData.type)) {
-					case "==" :
-						theFilter = new OpenLayers.Filter.Comparison({
+					case "==" :						
+						theFilter = new OpenLayers.Filter.Function( {
+							evaluate: function(feature) {
+								try{
+									return eval( "feature.attributes." + filterData.property) == filterData.value;
+								} catch(e) {
+									return false;	
+								}
+							}
+						});
+/*						theFilter = new OpenLayers.Filter.Comparison({
 							type: OpenLayers.Filter.Comparison.EQUAL_TO,
 							property: filterData.property,
 							value: filterData.value
 						} );
+*/
 					break;
 					case "<" :
+						// SHOULD USE OpenLayers.String.format??? HERE!?
+//					    var keys = filterData.property.split('.');
+						theFilter = new OpenLayers.Filter.Function( {
+							property: filterData.property,
+							value: filterData.value,
+							evaluate: function(attributes) {
+//								console.log("Performing Comparison <");
+//								console.dir(attributes);
+//								console.log("property==="+this.property);
+							    var keys = this.property.split('.');
+//								console.dir(keys);
+								var result = attributes;
+								while (keys.length > 0) {
+									var key = keys.shift();
+									if (typeof result[key] !== 'undefined') {
+										result = result[key];
+									} else {
+										return false;
+//										result = 'undefined';
+//										break;
+									}
+								}		
+//								console.log("RESULT ==== "+result+" ==="+this.value);
+								return (result < this.value);
+							}
+						});						
+/*						
 						theFilter = new OpenLayers.Filter.Comparison({
 							type: OpenLayers.Filter.Comparison.LESS_THAN,
 							property: filterData.property,
 							value: filterData.value
 						} );
+*/
 					break;
 					case ">" :
+						theFilter = new OpenLayers.Filter.Function( {
+							property: filterData.property,
+							value: filterData.value,
+							evaluate: function(attributes) {
+							    var keys = this.property.split('.');
+								var result = attributes;
+								while (keys.length > 0) {
+									var key = keys.shift();
+									if (typeof result[key] !== 'undefined') {
+										result = result[key];
+									} else {
+										return false;
+//										result = 'undefined';
+//										break;
+									}
+								}								
+								return (result > this.value);
+							}
+						});
+
+						/*
 						theFilter = new OpenLayers.Filter.Comparison({
 							type: OpenLayers.Filter.Comparison.GREATER_THAN,
 							property: filterData.property,
 							value: filterData.value
 						} );
+						*/
 					break;
 					case "><" :
+						theFilter = new OpenLayers.Filter.Function( {
+							property: filterData.property,
+							lowerBoundary: filterData.lowerBoundary,
+							upperBoundary: filterData.upperBoundary,
+							evaluate: function(attributes) {
+							    var keys = this.property.split('.');
+								var result = attributes;
+								while (keys.length > 0) {
+									var key = keys.shift();
+									if (typeof result[key] !== 'undefined') {
+										result = result[key];
+									} else {
+										return false;
+										//result = 'undefined';
+//										break;
+									}
+								}								
+								return (this.lowerBoundary < result && result < this.upperBoundary);
+							}
+						});
+/*						
 						theFilter = new OpenLayers.Filter.Comparison({
 							type: OpenLayers.Filter.Comparison.BETWEEN,
 							lowerBoundary: filterData.lowerBoundary,
 							upperBoundary: filterData.upperBoundary,
 							value: filterData.value
 						} );
+*/						
 					break;
 					default :
 /*						theFilter = new OpenLayers.Filter.Comparison({
@@ -313,10 +396,10 @@ srd_init : function() {
 					theOptions['rules'] = [];
 					theOptions['rules'].push(new OpenLayers.Rule({ elseFilter: true }) );
 				}
-				if( theFilter != null && theStyleSymbolizers[tmpRule["symbolizer_id"]] != null ) {
-					theOptions['rules'].push(new OpenLayers.Rule({ filter: theFilter, symbolizer: theStyleSymbolizers[tmpRule["symbolizer_id"]], elseFilter: tmpRule["elsefilter"] }) );
+				if( theFilter != null && theStyleSymbolizers[tmpRule["symbolizerId"]] != null ) {
+					theOptions['rules'].push(new OpenLayers.Rule({ filter: theFilter, symbolizer: theStyleSymbolizers[tmpRule["symbolizerId"]], elseFilter: tmpRule["elseFilter"] }) );
 				} else if( theFilter != null) {
-					theOptions['rules'].push(new OpenLayers.Rule({ symbolizer: theStyleSymbolizers[tmpRule["symbolizer_id"]], elseFilter: tmpRule["elsefilter"] }) );
+					theOptions['rules'].push(new OpenLayers.Rule({ symbolizer: theStyleSymbolizers[tmpRule["symbolizerId"]], elseFilter: tmpRule["elseFilter"] }) );
 				}	
 			}
 		}
@@ -1424,8 +1507,27 @@ loadedViews : function() {
 	//BEGIN getStatus
 	getStatus: function() {
 		return this.status;
-	}
+	},
 	//END getStatus
+	
+	// BEGIN accessDataFunc
+	accessDataFunc: function (data, accessor) {
+	    var keys = accessor.split('.'),
+	        result = data;
+
+	    while (keys.length > 0) {
+	        var key = keys.shift();
+	        if (typeof result[key] !== 'undefined') {
+	            result = result[key];
+	        }
+	        else {
+	            result = null;
+	            break;
+	        }
+	    }
+
+	    return result;
+	}
 	
 } );
 

@@ -12,5 +12,6 @@
         <field:datetime dateTimePattern="${event_databegin_date_format}" field="dataBegin" id="c_com_osrce_sitrep_domain_Event_dataBegin" z="9h3YZxqz4xKbf6CkHpZXa9S2S90="/>
         <field:datetime dateTimePattern="${event_dataend_date_format}" field="dataEnd" id="c_com_osrce_sitrep_domain_Event_dataEnd" z="jOpiasOOOUHmttEtv3lx5EyDVLY="/>
         <field:input field="data" id="c_com_osrce_sitrep_domain_Event_data" z="bnl2jQobkjPGeF5d6P64+zVUuOE="/>
+        <field:checkbox field="hasLocation" id="c_com_osrce_sitrep_domain_Event_hasLocation" z="Cd1fEh00PQ2Xte0tqMpM9pDzFvo="/>
     </form:update>
 </div>

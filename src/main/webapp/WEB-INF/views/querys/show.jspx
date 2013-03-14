@@ -6,5 +6,6 @@
         <field:display field="name" id="s_com_osrce_sitrep_domain_Query_name" object="${query}" z="FbJZn0pEXfenGwnnvWXqo4qGLYM="/>
         <field:display field="notes" id="s_com_osrce_sitrep_domain_Query_notes" object="${query}" z="C4TgMKnxdyTe9JuFssSkIx0Qh1g="/>
         <field:display field="data" id="s_com_osrce_sitrep_domain_Query_data" object="${query}" z="lymwwN3qDnUy0EDFG80uZMWHmHk="/>
+        <field:display date="true" dateTimePattern="${query_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Query_updated" object="${query}" z="nejOt6x+I9EqWyDHK/PpmDobWrk="/>
     </page:show>
 </div>

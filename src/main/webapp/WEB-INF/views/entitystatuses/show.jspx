@@ -11,6 +11,7 @@
         <field:display field="location" id="s_com_osrce_sitrep_domain_EntityStatus_location" object="${entitystatus}" z="13/GGX9iReQXT2oIXMk+UB5Dr3E="/>
         <field:display date="true" dateTimePattern="${entityStatus_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_EntityStatus_updated" object="${entitystatus}" z="yMaJW885mXkXJvnBhk2/nIEBGSg="/>
         <field:display field="data" id="s_com_osrce_sitrep_domain_EntityStatus_data" object="${entitystatus}" z="uuvbtPTrI+IvXEwNSPUl+91t2F0="/>
+        <field:display field="hasLocation" id="s_com_osrce_sitrep_domain_EntityStatus_hasLocation" object="${entitystatus}" z="aWB6Bs6uhRc/onfCrREQxm2VgLI="/>
         <field:display field="entity" id="s_com_osrce_sitrep_domain_EntityStatus_entity" object="${entitystatus}" z="sPQvnmjVk2G+o63XYgJGudNZ0o8="/>
     </page:show>
 </div>

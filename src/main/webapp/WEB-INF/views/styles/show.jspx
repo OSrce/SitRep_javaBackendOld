@@ -7,5 +7,6 @@
         <field:display field="stylemapId" id="s_com_osrce_sitrep_domain_Style_stylemapId" object="${style}" z="z/YtX7Vn0E8HW9yAlhiV8xmNCBQ="/>
         <field:display field="renderType" id="s_com_osrce_sitrep_domain_Style_renderType" object="${style}" z="0d8f/tvXR85z0hMRfqduukhHVvE="/>
         <field:display field="defaultsymbolizerId" id="s_com_osrce_sitrep_domain_Style_defaultsymbolizerId" object="${style}" z="YMnUj+0/T40h+TgEh2pepJ8Om00="/>
+        <field:display date="true" dateTimePattern="${style_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Style_updated" object="${style}" z="MyvL+tfKltIuaWwQTs1ytWbGeXM="/>
     </page:show>
 </div>

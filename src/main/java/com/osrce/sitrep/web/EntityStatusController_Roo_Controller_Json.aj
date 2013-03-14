@@ -5,7 +5,6 @@ package com.osrce.sitrep.web;
 
 import com.osrce.sitrep.domain.EntityStatus;
 import com.osrce.sitrep.web.EntityStatusController;
-import java.util.List;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,15 +26,6 @@ privileged aspect EntityStatusController_Roo_Controller_Json {
             return new ResponseEntity<String>(headers, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<String>(entityStatus.toJson(), headers, HttpStatus.OK);
-    }
-    
-    @RequestMapping(headers = "Accept=application/json")
-    @ResponseBody
-    public ResponseEntity<String> EntityStatusController.listJson() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json; charset=utf-8");
-        List<EntityStatus> result = EntityStatus.findAllEntityStatuses();
-        return new ResponseEntity<String>(EntityStatus.toJsonArray(result), headers, HttpStatus.OK);
     }
     
     @RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")

@@ -3,6 +3,7 @@
 
 package com.osrce.sitrep.domain;
 
+import com.osrce.sitrep.domain.Entity;
 import com.osrce.sitrep.domain.EntityStatus;
 import com.osrce.sitrep.domain.Location;
 import java.util.Date;
@@ -17,8 +18,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 privileged aspect EntityStatus_Roo_DbManaged {
     
     @ManyToOne
+    @JoinColumn(name = "entity", referencedColumnName = "id", nullable = false)
+    private Entity EntityStatus.entity;
+    
+    @ManyToOne
     @JoinColumn(name = "location", referencedColumnName = "id")
     private Location EntityStatus.location;
+    
+    @Column(name = "has_location")
+    @NotNull
+    private boolean EntityStatus.hasLocation;
     
     @Column(name = "has_data")
     @NotNull
@@ -54,12 +63,28 @@ privileged aspect EntityStatus_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date EntityStatus.dataEnd;
     
+    public Entity EntityStatus.getEntity() {
+        return entity;
+    }
+    
+    public void EntityStatus.setEntity(Entity entity) {
+        this.entity = entity;
+    }
+    
     public Location EntityStatus.getLocation() {
         return location;
     }
     
     public void EntityStatus.setLocation(Location location) {
         this.location = location;
+    }
+    
+    public boolean EntityStatus.isHasLocation() {
+        return hasLocation;
+    }
+    
+    public void EntityStatus.setHasLocation(boolean hasLocation) {
+        this.hasLocation = hasLocation;
     }
     
     public boolean EntityStatus.isHasData() {

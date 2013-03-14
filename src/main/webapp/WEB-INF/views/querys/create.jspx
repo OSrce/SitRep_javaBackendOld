@@ -6,6 +6,7 @@
         <field:input field="name" id="c_com_osrce_sitrep_domain_Query_name" required="true" z="PUFsHyX5zHfEvWnIohszC6MvI6E="/>
         <field:input field="notes" id="c_com_osrce_sitrep_domain_Query_notes" z="Av65pSc2ElhMPOpKDmsVTMWRKYY="/>
         <field:input field="data" id="c_com_osrce_sitrep_domain_Query_data" z="87/f4D7yZ57TjVDig1OZD8N8SuI="/>
+        <field:datetime dateTimePattern="${query_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Query_updated" required="true" z="1h4nmr1g8bORFvCw8OxJeJfbm7o="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_Query" render="${not empty dependencies}" z="e3u9HoP/kSXE92xhA8IVE3umZ5g="/>
 </div>

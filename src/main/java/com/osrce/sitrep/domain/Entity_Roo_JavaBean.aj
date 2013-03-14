@@ -4,7 +4,6 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Entity;
-import com.osrce.sitrep.domain.EntityStatus;
 import com.osrce.sitrep.domain.Hstore;
 
 privileged aspect Entity_Roo_JavaBean {
@@ -15,14 +14,6 @@ privileged aspect Entity_Roo_JavaBean {
     
     public void Entity.setId(Long id) {
         this.id = id;
-    }
-    
-    public EntityStatus Entity.getStatus() {
-        return this.status;
-    }
-    
-    public void Entity.setStatus(EntityStatus status) {
-        this.status = status;
     }
     
     public Hstore Entity.getData() {

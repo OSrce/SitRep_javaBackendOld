@@ -24,6 +24,10 @@ privileged aspect Event_Roo_DbManaged {
     @NotNull
     private Long Event.groupId;
     
+    @Column(name = "has_location")
+    @NotNull
+    private boolean Event.hasLocation;
+    
     @Column(name = "has_data")
     @NotNull
     private boolean Event.hasData;
@@ -72,6 +76,14 @@ privileged aspect Event_Roo_DbManaged {
     
     public void Event.setGroupId(Long groupId) {
         this.groupId = groupId;
+    }
+    
+    public boolean Event.isHasLocation() {
+        return hasLocation;
+    }
+    
+    public void Event.setHasLocation(boolean hasLocation) {
+        this.hasLocation = hasLocation;
     }
     
     public boolean Event.isHasData() {

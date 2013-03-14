@@ -147,7 +147,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Query, String> ApplicationConversionServiceFactoryBean.getQueryToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Query, java.lang.String>() {
             public String convert(Query query) {
-                return new StringBuilder().append(query.getName()).append(' ').append(query.getNotes()).append(' ').append(query.getData()).toString();
+                return new StringBuilder().append(query.getName()).append(' ').append(query.getNotes()).append(' ').append(query.getData()).append(' ').append(query.getCreated()).toString();
             }
         };
     }

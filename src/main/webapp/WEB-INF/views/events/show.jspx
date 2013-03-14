@@ -12,5 +12,6 @@
         <field:display date="true" dateTimePattern="${event_databegin_date_format}" field="dataBegin" id="s_com_osrce_sitrep_domain_Event_dataBegin" object="${event}" z="G9IryjLv8rTtymaK3FTQKVDE0T8="/>
         <field:display date="true" dateTimePattern="${event_dataend_date_format}" field="dataEnd" id="s_com_osrce_sitrep_domain_Event_dataEnd" object="${event}" z="oA0RBT8c1BdHKKu9vLwn1fFMlHk="/>
         <field:display field="data" id="s_com_osrce_sitrep_domain_Event_data" object="${event}" z="EWhUCV6Xuz2M5sr4ZpSnvQ2pqzc="/>
+        <field:display field="hasLocation" id="s_com_osrce_sitrep_domain_Event_hasLocation" object="${event}" z="gjk+id8XFBMvNBXzmYyMs5IZLmQ="/>
     </page:show>
 </div>

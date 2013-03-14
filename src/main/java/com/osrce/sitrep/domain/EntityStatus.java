@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.annotations.Type;
+import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.ejb.HibernateEntityManager;
 import org.springframework.roo.addon.dbre.RooDbManaged;
@@ -32,12 +33,6 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooDbManaged(automaticallyDelete = true)
 @RooJson
 public class EntityStatus {
-
-    @OneToMany(mappedBy = "status")
-    private Set<Entity> entitys;
-
-    @Column(name = "entity")
-    private Long entity;
 
     @Id
     @Column(name = "id", columnDefinition = "bigserial")
@@ -54,59 +49,27 @@ public class EntityStatus {
     }
 
     public static String toJsonArray(Collection<com.osrce.sitrep.domain.EntityStatus> collection) {
-        System.out.println("TEST=== EntityStatus toJsonArray called!");
         Iterator<com.osrce.sitrep.domain.EntityStatus> iterator = collection.iterator();
         while (iterator.hasNext()) {
             EntityStatus theEnt = iterator.next();
-            System.out.println("Test2= " + theEnt.getId());
-            System.out.println("Test3= " + theEnt.getData().toString());
         }
         return new JSONSerializer().transform(new GeometryTransformer(), Geometry.class).serialize(collection);
     }
 
     public static List<com.osrce.sitrep.domain.EntityStatus> findAllWithParams(Map<java.lang.String, java.lang.String[]> theParams) {
-        System.out.println("TEST=== Entity findAllWithParams called!");
-        Boolean firstOne = true;
-        String theQueryStr = "SELECT o FROM Entity o ";
-        Long theGroupId = null;
-        Boolean theHasData = null;
-        Boolean theHasStatus = null;
-        if (theParams.containsKey("group_id")) {
-            if (firstOne == true) {
-                theQueryStr += " where";
-            } else {
-                theQueryStr += " AND";
-            }
-            theQueryStr += " group_id=:theGroupId";
-            firstOne = false;
-            theGroupId = Long.valueOf(theParams.get("group_id")[0]);
-        }
-        if (theParams.containsKey("has_data")) {
-            if (firstOne == true) {
-                theQueryStr += " where";
-            } else {
-                theQueryStr += " AND";
-            }
-            theQueryStr += " has_data =:theHasData";
-            firstOne = false;
-            theHasData = Boolean.valueOf(theParams.get("has_data")[0]);
-        }
-        if (theParams.containsKey("has_status")) {
-            if (firstOne == true) {
-                theQueryStr += " where";
-            } else {
-                theQueryStr += " AND";
-            }
-            theQueryStr += " has_status =:theHasStatus";
-            firstOne = false;
-            theHasStatus = Boolean.valueOf(theParams.get("has_status")[0]);
-        }
         HibernateEntityManager hem = entityManager().unwrap(HibernateEntityManager.class);
         Session session = hem.getSession();
-        Criteria theCriteria = session.createCriteria(Entity.class);
-        theCriteria.add(Restrictions.eq("groupId", new Long(1)));
-        theCriteria.add(Restrictions.eq("status.hasEnd", false));
-        theCriteria.add(Restrictions.sqlRestriction("{alias}.status.data  @> '\"inservice\"=>\"t\"'::hstore "));
+        Criteria theCriteria = session.createCriteria(EntityStatus.class);
+        theCriteria.createAlias("entity", "entity");
+        if (theParams.containsKey("entity.groupId")) {
+            theCriteria.add(Restrictions.eq("entity.groupId", Long.valueOf(theParams.get("entity.groupId")[0])));
+        }
+        if (theParams.containsKey("hasEnd")) {
+            theCriteria.add(Restrictions.eq("hasEnd", Boolean.valueOf(theParams.get("hasEnd")[0])));
+        }
+        if (theParams.containsKey("hasLocation")) {
+            theCriteria.add(Restrictions.eq("hasLocation", Boolean.valueOf(theParams.get("hasLocation")[0])));
+        }
         return theCriteria.list();
     }
 }

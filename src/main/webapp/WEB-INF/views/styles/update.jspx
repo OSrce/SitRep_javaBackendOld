@@ -7,5 +7,6 @@
         <field:input field="stylemapId" id="c_com_osrce_sitrep_domain_Style_stylemapId" required="true" validationMessageCode="field_invalid_integer" z="/+K7XnY85+VgN9XojOSWVOIXYSE="/>
         <field:input field="renderType" id="c_com_osrce_sitrep_domain_Style_renderType" required="true" z="wWcpa38c+GFEnNDIH16GdAS5oKc="/>
         <field:input field="defaultsymbolizerId" id="c_com_osrce_sitrep_domain_Style_defaultsymbolizerId" validationMessageCode="field_invalid_integer" z="g1ZfcF9P15p3K7tuFYugfterFfo="/>
+        <field:datetime dateTimePattern="${style_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Style_updated" required="true" z="9j6PKTcROZt/4GdgFC+yl42zfNM="/>
     </form:update>
 </div>

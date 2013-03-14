@@ -30,7 +30,7 @@ public class EntityController {
 //    										@RequestParam(value = "has_data", required = false) Boolean theHasData,
 //    										@RequestParam(value = "has_status", required = false) Boolean theHasStatus) {	
     public ResponseEntity<String> listJson(org.springframework.web.context.request.WebRequest webRequest) {
-        System.out.println("TEST=== EntityControllerCalled===");
+//        System.out.println("TEST=== EntityControllerCalled===");
     	HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=utf-8");
         

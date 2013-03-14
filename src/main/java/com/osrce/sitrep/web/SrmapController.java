@@ -3,7 +3,9 @@ package com.osrce.sitrep.web;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
+import com.osrce.sitrep.domain.Event;
 import com.osrce.sitrep.domain.Srmap;
 
 import org.springframework.http.HttpHeaders;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RooWebJson(jsonObject = Srmap.class)
 public class SrmapController {
 
+	/*
     @RequestMapping(headers = "Accept=application/json")
     @ResponseBody
     public ResponseEntity<java.lang.String> listJson(@RequestParam(value = "group_id", required = false) Long theGroupId, @RequestParam(value = "has_data", required = false) Boolean theHasData) {
@@ -37,7 +40,25 @@ public class SrmapController {
         }
         return new ResponseEntity<String>(Srmap.toJsonArray(result), headers, HttpStatus.OK);
     }	
+    
+    */
 	
+    @RequestMapping(headers = "Accept=application/json")
+    @ResponseBody
+    public ResponseEntity<String> listJson(org.springframework.web.context.request.WebRequest webRequest) {
+//        System.out.println("TEST=== SrmapControllerCalled===");
+    	HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json; charset=utf-8");
+        
+    	Map<String, String[]> theParams = webRequest.getParameterMap();
+                
+        List<Srmap> result;
+        result = Srmap.findAllWithParams(theParams);
+        return new ResponseEntity<String>(Srmap.toJsonArray(result), headers, HttpStatus.OK);
+    }
+	
+    
+    
 	
 	
 	

@@ -8,6 +8,8 @@ import com.osrce.sitrep.web.QueryController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,6 +40,7 @@ privileged aspect QueryController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String QueryController.show(@PathVariable("id") Long id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("query", Query.findQuery(id));
         uiModel.addAttribute("itemId", id);
         return "querys/show";
@@ -54,6 +57,7 @@ privileged aspect QueryController_Roo_Controller {
         } else {
             uiModel.addAttribute("querys", Query.findAllQuerys());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "querys/list";
     }
     
@@ -84,8 +88,14 @@ privileged aspect QueryController_Roo_Controller {
         return "redirect:/querys";
     }
     
+    void QueryController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("query_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("query_updated_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+    }
+    
     void QueryController.populateEditForm(Model uiModel, Query query) {
         uiModel.addAttribute("query", query);
+        addDateTimeFormatPatterns(uiModel);
     }
     
     String QueryController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

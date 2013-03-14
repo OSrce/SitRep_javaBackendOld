@@ -7,8 +7,8 @@
             <table:column id="c_com_osrce_sitrep_domain_Entity_name" property="name" z="GicDjUK9fB2T3QYRETN+GjNg01c="/>
             <table:column id="c_com_osrce_sitrep_domain_Entity_hasData" property="hasData" z="BZr8PQEILVdziisoYXCu6QHZHJU="/>
             <table:column id="c_com_osrce_sitrep_domain_Entity_groupId" property="groupId" z="rs17AEccR8zeSMlVgoBcVIXYgQ0="/>
-            <table:column id="c_com_osrce_sitrep_domain_Entity_hasStatus" property="hasStatus" z="Kt3VS+sXPaCAOcDZkLlQyIHVc8I="/>
             <table:column date="true" dateTimePattern="${entity_created_date_format}" id="c_com_osrce_sitrep_domain_Entity_created" property="created" z="5PwdTFEeYlaGdvIRoypFOsXTAHM="/>
+            <table:column date="true" dateTimePattern="${entity_updated_date_format}" id="c_com_osrce_sitrep_domain_Entity_updated" property="updated" z="jeTo9u/0aYlzRqDYaXyTE91HY4g="/>
         </table:table>
     </page:list>
 </div>
