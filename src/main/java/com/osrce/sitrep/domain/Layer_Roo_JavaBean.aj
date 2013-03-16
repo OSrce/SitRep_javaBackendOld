@@ -16,22 +16,6 @@ privileged aspect Layer_Roo_JavaBean {
         this.id = id;
     }
     
-    public String Layer.getLtype() {
-        return this.ltype;
-    }
-    
-    public void Layer.setLtype(String ltype) {
-        this.ltype = ltype;
-    }
-    
-    public String Layer.getLformat() {
-        return this.lformat;
-    }
-    
-    public void Layer.setLformat(String lformat) {
-        this.lformat = lformat;
-    }
-    
     public Hstore Layer.getUrlparams() {
         return this.urlparams;
     }

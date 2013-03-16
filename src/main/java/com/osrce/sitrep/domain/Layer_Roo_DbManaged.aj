@@ -17,6 +17,13 @@ privileged aspect Layer_Roo_DbManaged {
     @NotNull
     private String Layer.name;
     
+    @Column(name = "ltype", length = 16)
+    @NotNull
+    private String Layer.ltype;
+    
+    @Column(name = "lformat", length = 16)
+    private String Layer.lformat;
+    
     @Column(name = "isbaselayer")
     @NotNull
     private boolean Layer.isbaselayer;
@@ -74,6 +81,22 @@ privileged aspect Layer_Roo_DbManaged {
     
     public void Layer.setName(String name) {
         this.name = name;
+    }
+    
+    public String Layer.getLtype() {
+        return ltype;
+    }
+    
+    public void Layer.setLtype(String ltype) {
+        this.ltype = ltype;
+    }
+    
+    public String Layer.getLformat() {
+        return lformat;
+    }
+    
+    public void Layer.setLformat(String lformat) {
+        this.lformat = lformat;
     }
     
     public boolean Layer.isIsbaselayer() {

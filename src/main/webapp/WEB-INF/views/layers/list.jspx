@@ -8,8 +8,8 @@
             <table:column id="c_com_osrce_sitrep_domain_Layer_isbaselayer" property="isbaselayer" z="5RJFgjD9HxS+2kalC9vrrDxQQ2s="/>
             <table:column id="c_com_osrce_sitrep_domain_Layer_projection" property="projection" z="WL76bOOvck3krMQBenZMevSTiGQ="/>
             <table:column id="c_com_osrce_sitrep_domain_Layer_visibility" property="visibility" z="0DKRV0XrdydY+PKzoLPkCkmQ0oE="/>
-            <table:column id="c_com_osrce_sitrep_domain_Layer_sphericalmercator" property="sphericalmercator" z="DLkAQBeuzpQtMNfM+KTenhuvP6k="/>
-            <table:column id="c_com_osrce_sitrep_domain_Layer_url" property="url" z="fJe9rp6dQTT+D3RkuWaHmJVkTwA="/>
+            <table:column id="c_com_osrce_sitrep_domain_Layer_ltype" property="ltype" z="5JPeU3v7jVQj0FhQQPH4J51tInY="/>
+            <table:column id="c_com_osrce_sitrep_domain_Layer_lformat" property="lformat" z="ybDAoV72eWIC/Lt8/PoBIAt15GA="/>
         </table:table>
     </page:list>
 </div>

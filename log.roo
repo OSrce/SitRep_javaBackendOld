@@ -489,3 +489,20 @@ database reverse engineer --package ~.domain --schema PUBLIC --includeTables  "e
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-13 13:27:44
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-13 18:15:02
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-13 19:27:39
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-14 16:45:23
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-14 17:30:22
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-14 17:58:17
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-14 18:18:22
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-14 18:18:40
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-14 18:22:08
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-14 20:34:10
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-14 20:38:25
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-14 22:16:45
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-14 22:52:13
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-14 23:21:30
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-15 00:08:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-15 00:13:12
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-15 00:14:07
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-15 00:21:43
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-16 09:19:01
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables  "entity  entity_status event layer location query srgroup sruser srmap style srule ssymbolizer"

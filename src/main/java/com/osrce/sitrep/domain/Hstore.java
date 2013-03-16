@@ -100,7 +100,7 @@ public class Hstore extends HashMap<String, String> {
         	if( kv.length > 1) {
 //        		System.out.println("Before### KeyK = " + kv[0] + ", ValueV = " + kv[1]);
         		k = kv[0].replaceAll("^\"", "");
-        		v = kv[1].replaceAll("\"$", "");
+        		v = kv[1].replaceAll("\"\\s*$", "");
 //                System.out.println("After### KeyK = " + k + ", ValueV = " + v);
         		 m.put(k, v);
         	} else if( kv.length==1 ) {

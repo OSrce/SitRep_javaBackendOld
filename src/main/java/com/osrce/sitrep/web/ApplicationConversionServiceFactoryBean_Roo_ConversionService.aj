@@ -99,7 +99,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Layer, String> ApplicationConversionServiceFactoryBean.getLayerToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Layer, java.lang.String>() {
             public String convert(Layer layer) {
-                return new StringBuilder().append(layer.getName()).append(' ').append(layer.getProjection()).append(' ').append(layer.getUrl()).append(' ').append(layer.getNumzoomlevels()).toString();
+                return new StringBuilder().append(layer.getName()).append(' ').append(layer.getLtype()).append(' ').append(layer.getLformat()).append(' ').append(layer.getProjection()).toString();
             }
         };
     }

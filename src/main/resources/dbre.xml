@@ -25,6 +25,9 @@
             <index-column name="group_id"/>
             <index-column name="id"/>
         </index>
+        <index name="idx_group">
+            <index-column name="group_id"/>
+        </index>
     </table>
     <table alias="public" name="entity_status">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
@@ -52,6 +55,15 @@
         <unique name="entity_status_pkey">
             <unique-column name="id"/>
         </unique>
+        <index name="entity_status_idx2">
+            <index-column name="entity"/>
+        </index>
+        <index name="entity_status_idx3">
+            <index-column name="location"/>
+        </index>
+        <index name="hidx">
+            <index-column name="data"/>
+        </index>
     </table>
     <table alias="public" name="event">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
@@ -78,12 +90,15 @@
             <index-column name="group_id"/>
             <index-column name="id"/>
         </index>
+        <index name="event_idx3">
+            <index-column name="location"/>
+        </index>
     </table>
     <table alias="public" name="layer">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
-        <column name="ltype" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,layer_type"/>
-        <column name="lformat" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,layer_format"/>
+        <column name="ltype" primaryKey="false" required="true" scale="0" size="16" type="12,varchar"/>
+        <column name="lformat" primaryKey="false" required="false" scale="0" size="16" type="12,varchar"/>
         <column name="isbaselayer" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
         <column name="projection" primaryKey="false" required="false" scale="0" size="16" type="12,varchar"/>
         <column name="visibility" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>

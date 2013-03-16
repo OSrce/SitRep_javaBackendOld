@@ -17,6 +17,96 @@ define([
 	return declare( [], {
 //srd_layer constructor 
 constructor : function ( ) {
+	
+		//BEGIN SRJSON FORMAT
+		this.srjsonFormat = OpenLayers.Class(OpenLayers.Format, {
+			
+			read: function(obj) {
+//			    	console.log("srjsonFormat.read Called");
+//			    	console.dir(obj);
+/*
+			        if(obj.stat === 'fail') {
+			            throw new Error(
+			                ['SRJSON failure response (',
+			                 obj.code,
+			                 '): ',
+			                 obj.message].join(''));
+			        }
+*/
+//			        if(!obj || !obj.photos || !OpenLayers.Util.isArray(obj.photos.photo)) {
+			        if(!OpenLayers.Util.isArray(obj) ) { 
+			        	throw new Error(
+			                'Unexpected SRJSON response');
+			        }
+			        var format = new OpenLayers.Format.WKT( {
+						externalProjection : new OpenLayers.Projection("EPSG:4326"),
+						internalProjection : new OpenLayers.Projection("EPSG:900913")
+					} );
+			        
+			        var feature, features = [];
+			        var theFeat;
+			        for(var i=0,l=obj.length; i<l; i++) {
+			            theFeat = obj[i];
+			            
+						if(theFeat['class'] == 'com.osrce.sitrep.domain.EntityStatus') {
+							if(theFeat.hasLocation == true ) {
+								feature = format.read( theFeat.location.geometry );
+//					            var geometry = new OpenLayers.Geometry.fromWKT(theFeat.location.geometry);			            								
+								//var attributes = {};
+								feature.attributes.data = theFeat.data;
+								feature.attributes.entity = theFeat.entity.data;
+								feature.attributes.name = theFeat.entity.name;
+//								feature = new OpenLayers.Feature.Vector(geometry, attributes );
+								feature.db_id = theFeat.entity.id;
+
+							}
+						} else if(theFeat['class'] == 'com.osrce.sitrep.domain.Event') {
+							if(theFeat.hasLocation == true) {
+								feature = format.read( theFeat.location.geometry );
+
+//								var geometry = new OpenLayers.Geometry.fromWKT(theFeat.location.geometry);			            								
+//								var attributes = {};
+								feature.attributes.data = theFeat.data;
+//								feature = new OpenLayers.Feature.Vector(geometry, attributes );
+								feature.db_id = theFeat.id;
+							}
+//						} else if(this.options.url == '/srmaps') {
+						} else {
+							if(theFeat.geometry) {
+								feature = format.read( theFeat.geometry );
+//								var geometry = new OpenLayers.Geometry.fromWKT(theFeat.geometry);			            								
+//								var attributes = {};
+								feature.attributes.data = theFeat.data;
+//								feature = new OpenLayers.Feature.Vector(geometry, attributes );
+								feature.db_id = theFeat.id;
+							}
+						}
+						if(feature) {
+							features.push(feature);
+						}
+					}
+			        return features;
+			    }
+			});
+		//END SR_FORMAT
+	
+		//BEGIN SRJSON Protocol
+		this.srjsonProtocol = OpenLayers.Class(OpenLayers.Protocol, {
+			read : function(options) {
+				var retObject = {
+						code : OpenLayers.Protocol.Response.SUCCESS,
+						requestType: "read",
+						last: true,
+						features: []
+				}
+				console.log("srjsonProtocol CALLED ==== read called");
+				return retObject;
+				
+				} 
+				
+			
+		} );
+		
 		this.map = 	null;  //OpenLayers Map Class.
 		this.layer = null; //OpenLayers Layer Class.
 		
@@ -341,7 +431,7 @@ loadData : function( ) {
 				);
 
  				//BEGIN TEST1
-/*
+
  				if(this.options.id == 2013) {
  					this.layer = new OpenLayers.Layer.Vector(this.options.name, {
  						isBaseLayer:	this.options.isBaseLayer,
@@ -349,6 +439,9 @@ loadData : function( ) {
 // 						units:				"degrees",
  						visibility:		this.options.visibility,
 // 						renderers: ['Canvas','SVG'],
+ 						protocol: new this.srjsonProtocol( {
+ 							format : new this.srjsonFormat()
+ 						}),
  						strategies:	[
 //new OpenLayers.Strategy.Fixed(),
 new OpenLayers.Strategy.Cluster( { distance: 25 })					           	 
@@ -357,7 +450,7 @@ new OpenLayers.Strategy.Cluster( { distance: 25 })
  						styleMap:			this.srd_styleMap
  					} );
  				} else {
-*/ 					
+ 					
 				this.layer = new OpenLayers.Layer.Vector(this.options.name, {
 					isBaseLayer:	this.options.isBaseLayer,
 					projection:		new OpenLayers.Projection(this.options.projection),
@@ -365,7 +458,7 @@ new OpenLayers.Strategy.Cluster( { distance: 25 })
 					visibility:		this.options.visibility,
 					styleMap:			this.srd_styleMap
 				} );
-//				}
+				}
 				//END TEST1
 				this.format = new OpenLayers.Format.WKT( {
 					externalProjection : new OpenLayers.Projection(this.options.projection),
@@ -373,16 +466,24 @@ new OpenLayers.Strategy.Cluster( { distance: 25 })
 				} );
 //				var testVar = null;
 //				var urlparams = dojo.fromJson(this.options.urlparams);
+
+				
 				dojo.when(this.store.query(  this.options.urlparams  ), function(theFeatArr) {
 //				dojo.when(this.store.query( urlparams ), function(theFeatArr) {
-					dojo.forEach( theFeatArr, function(theFeat) {
+					
+					var theFormat = new this.srjsonFormat();
+					this.layer.addFeatures( theFormat.read(theFeatArr) ); 
+
+				/*
+  
+ 					dojo.forEach( theFeatArr, function(theFeat) {
 						
 						var theFeature;
 						if(this.options.url == '/entitystatuses') {
-							console.log("Adding entity Feature:"+theFeat.name);
+//							console.log("Adding entity Feature:"+theFeat.name);
 							if(theFeat.hasLocation) {
-								console.log("Status ID:"+theFeat.id);
-								console.log("Location ID:"+theFeat.location.id);
+//								console.log("Status ID:"+theFeat.id);
+//								console.log("Location ID:"+theFeat.location.id);
 
 								theFeature =  this.format.read( theFeat.location.geometry);
 							
@@ -434,6 +535,10 @@ new OpenLayers.Strategy.Cluster( { distance: 25 })
 							this.layer.addFeatures( [theFeature] ); 
 						}		
 					}.bind(this) );
+					
+*/
+					
+					
 /*
 					this.layer.events.register("featureadded", this, this.srd_create);
 					this.layer.events.register("featuremodified", this, this.srd_update);
@@ -442,6 +547,7 @@ new OpenLayers.Strategy.Cluster( { distance: 25 })
 					this.layer.events.register("featureunselected", this, this.onFeatureUnselect);
 */
 					//BEGIN TESTING ONLY FORCE REFRESH
+
 					if(this.options.url == "/entitystatuses" ) {
 						this.srd_timer = new dojox.timing.Timer(5000);
 						this.srd_timer.onTick = function() { 
@@ -449,6 +555,7 @@ new OpenLayers.Strategy.Cluster( { distance: 25 })
 						}.bind(this);
 						this.srd_timer.start();
 					}
+
 					///END TESTING ONLY
 					
 				}.bind(this) );
@@ -1429,6 +1536,7 @@ setFeatureAttribute : function( feature, attribute, value ) {
 	return false;
 }
 // END getFeatureAttribute ( attribute )
+
 
 }) ;
 // END DECLARE

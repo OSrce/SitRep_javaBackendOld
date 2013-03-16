@@ -28,15 +28,8 @@ public class Layer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ltype", nullable = true, columnDefinition = "Layer_type")
-    private String ltype;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "lformat", nullable = true, columnDefinition = "Layer_format")
-    private String lformat;
-
     @Type(type = "com.osrce.sitrep.domain.HstoreUserType")
     @Column(name = "urlparams", columnDefinition = "hstore")
     private Hstore urlparams;
+    
 }
