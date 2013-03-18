@@ -93,8 +93,12 @@ public static class HstoreHelper {
         // are immutable, so it should be OK
 //        Map m = (Map) o;
         Hstore m = (Hstore) o;
+        if(m == null) {
+        	return new Hstore();
+        } else {
 //      return new HashMap(m);
-      return new Hstore(m);
+        	return new Hstore(m);
+        }
     }
 
     public Serializable disassemble(Object o) throws HibernateException {

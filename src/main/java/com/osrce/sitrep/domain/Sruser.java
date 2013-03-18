@@ -27,5 +27,5 @@ public class Sruser {
 
     @Type(type = "hstore")
     @Column(name = "data", columnDefinition = "hstore")
-    private Hstore data = new Hstore();
+    private Hstore data;
 }

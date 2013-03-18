@@ -51,7 +51,7 @@ public class Hstore extends HashMap<String, String> {
 	}
 	
 	public Hstore( Hstore h) {
-		super( (HashMap<String,String>) h);
+			super( (HashMap<String,String>) h);
 		//		HashMap<String,String> m = (HashMap<String,String>) h;
 //		super( h.getHashMap() );
 //		 HashMap<String,String> m = new HashMap<String,String>();
@@ -68,7 +68,8 @@ public class Hstore extends HashMap<String, String> {
                                entry.getValue());
         }
 */    	
-        if (m.isEmpty()) {
+    	
+        if ( m== null || m.isEmpty()) {
             return "";
         }
         StringBuilder sb = new StringBuilder();

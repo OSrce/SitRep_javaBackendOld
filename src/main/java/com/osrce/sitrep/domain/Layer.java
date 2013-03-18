@@ -31,5 +31,4 @@ public class Layer {
     @Type(type = "com.osrce.sitrep.domain.HstoreUserType")
     @Column(name = "urlparams", columnDefinition = "hstore")
     private Hstore urlparams;
-    
 }
