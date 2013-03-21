@@ -9,9 +9,9 @@
         <field:display date="true" dateTimePattern="${entityStatus_databegin_date_format}" field="dataBegin" id="s_com_osrce_sitrep_domain_EntityStatus_dataBegin" object="${entitystatus}" z="yR5/bNl7GN7yNkkRMN2V1BkrQLA="/>
         <field:display date="true" dateTimePattern="${entityStatus_dataend_date_format}" field="dataEnd" id="s_com_osrce_sitrep_domain_EntityStatus_dataEnd" object="${entitystatus}" z="Hy0XvLqPwmKLeB+jXXiwsev5YNo="/>
         <field:display field="location" id="s_com_osrce_sitrep_domain_EntityStatus_location" object="${entitystatus}" z="13/GGX9iReQXT2oIXMk+UB5Dr3E="/>
-        <field:display date="true" dateTimePattern="${entityStatus_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_EntityStatus_updated" object="${entitystatus}" z="yMaJW885mXkXJvnBhk2/nIEBGSg="/>
         <field:display field="data" id="s_com_osrce_sitrep_domain_EntityStatus_data" object="${entitystatus}" z="uuvbtPTrI+IvXEwNSPUl+91t2F0="/>
         <field:display field="hasLocation" id="s_com_osrce_sitrep_domain_EntityStatus_hasLocation" object="${entitystatus}" z="aWB6Bs6uhRc/onfCrREQxm2VgLI="/>
         <field:display field="entity" id="s_com_osrce_sitrep_domain_EntityStatus_entity" object="${entitystatus}" z="sPQvnmjVk2G+o63XYgJGudNZ0o8="/>
+        <field:display date="true" dateTimePattern="${entityStatus_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_EntityStatus_updated" object="${entitystatus}" z="yMaJW885mXkXJvnBhk2/nIEBGSg="/>
     </page:show>
 </div>

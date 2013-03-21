@@ -6,7 +6,6 @@
         <field:display field="name" id="s_com_osrce_sitrep_domain_Ssymbolizer_name" object="${ssymbolizer}" z="ukXUbsK+wBYHP0eJwyyGjCwXNCg="/>
         <field:display field="label" id="s_com_osrce_sitrep_domain_Ssymbolizer_label" object="${ssymbolizer}" z="Tjsaa+RHKmXCOhVxOMCNmkvABug="/>
         <field:display field="rotation" id="s_com_osrce_sitrep_domain_Ssymbolizer_rotation" object="${ssymbolizer}" z="OcsIhsowGL7KL9Jdeg9zvZKNoVI="/>
-        <field:display date="true" dateTimePattern="${ssymbolizer_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Ssymbolizer_updated" object="${ssymbolizer}" z="PqcHXFdg3imozyz0P2fFneSlW6w="/>
         <field:display field="fillColor" id="s_com_osrce_sitrep_domain_Ssymbolizer_fillColor" object="${ssymbolizer}" z="vojXQLyxUoTwD04doOu9zGRUzfI="/>
         <field:display field="fillOpacity" id="s_com_osrce_sitrep_domain_Ssymbolizer_fillOpacity" object="${ssymbolizer}" z="1EL4KZ7wM5Ji4xqEjrHthh3fWL8="/>
         <field:display field="strokeColor" id="s_com_osrce_sitrep_domain_Ssymbolizer_strokeColor" object="${ssymbolizer}" z="W4CGZrauT5MBMeJgjY4oTFPneSA="/>
@@ -25,5 +24,6 @@
         <field:display field="graphicWidth" id="s_com_osrce_sitrep_domain_Ssymbolizer_graphicWidth" object="${ssymbolizer}" z="YB5Ry273ES1nbQXX7yUdpY9LbJY="/>
         <field:display field="graphicHeight" id="s_com_osrce_sitrep_domain_Ssymbolizer_graphicHeight" object="${ssymbolizer}" z="fWQ99fyUD1J53Upbci6zYkFYAKk="/>
         <field:display field="graphicOpacity" id="s_com_osrce_sitrep_domain_Ssymbolizer_graphicOpacity" object="${ssymbolizer}" z="z20ffF+GP8ldpAs6X4kgls+5rbk="/>
+        <field:display date="true" dateTimePattern="${ssymbolizer_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Ssymbolizer_updated" object="${ssymbolizer}" z="PqcHXFdg3imozyz0P2fFneSlW6w="/>
     </page:show>
 </div>

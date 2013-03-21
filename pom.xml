@@ -22,8 +22,9 @@
 <!-- files and directory locations -->
   <webresources.location>${project.build.directory}/WebResources</webresources.location>
   <webresources.javascript.location>${webresources.location}/externaljs</webresources.javascript.location>
-  <dojo.version>1.7.3</dojo.version>
-  <dojo.source.basename>dojo-release-${dojo.version}</dojo.source.basename>
+  <dojo.version>1.8.3</dojo.version>
+<!--     <dojo.source.basename>dojo-release-${dojo.version}</dojo.source.basename> -->
+  <dojo.source.basename>dojo-${dojo.version}-release</dojo.source.basename>
   <dojo.source.friendlyname>dojo-${dojo.version}</dojo.source.friendlyname>
   <dojo.source.local.unpacked.location>${webresources.location}/lib</dojo.source.local.unpacked.location>
    
@@ -657,7 +658,10 @@
       <id>move</id>
       <configuration>
         <tasks>
+<!--  
           <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.dojotoolkit-dojo-zip-release-1.7.3.marker" />
+-->
+          <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.dojotoolkit-dojo-zip-release-1.8.3.marker" />
 <!--
             <delete file="${project.build.directory}/dependency-maven-plugin-markers/org.openlayers-openlayers-tar.gz-release-2.12.marker" />
 -->

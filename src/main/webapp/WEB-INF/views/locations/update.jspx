@@ -7,8 +7,8 @@
         <field:simple field="events" id="c_com_osrce_sitrep_domain_Location_events" messageCode="entity_reference_not_managed" messageCodeAttribute="Event" z="BNmAGLaCqTymtQ+xotoOzGisafk="/>
         <field:input field="source" id="c_com_osrce_sitrep_domain_Location_source" required="true" validationMessageCode="field_invalid_integer" z="uvPShktcsx3IBf7uFYX5rNB75yw="/>
         <field:checkbox field="hasData" id="c_com_osrce_sitrep_domain_Location_hasData" z="TCIZM6z7gA8AtipP5bvGgN2xecA="/>
-        <field:datetime dateTimePattern="${location_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Location_updated" required="true" z="k+yjW85bLc1kCl7m5a+RTAy9J6k="/>
         <field:input field="geometry" id="c_com_osrce_sitrep_domain_Location_geometry" z="C8PT0vrnVgflJUwJpkgPs8V9lrY="/>
         <field:input field="data" id="c_com_osrce_sitrep_domain_Location_data" z="KNpewAsKKMfKRqPCAkpBxmoDsTc="/>
+        <field:datetime dateTimePattern="${location_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Location_updated" required="true" z="k+yjW85bLc1kCl7m5a+RTAy9J6k="/>
     </form:update>
 </div>

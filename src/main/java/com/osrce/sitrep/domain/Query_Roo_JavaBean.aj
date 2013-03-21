@@ -4,6 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Query;
+import java.util.Date;
 
 privileged aspect Query_Roo_JavaBean {
     
@@ -13,6 +14,14 @@ privileged aspect Query_Roo_JavaBean {
     
     public void Query.setId(Long id) {
         this.id = id;
+    }
+    
+    public Date Query.getUpdated() {
+        return this.updated;
+    }
+    
+    public void Query.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
 }

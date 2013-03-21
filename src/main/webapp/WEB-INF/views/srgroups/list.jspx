@@ -5,10 +5,9 @@
     <page:list id="pl_com_osrce_sitrep_domain_Srgroup" items="${srgroups}" z="BDp3M7wQQcr4Yv2+1sWT+EVAxeo=">
         <table:table data="${srgroups}" id="l_com_osrce_sitrep_domain_Srgroup" path="/srgroups" z="ogtEaxR9tppzlqFxy4Co6yIRxXA=">
             <table:column id="c_com_osrce_sitrep_domain_Srgroup_name" property="name" z="sIOpWRJLJDLi+MiGN/uRlm763Kw="/>
-            <table:column id="c_com_osrce_sitrep_domain_Srgroup_parentId" property="parentId" z="GTFDCtT9EOImKgvb8F4OPNOpexo="/>
             <table:column id="c_com_osrce_sitrep_domain_Srgroup_hasData" property="hasData" z="ggnuxjLIFG0MChaGQHSCtqVxoh8="/>
             <table:column date="true" dateTimePattern="${srgroup_created_date_format}" id="c_com_osrce_sitrep_domain_Srgroup_created" property="created" z="sNXx/Hza4jMznyi9hUvBpzL8rcs="/>
-            <table:column date="true" dateTimePattern="${srgroup_updated_date_format}" id="c_com_osrce_sitrep_domain_Srgroup_updated" property="updated" z="fQWkHsDb8bW9i5AjUcETselPvss="/>
+            <table:column id="c_com_osrce_sitrep_domain_Srgroup_groupId" property="groupId" z="oMbM2+1yJmyDiJYoDzqZ9NmVzwU="/>
             <table:column id="c_com_osrce_sitrep_domain_Srgroup_data" property="data" z="l0y6eRbp2Idv+JdKz1+BLeibopA="/>
         </table:table>
     </page:list>

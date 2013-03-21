@@ -34,12 +34,6 @@ privileged aspect Style_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date Style.created = new Date();
     
-    @Column(name = "updated")
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
-    private Date Style.updated;
-    
     public String Style.getName() {
         return name;
     }
@@ -78,14 +72,6 @@ privileged aspect Style_Roo_DbManaged {
     
     public void Style.setCreated(Date created) {
         this.created = created;
-    }
-    
-    public Date Style.getUpdated() {
-        return updated;
-    }
-    
-    public void Style.setUpdated(Date updated) {
-        this.updated = updated;
     }
     
 }

@@ -27,6 +27,11 @@ public class ViewHomeController {
     public String index(ModelMap model) {
     	String message = "Hello World, Spring 3.0!";
     	model.addAttribute("message", message);
+
+    	String theGroups = Srgroup.findSrgroup( new Long( 0 ) ).toJsonFlatTreeArray();
+ //   	System.out.println("theGroups==="+theGroups);
+    	model.addAttribute("theGroups", theGroups );
+
     	
     	String theLayers = Layer.toJsonArray(Layer.findAllLayers() );
     	model.addAttribute("theLayers", theLayers );

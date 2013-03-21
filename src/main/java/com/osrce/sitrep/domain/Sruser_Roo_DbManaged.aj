@@ -31,12 +31,6 @@ privileged aspect Sruser_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date Sruser.created = new Date();
     
-    @Column(name = "updated")
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
-    private Date Sruser.updated;
-    
     public Long Sruser.getGroupId() {
         return groupId;
     }
@@ -67,14 +61,6 @@ privileged aspect Sruser_Roo_DbManaged {
     
     public void Sruser.setCreated(Date created) {
         this.created = created;
-    }
-    
-    public Date Sruser.getUpdated() {
-        return updated;
-    }
-    
-    public void Sruser.setUpdated(Date updated) {
-        this.updated = updated;
     }
     
 }

@@ -5,6 +5,7 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Hstore;
 import com.osrce.sitrep.domain.Layer;
+import java.util.Date;
 
 privileged aspect Layer_Roo_JavaBean {
     
@@ -22,6 +23,14 @@ privileged aspect Layer_Roo_JavaBean {
     
     public void Layer.setUrlparams(Hstore urlparams) {
         this.urlparams = urlparams;
+    }
+    
+    public Date Layer.getUpdated() {
+        return this.updated;
+    }
+    
+    public void Layer.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
 }

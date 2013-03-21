@@ -69,12 +69,6 @@ privileged aspect Layer_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date Layer.created = new Date();
     
-    @Column(name = "updated")
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
-    private Date Layer.updated;
-    
     public String Layer.getName() {
         return name;
     }
@@ -201,14 +195,6 @@ privileged aspect Layer_Roo_DbManaged {
     
     public void Layer.setCreated(Date created) {
         this.created = created;
-    }
-    
-    public Date Layer.getUpdated() {
-        return updated;
-    }
-    
-    public void Layer.setUpdated(Date updated) {
-        this.updated = updated;
     }
     
 }

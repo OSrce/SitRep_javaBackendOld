@@ -4,6 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Ssymbolizer;
+import java.util.Date;
 
 privileged aspect Ssymbolizer_Roo_JavaBean {
     
@@ -157,6 +158,14 @@ privileged aspect Ssymbolizer_Roo_JavaBean {
     
     public void Ssymbolizer.setGraphicOpacity(Float graphicOpacity) {
         this.graphicOpacity = graphicOpacity;
+    }
+    
+    public Date Ssymbolizer.getUpdated() {
+        return this.updated;
+    }
+    
+    public void Ssymbolizer.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
 }

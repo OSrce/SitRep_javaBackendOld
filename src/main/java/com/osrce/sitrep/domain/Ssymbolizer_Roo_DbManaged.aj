@@ -29,12 +29,6 @@ privileged aspect Ssymbolizer_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date Ssymbolizer.created = new Date();
     
-    @Column(name = "updated")
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
-    private Date Ssymbolizer.updated;
-    
     public String Ssymbolizer.getName() {
         return name;
     }
@@ -65,14 +59,6 @@ privileged aspect Ssymbolizer_Roo_DbManaged {
     
     public void Ssymbolizer.setCreated(Date created) {
         this.created = created;
-    }
-    
-    public Date Ssymbolizer.getUpdated() {
-        return updated;
-    }
-    
-    public void Ssymbolizer.setUpdated(Date updated) {
-        this.updated = updated;
     }
     
 }

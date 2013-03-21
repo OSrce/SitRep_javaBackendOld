@@ -7,7 +7,7 @@
             <table:column id="c_com_osrce_sitrep_domain_Location_source" property="source" z="bhGHOnrOeCSrnR5i39JrcQNBIhQ="/>
             <table:column id="c_com_osrce_sitrep_domain_Location_hasData" property="hasData" z="uwytNMnn2co0g8nJYMlCKuPhMek="/>
             <table:column date="true" dateTimePattern="${location_created_date_format}" id="c_com_osrce_sitrep_domain_Location_created" property="created" z="FHDndkLYjoFXv+WpBw3HWgyR7KQ="/>
-            <table:column date="true" dateTimePattern="${location_updated_date_format}" id="c_com_osrce_sitrep_domain_Location_updated" property="updated" z="fQmXBptGyOwAKP7WPo+EwcbQe0o="/>
+            <table:column id="c_com_osrce_sitrep_domain_Location_data" property="data" z="XNKIpQDAQ4PLEyp58ZQ5yiTuKD8="/>
         </table:table>
     </page:list>
 </div>

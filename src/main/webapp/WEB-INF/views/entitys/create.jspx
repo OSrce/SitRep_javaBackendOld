@@ -7,8 +7,8 @@
         <field:input field="name" id="c_com_osrce_sitrep_domain_Entity_name" required="true" z="7a3mTo8DoHFNU2kuocWa8DwnDU4="/>
         <field:checkbox field="hasData" id="c_com_osrce_sitrep_domain_Entity_hasData" z="bwR4pYJztQ0c7GjtMJxA2uvTTag="/>
         <field:input field="groupId" id="c_com_osrce_sitrep_domain_Entity_groupId" required="true" validationMessageCode="field_invalid_integer" z="ZzHWfnDRh0hHYzUmbtKYbZhWkzU="/>
-        <field:datetime dateTimePattern="${entity_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Entity_updated" required="true" z="Biv3gsIk0MiwHT34tBrWmPumfLI="/>
         <field:input field="data" id="c_com_osrce_sitrep_domain_Entity_data" z="aMGtpmylmHtdH7VGgnSCPRFoiS8="/>
+        <field:datetime dateTimePattern="${entity_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Entity_updated" required="true" z="Biv3gsIk0MiwHT34tBrWmPumfLI="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_Entity" render="${not empty dependencies}" z="E5lcmUk6Mt+dyeEos4hv/qM91GE="/>
 </div>

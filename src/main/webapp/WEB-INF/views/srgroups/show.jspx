@@ -4,9 +4,11 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_osrce_sitrep_domain_Srgroup" object="${srgroup}" path="/srgroups" z="BWFpXVkvmA54RQLH/NW9jlc+12Y=">
         <field:display field="name" id="s_com_osrce_sitrep_domain_Srgroup_name" object="${srgroup}" z="P3EZOOQVRlRT9GJIjSPCUMXWWYM="/>
-        <field:display field="parentId" id="s_com_osrce_sitrep_domain_Srgroup_parentId" object="${srgroup}" z="ni/SkIFSoH/mk7g4YWSsyq2SbCw="/>
         <field:display field="hasData" id="s_com_osrce_sitrep_domain_Srgroup_hasData" object="${srgroup}" z="M6zsB5OX8fsfzQKYhtMbU6Klez4="/>
-        <field:display date="true" dateTimePattern="${srgroup_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Srgroup_updated" object="${srgroup}" z="m+6/txRI2GSqitZU7XDtC6ROJIg="/>
         <field:display field="data" id="s_com_osrce_sitrep_domain_Srgroup_data" object="${srgroup}" z="jz0cDFg+s7b8ZTDw7QCio/iN43c="/>
+        <field:display field="groupId" id="s_com_osrce_sitrep_domain_Srgroup_groupId" object="${srgroup}" z="M/Ug0+uMnhLxDLebVfUSod/A2K0="/>
+        <field:display date="true" dateTimePattern="${srgroup_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Srgroup_updated" object="${srgroup}" z="m+6/txRI2GSqitZU7XDtC6ROJIg="/>
+        <field:display field="parent" id="s_com_osrce_sitrep_domain_Srgroup_parent" object="${srgroup}" z="Y7Er476kwn6KclKP0+YcSh8PZUA="/>
+        <field:display field="parentGroup" id="s_com_osrce_sitrep_domain_Srgroup_parentGroup" object="${srgroup}" z="IPibwQ93ZZ5Dd/qTZjtSny3YdzU="/>
     </page:show>
 </div>

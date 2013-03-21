@@ -37,12 +37,6 @@ privileged aspect Srule_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date Srule.created = new Date();
     
-    @Column(name = "updated")
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
-    private Date Srule.updated;
-    
     public String Srule.getName() {
         return name;
     }
@@ -89,14 +83,6 @@ privileged aspect Srule_Roo_DbManaged {
     
     public void Srule.setCreated(Date created) {
         this.created = created;
-    }
-    
-    public Date Srule.getUpdated() {
-        return updated;
-    }
-    
-    public void Srule.setUpdated(Date updated) {
-        this.updated = updated;
     }
     
 }

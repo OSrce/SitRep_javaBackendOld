@@ -535,3 +535,18 @@ test integration --entity ~.domain.Srmap
 perform tests
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-16 23:09:41
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-17 22:31:16
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables  "entity  entity_status event layer location query srgroup sruser srmap style srule ssymbolizer"
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-18 17:14:24
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-19 10:30:10
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables  "entity  entity_status event layer location query srgroup sruser srmap style srule ssymbolizer"
+database reverse engineer --package ~.domain --schema PUBLIC --includeTables  "entity  entity_status event layer location query srgroup sruser srmap style srule ssymbolizer"
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-19 18:18:11
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-19 20:26:22
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-19 22:33:40
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-19 22:37:26
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-20 00:31:27
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-20 09:44:34
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-20 18:53:31
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-20 19:39:25
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2013-03-20 22:15:51
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2013-03-20 22:47:36

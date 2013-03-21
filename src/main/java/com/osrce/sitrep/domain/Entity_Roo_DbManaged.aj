@@ -37,12 +37,6 @@ privileged aspect Entity_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date Entity.created = new Date();
     
-    @Column(name = "updated")
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
-    private Date Entity.updated;
-    
     public Set<EntityStatus> Entity.getEntityStatuses() {
         return entityStatuses;
     }
@@ -81,14 +75,6 @@ privileged aspect Entity_Roo_DbManaged {
     
     public void Entity.setCreated(Date created) {
         this.created = created;
-    }
-    
-    public Date Entity.getUpdated() {
-        return updated;
-    }
-    
-    public void Entity.setUpdated(Date updated) {
-        this.updated = updated;
     }
     
 }

@@ -4,10 +4,14 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_osrce_sitrep_domain_Srgroup" modelAttribute="srgroup" path="/srgroups" render="${empty dependencies}" z="zvpWQNP3yOPLYhdyk+vJgp/3XSQ=">
         <field:input field="name" id="c_com_osrce_sitrep_domain_Srgroup_name" required="true" z="fVyujiP2tXTs7UAp1sjJPedoy8o="/>
-        <field:input field="parentId" id="c_com_osrce_sitrep_domain_Srgroup_parentId" required="true" validationMessageCode="field_invalid_integer" z="g0zJEIgh2iAoi/r1UQ8IhMYedls="/>
         <field:checkbox field="hasData" id="c_com_osrce_sitrep_domain_Srgroup_hasData" z="S1jXrrXzJZJvurHdgNN4MDLuGQk="/>
-        <field:datetime dateTimePattern="${srgroup_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Srgroup_updated" required="true" z="5AHojKW4x+7tfVhkPCCJwha+u/s="/>
         <field:input field="data" id="c_com_osrce_sitrep_domain_Srgroup_data" z="uVYuzfnFhux3gPHOhVDdqDiWFLI="/>
+        <field:input field="groupId" id="c_com_osrce_sitrep_domain_Srgroup_groupId" required="true" validationMessageCode="field_invalid_integer" z="QLYyao5YpP33cioOZbCp3wwbcsU="/>
+        <field:simple field="srgroups" id="c_com_osrce_sitrep_domain_Srgroup_srgroups" messageCode="entity_reference_not_managed" messageCodeAttribute="Srgroup" z="Fb7fi1ZT32D7UL1QwzBrrLzyl2c="/>
+        <field:simple field="children" id="c_com_osrce_sitrep_domain_Srgroup_children" messageCode="entity_reference_not_managed" messageCodeAttribute="Srgroup" z="r2kmOcGbGryWBxhel95AFznthzQ="/>
+        <field:datetime dateTimePattern="${srgroup_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Srgroup_updated" required="true" z="5AHojKW4x+7tfVhkPCCJwha+u/s="/>
+        <field:input field="parent" id="c_com_osrce_sitrep_domain_Srgroup_parent" validationMessageCode="field_invalid_integer" z="yV36sQh5O5IynP2Upm2cLw4Gmqc="/>
+        <field:select field="parentGroup" id="c_com_osrce_sitrep_domain_Srgroup_parentGroup" itemValue="id" items="${srgroups}" path="/srgroups" z="yrrt551mcKprQ43hFmo4cnnzyX8="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_Srgroup" render="${not empty dependencies}" z="u6BaBZolqZwA1/wejckeiE7q9l4="/>
 </div>

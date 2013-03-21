@@ -92,9 +92,9 @@ privileged aspect EntityStatusController_Roo_Controller {
     
     void EntityStatusController.addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("entityStatus_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("entityStatus_updated_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("entityStatus_databegin_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("entityStatus_dataend_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("entityStatus_updated_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     void EntityStatusController.populateEditForm(Model uiModel, EntityStatus entityStatus) {

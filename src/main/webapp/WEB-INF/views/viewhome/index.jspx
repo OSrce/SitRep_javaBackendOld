@@ -74,6 +74,8 @@
 			
 			loadsrd.srd_queryArr = [{"children":false,"data":"{\"SREXPR\": \"( cfs_finaldis IS NULL OR cfs_finaldisdate >= current_timestamp - interval '15 minutes' ) AND cfs_priority=1\" }","id":1,"name":"Priority 1","notes":"Priority 1 CFS - Citywide","parent":0} ]
 			
+			loadsrd.theGroups = ${theGroups};
+			
 			loadsrd.theLayers = ${theLayers};
 			
 			loadsrd.theStyles = ${theStyles};
@@ -93,11 +95,11 @@
 
 			
 			require([
-				"srd/srd_document",
+				"srd/dashboard/desktop",
 				"dojo/domReady!"
 			], function( srd_document ) {
 				srd = srd_document(loadsrd);
-				srd.srd_init();
+//				srd.srd_init();
 			} );
 			
 			</script>

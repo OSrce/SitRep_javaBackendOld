@@ -153,15 +153,29 @@
     </table>
     <table alias="public" name="srgroup">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
+        <column name="group_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
+        <column name="parent" primaryKey="false" required="false" scale="0" size="19" type="-5,int8"/>
         <column name="name" primaryKey="false" required="true" scale="0" size="128" type="12,varchar"/>
-        <column name="parent_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
         <column name="has_data" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
         <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
         <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
         <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <foreign-key foreignTable="srgroup" name="srgroup_parent_fkey" onDelete="none" onUpdate="none">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="parent"/>
+        </foreign-key>
+        <foreign-key foreignTable="srgroup" name="srgroup_parent_fkey" onDelete="none" onUpdate="none">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="true"/>
+            <reference foreign="parent" local="id"/>
+        </foreign-key>
         <unique name="srgroup_pkey">
             <unique-column name="id"/>
         </unique>
+        <index name="srgroup_idx">
+            <index-column name="group_id"/>
+        </index>
     </table>
     <table alias="public" name="srmap">
         <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>

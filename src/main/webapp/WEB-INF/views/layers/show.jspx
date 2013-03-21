@@ -16,9 +16,9 @@
         <field:display field="defaultstyle" id="s_com_osrce_sitrep_domain_Layer_defaultstyle" object="${layer}" z="SGaqv450OT5YPbeRuLWexdotojQ="/>
         <field:display field="bgcolor" id="s_com_osrce_sitrep_domain_Layer_bgcolor" object="${layer}" z="9o9Aw1HckuLlfrUucfoqr7ILBtE="/>
         <field:display field="opacity" id="s_com_osrce_sitrep_domain_Layer_opacity" object="${layer}" z="dcVfyXuNzv4bGlSY6ZxUfDUnak0="/>
-        <field:display date="true" dateTimePattern="${layer_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Layer_updated" object="${layer}" z="D5brwrsDcOMLcMFdEKq0yy+stAg="/>
         <field:display field="urlparams" id="s_com_osrce_sitrep_domain_Layer_urlparams" object="${layer}" z="fUBMZwr2DWDRDmVltvqorRY50P0="/>
         <field:display field="ltype" id="s_com_osrce_sitrep_domain_Layer_ltype" object="${layer}" z="rM50s1kneA+OMIr6vx7P8kj33fU="/>
         <field:display field="lformat" id="s_com_osrce_sitrep_domain_Layer_lformat" object="${layer}" z="h1z6wyUR/U8nOlv4UHmwWtaqunE="/>
+        <field:display date="true" dateTimePattern="${layer_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Layer_updated" object="${layer}" z="D5brwrsDcOMLcMFdEKq0yy+stAg="/>
     </page:show>
 </div>

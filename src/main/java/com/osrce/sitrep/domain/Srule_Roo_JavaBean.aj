@@ -4,6 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Srule;
+import java.util.Date;
 
 privileged aspect Srule_Roo_JavaBean {
     
@@ -13,6 +14,14 @@ privileged aspect Srule_Roo_JavaBean {
     
     public void Srule.setId(Long id) {
         this.id = id;
+    }
+    
+    public Date Srule.getUpdated() {
+        return this.updated;
+    }
+    
+    public void Srule.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
 }

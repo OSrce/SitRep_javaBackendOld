@@ -91,9 +91,9 @@ privileged aspect EventController_Roo_Controller {
     
     void EventController.addDateTimeFormatPatterns(Model uiModel) {
         uiModel.addAttribute("event_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("event_updated_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("event_databegin_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("event_dataend_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("event_updated_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     void EventController.populateEditForm(Model uiModel, Event event) {

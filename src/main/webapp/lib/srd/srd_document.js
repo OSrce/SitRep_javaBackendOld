@@ -14,6 +14,7 @@ define( [
 	"dojo/_base/declare",
 	"srd/srd_rtc",
 	"srd/srd_layer",
+	"srd/view_layertree",
 	"srd/srd_view",
 	"srd/srd_gridContainer",
 	"srd/srd_view_map",
@@ -33,7 +34,7 @@ define( [
 	"dijit/form/ComboBox",
 	"dojo/domReady!"
 //] , function( doc_include,  declare, srd_rtc, srd_layer, srd_view, srd_gridContainer  ) {
-] , function( declare, srd_rtc, srd_layer, srd_view, srd_gridContainer  ) {
+] , function( declare, srd_rtc, srd_layer, view_layertree, srd_view, srd_gridContainer  ) {
 
 /*dojo.provide("ComboBoxReadStore");
 dojo.declare(
@@ -463,6 +464,9 @@ srd_init : function() {
 //	}.bind(this) );
 
 //	this.srd_displayMenuBar();
+	
+//	this.view_layertree = new view_layertree( this.loadsrd.theGroups, this);
+	
 	
 	//TODO PUT BACK IN FOR COMETD STUFF.
 //	this.rtc = new srd_rtc(this);

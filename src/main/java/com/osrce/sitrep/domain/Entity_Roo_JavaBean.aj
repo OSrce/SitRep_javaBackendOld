@@ -5,6 +5,7 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Entity;
 import com.osrce.sitrep.domain.Hstore;
+import java.util.Date;
 
 privileged aspect Entity_Roo_JavaBean {
     
@@ -22,6 +23,14 @@ privileged aspect Entity_Roo_JavaBean {
     
     public void Entity.setData(Hstore data) {
         this.data = data;
+    }
+    
+    public Date Entity.getUpdated() {
+        return this.updated;
+    }
+    
+    public void Entity.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
 }

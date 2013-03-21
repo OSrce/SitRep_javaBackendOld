@@ -6,6 +6,7 @@ package com.osrce.sitrep.domain;
 import com.osrce.sitrep.domain.Hstore;
 import com.osrce.sitrep.domain.Location;
 import com.vividsolutions.jts.geom.Geometry;
+import java.util.Date;
 
 privileged aspect Location_Roo_JavaBean {
     
@@ -23,6 +24,14 @@ privileged aspect Location_Roo_JavaBean {
     
     public void Location.setData(Hstore data) {
         this.data = data;
+    }
+    
+    public Date Location.getUpdated() {
+        return this.updated;
+    }
+    
+    public void Location.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
     public Geometry Location.getGeometry() {

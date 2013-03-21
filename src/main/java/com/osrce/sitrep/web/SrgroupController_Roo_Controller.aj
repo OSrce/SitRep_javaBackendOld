@@ -96,6 +96,7 @@ privileged aspect SrgroupController_Roo_Controller {
     void SrgroupController.populateEditForm(Model uiModel, Srgroup srgroup) {
         uiModel.addAttribute("srgroup", srgroup);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("srgroups", Srgroup.findAllSrgroups());
     }
     
     String SrgroupController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

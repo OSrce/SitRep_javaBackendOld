@@ -4,6 +4,7 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Style;
+import java.util.Date;
 
 privileged aspect Style_Roo_JavaBean {
     
@@ -13,6 +14,14 @@ privileged aspect Style_Roo_JavaBean {
     
     public void Style.setId(Long id) {
         this.id = id;
+    }
+    
+    public Date Style.getUpdated() {
+        return this.updated;
+    }
+    
+    public void Style.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
 }

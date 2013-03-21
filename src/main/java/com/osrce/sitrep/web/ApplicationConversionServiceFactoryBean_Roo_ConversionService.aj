@@ -51,7 +51,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<EntityStatus, String> ApplicationConversionServiceFactoryBean.getEntityStatusToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.EntityStatus, java.lang.String>() {
             public String convert(EntityStatus entityStatus) {
-                return new StringBuilder().append(entityStatus.getCreated()).append(' ').append(entityStatus.getUpdated()).append(' ').append(entityStatus.getDataBegin()).append(' ').append(entityStatus.getDataEnd()).toString();
+                return new StringBuilder().append(entityStatus.getCreated()).append(' ').append(entityStatus.getDataBegin()).append(' ').append(entityStatus.getDataEnd()).append(' ').append(entityStatus.getUpdated()).toString();
             }
         };
     }
@@ -75,7 +75,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Event, String> ApplicationConversionServiceFactoryBean.getEventToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Event, java.lang.String>() {
             public String convert(Event event) {
-                return new StringBuilder().append(event.getGroupId()).append(' ').append(event.getCreated()).append(' ').append(event.getUpdated()).append(' ').append(event.getDataBegin()).toString();
+                return new StringBuilder().append(event.getGroupId()).append(' ').append(event.getCreated()).append(' ').append(event.getDataBegin()).append(' ').append(event.getDataEnd()).toString();
             }
         };
     }
@@ -171,7 +171,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Srgroup, String> ApplicationConversionServiceFactoryBean.getSrgroupToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.osrce.sitrep.domain.Srgroup, java.lang.String>() {
             public String convert(Srgroup srgroup) {
-                return new StringBuilder().append(srgroup.getName()).append(' ').append(srgroup.getParentId()).append(' ').append(srgroup.getCreated()).append(' ').append(srgroup.getUpdated()).toString();
+                return new StringBuilder().append(srgroup.getGroupId()).append(' ').append(srgroup.getName()).append(' ').append(srgroup.getCreated()).append(' ').append(srgroup.getUpdated()).toString();
             }
         };
     }

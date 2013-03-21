@@ -5,6 +5,8 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Hstore;
 import com.osrce.sitrep.domain.Srgroup;
+import java.util.Date;
+import java.util.Set;
 
 privileged aspect Srgroup_Roo_JavaBean {
     
@@ -22,6 +24,38 @@ privileged aspect Srgroup_Roo_JavaBean {
     
     public void Srgroup.setData(Hstore data) {
         this.data = data;
+    }
+    
+    public Date Srgroup.getUpdated() {
+        return this.updated;
+    }
+    
+    public void Srgroup.setUpdated(Date updated) {
+        this.updated = updated;
+    }
+    
+    public Long Srgroup.getParent() {
+        return this.parent;
+    }
+    
+    public void Srgroup.setParent(Long parent) {
+        this.parent = parent;
+    }
+    
+    public Srgroup Srgroup.getParentGroup() {
+        return this.parentGroup;
+    }
+    
+    public void Srgroup.setParentGroup(Srgroup parentGroup) {
+        this.parentGroup = parentGroup;
+    }
+    
+    public Set<Srgroup> Srgroup.getChildren() {
+        return this.children;
+    }
+    
+    public void Srgroup.setChildren(Set<Srgroup> children) {
+        this.children = children;
     }
     
 }

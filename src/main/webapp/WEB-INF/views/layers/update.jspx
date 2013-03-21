@@ -16,9 +16,9 @@
         <field:input field="defaultstyle" id="c_com_osrce_sitrep_domain_Layer_defaultstyle" validationMessageCode="field_invalid_integer" z="Esg4NCOjhRsOPQjt8pC6j789XnY="/>
         <field:input field="bgcolor" id="c_com_osrce_sitrep_domain_Layer_bgcolor" z="O7QJfqKqidb6kdKQRkxWfTK3tp8="/>
         <field:input field="opacity" id="c_com_osrce_sitrep_domain_Layer_opacity" validationMessageCode="field_invalid_number" z="nn1hw9XSGhJCm9UwVm7L15/CkiU="/>
-        <field:datetime dateTimePattern="${layer_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Layer_updated" required="true" z="mlnJQgVjx81rHYJgKQYXubbzpg8="/>
         <field:input field="urlparams" id="c_com_osrce_sitrep_domain_Layer_urlparams" z="/lhX3dqBuYz/udB1IDYTLJ5oiPY="/>
         <field:input field="ltype" id="c_com_osrce_sitrep_domain_Layer_ltype" required="true" z="pHmzR9xggKxJaBEzzxCeIOk2q/A="/>
         <field:input field="lformat" id="c_com_osrce_sitrep_domain_Layer_lformat" z="1yH8jWJuk6QQe9TVJ0o5iITEO8A="/>
+        <field:datetime dateTimePattern="${layer_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Layer_updated" required="true" z="mlnJQgVjx81rHYJgKQYXubbzpg8="/>
     </form:update>
 </div>

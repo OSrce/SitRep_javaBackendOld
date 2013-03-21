@@ -6,7 +6,6 @@
         <field:input field="name" id="c_com_osrce_sitrep_domain_Ssymbolizer_name" required="true" z="ubNctbS/QCH6xRpy/LKsWm+jdZ4="/>
         <field:input field="label" id="c_com_osrce_sitrep_domain_Ssymbolizer_label" z="+BmCOurXUNHoFCtkXp8Y9ENPZJk="/>
         <field:input field="rotation" id="c_com_osrce_sitrep_domain_Ssymbolizer_rotation" validationMessageCode="field_invalid_integer" z="AdjUvC3Y+QFuna5sSnvWKFqluFc="/>
-        <field:datetime dateTimePattern="${ssymbolizer_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Ssymbolizer_updated" required="true" z="w/5aXWbCpsnFWFQXgAYOIVFsuGY="/>
         <field:input field="fillColor" id="c_com_osrce_sitrep_domain_Ssymbolizer_fillColor" z="yUcA+OvBqJqOD4qf1a+q1G2ftf8="/>
         <field:input field="fillOpacity" id="c_com_osrce_sitrep_domain_Ssymbolizer_fillOpacity" validationMessageCode="field_invalid_number" z="VDsc2VknYmx/Plt+syl7ZsePH3U="/>
         <field:input field="strokeColor" id="c_com_osrce_sitrep_domain_Ssymbolizer_strokeColor" z="m7V4aNmoUol/g8l4kEDieBM2QaA="/>
@@ -25,6 +24,7 @@
         <field:input field="graphicWidth" id="c_com_osrce_sitrep_domain_Ssymbolizer_graphicWidth" validationMessageCode="field_invalid_integer" z="dBxeVnFc82HJiDHjodcz2AOjUWw="/>
         <field:input field="graphicHeight" id="c_com_osrce_sitrep_domain_Ssymbolizer_graphicHeight" validationMessageCode="field_invalid_integer" z="8XZmF41PNXmbs45MA2qq/aub9Vo="/>
         <field:input field="graphicOpacity" id="c_com_osrce_sitrep_domain_Ssymbolizer_graphicOpacity" validationMessageCode="field_invalid_number" z="dhDgaaId7SX8dwu7LZRyTdDJJuA="/>
+        <field:datetime dateTimePattern="${ssymbolizer_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Ssymbolizer_updated" required="true" z="w/5aXWbCpsnFWFQXgAYOIVFsuGY="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_Ssymbolizer" render="${not empty dependencies}" z="aYiBD+5IZWzlolx3ELMYWnxvRCE="/>
 </div>

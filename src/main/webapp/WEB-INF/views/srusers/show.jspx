@@ -6,7 +6,7 @@
         <field:display field="groupId" id="s_com_osrce_sitrep_domain_Sruser_groupId" object="${sruser}" z="R2pZvfJD6VNP5ciXNdUj67Euvlw="/>
         <field:display field="name" id="s_com_osrce_sitrep_domain_Sruser_name" object="${sruser}" z="y9s4ehIDuefx7mnUTNh4HctuMPY="/>
         <field:display field="hasData" id="s_com_osrce_sitrep_domain_Sruser_hasData" object="${sruser}" z="Im7RR6Z3Ju4gNGqE/x2HWN8Q2ZI="/>
-        <field:display date="true" dateTimePattern="${sruser_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Sruser_updated" object="${sruser}" z="J+++cYkUu7Vslcd2QHkObKOJdtc="/>
         <field:display field="data" id="s_com_osrce_sitrep_domain_Sruser_data" object="${sruser}" z="Vs9MhqsoxXsfiu+luIa6NlfxIvs="/>
+        <field:display date="true" dateTimePattern="${sruser_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Sruser_updated" object="${sruser}" z="J+++cYkUu7Vslcd2QHkObKOJdtc="/>
     </page:show>
 </div>

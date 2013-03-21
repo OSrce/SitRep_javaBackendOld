@@ -9,9 +9,9 @@
         <field:datetime dateTimePattern="${entityStatus_databegin_date_format}" field="dataBegin" id="c_com_osrce_sitrep_domain_EntityStatus_dataBegin" z="B7QkUtio0m/aStvnn2VO9kAg6Ys="/>
         <field:datetime dateTimePattern="${entityStatus_dataend_date_format}" field="dataEnd" id="c_com_osrce_sitrep_domain_EntityStatus_dataEnd" z="vH6/nOgHVBcn2wB2Kq9yiKSn6IM="/>
         <field:select field="location" id="c_com_osrce_sitrep_domain_EntityStatus_location" itemValue="id" items="${locations}" path="/locations" z="piCxv1zY7WGgao4x87IhN0TkDgM="/>
-        <field:datetime dateTimePattern="${entityStatus_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_EntityStatus_updated" required="true" z="nB8GUIL1Ums0fY3s1D0RmGzYYF0="/>
         <field:input field="data" id="c_com_osrce_sitrep_domain_EntityStatus_data" z="OmAFjOv2xEb6DnYiHiBTpfgXpxA="/>
         <field:checkbox field="hasLocation" id="c_com_osrce_sitrep_domain_EntityStatus_hasLocation" z="Erb+U9EUJ/ybDpWPQPRyfXrOXOc="/>
         <field:select field="entity" id="c_com_osrce_sitrep_domain_EntityStatus_entity" itemValue="id" items="${entitys}" path="/entitys" z="hI37Z7wuiHPTMoMIseUia2S5s8o="/>
+        <field:datetime dateTimePattern="${entityStatus_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_EntityStatus_updated" required="true" z="nB8GUIL1Ums0fY3s1D0RmGzYYF0="/>
     </form:update>
 </div>

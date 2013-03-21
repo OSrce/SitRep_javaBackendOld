@@ -5,6 +5,7 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Hstore;
 import com.osrce.sitrep.domain.Sruser;
+import java.util.Date;
 
 privileged aspect Sruser_Roo_JavaBean {
     
@@ -22,6 +23,14 @@ privileged aspect Sruser_Roo_JavaBean {
     
     public void Sruser.setData(Hstore data) {
         this.data = data;
+    }
+    
+    public Date Sruser.getUpdated() {
+        return this.updated;
+    }
+    
+    public void Sruser.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
 }

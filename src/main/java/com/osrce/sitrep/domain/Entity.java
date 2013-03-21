@@ -3,6 +3,7 @@ package com.osrce.sitrep.domain;
 import com.vividsolutions.jts.geom.Geometry;
 import flexjson.JSONSerializer;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +14,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
+import javax.validation.constraints.NotNull;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.annotations.Generated;
@@ -22,6 +26,7 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.ejb.HibernateEntityManager;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.dbre.RooDbManaged;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
@@ -44,6 +49,12 @@ public class Entity {
     @Type(type = "hstore")
     @Column(name = "data", columnDefinition = "hstore")
     private Hstore data = new Hstore();
+
+    @Column(name = "updated", updatable = false)
+    @NotNull
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(style = "M-")
+    private Date updated;
 
     public String toJson() {
         System.out.println("TEST=== Entity toJson called!");

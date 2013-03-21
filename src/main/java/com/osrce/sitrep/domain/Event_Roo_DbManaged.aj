@@ -46,12 +46,6 @@ privileged aspect Event_Roo_DbManaged {
     @DateTimeFormat(style = "M-")
     private Date Event.created = new Date();
     
-    @Column(name = "updated")
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
-    private Date Event.updated;
-    
     @Column(name = "data_begin")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
@@ -116,14 +110,6 @@ privileged aspect Event_Roo_DbManaged {
     
     public void Event.setCreated(Date created) {
         this.created = created;
-    }
-    
-    public Date Event.getUpdated() {
-        return updated;
-    }
-    
-    public void Event.setUpdated(Date updated) {
-        this.updated = updated;
     }
     
     public Date Event.getDataBegin() {

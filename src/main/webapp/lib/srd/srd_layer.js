@@ -18,6 +18,7 @@ define([
 //srd_layer constructor 
 constructor : function ( ) {
 	
+	
 	//BEGIN SRCLUSTER 
 	this.srcluster = OpenLayers.Class(OpenLayers.Strategy.Cluster, {
 		countOnAttribute: null,

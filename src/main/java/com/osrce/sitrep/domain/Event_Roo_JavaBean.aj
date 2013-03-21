@@ -5,6 +5,7 @@ package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Event;
 import com.osrce.sitrep.domain.Hstore;
+import java.util.Date;
 
 privileged aspect Event_Roo_JavaBean {
     
@@ -22,6 +23,14 @@ privileged aspect Event_Roo_JavaBean {
     
     public void Event.setData(Hstore data) {
         this.data = data;
+    }
+    
+    public Date Event.getUpdated() {
+        return this.updated;
+    }
+    
+    public void Event.setUpdated(Date updated) {
+        this.updated = updated;
     }
     
 }
