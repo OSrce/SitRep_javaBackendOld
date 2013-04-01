@@ -4,14 +4,20 @@
 package com.osrce.sitrep.domain;
 
 import com.osrce.sitrep.domain.Layer;
+import com.osrce.sitrep.domain.Lstrategy;
 import java.util.Date;
+import java.util.Set;
 import javax.persistence.Column;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 privileged aspect Layer_Roo_DbManaged {
+    
+    @OneToMany(mappedBy = "layerId")
+    private Set<Lstrategy> Layer.lstrategies;
     
     @Column(name = "name", length = 128)
     @NotNull
@@ -68,6 +74,14 @@ privileged aspect Layer_Roo_DbManaged {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date Layer.created = new Date();
+    
+    public Set<Lstrategy> Layer.getLstrategies() {
+        return lstrategies;
+    }
+    
+    public void Layer.setLstrategies(Set<Lstrategy> lstrategies) {
+        this.lstrategies = lstrategies;
+    }
     
     public String Layer.getName() {
         return name;

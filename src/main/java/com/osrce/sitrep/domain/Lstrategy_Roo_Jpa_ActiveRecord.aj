@@ -3,69 +3,73 @@
 
 package com.osrce.sitrep.domain;
 
-import com.osrce.sitrep.domain.Sruser;
+import com.osrce.sitrep.domain.Lstrategy;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
-privileged aspect Sruser_Roo_Jpa_ActiveRecord {
+privileged aspect Lstrategy_Roo_Jpa_ActiveRecord {
     
-    public static final EntityManager Sruser.entityManager() {
-        EntityManager em = new Sruser().entityManager;
+    @PersistenceContext
+    transient EntityManager Lstrategy.entityManager;
+    
+    public static final EntityManager Lstrategy.entityManager() {
+        EntityManager em = new Lstrategy().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long Sruser.countSrusers() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM Sruser o", Long.class).getSingleResult();
+    public static long Lstrategy.countLstrategys() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM Lstrategy o", Long.class).getSingleResult();
     }
     
-    public static List<Sruser> Sruser.findAllSrusers() {
-        return entityManager().createQuery("SELECT o FROM Sruser o", Sruser.class).getResultList();
+    public static List<Lstrategy> Lstrategy.findAllLstrategys() {
+        return entityManager().createQuery("SELECT o FROM Lstrategy o", Lstrategy.class).getResultList();
     }
     
-    public static Sruser Sruser.findSruser(Long id) {
+    public static Lstrategy Lstrategy.findLstrategy(Long id) {
         if (id == null) return null;
-        return entityManager().find(Sruser.class, id);
+        return entityManager().find(Lstrategy.class, id);
     }
     
-    public static List<Sruser> Sruser.findSruserEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Sruser o", Sruser.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<Lstrategy> Lstrategy.findLstrategyEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM Lstrategy o", Lstrategy.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
-    public void Sruser.persist() {
+    public void Lstrategy.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
     
     @Transactional
-    public void Sruser.remove() {
+    public void Lstrategy.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Sruser attached = Sruser.findSruser(this.id);
+            Lstrategy attached = Lstrategy.findLstrategy(this.id);
             this.entityManager.remove(attached);
         }
     }
     
     @Transactional
-    public void Sruser.flush() {
+    public void Lstrategy.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
     
     @Transactional
-    public void Sruser.clear() {
+    public void Lstrategy.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
     
     @Transactional
-    public Sruser Sruser.merge() {
+    public Lstrategy Lstrategy.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        Sruser merged = this.entityManager.merge(this);
+        Lstrategy merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }

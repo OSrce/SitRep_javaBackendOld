@@ -41,7 +41,8 @@ define( 'srd/view/map', [
 //			this.map = this.srd_doc.map;
 			this.srd_layerArr = this.srd_doc.srd_layerArr;
 			this.contentPane = new dijit.layout.ContentPane(
-				{  splitter: 'false', style: "background-color:black;width:100%;height:100%;border:0px;margin:0px;padding:0px;",
+				{  
+					style: "background-color:black;width:100%;height:100%;border:0px;margin:0px;padding:0px;",
 					region: this.data.region
 				} );
 			
@@ -52,7 +53,7 @@ define( 'srd/view/map', [
 			this.dndTarget = new Target( this.contentPane.domNode, { 
 				checkAcceptance: this.dndCheckAcceptance
 			} );			
-			aspect.after(this.dndTarget, "onDrop", lang.hitch( this, "addLayerToMap") );
+			aspect.after(this.dndTarget, "onDrop", lang.hitch( this, "addLayerToView") );
 			
 			
 			
@@ -298,8 +299,8 @@ define( 'srd/view/map', [
 		},
 		///END DESTORY
 		
-		//BEGIN addLayerToMap
-		addLayerToMap : function(source, dndObject) {
+		//BEGIN addLayerToView
+		addLayerToView : function(source, dndObject) {
 			var source = dndObject[0];
 			var nodes = dndObject[1];
 	//		var copy = dndObject[2];
@@ -336,15 +337,11 @@ define( 'srd/view/map', [
 
 		
 		},
-		//END addLayerToMap
+		//END addLayerToView
 		
-		dndCheckAcceptance: function( source, nodes) {
-			console.log("dndCheckAcceptance Called!");
-			source.forInSelectedItems( function(item){
-				console.log("testing to drop item of type " + item.type[0] + " and data " + item.data );
-			} );
-			return true;
-		}
+	
+		
+		
 		
 		
 	} );

@@ -10,162 +10,20 @@
 define([
 	"dojo/_base/declare",
 	"srd/srd_editPalette",
+	"srd/ol/format",
+	"srd/ol/protocol",
+	"srd/ol/cluster",
 	"dojox/timing/Sequence"
-], function(declare , srd_editPalette) {
+], function(declare , srd_editPalette, Format, Protocol, Cluster) {
 //OpenLayers.ProxyHost = "/cgi-bin/proxy.cgi?url=";
 
 	return declare( [], {
+		
+
+		
 //srd_layer constructor 
 constructor : function ( ) {
-	
-	
-	//BEGIN SRCLUSTER 
-	this.srcluster = OpenLayers.Class(OpenLayers.Strategy.Cluster, {
-		countOnAttribute: null,
-		addToCluster: function(cluster, feature) {
-	        cluster.cluster.push(feature);
-	        if(this.countOnAttribute != null) {
-	        	var keys = this.countOnAttribute.split('.');
-				var clusterAtt = cluster.attributes;
-				var featureAtt = feature.attributes;
-				while (keys.length > 0) {
-					var key = keys.shift();
-					if (typeof featureAtt[key] !== 'undefined' ) {
-						if(keys.length > 0) {
-							featureAtt = featureAtt[key];
-							clusterAtt = clusterAtt[key];
-						} else { 
-							clusterAtt[key] += parseFloat( featureAtt[key]) ;
-						}
-					} else {
-						break;
-					}
-				}
-	        }
-	        cluster.attributes.count += 1;
-	    },
-	    createCluster: function(feature) {
-	        var center = feature.geometry.getBounds().getCenterLonLat();
-
-	        var clusterAtt = { count:1 };
-	        var clusterAttributes = clusterAtt;
-	        if(this.countOnAttribute != null) {
-	        	var keys = this.countOnAttribute.split('.');
-				var featureAtt = feature.attributes;
-				while (keys.length > 0) {
-					var key = keys.shift();
-//					console.log("KEY==="+key);
-					if (typeof featureAtt[key] !== 'undefined') {
-						featureAtt = featureAtt[key];
-						if(typeof featureAtt == "object") {
-							clusterAtt[key] = {};
-						} else {
-							clusterAtt[key] = parseFloat( featureAtt );
-						}
-						clusterAtt = clusterAtt[key];
-					} else {
-						break;
-					}
-				}
-	        }  
-	        var cluster = new OpenLayers.Feature.Vector(
-	            new OpenLayers.Geometry.Point(center.lon, center.lat),
-	            clusterAttributes
-	        );
-	        cluster.cluster = [feature];
-	        return cluster;
-	    }
-	} ) ;
-	
-	
-		//BEGIN SRJSON FORMAT
-		this.srjsonFormat = OpenLayers.Class(OpenLayers.Format, {
-			
-			read: function(obj) {
-//			    	console.log("srjsonFormat.read Called");
-//			    	console.dir(obj);
-/*
-			        if(obj.stat === 'fail') {
-			            throw new Error(
-			                ['SRJSON failure response (',
-			                 obj.code,
-			                 '): ',
-			                 obj.message].join(''));
-			        }
-*/
-//			        if(!obj || !obj.photos || !OpenLayers.Util.isArray(obj.photos.photo)) {
-			        if(!OpenLayers.Util.isArray(obj) ) { 
-			        	throw new Error(
-			                'Unexpected SRJSON response');
-			        }
-			        var format = new OpenLayers.Format.WKT( {
-						externalProjection : new OpenLayers.Projection("EPSG:4326"),
-						internalProjection : new OpenLayers.Projection("EPSG:900913")
-					} );
-			        
-			        var feature, features = [];
-			        var theFeat;
-			        for(var i=0,l=obj.length; i<l; i++) {
-			            theFeat = obj[i];
-			            
-						if(theFeat['class'] == 'com.osrce.sitrep.domain.EntityStatus') {
-							if(theFeat.hasLocation == true ) {
-								feature = format.read( theFeat.location.geometry );
-//					            var geometry = new OpenLayers.Geometry.fromWKT(theFeat.location.geometry);			            								
-								//var attributes = {};
-								feature.attributes.data = theFeat.data;
-								feature.attributes.entity = theFeat.entity.data;
-								feature.attributes.name = theFeat.entity.name;
-//								feature = new OpenLayers.Feature.Vector(geometry, attributes );
-								feature.db_id = theFeat.entity.id;
-
-							}
-						} else if(theFeat['class'] == 'com.osrce.sitrep.domain.Event') {
-							if(theFeat.hasLocation == true) {
-								feature = format.read( theFeat.location.geometry );
-
-//								var geometry = new OpenLayers.Geometry.fromWKT(theFeat.location.geometry);			            								
-//								var attributes = {};
-								feature.attributes.data = theFeat.data;
-//								feature = new OpenLayers.Feature.Vector(geometry, attributes );
-								feature.db_id = theFeat.id;
-							}
-//						} else if(this.options.url == '/srmaps') {
-						} else {
-							if(theFeat.geometry) {
-								feature = format.read( theFeat.geometry );
-//								var geometry = new OpenLayers.Geometry.fromWKT(theFeat.geometry);			            								
-//								var attributes = {};
-								feature.attributes.data = theFeat.data;
-//								feature = new OpenLayers.Feature.Vector(geometry, attributes );
-								feature.db_id = theFeat.id;
-							}
-						}
-						if(feature) {
-							features.push(feature);
-						}
-					}
-			        return features;
-			    }
-			});
-		//END SR_FORMAT
-	
-		//BEGIN SRJSON Protocol
-		this.srjsonProtocol = OpenLayers.Class(OpenLayers.Protocol, {
-			read : function(options) {
-				var retObject = {
-						code : OpenLayers.Protocol.Response.SUCCESS,
-						requestType: "read",
-						last: true,
-						features: []
-				}
-				console.log("srjsonProtocol CALLED ==== read called");
-				return retObject;
-				
-				} 
-				
-			
-		} );
+		
 		
 		this.map = 	null;  //OpenLayers Map Class.
 		this.layer = null; //OpenLayers Layer Class.
@@ -364,6 +222,27 @@ loadData : function( ) {
 				sphericalMercator: 	this.options.sphericalMercator
 			} 
 		);
+	} else 	if( this.options.ltype == "BING" ) {
+		console.log("Bing Layer Created : "+this.options.name);
+		if( !this.options.attribution) {
+			this.options.attribution = "";
+		}
+		var apiKey = "AqTGBsziZHIJYYxgivLBf0hVdrAk9mWO5cQcb8Yux8sW5M8c8opEC2lZqKR1ZZXf";
+		this.layer = new OpenLayers.Layer.Bing ( {
+            name: "Road",
+            key: apiKey,
+            type: "Road"
+        } );
+	} else 	if( this.options.ltype == "GOOGLE" ) {
+		console.log("Google Maps Layer Created : "+this.options.name+":::");
+		this.layer = new OpenLayers.Layer.Google ( "Google Streets", // the default
+                {numZoomLevels: this.options.numZoomLevels}
+		);
+	} else 	if( this.options.ltype == "OSM" ) {
+		console.log("OSM Layer Created : "+this.options.name+":::");
+		this.layer = new OpenLayers.Layer.OSM ( 
+			this.options.name
+		);
 	} else if (this.options.ltype == "WMS" ) {
 		this.options.transparent = 'false';
 		if(this.options.opacity < 1) {
@@ -492,7 +371,7 @@ loadData : function( ) {
 
  				//BEGIN TEST1
 
- 				if(this.options.id == 2013) {
+ /*				if(this.options.id == 2013) {
  					this.layer = new OpenLayers.Layer.Vector(this.options.name, {
  						isBaseLayer:	this.options.isBaseLayer,
  						projection:		new OpenLayers.Projection(this.options.projection),
@@ -510,15 +389,37 @@ new this.srcluster( { distance: 25, countOnAttribute:'data.CustomersAffected' })
  						styleMap:			this.srd_styleMap
  					} );
  				} else {
- 					
+ */
+ 				var strategies = [];
+ 				for( var i=0; i< this.options.lstrategies.length;i++) {
+ 					if(this.options.lstrategies[i].stype == "FIXED" ) {
+ 						console.log("FIXED STRATEGY FOR LAYER"+this.options.name);
+ 						strategies.push( new OpenLayers.Strategy.Fixed() );
+ 					} else if(this.options.lstrategies[i].stype == "CLUSTER" ) {
+ 						console.log("CLUSTER STRATEGY FOR LAYER"+this.options.name);
+ 						strategies.push( new Cluster( this.options.lstrategies[i].data) );
+ 					} else if(this.options.lstrategies[i].stype == "REFRESH" ) {
+ 						console.log("REFRESH STRATEGY FOR LAYER"+this.options.name);
+ 						if(this.options.lstrategies[i].data.interval) {
+ 							this.options.lstrategies[i].data.interval = parseInt(this.options.lstrategies[i].data.interval);
+ 						}
+ 						strategies.push( new OpenLayers.Strategy.Refresh( this.options.lstrategies[i].data) );
+ 					} 
+ 				}
+ 				this.protocol = new Protocol( {
+					srdl : this,
+					format : new Format()
+				});
 				this.layer = new OpenLayers.Layer.Vector(this.options.name, {
 					isBaseLayer:	this.options.isBaseLayer,
 					projection:		new OpenLayers.Projection(this.options.projection),
 //					units:				"degrees",
 					visibility:		this.options.visibility,
-					styleMap:			this.srd_styleMap
+					styleMap:			this.srd_styleMap,
+					strategies:		strategies,
+					protocol: this.protocol,
 				} );
-				}
+//				}
 				//END TEST1
 				this.format = new OpenLayers.Format.WKT( {
 					externalProjection : new OpenLayers.Projection(this.options.projection),
@@ -527,12 +428,32 @@ new this.srcluster( { distance: 25, countOnAttribute:'data.CustomersAffected' })
 //				var testVar = null;
 //				var urlparams = dojo.fromJson(this.options.urlparams);
 
+		
+			/*	
 				
 				dojo.when(this.store.query(  this.options.urlparams  ), function(theFeatArr) {
 //				dojo.when(this.store.query( urlparams ), function(theFeatArr) {
 					
 					var theFormat = new this.srjsonFormat();
 					this.layer.addFeatures( theFormat.read(theFeatArr) ); 
+
+				//BEGIN TESTING ONLY FORCE REFRESH
+
+					if(this.options.url == "/entitystatuses" ) {
+						this.srd_timer = new dojox.timing.Timer(5000);
+						this.srd_timer.onTick = function() { 
+							this.refresh();
+						}.bind(this);
+						this.srd_timer.start();
+					}
+
+					///END TESTING ONLY
+					
+				}.bind(this) );
+		*/		
+
+
+
 
 				/*
   
@@ -606,19 +527,9 @@ new this.srcluster( { distance: 25, countOnAttribute:'data.CustomersAffected' })
 					this.layer.events.register("featureselected", this, this.onFeatureSelect);
 					this.layer.events.register("featureunselected", this, this.onFeatureUnselect);
 */
-					//BEGIN TESTING ONLY FORCE REFRESH
-
-					if(this.options.url == "/entitystatuses" ) {
-						this.srd_timer = new dojox.timing.Timer(5000);
-						this.srd_timer.onTick = function() { 
-							this.refresh();
-						}.bind(this);
-						this.srd_timer.start();
-					}
-
-					///END TESTING ONLY
-					
-				}.bind(this) );
+	
+	
+	
 
 		} else if(this.options.lformat == "GeoJSON" ) {
 
@@ -1596,6 +1507,28 @@ setFeatureAttribute : function( feature, attribute, value ) {
 	return false;
 }
 // END getFeatureAttribute ( attribute )
+
+/*
+//BEGIN handleResponse
+handleResponse : function(theFeatArr) {
+	console.log("handleResponse Called!");
+//	console.dir(theFeatArr);
+//	var theFormat = new this.srjsonFormat();
+	var theFormat = new Format();
+	jonTest4 = this.layer;
+	if(this.layer != null) {
+		console.log("addFeatures Called!");
+
+		this.layer.addFeatures( theFormat.read(theFeatArr) ); 
+	}
+}
+//END handleResponse
+*/
+
+
+
+
+
 
 
 }) ;

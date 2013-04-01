@@ -30,6 +30,9 @@
 					{ name: "dojo", location: "dojo" },
 					{ name: "dijit", location: "dijit" },
 					{ name: "dojox", location: "dojox" },
+					{ name: "dgrid", location: "dgrid" },
+					{ name: "put-selector", location: "put-selector" },
+					{ name: "xstyle", location: "xstyle" },
 					{ name: "srd", location: "srd" },
 					{ name: "org", location: "org" }
 				]
@@ -69,6 +72,8 @@
 			<script>
 			
 			loadsrd = {};
+			
+			loadsrd.theUser = ${theUser};
 			
 			loadsrd.staticVals = { "default_wlayout":2, "user_title":"Mr", "user_lastname":"Lastname" };
 			

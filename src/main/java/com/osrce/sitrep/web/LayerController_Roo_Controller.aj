@@ -4,6 +4,7 @@
 package com.osrce.sitrep.web;
 
 import com.osrce.sitrep.domain.Layer;
+import com.osrce.sitrep.domain.Lstrategy;
 import com.osrce.sitrep.web.LayerController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
@@ -96,6 +97,7 @@ privileged aspect LayerController_Roo_Controller {
     void LayerController.populateEditForm(Model uiModel, Layer layer) {
         uiModel.addAttribute("layer", layer);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("lstrategys", Lstrategy.findAllLstrategys());
     }
     
     String LayerController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

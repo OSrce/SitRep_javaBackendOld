@@ -16,7 +16,14 @@
         <spring.version>3.1.1.RELEASE</spring.version>
         <spring-security.version>3.1.0.RELEASE</spring-security.version>
         <tiles.core.api.servlet.jsp.version>2.2.2</tiles.core.api.servlet.jsp.version>
-        
+<!--  
+        <jetty.version>8.1.0.RC0</jetty.version>
+ 	   <glassfish.javax.version>2.2.3</glassfish.javax.version>
+ 	   <glassfish.javax-impl.version>2.2</glassfish.javax-impl.version>
+ 	   <glassfish.jstl.version>1.2</glassfish.jstl.version>
+-->
+ 	     <jetty.version>8.1.5.v20120716</jetty.version>
+ 	 <jetty.jsp.version>8.1.4.v20120524</jetty.jsp.version>
         
 
 <!-- files and directory locations -->
@@ -24,7 +31,7 @@
   <webresources.javascript.location>${webresources.location}/externaljs</webresources.javascript.location>
   <dojo.version>1.8.3</dojo.version>
 <!--     <dojo.source.basename>dojo-release-${dojo.version}</dojo.source.basename> -->
-  <dojo.source.basename>dojo-${dojo.version}-release</dojo.source.basename>
+  <dojo.source.basename>dojo-release-${dojo.version}</dojo.source.basename>
   <dojo.source.friendlyname>dojo-${dojo.version}</dojo.source.friendlyname>
   <dojo.source.local.unpacked.location>${webresources.location}/lib</dojo.source.local.unpacked.location>
    
@@ -125,7 +132,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
-            <scope>provided</scope>
+            <scope>provided</scope> 
         </dependency>
         <dependency>
             <groupId>net.sf.flexjson</groupId>
@@ -299,6 +306,11 @@
             <version>1.2.2</version>
         </dependency>
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
             <groupId>javax.servlet.jsp.jstl</groupId>
             <artifactId>jstl-api</artifactId>
             <version>1.2</version>
@@ -432,11 +444,40 @@
         	<artifactId>cometd-websocket-jetty</artifactId>
         	<version>2.5.1</version>
         </dependency>
-        <dependency>
+
+<!--        <dependency>
         	<groupId>org.eclipse.jetty</groupId>
         	<artifactId>jetty-servlets</artifactId>
         	<version>9.0.0.M4</version>
         </dependency>
+-->
+
+  <!-- JETTY DEPENDENCIES -->
+  <dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-server</artifactId>
+    <version>${jetty.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-servlet</artifactId>
+    <version>${jetty.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-webapp</artifactId>
+    <version>${jetty.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-servlets</artifactId>
+    <version>${jetty.version}</version>
+  </dependency>
+
+
+
+       
+        
     </dependencies>
     <build>
         <plugins>

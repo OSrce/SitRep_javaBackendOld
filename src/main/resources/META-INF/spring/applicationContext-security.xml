@@ -28,8 +28,18 @@
     
     
     <authentication-manager alias="authenticationManager">
+ 		<authentication-provider>
+             <user-service>
+                <user name="admin" password="testadmin" authorities="user" />
+                <user name="admin2" password="testadmin2" authorities="user" />
+                
+            </user-service>
+       </authentication-provider>
+ 
+ <!--   
          <ldap-authentication-provider user-search-filter="(userid={0})" >
          </ldap-authentication-provider>
+ -->
  </authentication-manager>
  <ldap-server id="ldapServerContext" url="ldap://rsolabsserver1.local:389/dc=sitrep,dc=org"  />
  

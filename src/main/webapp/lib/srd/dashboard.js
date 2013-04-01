@@ -137,6 +137,7 @@ return declare( null, {
 	this.viewArr = null; 
 	this.selectedView = null; 
 
+	/*
 	this.viewType =  {
 		empty 		: 'srd_view',
 		map 			: 'srd_view_map',
@@ -158,6 +159,7 @@ return declare( null, {
 			start_zoom : 12
 		}
 	};
+*/	
 	
 	//REAL TIME CODE RELATED :
 	this.status = 'OFFLINE';
@@ -421,11 +423,26 @@ return declare( null, {
 
 	
 	
+	
+	
 //	this.srd_container.startup();
 
+// BELOW SHOULD NOT BE HARDCODED!!!!!	
+this.wlayout1 = { id:1, data: [ 
+	{ id:1, type:'menubar', data:{ region: "top" } },
+	{ id:2, type: 'layertree', data:{ theGroups: loadsrd.theGroups, region: "left" }   },
+	{ id:3, type: 'map', data: {start_lat : 34.04753, start_lon : -118.3653, start_zoom : 12, start_base_layer: 1006, region: "center" }  }
+]
+};
+this.wlayoutArr = [ this.wlayout1 ];
+//CREATE STORE FROM wlayout data.
+this.window_store = new Memory( { data: this.wlayoutArr } );
+this.current_view_store = new Memory();
+
+	
 
 },
-//END srd_init
+//END constructor
 
 //BEGIN FUNCTION logout
 //FUNCTION TO DO ANY CLEAN UP NEEDED 

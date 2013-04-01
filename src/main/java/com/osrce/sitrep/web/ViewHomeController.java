@@ -2,6 +2,8 @@ package com.osrce.sitrep.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,12 +30,22 @@ public class ViewHomeController {
     	String message = "Hello World, Spring 3.0!";
     	model.addAttribute("message", message);
 
+ //   	String theUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+    	//String theToken = SecurityContextHolder.getContext().getAuthentication().
+    	Sruser theUser = new Sruser();
+    	theUser.getSessionUserRecord();
+ //   	System.out.println("Username="+theUsername);
+
+    	
+    	String theUserStr = theUser.toJson();
+    	model.addAttribute("theUser", theUserStr);
+    	
     	String theGroups = Srgroup.findSrgroup( new Long( 0 ) ).toJsonFlatTreeArray();
  //   	System.out.println("theGroups==="+theGroups);
     	model.addAttribute("theGroups", theGroups );
 
     	
-    	String theLayers = Layer.toJsonArray(Layer.findAllLayers() );
+    	String theLayers = Layer.toJsonArrayWithStrategies(Layer.findAllLayers() );
     	model.addAttribute("theLayers", theLayers );
     	
     	String theStyles = Style.toJsonArray(Style.findAllStyles() );

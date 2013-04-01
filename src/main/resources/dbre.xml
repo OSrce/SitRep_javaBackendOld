@@ -114,6 +114,11 @@
         <column name="opacity" primaryKey="false" required="false" scale="8" size="8" type="7,float4"/>
         <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
         <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <foreign-key foreignTable="lstrategy" name="lstrategy_layer_id_fkey" onDelete="none" onUpdate="none">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="true"/>
+            <reference foreign="layer_id" local="id"/>
+        </foreign-key>
         <unique name="layer_pkey">
             <unique-column name="id"/>
         </unique>
@@ -137,6 +142,23 @@
             <reference foreign="location" local="id"/>
         </foreign-key>
         <unique name="location_pkey">
+            <unique-column name="id"/>
+        </unique>
+    </table>
+    <table alias="public" name="lstrategy">
+        <column name="id" primaryKey="true" required="true" scale="0" size="19" type="-5,bigserial"/>
+        <column name="layer_id" primaryKey="false" required="true" scale="0" size="19" type="-5,int8"/>
+        <column name="stype" primaryKey="false" required="true" scale="0" size="32" type="12,varchar"/>
+        <column name="has_data" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
+        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
+        <foreign-key foreignTable="layer" name="lstrategy_layer_id_fkey" onDelete="none" onUpdate="none">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="layer_id"/>
+        </foreign-key>
+        <unique name="lstrategy_pkey">
             <unique-column name="id"/>
         </unique>
     </table>
