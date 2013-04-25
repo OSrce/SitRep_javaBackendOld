@@ -30,9 +30,8 @@ define([
 					features: []
 			};
 			console.log("srjsonProtocol CALLED ==== read called");
-			//jonTest5 = this.srdl;
-			
-			dojo.when(this.srdl.store.query(  this.srdl.options.urlparams  ), lang.hitch( this, "handleResponse" ) );
+
+			dojo.when(this.srdl.store.query(  this.srdl.options.urlparams  ), lang.hitch( this, this.handleResponse ) );
 			
 			return this.retObject;
 			

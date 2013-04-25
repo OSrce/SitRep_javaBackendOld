@@ -71,7 +71,7 @@
     <servlet-name>SitRep</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
+<!--  
       <servlet>
         <servlet-name>cometd</servlet-name>
         <servlet-class>org.cometd.annotation.AnnotationCometdServlet</servlet-class>
@@ -108,6 +108,7 @@
         <filter-name>continuation</filter-name>
         <url-pattern>/cometd/*</url-pattern>
     </filter-mapping>
+    -->
 
 <!--  
     <filter>
@@ -119,9 +120,57 @@
         <url-pattern>/cometd/*</url-pattern>
     </filter-mapping>
  -->
+ 
+ <servlet>
+    <servlet-name>cometd</servlet-name>
+    <servlet-class>org.cometd.server.CometdServlet</servlet-class>
+    <init-param>
+      <param-name>logLevel</param-name>
+      <param-value>0</param-value>
+    </init-param>
+    <init-param>
+      <param-name>timeout</param-name>
+      <param-value>30000</param-value>
+    </init-param>
+    <init-param>
+      <param-name>jsonDebug</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>maxSessionsPerBrowser</param-name>
+      <param-value>-1</param-value>
+    </init-param>
+    <load-on-startup>3</load-on-startup>
+    <!-- <async-supported>true</async-supported> -->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cometd</servlet-name>
+    <url-pattern>/cometd/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>admin</servlet-name>
+    <servlet-class>com.osrce.sitrep.rtc.AdminServlet</servlet-class>
+    <init-param>
+	  <param-name>ConfigURI</param-name>
+	  <param-value>/WEB-INF/cowebConfig.json</param-value>
+    </init-param>
+    <load-on-startup>4</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin</servlet-name>
+    <url-pattern>/admin/*</url-pattern>
+  </servlet-mapping>
+ 
+ <!-- 
+     <servlet>
+        <servlet-name>initializer</servlet-name>
+        <servlet-class>com.osrce.sitrep.cometd.Initializer</servlet-class>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
+ -->
   
   <session-config>
-    <session-timeout>10</session-timeout>
+    <session-timeout>0</session-timeout>
   </session-config>
   <error-page>
     <exception-type>java.lang.Exception</exception-type>

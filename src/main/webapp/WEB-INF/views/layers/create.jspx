@@ -21,6 +21,9 @@
         <field:input field="lformat" id="c_com_osrce_sitrep_domain_Layer_lformat" z="1yH8jWJuk6QQe9TVJ0o5iITEO8A="/>
         <field:datetime dateTimePattern="${layer_updated_date_format}" field="updated" id="c_com_osrce_sitrep_domain_Layer_updated" required="true" z="mlnJQgVjx81rHYJgKQYXubbzpg8="/>
         <field:simple field="lstrategies" id="c_com_osrce_sitrep_domain_Layer_lstrategies" messageCode="entity_reference_not_managed" messageCodeAttribute="Lstrategy" z="qLkCDUmEc4QDfWAibMwZXKsYrmM="/>
+        <field:input field="columndef" id="c_com_osrce_sitrep_domain_Layer_columndef" z="lQUsooXpmbgO5FNYIMBU5rgN984="/>
+        <field:input field="data" id="c_com_osrce_sitrep_domain_Layer_data" z="jP5vQIeGhDbafrJhGPOsNvN1G8Y="/>
+        <field:input field="columnlabel" id="c_com_osrce_sitrep_domain_Layer_columnlabel" z="A7DXiEAPbpEA7znvqKVQkU2qrMs="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_osrce_sitrep_domain_Layer" render="${not empty dependencies}" z="bK4O7PPemVo6lVB04i/HDFMqw2g="/>
 </div>

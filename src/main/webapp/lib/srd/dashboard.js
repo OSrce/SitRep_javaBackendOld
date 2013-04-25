@@ -262,12 +262,20 @@ return declare( null, {
 				switch(String(filterData.type)) {
 					case "==" :						
 						theFilter = new OpenLayers.Filter.Function( {
-							evaluate: function(feature) {
-								try{
-									return eval( "feature.attributes." + filterData.property) == filterData.value;
-								} catch(e) {
-									return false;	
-								}
+							property: filterData.property,
+							value: filterData.value,
+							evaluate: function(attributes) {								
+							    var keys = this.property.split('.');
+								var result = attributes;
+								while (keys.length > 0) {
+									var key = keys.shift();
+									if (typeof result[key] !== 'undefined') {
+										result = result[key];
+									} else {
+										return false;
+									}
+								}		
+								return (result == this.value);
 							}
 						});
 /*						theFilter = new OpenLayers.Filter.Comparison({
@@ -412,10 +420,13 @@ return declare( null, {
 	// POPULATING THE srd_layerArr from the data that came over the server
 	for( var theId in theLayers) {
 		var layerOptions = theLayers[theId];
-		this.srd_layerArr[layerOptions.id] = new srd_layer();
-		this.srd_layerArr[layerOptions.id].options = layerOptions;
-		this.srd_layerArr[layerOptions.id].id = layerOptions.id;
-//		this.srd_layerArr[layerOptions.id].srd_styleArr = this.srd_styleArr;
+		layerOptions.srd_doc = this;
+		this.srd_layerArr[layerOptions.id] = new srd_layer(layerOptions);
+		
+//		this.srd_layerArr[layerOptions.id].options = layerOptions;
+//		this.srd_layerArr[layerOptions.id].id = layerOptions.id;
+		
+		//		this.srd_layerArr[layerOptions.id].srd_styleArr = this.srd_styleArr;
 		this.srd_layerArr[layerOptions.id].srd_styleMap = this.srd_styleArr[layerOptions.defaultstyle];
 		this.layerStore.put(this.srd_layerArr[layerOptions.id] );
 	}	
@@ -428,16 +439,31 @@ return declare( null, {
 //	this.srd_container.startup();
 
 // BELOW SHOULD NOT BE HARDCODED!!!!!	
-this.wlayout1 = { id:1, data: [ 
+this.wlayout1 = { id:1, name: "Map Only",
+data: [ 
 	{ id:1, type:'menubar', data:{ region: "top" } },
-	{ id:2, type: 'layertree', data:{ theGroups: loadsrd.theGroups, region: "left" }   },
-	{ id:3, type: 'map', data: {start_lat : 34.04753, start_lon : -118.3653, start_zoom : 12, start_base_layer: 1006, region: "center" }  }
+	{ id:2, type: 'layertree', data:{ theGroups: loadsrd.theGroups, region: "left", width:"30%" }   },
+	{ id:3, type: 'map', data: {start_lat : 34.04753, start_lon : -118.3653, start_zoom : 12, start_base_layer: 1008, region: "center" }  }
 ]
 };
-this.wlayoutArr = [ this.wlayout1 ];
+this.wlayout2 = { id:2, name: "Grid Only", data: [ 
+	{ id:1, type:'menubar', data:{ region: "top" } },
+	{ id:2, type: 'layertree', data:{ theGroups: loadsrd.theGroups, region: "left", width:"30%" }   },
+   	{ id:3, type: 'grid', data: {region: "center" }  }
+  ]
+};
+this.wlayout3 = { id:3, name: "Map and Grid", data: [ 
+	{ id:1, type:'menubar', data:{ region: "top" } },
+	{ id:2, type: 'layertree', data:{ theGroups: loadsrd.theGroups, region: "left", width:"30%" }   },
+	{ id:3, type: 'map', data: {start_lat : 34.04753, start_lon : -118.3653, start_zoom : 12, start_base_layer: 1008, region: "center" }  },
+	{ id:4, type: 'grid', data: {region: "right", width:"35%" }  }
+]
+};
+this.wlayoutArr = [ this.wlayout1, this.wlayout2, this.wlayout3 ];
 //CREATE STORE FROM wlayout data.
 this.window_store = new Memory( { data: this.wlayoutArr } );
 this.current_view_store = new Memory();
+this.current_wlayout = null;
 
 	
 

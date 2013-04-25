@@ -42,7 +42,8 @@ define( 'srd/view/map', [
 			this.srd_layerArr = this.srd_doc.srd_layerArr;
 			this.contentPane = new dijit.layout.ContentPane(
 				{  
-					style: "background-color:black;width:100%;height:100%;border:0px;margin:0px;padding:0px;",
+					style: this.style,
+					//style: "background-color:black;width:100%;height:100%;border:0px;margin:0px;padding:0px;",
 					region: this.data.region
 				} );
 			
@@ -58,6 +59,9 @@ define( 'srd/view/map', [
 			
 			
 		},
+		//END CONSTRUCTOR
+		
+		//BEGIN map_init
 		map_init : function() {
 			console.log("###############CALLED MAP_INIT");
 //			dojo.ready(function() {
@@ -224,8 +228,11 @@ define( 'srd/view/map', [
 //				this.onLoad();
 //			}.bind(this) );
 			}
+			
+		//	this.onLoadComplete();
 		},
 		// END map_init
+		
 		// BEGIN goToPoint
 		goToPoint : function(lat, lon) {
 			console.log ("Go To Point called: lat="+lat+", lon="+lon);

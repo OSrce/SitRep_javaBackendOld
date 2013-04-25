@@ -7,6 +7,8 @@
 @import "../../dojox/grid/enhanced/resources/tundra/EnhancedGrid.css";
 @import "../../dojox/grid/enhanced/resources/EnhancedGrid_rtl.css";
 
+@import "../../dgrid/css/dgrid.css"
+
 
 @import "form.css";
 @import "srd_view_style.css";

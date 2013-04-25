@@ -236,6 +236,16 @@ define( [
 								label: "Window",
 								popup: this.srd_windowMenu
 							}) );
+							this.srd_doc.window_store.query().forEach( function(wlayout){
+								this.srd_windowMenu.addChild( new dijit.MenuItem( {
+									label: wlayout.name,
+									value: wlayout.id,
+									srd_doc: this.srd_doc,
+									onClick: function() { this.srd_doc.setWindowLayout(this.value); }
+								} ) );
+								}.bind(this) 
+							);
+							
 							// LIST EACH WINDOW LAYOUT IN THE WINDOW MENU
 /*							for( tmpId in this.srd_wlayoutArr) {
 								this.srd_windowMenu.addChild( new dijit.MenuItem( {

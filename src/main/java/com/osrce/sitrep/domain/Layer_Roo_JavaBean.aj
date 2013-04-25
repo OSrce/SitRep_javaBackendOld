@@ -25,6 +25,30 @@ privileged aspect Layer_Roo_JavaBean {
         this.urlparams = urlparams;
     }
     
+    public Hstore Layer.getColumndef() {
+        return this.columndef;
+    }
+    
+    public void Layer.setColumndef(Hstore columndef) {
+        this.columndef = columndef;
+    }
+    
+    public Hstore Layer.getColumnlabel() {
+        return this.columnlabel;
+    }
+    
+    public void Layer.setColumnlabel(Hstore columnlabel) {
+        this.columnlabel = columnlabel;
+    }
+    
+    public Hstore Layer.getData() {
+        return this.data;
+    }
+    
+    public void Layer.setData(Hstore data) {
+        this.data = data;
+    }
+    
     public Date Layer.getUpdated() {
         return this.updated;
     }

@@ -14,6 +14,12 @@ define( [
 	"srd/srd_view",
 	"srd/srd_gridContainer",
 	"srd/dashboard",
+	"dojo/store/Memory",
+	"dojo/topic",
+    'coweb/main',
+    'coweb/ext/attendance',
+    'cowebx/dojo/ChatBox/ChatBox',
+	'cowebx/dojo/BusyDialog/BusyDialog',
 	"srd/srd_view_map",
 	"srd/srd_view_cfssingle",
 	"srd/srd_view_admin",
@@ -31,7 +37,7 @@ define( [
 	"dijit/form/ComboBox",
 	"dojo/domReady!"
 //] , function( doc_include,  declare, srd_rtc, srd_layer, srd_view, srd_gridContainer  ) {
-] , function( declare, srd_rtc, srd_layer, view_menubar, view_layertree, view_map, view_grid, srd_view, srd_gridContainer, dashboard  ) {
+] , function( declare, srd_rtc, srd_layer, view_menubar, view_layertree, view_map, view_grid, srd_view, srd_gridContainer, dashboard, Memory, topic, coweb,attendance,ChatBox, BusyDialog  ) {
 //dashboard_desktop CLASS 
 return declare( 'desktop', [dashboard], {
 
@@ -118,12 +124,49 @@ this.view_map = new view_map(map_data, this);
 //TODO PUT BACK IN FOR COMETD STUFF.
 //this.rtc = new srd_rtc(this);
 	
+
+	// listen to remote events
+	this.collab = coweb.initCollab({id : 'dashboard'});
+	this.collab.subscribeReady(this, 'onCollabReady');
+	this.collab.subscribeSync('log.messageTEST', this, 'onRemoteLogMsg');
+
+//	this.collab.subscribeSync('log.message', this, 'onRemoteLogMsg');
+
+//	this.collab.subscribeSync('mod.zipvisits', this, "onZipVisits");
+
+	// get a session instance
+	this.session = coweb.initSession();
+//	BusyDialog.createBusy(this.session);
+
+	// do the prep using defaults
+	this.session.prepare({ key:"sitrep"});
+
+	// Register the alerting routine with the "alertUser" topic.
+    topic.subscribe("updateSession", function(args){
+    	console.log("updateSession called:"+ this.session._bridge.getState() );
+    	//this.session.update();
+    	//this.session.updateInSession();
+    	this.session = coweb.initSession();
+  //      this.session.leave().then( function() { 
+  //      		this.session = coweb.initSession();
+  //      		this.session.prepare({ key:"sitrep"});
+  //      }.bind(this) );
+    }.bind(this) );
 	
 	
 		
 	},
 	//BEGIN setWindowLayout
 	setWindowLayout: function(theLayoutId) {
+		if(theLayoutId == this.current_wlayout) {
+			return;
+		}
+		this.current_view_store.query().forEach( function(view) {
+			view.destroy();
+			this.current_view_store.remove(view.id);
+		}.bind(this)	
+		);
+		
 		var theWindowLayout = this.window_store.get(theLayoutId);	
 		theWindowLayout.data.forEach(function (val, index, theArray) {
 			if(val.type == "menubar") {
@@ -140,9 +183,24 @@ this.view_map = new view_map(map_data, this);
 		
 		
 		
-	}
+	},
 	//END setWindowLayout
-
+	
+	//BEGIN onCollabReady
+    onCollabReady: function(info) {
+    	console.log("desktop : onCollabReady CALLED");
+        // store username for use by widgets
+//        this.username = info.username;
+ //       this.collab.subscribeService("zipvisits", this, "onZipVisits");
+    },
+	//END onCollabReady
+    
+    //BEGIN onRemoteLogMsg
+    onRemoteLogMsg: function(obj) {
+    	console.log("desktop : onRemoteLogMsg CALLED");
+//        this.log.onRemoteLogMessage(obj);
+    },
+    //END onRemoteMsg
 
 //END DECLARE
 } );

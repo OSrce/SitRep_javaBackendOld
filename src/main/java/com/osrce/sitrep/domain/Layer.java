@@ -39,6 +39,18 @@ public class Layer {
     @Column(name = "urlparams", columnDefinition = "hstore")
     private Hstore urlparams;
 
+    @Type(type = "com.osrce.sitrep.domain.HstoreUserType")
+    @Column(name = "columndef", columnDefinition = "hstore")
+    private Hstore columndef;
+
+    @Type(type = "com.osrce.sitrep.domain.HstoreUserType")
+    @Column(name = "columnlabel", columnDefinition = "hstore")
+    private Hstore columnlabel;
+
+    @Type(type = "com.osrce.sitrep.domain.HstoreUserType")
+    @Column(name = "data", columnDefinition = "hstore")
+    private Hstore data;
+
     @Column(name = "updated", updatable = false)
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)

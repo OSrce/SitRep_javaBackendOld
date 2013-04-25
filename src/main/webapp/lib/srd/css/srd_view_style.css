@@ -1,8 +1,24 @@
 
+/* Base View Style */
+
+.view {
+	background-color:black;
+	border:0px;
+	margin:0px;
+	padding:0px;
+}
+
+
+/* Layer Tree View Type Style */
 .layertree {
 	background-color: white;
 	
-	
+}
+
+/* Grid View Type Style */
+.grid {
+	background-color: white;
+	overflow: auto;
 }
 
 

@@ -5,7 +5,7 @@
     <form:create id="fc_com_osrce_sitrep_domain_Ssymbolizer" modelAttribute="ssymbolizer" path="/ssymbolizers" render="${empty dependencies}" z="qLBTCmXXokc6tCnI9h8BIs7RUHE=">
         <field:input field="name" id="c_com_osrce_sitrep_domain_Ssymbolizer_name" required="true" z="ubNctbS/QCH6xRpy/LKsWm+jdZ4="/>
         <field:input field="label" id="c_com_osrce_sitrep_domain_Ssymbolizer_label" z="+BmCOurXUNHoFCtkXp8Y9ENPZJk="/>
-        <field:input field="rotation" id="c_com_osrce_sitrep_domain_Ssymbolizer_rotation" validationMessageCode="field_invalid_integer" z="AdjUvC3Y+QFuna5sSnvWKFqluFc="/>
+        <field:input field="rotation" id="c_com_osrce_sitrep_domain_Ssymbolizer_rotation" z="RpgcrLY5M3a96FRMSgG/+4wSQp0="/>
         <field:input field="fillColor" id="c_com_osrce_sitrep_domain_Ssymbolizer_fillColor" z="yUcA+OvBqJqOD4qf1a+q1G2ftf8="/>
         <field:input field="fillOpacity" id="c_com_osrce_sitrep_domain_Ssymbolizer_fillOpacity" validationMessageCode="field_invalid_number" z="VDsc2VknYmx/Plt+syl7ZsePH3U="/>
         <field:input field="strokeColor" id="c_com_osrce_sitrep_domain_Ssymbolizer_strokeColor" z="m7V4aNmoUol/g8l4kEDieBM2QaA="/>

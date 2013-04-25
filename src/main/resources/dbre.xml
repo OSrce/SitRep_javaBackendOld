@@ -112,6 +112,9 @@
         <column name="defaultstyle" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="bgcolor" primaryKey="false" required="false" scale="0" size="8" type="12,varchar"/>
         <column name="opacity" primaryKey="false" required="false" scale="8" size="8" type="7,float4"/>
+        <column name="columndef" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <column name="columnlabel" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
+        <column name="data" primaryKey="false" required="false" scale="0" size="2147483647" type="1111,hstore"/>
         <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
         <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
         <foreign-key foreignTable="lstrategy" name="lstrategy_layer_id_fkey" onDelete="none" onUpdate="none">
@@ -263,7 +266,7 @@
         <column name="graphicwidth" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="graphicheight" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="graphicopacity" primaryKey="false" required="false" scale="8" size="8" type="7,float4"/>
-        <column name="rotation" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
+        <column name="rotation" primaryKey="false" required="false" scale="0" size="128" type="12,varchar"/>
         <column name="created" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
         <column name="updated" primaryKey="false" required="true" scale="6" size="29" type="93,timestamp"/>
         <unique name="ssymbolizer_pkey">

@@ -16,6 +16,7 @@
         <spring.version>3.1.1.RELEASE</spring.version>
         <spring-security.version>3.1.0.RELEASE</spring-security.version>
         <tiles.core.api.servlet.jsp.version>2.2.2</tiles.core.api.servlet.jsp.version>
+        <coweb-version>1.0</coweb-version>
 <!--  
         <jetty.version>8.1.0.RC0</jetty.version>
  	   <glassfish.javax.version>2.2.3</glassfish.javax.version>
@@ -184,6 +185,13 @@
             <artifactId>spring-aspects</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-core</artifactId>
+			<version>2.2.3.RELEASE</version>
+		</dependency>
+        
+        
     <dependency>
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -444,6 +452,33 @@
         	<artifactId>cometd-websocket-jetty</artifactId>
         	<version>2.5.1</version>
         </dependency>
+<!--  BEGIN OpenCoWeb Dependencies -->        
+        <dependency>
+            <groupId>org.opencoweb</groupId>
+            <artifactId>coweb-bots</artifactId>
+            <version>${coweb-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.opencoweb</groupId>
+            <artifactId>coweb-server</artifactId>
+            <version>${coweb-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.opencoweb</groupId>
+            <artifactId>coweb-javascript</artifactId>
+            <version>${coweb-version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>org.opencoweb.cowebx</groupId>
+            <artifactId>cowebx-widgets-dojo</artifactId>
+            <version>${coweb-version}</version>
+            <type>war</type>
+        </dependency>
+<!--  END OpenCoWeb Dependencies -->        
+            
+        
+        
 
 <!--        <dependency>
         	<groupId>org.eclipse.jetty</groupId>
@@ -495,6 +530,28 @@
                             <directory>src/main/resources</directory>
                         </resource>
                     </webResources>
+                    <overlays>
+                        <overlay>
+                            <groupId>org.opencoweb</groupId>
+                            <artifactId>coweb-javascript</artifactId>
+                            <type>war</type>
+                            <excludes>
+                                <exclude>META-INF/**</exclude>
+                                <exclude>WEB-INF/**</exclude>
+                            </excludes>
+                            <targetPath>lib</targetPath>
+                        </overlay>
+                        <overlay>
+                            <groupId>org.opencoweb.cowebx</groupId>
+                            <artifactId>cowebx-widgets-dojo</artifactId>
+                            <type>war</type>
+                            <excludes>
+                                <exclude>META-INF/**</exclude>
+                                <exclude>WEB-INF/**</exclude>
+                            </excludes>
+                            <targetPath>lib/cowebx/dojo</targetPath>
+                        </overlay>
+                    </overlays>
                 </configuration>
             </plugin>
             <plugin>

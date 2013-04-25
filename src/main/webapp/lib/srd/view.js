@@ -41,6 +41,25 @@ define([
 			console.log("srd_view constructor called!");
 			this.srd_doc = parent_srd_doc;
 			this.data = data;
+			this.style = null;
+			if( this.data != null ) {
+				this.style = "";
+				if(this.data.width != null) {
+					this.style += "width:"+this.data.width+";";
+				} else {
+					this.style += "width:100%;";
+				}
+				if(this.data.height != null) {
+					this.style += "height:"+this.data.height+";";
+				} else {
+					this.style += "height:100%;";
+				}
+			} else {
+				this.style = "background-color:white;width:100%;height:100%;border:0px;margin:0px;padding:0px;";
+
+//				this.style = "background-color:black;width:100%;height:100%;border:0px;margin:0px;padding:0px;";
+			}
+			
 			if(this.type == 'empty' ) {
 				this.contentPane = new dijit.layout.ContentPane({ } );
 			}
@@ -51,9 +70,34 @@ define([
 			aspect.after(this.dndTarget, "onDrop", lang.hitch( this, "addLayerToView") );
 */
 			
+			
+
+			
+			
+			
 		},
 		//END CONSTRUCTOR
 		
+		//BEGIN onLoadComplete
+		onLoadComplete: function() {
+			
+			//ADD CONTEXT MENU
+			this.contextMenu = new Menu({
+//	            id: "taskMenu",
+	            targetNodeIds: [ this.contentPane.domNode ],
+	            selector: ".task"
+	        });
+			this.removeLayerMenu = new Menu({	
+			});
+			this.contextMenu.addChild( {
+				label: "Remove Layer",
+				popup: this.removeLayerMenu
+			});
+			this.contextMenu.startup();
+			this.removeLayerMenu.startup();
+			
+		},
+		//END onLoadComplete
 		
 		//BEGIN addLayerToView
 		addLayerToView : function(source, dndObject) {
@@ -105,10 +149,16 @@ define([
 				console.log("testing to drop item of type " + item.type[0] + " and data " + item.data );
 			} );
 			return true;
-		}
+		},
 		//END dndCheckAcceptance
 		
-		
+		//BEGIN destroy
+		destroy: function() {
+			this.srd_doc.srd_container.removeChild(this.contentPane);
+			this.contentPane.destroy();
+			
+		}
+		// END destroy
 		
 	} );
 	//END DECLARE

@@ -34,6 +34,7 @@ define( 'srd/view/layertree', [
 				region: this.data.region,
         	    id: "layertree1",
         	    "class": "layertree",
+        	    style: this.style,
            		content: "SitRep Data : <div id=divLayerTree></div>",
             	splitter: true
 			 } );

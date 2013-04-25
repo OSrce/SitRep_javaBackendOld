@@ -1,8 +1,7 @@
 <div xmlns:spring="http://www.springframework.org/tags" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
   <jsp:directive.page contentType="text/html;charset=UTF-8" />
   <jsp:output omit-xml-declaration="yes" />
-  <spring:message code="security_login_title" var="title" htmlEscape="false" />
-  <util:panel id="title" title="${title}">
+
     <c:if test="${not empty param.login_error}">
       <div class="errors">
         <p>
@@ -12,18 +11,15 @@
         </p>
       </div>
     </c:if>
-    <c:if test="${empty param.login_error}">
-      <p>
-        <spring:message code="security_login_message" />
-      </p>
-    </c:if>
+
     <spring:url value="/resources/j_spring_security_check" var="form_url" />
-    <form name="f" action="${fn:escapeXml(form_url)}" method="POST">
+    <form class="srlogin" name="f" action="${fn:escapeXml(form_url)}" method="POST">
+      <img src="/lib/img/SitRepIcon_Small.png" />
       <div>
-        <label for="j_username">
-          <spring:message code="security_login_form_name" />
+        <label for="j_username" style="color:#FFFFFF;position:absolute;top:3.2em;left:12em;">
+			USERNAME
         </label>
-        <input id="j_username" type='text' name='j_username' style="width:150px" />
+        <input id="j_username" type='text' name='j_username' style="width:150px; border-radius: 0.5em;position:absolute;top:3em;left:22em;" />
         <spring:message code="security_login_form_name_message" var="name_msg" htmlEscape="false" />
         <script type="text/javascript">
           <c:set var="sec_name_msg">
@@ -34,10 +30,10 @@
       </div>
       <br />
       <div>
-        <label for="j_password">
-          <spring:message code="security_login_form_password" />
+        <label for="j_password" style="color:#FFFFFF;position:absolute;top:6.2em;left:12em;" >
+          PASSWORD
         </label>
-        <input id="j_password" type='password' name='j_password' style="width:150px" />
+        <input id="j_password" type='password' name='j_password' style="width:150px; border-radius: 0.5em;position:absolute;top:6em;left:22em;" />
         <spring:message code="security_login_form_password_message" var="pwd_msg" htmlEscape="false" />
         <script type="text/javascript">
           <c:set var="sec_pwd_msg">
@@ -50,13 +46,13 @@
       <div class="submit">
         <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
         <spring:message code="button_submit" var="submit_label" htmlEscape="false" />
-        <input id="proceed" type="submit" value="${fn:escapeXml(submit_label)}" />
+        <input id="proceed" type="submit" value="${fn:escapeXml(submit_label)}" style="display:none;" />
         <spring:message code="button_reset" var="reset_label" htmlEscape="false" />
-        <input id="reset" type="reset" value="${fn:escapeXml(reset_label)}" />
+        <input id="reset" type="reset" value="${fn:escapeXml(reset_label)}" style="display:none;" />
       </div>
-      <p><input type='checkbox' name='_spring_security_remember_me' value="on" checked="checked"/> Remember me on this computer.</p>
+      <input type='checkbox' name='_spring_security_remember_me' value="on" checked="checked" style="display:none;"/>
       
     </form>
-  </util:panel>
+
 </div>
 

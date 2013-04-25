@@ -20,5 +20,8 @@
         <field:display field="ltype" id="s_com_osrce_sitrep_domain_Layer_ltype" object="${layer}" z="rM50s1kneA+OMIr6vx7P8kj33fU="/>
         <field:display field="lformat" id="s_com_osrce_sitrep_domain_Layer_lformat" object="${layer}" z="h1z6wyUR/U8nOlv4UHmwWtaqunE="/>
         <field:display date="true" dateTimePattern="${layer_updated_date_format}" field="updated" id="s_com_osrce_sitrep_domain_Layer_updated" object="${layer}" z="D5brwrsDcOMLcMFdEKq0yy+stAg="/>
+        <field:display field="columndef" id="s_com_osrce_sitrep_domain_Layer_columndef" object="${layer}" z="yPKfdTcp/VHKALKsPdnePWQJCmk="/>
+        <field:display field="data" id="s_com_osrce_sitrep_domain_Layer_data" object="${layer}" z="ICQl0D8bllQzlJq630NydQbfxgE="/>
+        <field:display field="columnlabel" id="s_com_osrce_sitrep_domain_Layer_columnlabel" object="${layer}" z="pCTfOUrAZzKyBDqMfcruMofM/s4="/>
     </page:show>
 </div>

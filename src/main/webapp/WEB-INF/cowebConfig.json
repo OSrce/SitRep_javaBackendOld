@@ -1,0 +1,33 @@
+{
+	"moderatorIsUpdater": true,
+    "sessionModerator": "com.osrce.sitrep.rtc.MainModerator",
+    "operationEngine": true,
+    "logLevel": 0,
+    "broker": "com.osrce.sitrep.rtc.BotTransport",
+	"bots": [
+		{
+			"name": "Database Layer Selector Bot Service",
+			"description": "Manage data persistence with Database",
+			"author": "OSrce LLC",
+			"version": "1.0",
+			"service": "layer",
+			"class": "com.osrce.sitrep.rtc.DBBot"
+		},
+		{
+			"name": "Database Monitor Bot Service",
+			"description": "Manage data persistence with Database",
+			"author": "OSrce LLC",
+			"version": "1.0",
+			"service": "databaseMonitor",
+			"class": "com.osrce.sitrep.rtc.DatabaseListener"
+		},
+		{
+			"name": "Tempory Layer 999 Service",
+			"description": "Manage data persistence with Database",
+			"author": "OSrce LLC",
+			"version": "1.0",
+			"service": "layer.999",
+			"class": "com.osrce.sitrep.rtc.LayerBot"
+		}
+	]    
+} 

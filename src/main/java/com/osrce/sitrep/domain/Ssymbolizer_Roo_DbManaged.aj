@@ -20,8 +20,8 @@ privileged aspect Ssymbolizer_Roo_DbManaged {
     @Column(name = "label", length = 128)
     private String Ssymbolizer.label;
     
-    @Column(name = "rotation")
-    private Integer Ssymbolizer.rotation;
+    @Column(name = "rotation", length = 128)
+    private String Ssymbolizer.rotation;
     
     @Column(name = "created", updatable = false)
     @NotNull
@@ -45,11 +45,11 @@ privileged aspect Ssymbolizer_Roo_DbManaged {
         this.label = label;
     }
     
-    public Integer Ssymbolizer.getRotation() {
+    public String Ssymbolizer.getRotation() {
         return rotation;
     }
     
-    public void Ssymbolizer.setRotation(Integer rotation) {
+    public void Ssymbolizer.setRotation(String rotation) {
         this.rotation = rotation;
     }
     

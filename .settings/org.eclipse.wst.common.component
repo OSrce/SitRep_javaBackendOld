@@ -5,6 +5,15 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module deploy-path="lib/cowebx/dojo" handle="module:/overlay/var/M2_REPO/org/opencoweb/cowebx/cowebx-widgets-dojo/1.0/cowebx-widgets-dojo-1.0.war?unpackFolder=target/m2e-wtp/overlays&amp;includes=**/**&amp;excludes=META-INF/**;WEB-INF/**">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="lib" handle="module:/overlay/var/M2_REPO/org/opencoweb/coweb-javascript/1.0/coweb-javascript-1.0.war?unpackFolder=target/m2e-wtp/overlays&amp;includes=**/**&amp;excludes=META-INF/**;WEB-INF/**">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/overlay/slf/?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/SitRep/target/classes"/>
         <property name="context-root" value="SitRep"/>
     </wb-module>

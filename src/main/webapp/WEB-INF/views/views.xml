@@ -19,7 +19,7 @@
     <put-attribute name="body" value="/WEB-INF/views/uncaughtException.jspx"/>
   </definition>
 
-<definition extends="public" name="login">
+<definition extends="logindefault" name="login">
         <put-attribute name="body" value="/WEB-INF/views/login.jspx"/>
     </definition>
 </tiles-definitions>

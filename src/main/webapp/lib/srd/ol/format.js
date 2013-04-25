@@ -47,11 +47,16 @@ define([
 								feature = format.read( theFeat.location.geometry );
 //					            var geometry = new OpenLayers.Geometry.fromWKT(theFeat.location.geometry);			            								
 								//var attributes = {};
+								
 								feature.attributes.data = theFeat.data;
 								feature.attributes.entity = theFeat.entity.data;
 								feature.attributes.name = theFeat.entity.name;
 //								feature = new OpenLayers.Feature.Vector(geometry, attributes );
 								feature.db_id = theFeat.entity.id;
+								//TESTING CODE - TO REMOVE.
+								if(theFeat.data.heading != null ) {
+									feature.attributes.data.heading = parseFloat(theFeat.data.heading);
+								}
 
 							}
 						} else if(theFeat['class'] == 'com.osrce.sitrep.domain.Event') {

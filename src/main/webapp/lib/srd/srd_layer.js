@@ -13,57 +13,27 @@ define([
 	"srd/ol/format",
 	"srd/ol/protocol",
 	"srd/ol/cluster",
+	"dojo/topic",
+	"coweb/main",
 	"dojox/timing/Sequence"
-], function(declare , srd_editPalette, Format, Protocol, Cluster) {
+], function(declare , srd_editPalette, Format, Protocol, Cluster, topic, coweb ) {
 //OpenLayers.ProxyHost = "/cgi-bin/proxy.cgi?url=";
 
-	return declare( [], {
-		
+return declare( [], {
+	id: null,
+	map: null,		//OpenLayers Map Class.
+	layer: null,	//OpenLayers Layer Class.
+	options: {},
 
 		
 //srd_layer constructor 
-constructor : function ( ) {
-		
-		
-		this.map = 	null;  //OpenLayers Map Class.
-		this.layer = null; //OpenLayers Layer Class.
-		
+constructor : function ( theOptions ) {
 
-//		this.settings = { isBaseLayer: false, projection: "EPSG:4326", visibility: false };
-		this.source = null;
-
-
-// All of the values from the settings.xml file:
-		this.options = {
-			name : null,
-			id : null,
-			ltype : null,
-			lformat : null,
-			isBaseLayer : null,
-			projection : null,
-			visibility : null,
-			sphericalMercator : null,
-			url : null,
-			numZoomLevels : null,
-			minZoomLevel : null,
-			maxZoomLevel : null,
-			attribution : "",
-			can_update : false,
-			can_delete : false,
-			feature_create : false,
-			feature_update : false,
-			feature_delete : false,
-			defaultstyle : null
-		};
-		
-		this.featureCount = 0;
-
-		// NEED TO CHANGE THIS!
-		this.runFromServer = false;
-// End section in settings.xml (for now).	
-
+	this.options = theOptions;
+	this.id = theOptions.id;
+	
+	//BEGIN TODO probably erase all this stuff
 		this.editPalette = null;
-
 		this.selectControl = null;
 		this.selectedFeatures = null;
 		this.modifyControl = null;
@@ -111,31 +81,6 @@ constructor : function ( ) {
 
 		this.renderIntent = 'default';
 
-/*		this.srd_featureAttributes = {
-			setStyles: '${styleFunction}',
-			fillColor: '${fillColor}',
-			fillOpacity: '${fillOpacity}',
-			strokeColor : '${strokeColor}',
-			strokeWidth : '${strokeWidth}',
-			strokeOpacity : '${strokeOpacity}',
-			pointRadius: '${pointRadius}',
-			label: '${label}',
-			fontColor: '${fontColor}',
-			fontSize: '${fontSize}',
-			fontFamily: '${fontFamily}',
-			fontWeight: '${fontWeight}',
-			labelAlign: '${labelAlign}',
-			labelXOffset: '${labelXOffset}',
-			labelYOffset: '${labelYOffset}',
-			externalGraphic: '${externalGraphic}',
-			graphicWidth: '${graphicWidth}',
-			graphicHeight: '${graphicHeight}',
-			graphicOpacity: '${graphicOpacity}',
-			rotation: '${rotation}'
-//			backgroundGraphic: '${backgroundGraphic}'
-		}
-*/
-
 //		this.srd_customSelectFeatureAttributes = Object.create(this.srd_customFeatureAttributes);
 		this.srd_customSelectFeatureAttributes = {
 			fillColor: '${fillColor}',
@@ -158,8 +103,26 @@ constructor : function ( ) {
 		this.srd_customSelectFeatureAttributes.label = '**${label}**';
 //		this.srd_customSelectFeatureAttributes.label = '${label}';
 
+		//END TODO
+		
+		if( this.options.lformat  == "SRJSON" ) {
+			console.log("Creating STORE FOR layer:"+this.options.name);
+/*			this.cache_store = new dojo.store.Cache(
+					dojo.store.JsonRest( { 
+						target: this.options.url
+					} ),
+					dojo.store.Memory()
+				);
+			this.store = new dojo.store.Observable(this.cache_store);
+*/
+			//TESTING
+			this.store = new dojo.store.Observable( new dojo.store.Memory() );
+
+		}
+		
 
 },
+// END CONSTRUCTOR
 
 copyValuesFromLayer : function(the_srd_layer) {
 	for( var layerVal in the_srd_layer) {
@@ -356,45 +319,60 @@ loadData : function( ) {
 
 		} else if(this.options.lformat == "SRJSON" ) {
 				console.log("Create SRJson Layer Run From Server="+this.options.name+"===");
-				var theUrl = "/srlayerdynamicdatas/";
-				if( this.options.url ) {
-					theUrl = this.options.url;
+				
+				
+				var test = true;
+				if(test == true) {
+					console.log("===OPENCOWEB STUFF srd_layer1");
+					var args = { id: this.id };
+					
+					this.collab = coweb.initCollab( {id : 'layer.' + this.id } );
+					this.collab.subscribeReady(this, 'onCollabReady');
+
+					this.options.srd_doc.collab.postService("layer", args, this, "onLayerSubscribed" );
+
+
+					this.collab.subscribeSync("change", this, "onRemoteChange");
+//					this.collab = coweb.initCollab( {id : 'layer'} );
+					
+//					this.collab.subscribeReady(this, 'onCollabReady');
+
+//					this.collab.subscribeSync("change", this, "onRemoteChange");
+//				    this.collab.subscribeService("change", this, "onRemoteChange");
+//				    this.collab.subscribeStateRequest(this, "onStateRequest");
+//				    this.collab.subscribeStateResponse(this, "onStateResponse");
+
+				    // listen for responses from remote applications when this application
+			        // instance joins a session so it can bring itself up to the current
+			        // state
+//			        this.collab.subscribeStateResponse(dojo.hitch(this, 'onRemoteChange'));
+	/*	            this.collab.subscribeReady(this, 'onCollabReady');
+		            this.collab.subscribeStateRequest(this, 'onStateRequest');
+		            this.collab.subscribeStateResponse(this, 'onStateResponse');
+		            this.collab.subscribeSync('marker.add.*', this, 'onRemoteMapMarkerAdded');
+		            this.collab.subscribeSync('marker.move.*', this, 'onRemoteMapMarkerMoved');
+		            this.collab.subscribeSync('marker.anim.*', this, 'onRemoteMapMarkerAnimated');
+		            this.collab.subscribeSync('map.viewport', this, 'onRemoteMapViewport');
+	*/				
+
+//				    topic.publish("updateSession","");
+				    
+			        
 				}
- 				this.store = new dojo.store.Cache(
-					dojo.store.JsonRest( { 
-//						idProperty: { "layer_id", "feature_id"},
-//						idProperty: "feature_id",
-						target: theUrl
-					} ),
-					dojo.store.Memory()
-				);
+				
+				
 
- 				//BEGIN TEST1
 
- /*				if(this.options.id == 2013) {
- 					this.layer = new OpenLayers.Layer.Vector(this.options.name, {
- 						isBaseLayer:	this.options.isBaseLayer,
- 						projection:		new OpenLayers.Projection(this.options.projection),
-// 						units:				"degrees",
- 						visibility:		this.options.visibility,
-// 						renderers: ['Canvas','SVG'],
- 						protocol: new this.srjsonProtocol( {
- 							format : new this.srjsonFormat()
- 						}),
- 						strategies:	[
-//new OpenLayers.Strategy.Fixed(),
-new this.srcluster( { distance: 25, countOnAttribute:'data.CustomersAffected' })					           	 
- 						           	 ],
- 					
- 						styleMap:			this.srd_styleMap
- 					} );
- 				} else {
- */
  				var strategies = [];
  				for( var i=0; i< this.options.lstrategies.length;i++) {
  					if(this.options.lstrategies[i].stype == "FIXED" ) {
  						console.log("FIXED STRATEGY FOR LAYER"+this.options.name);
  						strategies.push( new OpenLayers.Strategy.Fixed() );
+ 					} else if(this.options.lstrategies[i].stype == "REALTIME" ) {
+ 						console.log("REAL TIME STRATEGY FOR LAYER"+this.options.name);
+ 						delete strategies;
+ 						strategies = [];
+ 						i = this.options.lstrategies.length;
  					} else if(this.options.lstrategies[i].stype == "CLUSTER" ) {
  						console.log("CLUSTER STRATEGY FOR LAYER"+this.options.name);
  						strategies.push( new Cluster( this.options.lstrategies[i].data) );
@@ -723,8 +701,6 @@ srd_preFeatureInsert : function(feature) {
 			}
 		}
 	}
-//	this.featureCount++;
-//	feature.fid = this.featureCount;
 },
 
 
@@ -1505,7 +1481,7 @@ setFeatureAttribute : function( feature, attribute, value ) {
 		}
 	}
 	return false;
-}
+},
 // END getFeatureAttribute ( attribute )
 
 /*
@@ -1525,10 +1501,122 @@ handleResponse : function(theFeatArr) {
 //END handleResponse
 */
 
+//BEGIN onRemoteChange
+onRemoteChange : function (args) {
+//	console.log("onRemoteChange Called for Layer:");
+//	console.dir(args);
+	dojo.forEach(args.value.updateObjects, function(updateObject) {
+		var uO = dojo.fromJson(updateObject);
+		if(uO.operation == "INSERT") {
+			console.log("onRemote INSERT :"+uO.event.id);
+			this.store.put(uO.event);
+		} else if (uO.operation == "UPDATE") {
+			console.log("onRemote UPDATE :"+uO.event.id);
+			this.store.put(uO.event);
+		} else if(uO.operation == "DELETE" ) {
+			console.log("onRemote DELETE :"+uO.event.id);
+			this.store.remove(uO.event.id);
+		}
+		
+	}.bind(this)
+	);
+	
+	
+	
+},
+// END onRemoteChange
+
+//BEGIN onStateRequest
+onStateRequest : function (topic) {
+	console.log("onStateRequest Called for Layer:");
+
+	
+},
+// END onStateRequest
+
+//BEGIN onStateResponse
+onStateResponse : function (state) {
+	console.log("onStateResponse Called for Layer:");
+	if(state != null) {
+		this.store  = new dojo.store.Memory( { data : dojo.fromJson( state ) } );
+		
+		dojo.when(this.store.query(), function(theFeatArr) {
+			var theFormat = new Format();
+			this.layer.addFeatures( theFormat.read(theFeatArr) ); 
+		}.bind(this) );
+	}
+	
+},
+// END onStateResponse
 
 
+//BEGIN onCollabReady
+onCollabReady :function(args) {
+	console.log("onCollabReady Called for Layer:");
+	
+},
+//END onCollabReady
+
+//BEGIN onLayerSubscribed
+// THIS CALLBACK SHOULD HAVE DATA TELLING US IF THIS IS READ ONLY OR READWRITE (OR NONE).
+onLayerSubscribed :function(args) {
+	console.log("onLayerSubscribed Called for Layer:"+this.id);
+	console.dir(args);
+	args = { "type":"initialRequest" };
+    this.collab.postService("layer."+this.id, args, this, "onIntialLayerLoad");
+    this.collab.subscribeService("layer."+this.id, this, "onRemoteChange");
+
+	
+},
+//END onLayerSubscribed	
+
+//BEGIN addRow
+addRow: function(theRow, insertedInfo) {
+	console.log("addRow Called!");
+	this.layer.addFeatures( this.format.read( Array( theRow )  )  );
+},
+//END addRow
+
+//BEGIN removeRow
+removeRow: function(theRow, removedFrom) {
+	console.log("removeRow Called!");
+	var theFeature = this.layer.getFeatureBy("db_id", theRow.id);
+	this.layer.removeFeatures( Array(theFeature) );
+},
+//END removeRow
 
 
+//BEGIN onIntialLayerLoad
+onIntialLayerLoad: function(args) {
+	console.log("onIntialLayerLoad Called for Layer:"+this.id);
+	console.dir(args);
+	var data = dojo.fromJson( args.value.data);
+	dojo.forEach(data, function(theRow) {
+		this.store.put(theRow);
+	}.bind(this) );
+//	this.store  = new dojo.store.Memory( { data : dojo.fromJson( args.value.layer ) } );
+	this.query_result = this.store.query();
+	this.query_result.observe(function(theRow, removedFrom, insertedInto){
+        // this will be called any time a row is added, removed, or updated
+        if(removedFrom > -1){
+            this.removeRow(theRow,removedFrom);
+        }
+        if(insertedInto > -1){
+            this.addRow(theRow, insertedInto);
+        }
+    }.bind(this), true); // we can indicate to be notified of object updates as well
+	
+	
+	this.format = new Format();
+	this.query_result.forEach( function( theFeature ){ 
+		this.layer.addFeatures( this.format.read( Array( theFeature )  )  );
+	}.bind(this) );
+	
+//    this.collab.subscribeService("layer."+this.id, this, "onRemoteChange");
+
+	
+},
+//END onLayerSubscribed
 
 
 }) ;

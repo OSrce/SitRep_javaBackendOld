@@ -34,7 +34,9 @@
 					{ name: "put-selector", location: "put-selector" },
 					{ name: "xstyle", location: "xstyle" },
 					{ name: "srd", location: "srd" },
-					{ name: "org", location: "org" }
+					{ name: "org", location: "org" },
+					{ name: "coweb", location: "coweb" },
+					{ name: "cowebx", location: "cowebx" }
 				]
 			};
 
@@ -47,6 +49,9 @@
 			<script type="text/javascript" src="lib/OpenLayers/OpenLayers.js">
 			<!-- required for FF3 and Opera -->
 			</script>			
+			<script type="text/javascript" src="lib/srd/googlemaps_api.js">
+			<!-- required for FF3 and Opera -->
+			</script>
 			
 	<!--
 			<script data-dojo-config="async: 0" src="lib/srd/dojo_bootloader.js" ></script>
