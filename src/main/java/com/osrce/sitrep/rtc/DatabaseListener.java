@@ -18,6 +18,8 @@ import org.coweb.bots.VanillaBot;
 import org.postgresql.PGNotification;
 
 import com.osrce.sitrep.domain.Event;
+import com.osrce.sitrep.domain.EntityStatus;
+
 
 
 
@@ -39,6 +41,9 @@ public class DatabaseListener extends VanillaBot implements Runnable {
 	
 	private List<Event> tempEvents = new ArrayList<Event>();
 	private Map<Long,String> tempEventsChangeType = new HashMap<Long, String>();
+	
+	private List<EntityStatus> tempEntityStatus = new ArrayList<EntityStatus>();
+	private Map<Long,String> tempEntityStatusChangeType = new HashMap<Long, String>();
 	
 	
 	//CONSTRUCTOR
@@ -93,6 +98,8 @@ public class DatabaseListener extends VanillaBot implements Runnable {
 			if (notifications != null) {
 				tempEvents.clear();
 				tempEventsChangeType.clear();
+				tempEntityStatus.clear();
+				tempEntityStatusChangeType.clear();
 				for (int i=0; i<notifications.length; i++) {
 					String theParam = notifications[i].getParameter();
 					String[] rowInfo = theParam.split(":");
@@ -101,10 +108,14 @@ public class DatabaseListener extends VanillaBot implements Runnable {
 					//Figure out which table and row it is and get it.
 					if(notifications[i].getName().equals( "event" ) ) {
 						System.out.println("Got notification: " + notifications[i].getName() + " Operation:" + rowInfo[0] + " Row ID: "+ rowInfo[1] );
-						System.out.println("Event rowId : "+rowId.toString() );
 						Event e = Event.findEvent(rowId);
 						tempEvents.add(e);
 						tempEventsChangeType.put( rowId, rowInfo[0]  );
+					} else if(notifications[i].getName().equals( "entity_status" ) ) {
+						System.out.println("Got notification: " + notifications[i].getName() + " Operation:" + rowInfo[0] + " Row ID: "+ rowInfo[1] );
+						EntityStatus e = EntityStatus.findEntityStatus(rowId);
+						tempEntityStatus.add(e);
+						tempEntityStatusChangeType.put( rowId, rowInfo[0]  );
 					}
 					
 				}	
@@ -116,12 +127,20 @@ public class DatabaseListener extends VanillaBot implements Runnable {
 		            reply.put("layer", "999");
 		            reply.put("event", ( List<Event>) tempEvents);
 		            reply.put("operations", ( Map<Long,String> ) tempEventsChangeType);
-
-		            
+	            
 		            bot.proxy.publish(bot, reply);
-					System.out.println("bot published on svc: databaseMonitor!" );
-
-					
+					System.out.println("bot published on svc: databaseMonitor!" );			
+				}
+				if( ! tempEntityStatus.isEmpty() ) {
+					System.out.println("tempEntityStatuss size = "+ tempEntityStatus.size() );
+		            DatabaseListener bot = DatabaseListener.this;
+		            Map<String, Object> reply = new HashMap<String, Object>();
+		            reply.put("layer", "2014");
+		            reply.put("itemList", ( List<EntityStatus>) tempEntityStatus);
+		            reply.put("operations", ( Map<Long,String> ) tempEntityStatusChangeType);
+	            
+		            bot.proxy.publish(bot, reply);
+					System.out.println("bot published on svc: databaseMonitor!" );			
 				}
 				
 			}

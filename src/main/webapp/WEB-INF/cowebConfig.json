@@ -2,6 +2,7 @@
 	"moderatorIsUpdater": true,
     "sessionModerator": "com.osrce.sitrep.rtc.MainModerator",
     "operationEngine": true,
+    "useWebSockets": true,
     "logLevel": 0,
     "broker": "com.osrce.sitrep.rtc.BotTransport",
 	"bots": [
@@ -28,6 +29,14 @@
 			"version": "1.0",
 			"service": "layer.999",
 			"class": "com.osrce.sitrep.rtc.LayerBot"
+		},
+		{
+			"name": "Tempory Layer 2014 Service",
+			"description": "Manage data persistence with Database",
+			"author": "OSrce LLC",
+			"version": "1.0",
+			"service": "layer.2014",
+			"class": "com.osrce.sitrep.rtc.LayerBot2"
 		}
 	]    
 } 

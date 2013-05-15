@@ -84,7 +84,8 @@ define( 'srd/view/map', [
 						new OpenLayers.Control.Navigation(),
 						new OpenLayers.Control.Zoom(),
 						new OpenLayers.Control.Attribution(),
-						new OpenLayers.Control.KeyboardDefaults(),
+						new OpenLayers.Control.KeyboardDefaults(),					
+//		                new OpenLayers.Control.MousePosition(),
 						this.geolocateControl
 					],
 					projection : new OpenLayers.Projection("EPSG:900913"),

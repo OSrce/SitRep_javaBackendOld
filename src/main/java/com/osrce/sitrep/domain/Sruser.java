@@ -55,7 +55,7 @@ public class Sruser {
         }
     }
 
-    public com.osrce.sitrep.domain.Sruser getSessionUserRecord() {
+    public static com.osrce.sitrep.domain.Sruser getSessionUserRecord() {
         String theUsername = SecurityContextHolder.getContext().getAuthentication().getName();
         System.out.println("BEFORE findSruserByName");
         Sruser theUser = Sruser.findSruserByName(theUsername);

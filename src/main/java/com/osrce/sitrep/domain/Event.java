@@ -50,10 +50,9 @@ public class Event {
     private Date updated;
 
     public String toJson() {
-        System.out.println("TEST=== Event toJson called!");
         return new JSONSerializer().transform(new GeometryTransformer(), Geometry.class).serialize(this);
     }
-    
+
     public String toString() {
         return this.toJson();
     }

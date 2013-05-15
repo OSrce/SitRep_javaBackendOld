@@ -14,9 +14,10 @@ define( 'srd/view/grid', [
 	"dojo/dnd/Target",
 	"dojo/aspect",
 	"dgrid/OnDemandGrid",
+	"dgrid/extensions/ColumnResizer",
 	"dojo/store/Memory",
 	"srd/view"
-], function(declare, on, lang, Target, aspect, OnDemandGrid, Memory, view) {
+], function(declare, on, lang, Target, aspect, OnDemandGrid, ColumnResizer, Memory, view) {
 
 
 //srd_view_map class definition using dojo.declare 
@@ -104,7 +105,14 @@ define( 'srd/view/grid', [
 			   				this.layer = theLayer;
 //			   				this.grid.set("store", theLayer.store, theLayer.options.urlparams);
 			   				this.store = theLayer.store;
-			   				this.grid = new OnDemandGrid( { store: this.store, query: theLayer.options.urlparams, columns: this.getColumns() } , "divGrid");
+//			   				this.grid = new OnDemandGrid( { store: this.store, query: theLayer.options.urlparams, columns: this.getColumns() } , "divGrid");
+			   				this.grid = new (declare([OnDemandGrid, ColumnResizer]))({ store: this.store, query: {}, columns: this.getColumns() } , "divGrid");
+			   				on(this.grid,"dgrid-sort", function(grid, pT, s ) {
+			   					console.log("dgrid-sort Called: parentType:"+pT+" sort:"+s);
+			   			//		console.dir(parentType);
+			   			//		console.dir(sort);
+			   				} );
+			   				this.layer.startRealtimeService();
 			   			}
 			   			
 			   			
@@ -130,6 +138,7 @@ define( 'srd/view/grid', [
 					theLabel = this.layer.options.columnlabel[key];
 				}
 				theColumns.push( { label: theLabel, field: key, columnFormatter: this.columnFormatter, get: function(item) { return this.columnFormatter(item, this.field); }   });
+//				theColumns.push( { label: theLabel, field: key  });
 			} 
 			return theColumns;
 		}

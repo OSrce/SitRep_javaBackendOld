@@ -133,17 +133,23 @@ public class MainModerator extends DefaultSessionModerator {
     	
     	
     	if( svcName.equals(  "databaseMonitor")  ) {
-    		System.out.println( "MainMonitor-onServiceResponse msg from databaseMonitor");
+//    		System.out.println( "MainMonitor-onServiceResponse msg from databaseMonitor");
     		if(data.containsKey("layer") && data.get("layer").equals( "999" ) ) {
-        		System.out.println( "MainMonitor-onServiceResponse msg from databaseMonitor");
+//        		System.out.println( "MainMonitor-onServiceResponse msg from databaseMonitor");
         		this.collab.postService("layer.999", data);
+    			
+    		}
+    		if(data.containsKey("layer") && data.get("layer").equals( "2014" ) ) {
+        		this.collab.postService("layer.2014", data);
     			
     		}
     		
     	} else if( svcName.equals( "layer" ) ) {
-    		System.out.println( "MainMonitor-onServiceResponse msg from DBBot/layer");
-    		this.collab.postService("layer.999", data);
-    		
+    		if( data.get("layer").equals( "999" ) ) {
+    			this.collab.postService("layer.999", data);
+    		} else if( data.get("layer").equals( "2014" ) ) {
+    			this.collab.postService("layer.2014", data);
+    		}
     	}
     	
     	

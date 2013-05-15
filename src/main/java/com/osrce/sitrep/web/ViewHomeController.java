@@ -32,9 +32,10 @@ public class ViewHomeController {
 
  //   	String theUsername = SecurityContextHolder.getContext().getAuthentication().getName();
     	//String theToken = SecurityContextHolder.getContext().getAuthentication().
-    	Sruser theUser = new Sruser();
-    	theUser.getSessionUserRecord();
- //   	System.out.println("Username="+theUsername);
+//    	Sruser theUser = new Sruser();
+//    	theUser.getSessionUserRecord();
+    	Sruser theUser = Sruser.getSessionUserRecord();
+    	//   	System.out.println("Username="+theUsername);
 
     	
     	String theUserStr = theUser.toJson();

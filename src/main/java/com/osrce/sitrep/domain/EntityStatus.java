@@ -55,8 +55,11 @@ public class EntityStatus {
     private Date updated;
 
     public String toJson() {
-        System.out.println("TEST=== EntityStatus toJson called!");
         return new JSONSerializer().transform(new GeometryTransformer(), Geometry.class).serialize(this);
+    }
+
+    public String toString() {
+        return this.toJson();
     }
 
     public static String toJsonArray(Collection<com.osrce.sitrep.domain.EntityStatus> collection) {

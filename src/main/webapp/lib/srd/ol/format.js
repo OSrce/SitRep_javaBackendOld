@@ -53,6 +53,7 @@ define([
 								feature.attributes.name = theFeat.entity.name;
 //								feature = new OpenLayers.Feature.Vector(geometry, attributes );
 								feature.db_id = theFeat.entity.id;
+								feature.fid = theFeat.id;
 								//TESTING CODE - TO REMOVE.
 								if(theFeat.data.heading != null ) {
 									feature.attributes.data.heading = parseFloat(theFeat.data.heading);
@@ -68,6 +69,8 @@ define([
 								feature.attributes.data = theFeat.data;
 //								feature = new OpenLayers.Feature.Vector(geometry, attributes );
 								feature.db_id = theFeat.id;
+								feature.fid = theFeat.id;
+
 							}
 //						} else if(this.options.url == '/srmaps') {
 						} else {
@@ -78,6 +81,8 @@ define([
 								feature.attributes.data = theFeat.data;
 //								feature = new OpenLayers.Feature.Vector(geometry, attributes );
 								feature.db_id = theFeat.id;
+								feature.fid = theFeat.id;
+
 							}
 						}
 						if(feature) {

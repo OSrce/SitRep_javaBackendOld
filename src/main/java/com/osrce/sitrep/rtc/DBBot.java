@@ -97,8 +97,11 @@ public class DBBot extends VanillaBot {
 //    		reply.put("layer", result );
 
     		
+    	} else if(requestedLayerId == 2014 ) {
+    		System.out.println("DBBot recieved request from client for Layer 2013!");
+    		reply.put("layer", "2014");
+    		reply.put("type", "initialRequest");
     	}
-        
         
         this.proxy.reply(this, replyToken, reply);
         

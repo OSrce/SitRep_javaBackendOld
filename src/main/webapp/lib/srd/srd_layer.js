@@ -319,49 +319,6 @@ loadData : function( ) {
 
 		} else if(this.options.lformat == "SRJSON" ) {
 				console.log("Create SRJson Layer Run From Server="+this.options.name+"===");
-				
-				
-				var test = true;
-				if(test == true) {
-					console.log("===OPENCOWEB STUFF srd_layer1");
-					var args = { id: this.id };
-					
-					this.collab = coweb.initCollab( {id : 'layer.' + this.id } );
-					this.collab.subscribeReady(this, 'onCollabReady');
-
-					this.options.srd_doc.collab.postService("layer", args, this, "onLayerSubscribed" );
-
-
-					this.collab.subscribeSync("change", this, "onRemoteChange");
-//					this.collab = coweb.initCollab( {id : 'layer'} );
-					
-//					this.collab.subscribeReady(this, 'onCollabReady');
-
-//					this.collab.subscribeSync("change", this, "onRemoteChange");
-//				    this.collab.subscribeService("change", this, "onRemoteChange");
-//				    this.collab.subscribeStateRequest(this, "onStateRequest");
-//				    this.collab.subscribeStateResponse(this, "onStateResponse");
-
-				    // listen for responses from remote applications when this application
-			        // instance joins a session so it can bring itself up to the current
-			        // state
-//			        this.collab.subscribeStateResponse(dojo.hitch(this, 'onRemoteChange'));
-	/*	            this.collab.subscribeReady(this, 'onCollabReady');
-		            this.collab.subscribeStateRequest(this, 'onStateRequest');
-		            this.collab.subscribeStateResponse(this, 'onStateResponse');
-		            this.collab.subscribeSync('marker.add.*', this, 'onRemoteMapMarkerAdded');
-		            this.collab.subscribeSync('marker.move.*', this, 'onRemoteMapMarkerMoved');
-		            this.collab.subscribeSync('marker.anim.*', this, 'onRemoteMapMarkerAnimated');
-		            this.collab.subscribeSync('map.viewport', this, 'onRemoteMapViewport');
-	*/				
-
-//				    topic.publish("updateSession","");
-				    
-			        
-				}
-				
-				
-
 
  				var strategies = [];
  				for( var i=0; i< this.options.lstrategies.length;i++) {
@@ -371,6 +328,7 @@ loadData : function( ) {
  					} else if(this.options.lstrategies[i].stype == "REALTIME" ) {
  						console.log("REAL TIME STRATEGY FOR LAYER"+this.options.name);
  						delete strategies;
+ 						this.startRealtimeService();
  						strategies = [];
  						i = this.options.lstrategies.length;
  					} else if(this.options.lstrategies[i].stype == "CLUSTER" ) {
@@ -1508,14 +1466,14 @@ onRemoteChange : function (args) {
 	dojo.forEach(args.value.updateObjects, function(updateObject) {
 		var uO = dojo.fromJson(updateObject);
 		if(uO.operation == "INSERT") {
-			console.log("onRemote INSERT :"+uO.event.id);
-			this.store.put(uO.event);
+			console.log("onRemote INSERT :"+uO.item.id);
+			this.store.put(uO.item);
 		} else if (uO.operation == "UPDATE") {
-			console.log("onRemote UPDATE :"+uO.event.id);
-			this.store.put(uO.event);
+			console.log("onRemote UPDATE :"+uO.item.id);
+			this.store.put(uO.item);
 		} else if(uO.operation == "DELETE" ) {
-			console.log("onRemote DELETE :"+uO.event.id);
-			this.store.remove(uO.event.id);
+			console.log("onRemote DELETE :"+uO.item.id);
+			this.store.remove(uO.item.id);
 		}
 		
 	}.bind(this)
@@ -1572,15 +1530,15 @@ onLayerSubscribed :function(args) {
 
 //BEGIN addRow
 addRow: function(theRow, insertedInfo) {
-	console.log("addRow Called!");
+	console.log("Layer:"+this.id+" addRow Called!");
 	this.layer.addFeatures( this.format.read( Array( theRow )  )  );
 },
 //END addRow
 
 //BEGIN removeRow
 removeRow: function(theRow, removedFrom) {
-	console.log("removeRow Called!");
-	var theFeature = this.layer.getFeatureBy("db_id", theRow.id);
+	console.log("Layer:"+this.id+" removeRow Called!");
+	var theFeature = this.layer.getFeatureByFid( theRow.id );
 	this.layer.removeFeatures( Array(theFeature) );
 },
 //END removeRow
@@ -1596,6 +1554,9 @@ onIntialLayerLoad: function(args) {
 	}.bind(this) );
 //	this.store  = new dojo.store.Memory( { data : dojo.fromJson( args.value.layer ) } );
 	this.query_result = this.store.query();
+	
+	//TODO NEED TO FIX!
+	if(this.map != null ) { 
 	this.query_result.observe(function(theRow, removedFrom, insertedInto){
         // this will be called any time a row is added, removed, or updated
         if(removedFrom > -1){
@@ -1606,18 +1567,39 @@ onIntialLayerLoad: function(args) {
         }
     }.bind(this), true); // we can indicate to be notified of object updates as well
 	
-	
 	this.format = new Format();
 	this.query_result.forEach( function( theFeature ){ 
 		this.layer.addFeatures( this.format.read( Array( theFeature )  )  );
 	}.bind(this) );
 	
+	}
 //    this.collab.subscribeService("layer."+this.id, this, "onRemoteChange");
 
 	
 },
 //END onLayerSubscribed
+// BEGIN startRealtimeData
+startRealtimeService : function() {
+	if(this.realtimeService != true) {
+		this.realtimeService = true;
+		console.log("startRealtimeService Called for layer:"+this.id);
+		var args = { id: this.id };
+		this.collab = coweb.initCollab( {id : 'layer.' + this.id } );
+		this.collab.subscribeReady(this, 'onCollabReady');
+		this.options.srd_doc.collab.postService("layer", args, this, "onLayerSubscribed" );
+	} else {
+		console.log("startRealtimeService Called but already running for layer:"+this.id);
+	}
+},
+//END startRealtimeService
 
+//BEGIN stopRealtimeService 
+stopRealtimeService : function() {
+	if(this.realtimeService != false) {
+		this.realtimeService = false;
+	}
+}
+//END stopRealtimeService
 
 }) ;
 // END DECLARE
