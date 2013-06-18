@@ -40,7 +40,9 @@
                 <user name="admin2" password="testadmin2" authorities="user" />
                 <user name="admin3" password="testadmin3" authorities="user" />
 
-
+                <user name="sedemo" password="sedemopass" authorities="user" />
+                <user name="aeidemo" password="aeidemopass" authorities="user" />
+                <user name="smaki" password="smaki@aei" authorities="user" />
                 
                 
                 
