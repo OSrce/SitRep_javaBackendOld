@@ -333,7 +333,7 @@ define( 'srd/view/map', [
 				   			theLayer.loadData();
 //							console.log("addLayerToMap:"+theLayer.options.name);
 							theLayer.addLayerToMap(this.map);
-							if(theLayer.options.isBaseLayer) {
+							if(theLayer.options.isbaselayer) {
 								this.map.setBaseLayer(theLayer.layer);
 				   			}
 				   			

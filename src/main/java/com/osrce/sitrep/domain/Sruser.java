@@ -63,11 +63,11 @@ public class Sruser {
         if (theUser == null) {
             Srgroup theGroup = null;
             if (theGroup == null) {
-                theGroup = Srgroup.findSrgroup(new Long(33));
+                theGroup = Srgroup.findSrgroup(new Long(9));
             }
             theUser = new Sruser();
             theUser.setData(theGroup.getData());
-            theUser.setGroupId(new Long(2050));
+            theUser.setGroupId(new Long(9));
             theUser.setName(theUsername);
             theUser.persist();
         }

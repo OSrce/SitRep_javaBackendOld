@@ -77,13 +77,15 @@ define( [
 								popup: srd_fileMenu
 							}) );
 
-							srd_fileMenu.addChild(new dijit.MenuItem({
+/*							srd_fileMenu.addChild(new dijit.MenuItem({
 								label: "New Whiteboard Layer",
 								srd: this,
 								onClick: function() { srd.srd_createWhiteboard();  }
 							}));
-
-							srd_fileMenu.addChild(new dijit.MenuItem({
+*/
+							
+/*
+ 							srd_fileMenu.addChild(new dijit.MenuItem({
 								label: "Open",
 								srd: this,
 								onClick: function() { srd.openFile(); }
@@ -92,7 +94,8 @@ define( [
 								label: "Save Project",
 								onClick: function() { alert("Future Function - Save Project"); }
 							}));
-							this.srd_saveMenu = new dijit.Menu( );
+*/							
+/*							this.srd_saveMenu = new dijit.Menu( );
 							for( tmpId in this.srd_layerArr) {
 								if(this.srd_layerArr[tmpId].options.type == "Vector" && this.srd_layerArr[tmpId].feature_update == true) {
 									this.srd_saveMenu.addChild(new dijit.MenuItem( { 
@@ -102,22 +105,24 @@ define( [
 									} ) );
 								}
 							}	
-
-							srd_fileMenu.addChild(new dijit.PopupMenuItem({
+*/
+/*							srd_fileMenu.addChild(new dijit.PopupMenuItem({
 								label: "Save Layer",
 								popup:this.srd_saveMenu
 							}));
-
+*/
 							//// Edit Menu ////
 							var srd_editMenu = new dijit.Menu({});
 							this.srd_menuBar.addChild(new dijit.PopupMenuBarItem({
 								label: "Edit",
 								popup: srd_editMenu
 							}) );
+/*
 							srd_editMenu.addChild(new dijit.MenuItem({
 								label: "TEST1",
 								onClick: function() { alert("Place TEST Here"); }
 							}));
+*/							
 							//// View Menu ////
 							this.srd_viewMenu = new dijit.Menu({});
 							this.srd_menuBar.addChild(new dijit.PopupMenuBarItem({
@@ -214,7 +219,7 @@ define( [
 								popup: srd_toolsMenu
 							}) );
 							// Toggle for Edit Toolbar
-							srd_toolsMenu.addChild(
+/*							srd_toolsMenu.addChild(
 								new dijit.CheckedMenuItem({
 									label: "Edit Toolbar",
 									srd_doc: this,
@@ -229,7 +234,7 @@ define( [
 									onClick: function() { this.srd_doc.srd_toggleLocationTracking(this); }
 								}) 
 							);
-					
+*/					
 							//// Window Menu ////
 							this.srd_windowMenu = new dijit.Menu({});
 							this.srd_menuBar.addChild(new dijit.PopupMenuBarItem({

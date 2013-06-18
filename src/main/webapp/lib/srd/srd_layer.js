@@ -107,16 +107,16 @@ constructor : function ( theOptions ) {
 		
 		if( this.options.lformat  == "SRJSON" ) {
 			console.log("Creating STORE FOR layer:"+this.options.name);
-/*			this.cache_store = new dojo.store.Cache(
+			this.cache_store = new dojo.store.Cache(
 					dojo.store.JsonRest( { 
 						target: this.options.url
 					} ),
 					dojo.store.Memory()
 				);
 			this.store = new dojo.store.Observable(this.cache_store);
-*/
+
 			//TESTING
-			this.store = new dojo.store.Observable( new dojo.store.Memory() );
+//			this.store = new dojo.store.Observable( new dojo.store.Memory() );
 
 		}
 		
@@ -156,7 +156,7 @@ addLayerToMap : function(theMap) {
 			this.map.addControl(this.srd_drawControls[theCon]);
 		}
 	}
-	if(this.options.lformat == "NONE" ) {
+	if(this.options.lformat == "NONE"  || this.options==1004) {
 		this.map.addControl(this.selectControl);
 		this.selectControl.activate();
 	}
@@ -363,8 +363,29 @@ loadData : function( ) {
 				} );
 //				var testVar = null;
 //				var urlparams = dojo.fromJson(this.options.urlparams);
+				console.log("OPTIONS ID="+this.options.id);
+				if ( this.options.id == 1004 ) {
+					
+					this.selectControl = new OpenLayers.Control.SelectFeature(
+							this.layer, {
+							onSelect: function(theFeature) { 
+								this.feature1001Selected(theFeature); 
+							}.bind(this), 
+							onUnselect: function(theFeature) { 
+								this.feature1001Unselected(theFeature); }.bind(this)
+							} );
 
-		
+					
+					/*					
+ 
+					this.layer.events.register( 
+			            'featureselected', this, this.feature1001Selected);
+					this.layer.events.register( 
+			            'featureunselected',this, this.feature1001Unselected);
+*/
+					}
+				
+				
 			/*	
 				
 				dojo.when(this.store.query(  this.options.urlparams  ), function(theFeatArr) {
@@ -1598,8 +1619,36 @@ stopRealtimeService : function() {
 	if(this.realtimeService != false) {
 		this.realtimeService = false;
 	}
-}
+},
 //END stopRealtimeService
+
+feature1001Selected: function(feature){
+//    var feature = evt.feature;
+    var displayStr;
+    console.log("Feature Selected! "+feature.id);
+    if( feature.attributes.count > 1) {
+    	displayStr = "<div style='font-size:.8em'>Feature Count: " + feature.attributes.count +"<br></div>";
+    } else {
+    	displayStr = "<div style='font-size:.8em'>Feature: " + feature.name +"<br>Foo: " + feature.attributes.foo+"</div>";
+    }
+    var popup = new OpenLayers.Popup.FramedCloud("popup",
+        OpenLayers.LonLat.fromString(feature.geometry.toShortString()),
+        null,
+        displayStr,
+        null,
+        true
+    );
+    feature.popup = popup;
+    this.map.addPopup(popup);
+}, 
+
+feature1001Unselected: function(feature){
+ //   var feature = evt.feature;
+    this.map.removePopup(feature.popup);
+    feature.popup.destroy();
+    feature.popup = null;
+} 
+
 
 }) ;
 // END DECLARE

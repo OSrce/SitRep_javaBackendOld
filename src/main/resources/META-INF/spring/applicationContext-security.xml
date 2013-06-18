@@ -4,6 +4,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+        
+        
     <!-- HTTP security configurations -->
     <http auto-config="true" use-expressions="true"   >
         <form-login login-processing-url="/resources/j_spring_security_check" login-page="/login" authentication-failure-url="/login?login_error=t" />
@@ -16,7 +18,7 @@
         <intercept-url pattern="/lib/img/*.png" access="permitAll" />        
           <intercept-url pattern="/**" access="isAuthenticated()" />
     <session-management>
-        <concurrency-control max-sessions="1" error-if-maximum-exceeded="false" />
+        <concurrency-control max-sessions="10" error-if-maximum-exceeded="false" />
     </session-management>
 <!--    
     <remember-me key="_spring_security_remember_me" token-repository-ref="tokenRepository"  user-service-ref="ldapUserService" token-validity-seconds="8640000"  />
@@ -37,6 +39,10 @@
                 <user name="admin" password="testadmin" authorities="user" />
                 <user name="admin2" password="testadmin2" authorities="user" />
                 <user name="admin3" password="testadmin3" authorities="user" />
+
+
+                
+                
                 
             </user-service>
        </authentication-provider>

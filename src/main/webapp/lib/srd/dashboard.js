@@ -443,7 +443,14 @@ this.wlayout1 = { id:1, name: "Map Only",
 data: [ 
 	{ id:1, type:'menubar', data:{ region: "top" } },
 	{ id:2, type: 'layertree', data:{ theGroups: loadsrd.theGroups, region: "left", width:"30%" }   },
-	{ id:3, type: 'map', data: {start_lat : 34.04753, start_lon : -118.3653, start_zoom : 12, start_base_layer: 1008, region: "center" }  }
+	// LA:
+	//	{ id:3, type: 'map', data: {start_lat : 34.04753, start_lon : -118.3653, start_zoom : 12, start_base_layer: 1008, region: "center" }  }
+	// NY
+//	{ id:3, type: 'map', data: {start_lat : 40.706, start_lon : -73.899, start_zoom : 12, start_base_layer: 1008, region: "center" }  }
+	// Seatle (SES Demo
+//	{ id:3, type: 'map', data: {start_lat : 47.544, start_lon : -122.340, start_zoom : 12, start_base_layer: 16, region: "center" }  }
+	// AEI Demo
+	{ id:3, type: 'map', data: {start_lat : 37.9, start_lon : -122.06, start_zoom : 12, start_base_layer: 16, region: "center" }  }
 ]
 };
 this.wlayout2 = { id:2, name: "Grid Only", data: [ 
@@ -455,7 +462,9 @@ this.wlayout2 = { id:2, name: "Grid Only", data: [
 this.wlayout3 = { id:3, name: "Map and Grid", data: [ 
 	{ id:1, type:'menubar', data:{ region: "top" } },
 	{ id:2, type: 'layertree', data:{ theGroups: loadsrd.theGroups, region: "left", width:"30%" }   },
-	{ id:3, type: 'map', data: {start_lat : 34.04753, start_lon : -118.3653, start_zoom : 12, start_base_layer: 1008, region: "center" }  },
+//	{ id:3, type: 'map', data: {start_lat : 34.04753, start_lon : -118.3653, start_zoom : 12, start_base_layer: 12, region: "center" }  },
+//	{ id:3, type: 'map', data: {start_lat : 47.544, start_lon :  -122.340, start_zoom : 12, start_base_layer: 12, region: "center" }  },
+	{ id:3, type: 'map', data: {start_lat : 37.9, start_lon :  -122.06, start_zoom : 12, start_base_layer: 16, region: "center" }  },
 	{ id:4, type: 'grid', data: {region: "right", width:"35%" }  }
 ]
 };
