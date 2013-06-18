@@ -156,9 +156,12 @@ addLayerToMap : function(theMap) {
 			this.map.addControl(this.srd_drawControls[theCon]);
 		}
 	}
-	if(this.options.lformat == "NONE"  || this.options==1004) {
-		this.map.addControl(this.selectControl);
-		this.selectControl.activate();
+	if(this.options.lformat == "NONE"  || this.options.id==1004) {
+		console.log("Adding Popup Select Control to layer 1004");
+		this.map.addControl( new OpenLayers.Control.SelectFeature(
+				this.layer, {autoActivate: true } )  );
+//		this.map.addControl(this.selectControl);
+//		this.selectControl.activate();
 	}
 },
 
@@ -365,7 +368,8 @@ loadData : function( ) {
 //				var urlparams = dojo.fromJson(this.options.urlparams);
 				console.log("OPTIONS ID="+this.options.id);
 				if ( this.options.id == 1004 ) {
-					
+		
+	/*				
 					this.selectControl = new OpenLayers.Control.SelectFeature(
 							this.layer, {
 							onSelect: function(theFeature) { 
@@ -374,16 +378,18 @@ loadData : function( ) {
 							onUnselect: function(theFeature) { 
 								this.feature1001Unselected(theFeature); }.bind(this)
 							} );
-
+*/
 					
-					/*					
+										
  
 					this.layer.events.register( 
 			            'featureselected', this, this.feature1001Selected);
 					this.layer.events.register( 
 			            'featureunselected',this, this.feature1001Unselected);
-*/
+
 					}
+				
+					
 				
 				
 			/*	
@@ -1622,14 +1628,14 @@ stopRealtimeService : function() {
 },
 //END stopRealtimeService
 
-feature1001Selected: function(feature){
-//    var feature = evt.feature;
+feature1001Selected: function(evt){
+    var feature = evt.feature;
     var displayStr;
     console.log("Feature Selected! "+feature.id);
-    if( feature.attributes.count > 1) {
+    if( feature.attributes != null && feature.attributes.count > 1) {
     	displayStr = "<div style='font-size:.8em'>Feature Count: " + feature.attributes.count +"<br></div>";
     } else {
-    	displayStr = "<div style='font-size:.8em'>Feature: " + feature.name +"<br>Foo: " + feature.attributes.foo+"</div>";
+    	displayStr = "<div style='font-size:.8em'>Feature: " + feature.attributes.data.name +"<br>Description: " + feature.attributes.data.description+"</div>";
     }
     var popup = new OpenLayers.Popup.FramedCloud("popup",
         OpenLayers.LonLat.fromString(feature.geometry.toShortString()),
@@ -1642,8 +1648,8 @@ feature1001Selected: function(feature){
     this.map.addPopup(popup);
 }, 
 
-feature1001Unselected: function(feature){
- //   var feature = evt.feature;
+feature1001Unselected: function(evt){
+    var feature = evt.feature;
     this.map.removePopup(feature.popup);
     feature.popup.destroy();
     feature.popup = null;
