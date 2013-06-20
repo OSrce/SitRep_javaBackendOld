@@ -1653,6 +1653,7 @@ feature1001Unselected: function(evt){
     this.map.removePopup(feature.popup);
     feature.popup.destroy();
     feature.popup = null;
+    this.layer.drawFeature(feature);
 } 
 
 
